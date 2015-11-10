@@ -1,0 +1,240 @@
+{% extends "layout.html" %}
+
+{% import 'includes.html' as includes %}
+{% block head %}
+{{ includes.socketio() }}
+{{ includes.cytoscape() }}
+{% endblock %}
+
+{% import 'widgets.html' as widgets %}
+{% block content %}
+    <script type="text/javascript" charset="utf-8">
+        var namespace = '/janitoo'; // change to an empty string to use the global namespace
+        // the socket.io documentation recommends sending an explicit package upon connection
+        // this is specially important when using the global namespace
+        var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+        // event handler for server sent data
+        // the data is displayed in the "Received" section of the page
+    </script>
+    <h2>Network:</h2>
+    <form id="map_save_form" name="map_save_form">
+        <input type='submit' id="map_save_button" name="map_save_button" value="Save map">
+        <script type="text/javascript" charset="utf-8">
+            $('form#map_save_form').submit(function(event) {
+                //Need to optimize it
+                $.each(window.jnt_map.nodes(), function (key, item) {
+                    console.log(key, item);
+                    socket.emit('my node event', {node_id:item.data('id'), posx:item.position('x'), posy:item.position('y')});
+                });
+                pan = window.jnt_map.pan()
+                socket.emit('my network event', {zoomlevel:window.jnt_map.zoom(), zoomx:0, zoomy:0, panx:pan['x'], pany:pan['y']});
+                return false;
+            });
+        </script>
+        </form>
+
+    <div id="jnt_map"></div>
+
+    <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        $('#jnt_map').cytoscape({
+          style: cytoscape.stylesheet()
+            .selector('.staticUpdateController')
+              .css({
+                'border-color': 'red'
+              })
+            .selector('.primaryController')
+              .css({
+                'border-color': 'red'
+              })
+            .selector('.bridgeController')
+              .css({
+                'border-color': 'red'
+              })
+            .selector('.routing')
+              .css({
+                'border-width': 2
+              })
+            .selector('.beamig')
+              .css({
+                'border-width': 2
+              })
+            .selector('.listening')
+              .css({
+                'border-width': 2
+              })
+            .selector('.frequent')
+              .css({
+                'border-width': 2
+              })
+            .selector('.security')
+              .css({
+                'border-width': 2
+              })
+            .selector('node')
+              .css({
+                'content': 'data(name)',
+                'text-valign': 'center',
+                'color': 'white',
+                'text-outline-width': 2,
+                'text-outline-color': '#888'
+              })
+            .selector('edge')
+              .css({
+                'target-arrow-shape': 'triangle'
+              })
+            .selector(':selected')
+              .css({
+                'background-color': 'black',
+                'line-color': 'black',
+                'target-arrow-color': 'black',
+                'source-arrow-color': 'black'
+              })
+            .selector('.faded')
+              .css({
+                'opacity': 0.25,
+                'text-opacity': 0
+              }),
+
+          layout: {
+            name: 'grid',
+            padding: 10
+          },
+
+          // on graph initial layout done (could be async depending on layout...)
+          ready: function(){
+            window.jnt_map = this;
+
+            // giddy up...
+
+            jnt_map.elements().unselectify();
+
+            jnt_map.on('tap', 'node', function(e){
+              var node = e.cyTarget;
+              var neighborhood = node.neighborhood().add(node);
+
+              jnt_map.elements().addClass('faded');
+              neighborhood.removeClass('faded');
+            });
+
+            jnt_map.on('tap', function(e){
+              if( e.cyTarget === jnt_map ){
+                jnt_map.elements().removeClass('faded');
+              }
+            });
+          }
+        });
+
+        //~ socket.on('my nodes response', function(msg) {
+            //~ console.log("Received nodes response : " + msg.data);
+            //~ data = [];
+            //~ $.each(msg.data, function (key, item) {
+                //~ console.log('x : '+item["posx"]);
+                //~ console.log('x : '+parseInt(item["posx"]));
+                //~ console.log('y : '+parseInt(item["posy"]));
+                //~ data.push({
+                        //~ group:'nodes',
+                        //~ data:{
+                            //~ id:''+item["node_id"],
+                            //~ name: item["name"]},
+                        //~ position: {
+                            //~ x: parseInt(item["posx"]),
+                            //~ y: parseInt(item["posy"]) }
+                //~ });
+                //~ if (item['neighbors'] != undefined) {
+                    //~ $.each(item['neighbors'], function (key2, item2) {
+                        //~ data.push({
+                                //~ group: 'edges',
+                                //~ data: {
+                                    //~ id:''+item["node_id"]+'-'+key2,
+                                    //~ source:''+item["node_id"],
+                                    //~ target: ''+key2 },
+                        //~ })
+                    //~ });
+                //~ }
+            //~ });
+            //~ window.jnt_map.load(data);
+        //~ });
+        socket.on('my nodes response', function(msg) {
+            console.log("Received nodes response : " + msg.data);
+            var data = [];
+            var positions = {};
+            var classes = {};
+            window.jnt_map.load(data);
+            $.each(msg.data, function (key, item) {
+                console.log('x : '+parseInt(item["posx"]));
+                console.log('y : '+parseInt(item["posy"]));
+                window.jnt_map.add({
+                        group:'nodes',
+                        data:{
+                            id: String(item["node_id"]),
+                            name: item["name"]}
+                });
+                positions[String(item["node_id"])] = {
+                            x: parseInt(item["posx"]),
+                            y: parseInt(item["posy"]) }
+                if (item['neighbors'] != undefined) {
+                    $.each(item['neighbors'], function (key2, item2) {
+                       data.push({
+                                group: 'edges',
+                                data: {
+                                    id:String(item["node_id"])+'-'+String(key2),
+                                    source:String(item["node_id"]),
+                                    target:String(key2) },
+                        })
+                    });
+                }
+                if (item['capabilities'] != undefined) {
+                    $.each(item['capabilities'], function (key2, item2) {
+                       if (classes[String(item["node_id"])] == undefined) {
+                           classes[String(item["node_id"])] = String(key2);
+                       } else {
+                           classes[String(item["node_id"])] = classes[String(item["node_id"])] + ' ' + String(key2);
+                       }
+                    });
+                }
+            });
+            $.each(data, function (key2, item2) {
+                window.jnt_map.add(item2)
+            });
+            window.jnt_map.nodes().forEach(function( ele ){
+                console.log(positions[ele.id()]['x']);
+                console.log(classes[ele.id()]);
+                ele.position({ x: positions[ele.id()]['x'], y: positions[ele.id()]['y'] });
+                ele.addClass(classes[ele.id()]);
+            });
+        });
+
+        socket.on('my node response', function(msg) {
+            console.log("Received node response : " + msg.data['node_id']);
+            cynode = window.jnt_map.$('#'+msg.data['node_id']);
+            //window.jnt_map.remove(cynode);
+            //window.jnt_map.add({ goup: 'nodes',
+            //                     data: {
+            //                        id:''+msg.data["node_id"],
+            //                        name: msg.data["name"] },
+            //});
+            //cynode = window.jnt_map.$('#'+msg.data['node_id']);
+            cynode.data('name', msg.data["name"]);
+            cynode.position({
+                x: parseInt(msg.data["posx"]),
+                y: parseInt(msg.data["posy"])
+            });
+        });
+
+        socket.on('my network response', function(msg) {
+            console.log("Received network response : " + msg.data['zoom']);
+            window.jnt_map.pan({x:parseInt(msg.data['panx']),y:parseInt(msg.data['pany'])})
+            window.jnt_map.zoom({
+                level:parseFloat(msg.data['zoomlevel']),
+                position: { x: parseInt(msg.data['zoomx']), y: parseInt(msg.data['zoomy']) }
+                });
+        });
+
+        socket.emit('my network event', {});
+        socket.emit('my nodes event', {});
+
+    } );
+
+    </script>
+{% endblock %}

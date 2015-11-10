@@ -1,0 +1,1741 @@
+# Chinese (Traditional, Taiwan) translations for .
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the  project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version:  0.1-dev\n"
+"Report-Msgid-Bugs-To: http://github.com/janitoo_manager/issues\n"
+"POT-Creation-Date: 2015-11-07 02:16+0100\n"
+"PO-Revision-Date: 2015-07-16 15:04+0800\n"
+"Last-Translator: Sean Chen <seanchen0617@gmail.com>\n"
+"Language-Team: zh_Hant_TW <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+
+#: janitoo_manager/email.py:20
+msgid "Password Reset"
+msgstr "重設密碼"
+
+#: janitoo_manager/auth/forms.py:23 janitoo_manager/management/forms.py:29
+msgid "You can only use letters, numbers or dashes."
+msgstr "你只可以使用英文字母、數字或短橫線"
+
+#: janitoo_manager/auth/forms.py:27
+msgid "Username or E-Mail Address"
+msgstr "使用者名稱或電子郵件帳號"
+
+#: janitoo_manager/auth/forms.py:28
+msgid "A Username or E-Mail Address is required."
+msgstr "請輸入使用者名稱或電子郵件帳號"
+
+#: janitoo_manager/auth/forms.py:31 janitoo_manager/auth/forms.py:48
+#: janitoo_manager/auth/forms.py:86 janitoo_manager/auth/forms.py:107
+#: janitoo_manager/user/forms.py:67
+msgid "Password"
+msgstr "密碼"
+
+#: janitoo_manager/auth/forms.py:32 janitoo_manager/auth/forms.py:87
+msgid "A Password is required."
+msgstr "請輸入密碼"
+
+#: janitoo_manager/auth/forms.py:34
+msgid "Remember Me"
+msgstr "記住我"
+
+#: janitoo_manager/auth/forms.py:36
+#: janitoo_manager/templates/navigation.html:59
+#: janitoo_manager/templates/auth/login.html:1
+#: janitoo_manager/templates/auth/login.html:8
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:60
+msgid "Login"
+msgstr "登入"
+
+#: janitoo_manager/auth/forms.py:40 janitoo_manager/management/forms.py:49
+#: janitoo_manager/templates/forum/memberlist.html:31
+#: janitoo_manager/templates/forum/search_result.html:259
+#: janitoo_manager/templates/management/banned_users.html:55
+#: janitoo_manager/templates/management/users.html:53
+msgid "Username"
+msgstr "使用者名稱"
+
+#: janitoo_manager/auth/forms.py:41 janitoo_manager/management/forms.py:50
+msgid "A Username is required."
+msgstr "請輸入使用者名稱"
+
+#: janitoo_manager/auth/forms.py:44 janitoo_manager/auth/forms.py:93
+#: janitoo_manager/auth/forms.py:103 janitoo_manager/management/forms.py:53
+msgid "E-Mail Address"
+msgstr "電子郵件帳號"
+
+#: janitoo_manager/auth/forms.py:45 janitoo_manager/auth/forms.py:104
+#: janitoo_manager/management/forms.py:54 janitoo_manager/user/forms.py:37
+msgid "A E-Mail Address is required."
+msgstr "請輸入電子郵件帳號"
+
+#: janitoo_manager/auth/forms.py:46 janitoo_manager/management/forms.py:55
+#: janitoo_manager/user/forms.py:38 janitoo_manager/user/forms.py:43
+#: janitoo_manager/user/forms.py:46
+msgid "Invalid E-Mail Address."
+msgstr "無效的電子郵件帳號"
+
+#: janitoo_manager/auth/forms.py:50 janitoo_manager/auth/forms.py:109
+#: janitoo_manager/user/forms.py:69
+msgid "Passwords must match."
+msgstr "輸入的密碼不一致"
+
+#: janitoo_manager/auth/forms.py:52 janitoo_manager/auth/forms.py:111
+msgid "Confirm Password"
+msgstr "確認密碼"
+
+#: janitoo_manager/auth/forms.py:55 janitoo_manager/user/forms.py:29
+msgid "Language"
+msgstr "語言"
+
+#: janitoo_manager/auth/forms.py:57
+msgid "I accept the Terms of Service"
+msgstr "我接受服務條款"
+
+#: janitoo_manager/auth/forms.py:59
+#: janitoo_manager/templates/navigation.html:65
+#: janitoo_manager/templates/auth/register.html:1
+#: janitoo_manager/templates/auth/register.html:8
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:66
+msgid "Register"
+msgstr "註冊"
+
+#: janitoo_manager/auth/forms.py:64 janitoo_manager/management/forms.py:110
+msgid "This Username is already taken."
+msgstr "使用者名稱已使用"
+
+#: janitoo_manager/auth/forms.py:69 janitoo_manager/management/forms.py:124
+#: janitoo_manager/user/forms.py:60
+msgid "This E-Mail Address is already taken."
+msgstr "電子郵件帳號已使用"
+
+#: janitoo_manager/auth/forms.py:82
+msgid "Captcha"
+msgstr "驗證碼"
+
+#: janitoo_manager/auth/forms.py:89
+#: janitoo_manager/templates/auth/reauth.html:1
+#: janitoo_manager/templates/auth/reauth.html:9
+msgid "Refresh Login"
+msgstr "重新登入"
+
+#: janitoo_manager/auth/forms.py:94
+msgid "A E-Mail Address is reguired."
+msgstr "請輸入電子郵件帳號"
+
+#: janitoo_manager/auth/forms.py:97
+#: janitoo_manager/templates/auth/forgot_password.html:1
+msgid "Request Password"
+msgstr "取得密碼"
+
+#: janitoo_manager/auth/forms.py:113
+#: janitoo_manager/templates/navigation.html:66
+#: janitoo_manager/templates/auth/forgot_password.html:8
+#: janitoo_manager/templates/auth/reset_password.html:1
+#: janitoo_manager/templates/auth/reset_password.html:8
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:67
+msgid "Reset Password"
+msgstr "重置密碼"
+
+#: janitoo_manager/auth/forms.py:118
+msgid "Wrong E-Mail Address."
+msgstr "電子郵件帳號錯誤"
+
+#: janitoo_manager/auth/views.py:47
+msgid "Wrong Username or Password."
+msgstr "使用者名稱或密碼錯誤"
+
+#: janitoo_manager/auth/views.py:62
+msgid "Reauthenticated."
+msgstr "已重新驗證"
+
+#: janitoo_manager/auth/views.py:102
+msgid "Thanks for registering."
+msgstr "感謝註冊"
+
+#: janitoo_manager/auth/views.py:124
+msgid "E-Mail sent! Please check your inbox."
+msgstr "已寄出電子郵件！請確認您的信箱"
+
+#: janitoo_manager/auth/views.py:127
+msgid ""
+"You have entered a Username or E-Mail Address that is not linked with "
+"your account."
+msgstr "您輸入了未連結到您的帳號的使用者名稱或電子郵件帳號"
+
+#: janitoo_manager/auth/views.py:147
+msgid "Your Password Token is invalid."
+msgstr "您的重置密碼記號已失效"
+
+#: janitoo_manager/auth/views.py:151
+msgid "Your Password Token is expired."
+msgstr "您的重置密碼記號已過期"
+
+#: janitoo_manager/auth/views.py:157
+msgid "Your Password has been updated."
+msgstr "您的密碼已更新"
+
+#: janitoo_manager/management/forms.py:60
+#: janitoo_manager/templates/user/profile.html:77
+#: janitoo_manager/user/forms.py:81
+msgid "Birthday"
+msgstr "生日"
+
+#: janitoo_manager/management/forms.py:64 janitoo_manager/user/forms.py:85
+msgid "Gender"
+msgstr "性別"
+
+#: janitoo_manager/management/forms.py:66 janitoo_manager/user/forms.py:87
+msgid "Male"
+msgstr "男"
+
+#: janitoo_manager/management/forms.py:67 janitoo_manager/user/forms.py:88
+msgid "Female"
+msgstr "女"
+
+#: janitoo_manager/management/forms.py:69
+#: janitoo_manager/templates/user/profile.html:73
+#: janitoo_manager/user/forms.py:90
+msgid "Location"
+msgstr "位置"
+
+#: janitoo_manager/management/forms.py:72
+#: janitoo_manager/templates/forum/topic.html:113
+#: janitoo_manager/user/forms.py:93
+msgid "Website"
+msgstr "網站"
+
+#: janitoo_manager/management/forms.py:75 janitoo_manager/user/forms.py:96
+msgid "Avatar"
+msgstr "頭像"
+
+#: janitoo_manager/management/forms.py:78 janitoo_manager/user/forms.py:99
+msgid "Forum Signature"
+msgstr "簽名檔"
+
+#: janitoo_manager/management/forms.py:81 janitoo_manager/user/forms.py:102
+msgid "Notes"
+msgstr "說明"
+
+#: janitoo_manager/management/forms.py:85
+msgid "Primary Group"
+msgstr "主要群組"
+
+#: janitoo_manager/management/forms.py:90
+msgid "Secondary Groups"
+msgstr "次要群組"
+
+#: janitoo_manager/management/forms.py:96
+#: janitoo_manager/management/forms.py:208
+#: janitoo_manager/management/forms.py:325
+#: janitoo_manager/management/forms.py:419
+#: janitoo_manager/templates/management/settings.html:43
+#: janitoo_manager/user/forms.py:32 janitoo_manager/user/forms.py:48
+#: janitoo_manager/user/forms.py:73 janitoo_manager/user/forms.py:105
+msgid "Save"
+msgstr "儲存"
+
+#: janitoo_manager/management/forms.py:145
+#: janitoo_manager/templates/management/groups.html:28
+msgid "Group Name"
+msgstr "群組名稱"
+
+#: janitoo_manager/management/forms.py:146
+msgid "A Group name is required."
+msgstr "請輸入群組名稱"
+
+#: janitoo_manager/management/forms.py:148
+#: janitoo_manager/management/forms.py:277
+#: janitoo_manager/management/forms.py:407
+#: janitoo_manager/templates/forum/search_result.html:20
+#: janitoo_manager/templates/forum/search_result.html:55
+#: janitoo_manager/templates/forum/search_result.html:226
+#: janitoo_manager/templates/management/groups.html:29
+msgid "Description"
+msgstr "說明"
+
+#: janitoo_manager/management/forms.py:152
+msgid "Is Admin Group?"
+msgstr "是否為管理者群組？"
+
+#: janitoo_manager/management/forms.py:153
+msgid "With this option the group has access to the admin panel."
+msgstr "選擇這個選項讓這個群組可使用管理者功能"
+
+#: janitoo_manager/management/forms.py:157
+msgid "Is Super Moderator Group?"
+msgstr "是否為超級協調者群組？"
+
+#: janitoo_manager/management/forms.py:158
+msgid "Check this if the users in this group are allowed to moderate every forum."
+msgstr "選擇這個選項讓此群組中的使用者可管理每個論壇"
+
+#: janitoo_manager/management/forms.py:162
+msgid "Is Moderator Group?"
+msgstr "是否為協調者群組"
+
+#: janitoo_manager/management/forms.py:163
+msgid ""
+"Check this if the users in this group are allowed to moderate specified "
+"forums."
+msgstr "選擇這個選項讓此群組中的使用者可管理特定的論壇"
+
+#: janitoo_manager/management/forms.py:167
+msgid "Is Banned Group?"
+msgstr "是否為禁止群組？"
+
+#: janitoo_manager/management/forms.py:168
+msgid "Only one Banned group is allowed."
+msgstr "只可選擇一個禁止群組"
+
+#: janitoo_manager/management/forms.py:171
+msgid "Is Guest Group?"
+msgstr "是否為遊客群組？"
+
+#: janitoo_manager/management/forms.py:172
+msgid "Only one Guest group is allowed."
+msgstr "只可選擇一個遊客群組"
+
+#: janitoo_manager/management/forms.py:175
+msgid "Can edit posts"
+msgstr "可編輯文章"
+
+#: janitoo_manager/management/forms.py:176
+msgid "Check this if the users in this group can edit posts."
+msgstr "選擇這個選項讓此群組中的使用者可編輯文章"
+
+#: janitoo_manager/management/forms.py:179
+msgid "Can delete posts"
+msgstr "可刪除文章"
+
+#: janitoo_manager/management/forms.py:180
+msgid "Check this is the users in this group can delete posts."
+msgstr "選擇這個選項讓此群組中的使用者可刪除文章"
+
+#: janitoo_manager/management/forms.py:183
+msgid "Can delete topics"
+msgstr "可刪除主題"
+
+#: janitoo_manager/management/forms.py:184
+msgid "Check this is the users in this group can delete topics."
+msgstr "選擇這個選項讓此群組中的使用者可刪除主題"
+
+#: janitoo_manager/management/forms.py:188
+msgid "Can create topics"
+msgstr "可新增主題"
+
+#: janitoo_manager/management/forms.py:189
+msgid "Check this is the users in this group can create topics."
+msgstr "選擇這個選項讓此群組中的使用者可新增主題"
+
+#: janitoo_manager/management/forms.py:193
+msgid "Can post replies"
+msgstr "可發表回覆"
+
+#: janitoo_manager/management/forms.py:194
+msgid "Check this is the users in this group can post replies."
+msgstr "選擇這個選項讓此群組中的使用者可發表回覆"
+
+#: janitoo_manager/management/forms.py:198
+msgid "Moderators can edit user profiles"
+msgstr "協調者可編輯使用者檔案"
+
+#: janitoo_manager/management/forms.py:199
+msgid ""
+"Allow moderators to edit a another users profile including password and "
+"email changes."
+msgstr "允許協調者可編輯其他使用者檔案，包含密碼與電子郵件"
+
+#: janitoo_manager/management/forms.py:204
+msgid "Moderators can ban users"
+msgstr "協調者可禁止使用者"
+
+#: janitoo_manager/management/forms.py:205
+msgid "Allow moderators to ban other users."
+msgstr "允許協調者可禁止其他使用者"
+
+#: janitoo_manager/management/forms.py:222
+msgid "This Group name is already taken."
+msgstr "群組名稱已使用"
+
+#: janitoo_manager/management/forms.py:236
+msgid "There is already a Banned group."
+msgstr "已有一個禁止群組"
+
+#: janitoo_manager/management/forms.py:250
+msgid "There is already a Guest group."
+msgstr "已有一個遊客群組"
+
+#: janitoo_manager/management/forms.py:272
+msgid "Forum Title"
+msgstr "論壇標題"
+
+#: janitoo_manager/management/forms.py:273
+msgid "A Forum Title is required."
+msgstr "請輸入論壇標題"
+
+#: janitoo_manager/management/forms.py:279
+#: janitoo_manager/management/forms.py:409
+msgid "You can format your description with BBCode."
+msgstr "您可以用 BBCode 編輯您的說明"
+
+#: janitoo_manager/management/forms.py:283
+#: janitoo_manager/management/forms.py:413
+msgid "Position"
+msgstr "位置"
+
+#: janitoo_manager/management/forms.py:285
+msgid "The Forum Position is required."
+msgstr "請選擇論壇所在ㄙ位置"
+
+#: janitoo_manager/management/forms.py:289
+msgid "Category"
+msgstr "類別"
+
+#: janitoo_manager/management/forms.py:293
+msgid "The category that contains this forum."
+msgstr "論壇的類別"
+
+#: janitoo_manager/management/forms.py:297
+msgid "External Link"
+msgstr "外部連結"
+
+#: janitoo_manager/management/forms.py:299
+msgid "A link to a website i.e. 'http://janitoo_manager.org'."
+msgstr "網站連結 如：'http://janitoo_manager.org'"
+
+#: janitoo_manager/management/forms.py:303
+#: janitoo_manager/templates/forum/category_layout.html:60
+#: janitoo_manager/templates/forum/search_result.html:337
+msgid "Moderators"
+msgstr "協調者"
+
+#: janitoo_manager/management/forms.py:304
+msgid ""
+"Comma seperated usernames. Leave it blank if you do not want to set any "
+"moderators."
+msgstr "用逗號分開使用者名稱。如果您不想設定任何協調者請留空白"
+
+#: janitoo_manager/management/forms.py:309
+msgid "Show Moderators"
+msgstr "顯示協調者"
+
+#: janitoo_manager/management/forms.py:310
+msgid "Do you want show the moderators on the index page?"
+msgstr "您是否想在首頁顯示協調者？"
+
+#: janitoo_manager/management/forms.py:314
+msgid "Locked?"
+msgstr "鎖定？"
+
+#: janitoo_manager/management/forms.py:315
+msgid "Disable new posts and topics in this forum."
+msgstr "此論壇禁止所有新文章與主題"
+
+#: janitoo_manager/management/forms.py:319
+msgid "Group Access to Forum"
+msgstr "可使用此論壇的群組"
+
+#: janitoo_manager/management/forms.py:322
+msgid "Select user groups that can access this forum."
+msgstr "選擇可使用此論壇的使用者群組"
+
+#: janitoo_manager/management/forms.py:330
+msgid "You cannot convert a forum that contain topics in a external link."
+msgstr "您無法將包含主題的論壇轉換成外部連結"
+
+#: janitoo_manager/management/forms.py:335
+msgid "You also need to specify some moderators."
+msgstr "您需要指定幾位協調者"
+
+#: janitoo_manager/management/forms.py:356
+#, python-format
+msgid "%(user)s is not in a moderators group."
+msgstr "%(user)s 不屬於協調者群組"
+
+#: janitoo_manager/management/forms.py:362
+#, python-format
+msgid "User %(moderator)s not found."
+msgstr "使用者 %(moderator)s 不存在"
+
+#: janitoo_manager/management/forms.py:403
+msgid "Category Title"
+msgstr "類別標題"
+
+#: janitoo_manager/management/forms.py:404
+msgid "A Category Title is required."
+msgstr "請輸入類別標題"
+
+#: janitoo_manager/management/forms.py:415
+msgid "The Category Position is required."
+msgstr "請選擇類別所在位置"
+
+#: janitoo_manager/management/views.py:83
+msgid "Settings saved."
+msgstr "設定已儲存"
+
+#: janitoo_manager/management/views.py:122
+msgid "You are not allowed to edit this user."
+msgstr "您沒有權限編輯這個使用者"
+
+#: janitoo_manager/management/views.py:156
+msgid "User successfully updated."
+msgstr "已成功更新使用者"
+
+#: janitoo_manager/management/views.py:160
+msgid "Edit User"
+msgstr "編輯使用者"
+
+#: janitoo_manager/management/views.py:195
+#, fuzzy
+msgid "You cannot delete yourself."
+msgstr "您無法發送訊息給自己"
+
+#: janitoo_manager/management/views.py:199
+msgid "User successfully deleted."
+msgstr "已成功刪除使用者"
+
+#: janitoo_manager/management/views.py:209
+msgid "User successfully added."
+msgstr "已成功新增使用者"
+
+#: janitoo_manager/management/views.py:213
+#: janitoo_manager/templates/management/banned_users.html:14
+#: janitoo_manager/templates/management/user_form.html:14
+#: janitoo_manager/templates/management/users.html:14
+msgid "Add User"
+msgstr "新增使用者"
+
+#: janitoo_manager/management/views.py:243
+msgid "You do not have the permissions to ban this user."
+msgstr "您沒有權限禁止此使用者"
+
+#: janitoo_manager/management/views.py:266
+#: janitoo_manager/templates/management/banned_users.html:90
+#: janitoo_manager/templates/management/users.html:116
+msgid "Unban"
+msgstr "取消禁止"
+
+#: janitoo_manager/management/views.py:285
+msgid "A moderator cannot ban an admin user."
+msgstr "協調者不能禁止管理者"
+
+#: janitoo_manager/management/views.py:289
+msgid "User is now banned."
+msgstr "已禁止此使用者"
+
+#: janitoo_manager/management/views.py:291
+msgid "Could not ban user."
+msgstr "不能禁止此使用者"
+
+#: janitoo_manager/management/views.py:301
+msgid "You do not have the permissions to unban this user."
+msgstr "您沒有權限取消禁止此使用者"
+
+#: janitoo_manager/management/views.py:316
+#: janitoo_manager/templates/management/users.html:106
+msgid "Ban"
+msgstr "禁止"
+
+#: janitoo_manager/management/views.py:331
+msgid "User is now unbanned."
+msgstr "已取消禁止此使用者"
+
+#: janitoo_manager/management/views.py:333
+msgid "Could not unban user."
+msgstr "不能取消禁止此使用者"
+
+#: janitoo_manager/management/views.py:394
+#, python-format
+msgid "Report %(id)s is already marked as read."
+msgstr "舉報 %(id)s 已標記為已讀"
+
+#: janitoo_manager/management/views.py:401
+#, python-format
+msgid "Report %(id)s marked as read."
+msgstr "舉報 %(id)s 標記為已讀"
+
+#: janitoo_manager/management/views.py:415
+msgid "All reports were marked as read."
+msgstr "全部舉報已標記為已讀"
+
+#: janitoo_manager/management/views.py:446
+msgid "Group successfully updated."
+msgstr "已成功更新群組"
+
+#: janitoo_manager/management/views.py:450
+msgid "Edit Group"
+msgstr "編輯群組"
+
+#: janitoo_manager/management/views.py:478
+msgid "You cannot delete one of the standard groups."
+msgstr ""
+
+#: janitoo_manager/management/views.py:486
+msgid "You cannot delete the standard groups. Try renaming them instead."
+msgstr ""
+
+#: janitoo_manager/management/views.py:492
+msgid "Group successfully deleted."
+msgstr "已成功刪除群組"
+
+#: janitoo_manager/management/views.py:495
+msgid "No group choosen.."
+msgstr ""
+
+#: janitoo_manager/management/views.py:505
+msgid "Group successfully added."
+msgstr "已成功新增群組"
+
+#: janitoo_manager/management/views.py:509
+#: janitoo_manager/templates/management/group_form.html:11
+#: janitoo_manager/templates/management/groups.html:10
+msgid "Add Group"
+msgstr "新增群組"
+
+#: janitoo_manager/management/views.py:528
+msgid "Forum successfully updated."
+msgstr "已成功更新論壇"
+
+#: janitoo_manager/management/views.py:539
+msgid "Edit Forum"
+msgstr "編輯論壇"
+
+#: janitoo_manager/management/views.py:552
+msgid "Forum successfully deleted."
+msgstr "已成功刪除論壇"
+
+#: janitoo_manager/management/views.py:564
+msgid "Forum successfully added."
+msgstr "已成功新增論壇"
+
+#: janitoo_manager/management/views.py:573
+#: janitoo_manager/templates/management/category_form.html:11
+#: janitoo_manager/templates/management/forum_form.html:11
+#: janitoo_manager/templates/management/forums.html:10
+#: janitoo_manager/templates/management/forums.html:32
+msgid "Add Forum"
+msgstr "新增論壇"
+
+#: janitoo_manager/management/views.py:583
+msgid "Category successfully added."
+msgstr "已成功新增類別"
+
+#: janitoo_manager/management/views.py:587
+#: janitoo_manager/templates/management/category_form.html:12
+#: janitoo_manager/templates/management/forum_form.html:12
+#: janitoo_manager/templates/management/forums.html:11
+msgid "Add Category"
+msgstr "新增類別"
+
+#: janitoo_manager/management/views.py:599
+msgid "Category successfully updated."
+msgstr "已成功更新類別"
+
+#: janitoo_manager/management/views.py:603
+msgid "Edit Category"
+msgstr "編輯類別"
+
+#: janitoo_manager/management/views.py:616
+msgid "Category with all associated forums deleted."
+msgstr "已刪除類別與所有相關論壇"
+
+#: janitoo_manager/management/views.py:643
+msgid "Plugin is enabled. Please reload your app."
+msgstr "外掛已啟用。請重新啟動應用程式"
+
+#: janitoo_manager/management/views.py:646
+msgid "Plugin is already enabled. Please reload  your app."
+msgstr "外掛已啟用。請重新啟動應用程式"
+
+#: janitoo_manager/management/views.py:650
+msgid ""
+"If you are using a host which doesn't support writting on the disk, this "
+"won't work - than you need to delete the 'DISABLED' file by yourself."
+msgstr "如果您使用的主機不支援寫入至磁碟，則此功能無法使用，您必須自行刪除 'DISABLED' 檔案"
+
+#: janitoo_manager/management/views.py:655
+msgid "Couldn't enable Plugin."
+msgstr "無法啟用外掛"
+
+#: janitoo_manager/management/views.py:666
+#, python-format
+msgid "Plugin %(plugin)s not found."
+msgstr "外掛 %(plugin)s 不存在"
+
+#: janitoo_manager/management/views.py:678
+msgid "Plugin is disabled. Please reload your app."
+msgstr "外掛已停用。請重新啟動應用程式"
+
+#: janitoo_manager/management/views.py:681
+msgid ""
+"If you are using a host which doesn't support writting on the disk, this "
+"won't work - than you need to create a 'DISABLED' file by yourself."
+msgstr "如果您使用的主機不支援寫入至磁碟，則此功能無法使用，您必須自行刪除 'DISABLED' 檔案"
+
+#: janitoo_manager/management/views.py:696
+msgid "Plugin has been uninstalled."
+msgstr "外掛已移除"
+
+#: janitoo_manager/management/views.py:698
+msgid "Cannot uninstall Plugin."
+msgstr "無法移除外掛"
+
+#: janitoo_manager/management/views.py:711
+msgid "Plugin has been installed."
+msgstr "外掛已安裝"
+
+#: janitoo_manager/management/views.py:713
+msgid "Cannot install Plugin."
+msgstr "無法安裝外掛"
+
+#: janitoo_manager/templates/macros.html:318
+msgid "Pages"
+msgstr "頁"
+
+#: janitoo_manager/templates/navigation.html:19
+#: janitoo_manager/templates/forum/category.html:8
+#: janitoo_manager/templates/forum/category_layout.html:11
+#: janitoo_manager/templates/forum/edit_forum.html:9
+#: janitoo_manager/templates/forum/forum.html:9
+#: janitoo_manager/templates/forum/index.html:5
+#: janitoo_manager/templates/forum/memberlist.html:8
+#: janitoo_manager/templates/forum/new_post.html:14
+#: janitoo_manager/templates/forum/new_topic.html:14
+#: janitoo_manager/templates/forum/search_result.html:289
+#: janitoo_manager/templates/forum/topic.html:13
+#: janitoo_manager/templates/forum/topictracker.html:9
+#: janitoo_manager/templates/management/forums.html:43
+#: janitoo_manager/templates/message/message_layout.html:6
+#: janitoo_manager/templates/user/all_posts.html:6
+#: janitoo_manager/templates/user/all_topics.html:6
+#: janitoo_manager/templates/user/profile.html:4
+#: janitoo_manager/templates/user/settings_layout.html:6
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:19
+msgid "Forum"
+msgstr "論壇"
+
+#: janitoo_manager/templates/navigation.html:20
+#: janitoo_manager/templates/forum/memberlist.html:21
+#: janitoo_manager/templates/forum/search_form.html:1
+#: janitoo_manager/templates/forum/search_form.html:8
+#: janitoo_manager/templates/forum/search_form.html:12
+#: janitoo_manager/templates/forum/search_result.html:1
+#: janitoo_manager/templates/forum/search_result.html:8
+#: janitoo_manager/templates/management/banned_users.html:30
+#: janitoo_manager/templates/management/users.html:30
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:21
+msgid "Search"
+msgstr "搜尋"
+
+#: janitoo_manager/templates/navigation.html:34
+#: janitoo_manager/templates/forum/topictracker.html:1
+#: janitoo_manager/templates/forum/topictracker.html:22
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:35
+msgid "Topic Tracker"
+msgstr "追蹤的主題"
+
+#: janitoo_manager/templates/navigation.html:37
+#: janitoo_manager/templates/management/management_layout.html:13
+#: janitoo_manager/templates/user/settings_layout.html:8
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:38
+msgid "Settings"
+msgstr "設定"
+
+#: janitoo_manager/templates/navigation.html:39
+#: janitoo_manager/templates/management/forums.html:44
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:40
+msgid "Management"
+msgstr "管理"
+
+#: janitoo_manager/templates/navigation.html:43
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:44
+msgid "Logout"
+msgstr "登出"
+
+#: janitoo_manager/templates/navigation.html:52
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:53
+msgid "Private Messages"
+msgstr "訊息"
+
+#: janitoo_manager/templates/navigation.html:53
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:54
+msgid "New Message"
+msgstr "新訊息"
+
+#: janitoo_manager/templates/auth/login.html:18
+msgid "Not a member yet?"
+msgstr "還不是使用者？"
+
+#: janitoo_manager/templates/auth/login.html:19
+msgid "Forgot Password?"
+msgstr "忘記密碼？"
+
+#: janitoo_manager/templates/email/reset_password.html:1
+#, python-format
+msgid "Dear %(user)s,"
+msgstr "親愛的 %(user)s，"
+
+#: janitoo_manager/templates/email/reset_password.html:2
+msgid "To reset your password click on the following link:"
+msgstr "點擊下面的連結來重設您的密碼："
+
+#: janitoo_manager/templates/email/reset_password.html:4
+msgid "Sincerely,"
+msgstr "真誠地，"
+
+#: janitoo_manager/templates/email/reset_password.html:5
+msgid "The Administration"
+msgstr "管理團隊"
+
+#: janitoo_manager/templates/errors/forbidden_page.html:1
+msgid "No Access - 403"
+msgstr "無法使用 - 403"
+
+#: janitoo_manager/templates/errors/forbidden_page.html:7
+msgid "Forbidden Page"
+msgstr "被禁止的頁面"
+
+#: janitoo_manager/templates/errors/forbidden_page.html:8
+msgid "You do not have the permission to view this page."
+msgstr ""
+
+#: janitoo_manager/templates/errors/forbidden_page.html:9
+#: janitoo_manager/templates/errors/page_not_found.html:9
+msgid "Back to the Forums"
+msgstr "回到論壇"
+
+#: janitoo_manager/templates/errors/page_not_found.html:1
+msgid "Oh noes! 404"
+msgstr "找不到頁面！ 404"
+
+#: janitoo_manager/templates/errors/page_not_found.html:7
+msgid "Oops, Page not found!"
+msgstr "糟糕，找不到頁面！"
+
+#: janitoo_manager/templates/errors/page_not_found.html:8
+msgid "The page you were looking for does not exist."
+msgstr "您找尋的頁面不存在"
+
+#: janitoo_manager/templates/errors/server_error.html:1
+msgid "Server Error - 500"
+msgstr "伺服器錯誤 - 500"
+
+#: janitoo_manager/templates/errors/server_error.html:7
+msgid "Server Error"
+msgstr "伺服器錯誤"
+
+#: janitoo_manager/templates/errors/server_error.html:8
+msgid "Something went wrong!"
+msgstr "發生錯誤！"
+
+#: janitoo_manager/templates/forum/category_layout.html:12
+#: janitoo_manager/templates/forum/search_result.html:82
+#: janitoo_manager/templates/forum/search_result.html:290
+#: janitoo_manager/templates/management/overview.html:28
+msgid "Topics"
+msgstr "主題數"
+
+#: janitoo_manager/templates/forum/category_layout.html:13
+#: janitoo_manager/templates/forum/edit_forum.html:34
+#: janitoo_manager/templates/forum/forum.html:52
+#: janitoo_manager/templates/forum/memberlist.html:32
+#: janitoo_manager/templates/forum/search_result.html:89
+#: janitoo_manager/templates/forum/search_result.html:154
+#: janitoo_manager/templates/forum/search_result.html:184
+#: janitoo_manager/templates/forum/search_result.html:260
+#: janitoo_manager/templates/forum/search_result.html:291
+#: janitoo_manager/templates/forum/topic.html:74
+#: janitoo_manager/templates/forum/topictracker.html:30
+#: janitoo_manager/templates/management/banned_users.html:56
+#: janitoo_manager/templates/management/overview.html:22
+#: janitoo_manager/templates/management/users.html:54
+#: janitoo_manager/templates/user/all_topics.html:28
+#: janitoo_manager/templates/user/profile.html:56
+msgid "Posts"
+msgstr "文章數"
+
+#: janitoo_manager/templates/forum/category_layout.html:14
+#: janitoo_manager/templates/forum/edit_forum.html:38
+#: janitoo_manager/templates/forum/forum.html:56
+#: janitoo_manager/templates/forum/search_result.html:93
+#: janitoo_manager/templates/forum/search_result.html:292
+#: janitoo_manager/templates/forum/topictracker.html:34
+#: janitoo_manager/templates/user/all_topics.html:32
+msgid "Last Post"
+msgstr "最後一篇文章"
+
+#: janitoo_manager/templates/forum/category_layout.html:80
+#: janitoo_manager/templates/forum/edit_forum.html:70
+#: janitoo_manager/templates/forum/edit_forum.html:89
+#: janitoo_manager/templates/forum/forum.html:86
+#: janitoo_manager/templates/forum/forum.html:105
+#: janitoo_manager/templates/forum/search_result.html:116
+#: janitoo_manager/templates/forum/search_result.html:135
+#: janitoo_manager/templates/forum/search_result.html:357
+#: janitoo_manager/templates/forum/topic.html:39
+#: janitoo_manager/templates/forum/topictracker.html:52
+#: janitoo_manager/templates/forum/topictracker.html:70
+#: janitoo_manager/templates/management/plugins.html:34
+#: janitoo_manager/templates/user/all_topics.html:42
+#: janitoo_manager/templates/user/all_topics.html:60
+msgid "by"
+msgstr "由"
+
+#: janitoo_manager/templates/forum/category_layout.html:88
+#: janitoo_manager/templates/forum/search_result.html:365
+#: janitoo_manager/templates/user/all_posts.html:40
+msgid "No posts."
+msgstr "無文章"
+
+#: janitoo_manager/templates/forum/edit_forum.html:32
+#: janitoo_manager/templates/forum/forum.html:50
+#: janitoo_manager/templates/forum/search_result.html:87
+#: janitoo_manager/templates/forum/topictracker.html:28
+#: janitoo_manager/templates/management/reports.html:29
+#: janitoo_manager/templates/management/unread_reports.html:30
+#: janitoo_manager/templates/user/all_topics.html:26
+msgid "Topic"
+msgstr "主題"
+
+#: janitoo_manager/templates/forum/edit_forum.html:36
+#: janitoo_manager/templates/forum/forum.html:54
+#: janitoo_manager/templates/forum/search_result.html:91
+#: janitoo_manager/templates/forum/topictracker.html:32
+#: janitoo_manager/templates/user/all_topics.html:30
+msgid "Views"
+msgstr "閱覽數"
+
+#: janitoo_manager/templates/forum/edit_forum.html:102
+#: janitoo_manager/templates/forum/forum.html:117
+msgid "No Topics."
+msgstr "無主題"
+
+#: janitoo_manager/templates/forum/edit_forum.html:114
+msgid "Back"
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:124
+#, fuzzy
+msgid "Lock"
+msgstr "鎖定"
+
+#: janitoo_manager/templates/forum/edit_forum.html:127
+msgid "Unlock"
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:132
+#, fuzzy
+msgid "Highlight"
+msgstr "強調主題"
+
+#: janitoo_manager/templates/forum/edit_forum.html:135
+#, fuzzy
+msgid "Trivialize"
+msgstr "取消強調"
+
+#: janitoo_manager/templates/forum/edit_forum.html:140
+#: janitoo_manager/templates/forum/topic.html:130
+#: janitoo_manager/templates/forum/topic.html:137
+#: janitoo_manager/templates/management/forums.html:36
+#: janitoo_manager/templates/management/forums.html:67
+#: janitoo_manager/templates/management/groups.html:60
+#: janitoo_manager/templates/management/users.html:126
+msgid "Delete"
+msgstr "刪除"
+
+#: janitoo_manager/templates/forum/edit_forum.html:147
+msgid "Move to..."
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:154
+msgid "Move"
+msgstr ""
+
+#: janitoo_manager/templates/forum/forum.html:23
+#: janitoo_manager/templates/management/unread_reports.html:42
+#: janitoo_manager/templates/management/unread_reports.html:64
+msgid "Mark as Read"
+msgstr "標示為已讀"
+
+#: janitoo_manager/templates/forum/forum.html:29
+msgid "Locked"
+msgstr "鎖定"
+
+#: janitoo_manager/templates/forum/forum.html:33
+#: janitoo_manager/templates/forum/new_topic.html:1
+#: janitoo_manager/templates/forum/new_topic.html:16
+#: janitoo_manager/templates/forum/new_topic.html:21
+msgid "New Topic"
+msgstr "新主題"
+
+#: janitoo_manager/templates/forum/forum.html:127
+msgid "Moderation Mode"
+msgstr ""
+
+#: janitoo_manager/templates/forum/index.html:17
+msgid "Board Statistics"
+msgstr "統計"
+
+#: janitoo_manager/templates/forum/index.html:18
+msgid "Who is online?"
+msgstr "誰在線上？"
+
+#: janitoo_manager/templates/forum/index.html:25
+msgid "Total number of registered users"
+msgstr "註冊使用者總數"
+
+#: janitoo_manager/templates/forum/index.html:26
+msgid "Total number of topics"
+msgstr "主題總數"
+
+#: janitoo_manager/templates/forum/index.html:27
+msgid "Total number of posts"
+msgstr "文章總數"
+
+#: janitoo_manager/templates/forum/index.html:30
+msgid "Newest registered user"
+msgstr "最新註冊使用者"
+
+#: janitoo_manager/templates/forum/index.html:30
+msgid "No users"
+msgstr "無使用者"
+
+#: janitoo_manager/templates/forum/index.html:31
+msgid "Registered users online"
+msgstr "線上註冊使用者"
+
+#: janitoo_manager/templates/forum/index.html:33
+msgid "Guests online"
+msgstr "線上遊客"
+
+#: janitoo_manager/templates/forum/memberlist.html:1
+#: janitoo_manager/templates/forum/memberlist.html:9
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:20
+msgid "Memberlist"
+msgstr "使用者列表"
+
+#: janitoo_manager/templates/forum/memberlist.html:33
+#: janitoo_manager/templates/forum/search_result.html:261
+#: janitoo_manager/templates/management/banned_users.html:57
+#: janitoo_manager/templates/management/users.html:55
+msgid "Date registered"
+msgstr "註冊日期"
+
+#: janitoo_manager/templates/forum/memberlist.html:34
+#: janitoo_manager/templates/forum/search_result.html:262
+#: janitoo_manager/templates/management/banned_users.html:58
+#: janitoo_manager/templates/management/users.html:56
+#: janitoo_manager/templates/user/profile.html:48
+msgid "Group"
+msgstr "群組"
+
+#: janitoo_manager/templates/forum/new_post.html:1
+#: janitoo_manager/templates/forum/new_post.html:17
+#: janitoo_manager/templates/forum/new_post.html:22
+msgid "New Post"
+msgstr "新增文章"
+
+#: janitoo_manager/templates/forum/new_post.html:27
+#: janitoo_manager/templates/forum/new_topic.html:26
+msgid "Preview"
+msgstr "預覽"
+
+#: janitoo_manager/templates/forum/online_users.html:1
+#: janitoo_manager/templates/forum/online_users.html:10
+msgid "Online Users"
+msgstr "線上使用者"
+
+#: janitoo_manager/templates/forum/report_post.html:1
+#: janitoo_manager/templates/forum/report_post.html:13
+msgid "Report Post"
+msgstr "舉報文章"
+
+#: janitoo_manager/templates/forum/report_post.html:17
+#: janitoo_manager/templates/forum/topic.html:120
+msgid "Report"
+msgstr "舉報"
+
+#: janitoo_manager/templates/forum/report_post.html:18
+msgid "Close"
+msgstr "關閉"
+
+#: janitoo_manager/templates/forum/search_result.html:12
+#: janitoo_manager/templates/forum/search_result.html:47
+msgid "Modules"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:18
+#: janitoo_manager/templates/forum/search_result.html:53
+msgid "Module"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:19
+#: janitoo_manager/templates/forum/search_result.html:54
+#: janitoo_manager/templates/forum/search_result.html:225
+msgid "Title"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:21
+#: janitoo_manager/templates/forum/search_result.html:56
+msgid "Developper"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:22
+#: janitoo_manager/templates/forum/search_result.html:57
+#: janitoo_manager/templates/forum/search_result.html:228
+#, fuzzy
+msgid "Last updated"
+msgstr "已更新密碼"
+
+#: janitoo_manager/templates/forum/search_result.html:23
+#: janitoo_manager/templates/forum/search_result.html:58
+#: janitoo_manager/templates/forum/search_result.html:229
+#, fuzzy
+msgid "Date creation"
+msgstr "儲存對話"
+
+#: janitoo_manager/templates/forum/search_result.html:39
+#: janitoo_manager/templates/forum/search_result.html:74
+#, fuzzy
+msgid "No modules found matching your search criteria."
+msgstr "您輸入的搜尋條件未發現符合使用者"
+
+#: janitoo_manager/templates/forum/search_result.html:146
+msgid "No topics found matching your search criteria."
+msgstr "您輸入的搜尋條件未發現符合主題"
+
+#: janitoo_manager/templates/forum/search_result.html:185
+#: janitoo_manager/templates/forum/topic.html:75
+msgid "Registered since"
+msgstr "註冊於"
+
+#: janitoo_manager/templates/forum/search_result.html:191
+#: janitoo_manager/templates/forum/topic.html:81
+msgid "Guest"
+msgstr "遊客"
+
+#: janitoo_manager/templates/forum/search_result.html:210
+msgid "No posts found matching your search criteria."
+msgstr "您輸入的搜尋條件未發現符合文章"
+
+#: janitoo_manager/templates/forum/search_result.html:218
+#: janitoo_manager/templates/forum/search_result.html:224
+msgid "Articles"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:227
+msgid "Author"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:245
+#, fuzzy
+msgid "No articles found matching your search criteria."
+msgstr "您輸入的搜尋條件未發現符合主題"
+
+#: janitoo_manager/templates/forum/search_result.html:253
+#: janitoo_manager/templates/management/management_layout.html:9
+#: janitoo_manager/templates/management/overview.html:34
+#: janitoo_manager/templates/management/users.html:1
+#: janitoo_manager/templates/management/users.html:25
+msgid "Users"
+msgstr "使用者"
+
+#: janitoo_manager/templates/forum/search_result.html:276
+#: janitoo_manager/templates/management/banned_users.html:99
+#: janitoo_manager/templates/management/users.html:135
+msgid "No users found matching your search criteria."
+msgstr "您輸入的搜尋條件未發現符合使用者"
+
+#: janitoo_manager/templates/forum/search_result.html:284
+#: janitoo_manager/templates/management/forums.html:1
+#: janitoo_manager/templates/management/management_layout.html:15
+msgid "Forums"
+msgstr "論壇"
+
+#: janitoo_manager/templates/forum/search_result.html:373
+msgid "No forums found matching your search criteria."
+msgstr "您輸入的搜尋條件未發現符合論壇"
+
+#: janitoo_manager/templates/forum/topic.html:2
+#, python-format
+msgid "%(title)s - Topic"
+msgstr "%(title)s - 主題"
+
+#: janitoo_manager/templates/forum/topic.html:39
+msgid "Last modified"
+msgstr "最後修改"
+
+#: janitoo_manager/templates/forum/topic.html:110
+msgid "PM"
+msgstr "發送訊息"
+
+#: janitoo_manager/templates/forum/topic.html:124
+#: janitoo_manager/templates/management/forums.html:33
+#: janitoo_manager/templates/management/forums.html:64
+#: janitoo_manager/templates/management/groups.html:55
+#: janitoo_manager/templates/management/users.html:97
+msgid "Edit"
+msgstr "編輯"
+
+#: janitoo_manager/templates/forum/topic.html:144
+#, fuzzy
+msgid "Ban user"
+msgstr "無使用者"
+
+#: janitoo_manager/templates/forum/topic.html:149
+msgid "Quote"
+msgstr "引用"
+
+#: janitoo_manager/templates/forum/topic.html:151
+#: janitoo_manager/templates/forum/topic_controls.html:25
+msgid "Reply"
+msgstr "回文"
+
+#: janitoo_manager/templates/forum/topic_controls.html:11
+msgid "Untrack Topic"
+msgstr "取消追蹤"
+
+#: janitoo_manager/templates/forum/topic_controls.html:18
+msgid "Track Topic"
+msgstr "追蹤主題"
+
+#: janitoo_manager/templates/forum/topic_controls.html:36
+msgid "Delete Topic"
+msgstr "刪除主題"
+
+#: janitoo_manager/templates/forum/topic_controls.html:45
+msgid "Lock Topic"
+msgstr "鎖定主題"
+
+#: janitoo_manager/templates/forum/topic_controls.html:52
+msgid "Unlock Topic"
+msgstr "解鎖主題"
+
+#: janitoo_manager/templates/forum/topic_controls.html:61
+msgid "Highlight Topic"
+msgstr "強調主題"
+
+#: janitoo_manager/templates/forum/topic_controls.html:68
+msgid "Trivialize Topic"
+msgstr "取消強調"
+
+#: janitoo_manager/templates/forum/topictracker.html:10
+msgid "Tracked Topics"
+msgstr "追蹤的主題"
+
+#: janitoo_manager/templates/forum/topictracker.html:82
+#: janitoo_manager/templates/user/all_topics.html:72
+msgid "No topics."
+msgstr "無主題"
+
+#: janitoo_manager/templates/management/banned_users.html:1
+#: janitoo_manager/templates/management/banned_users.html:11
+#: janitoo_manager/templates/management/banned_users.html:25
+#: janitoo_manager/templates/management/user_form.html:11
+#: janitoo_manager/templates/management/users.html:11
+msgid "Banned Users"
+msgstr "禁止的使用者"
+
+#: janitoo_manager/templates/management/banned_users.html:10
+#: janitoo_manager/templates/management/user_form.html:10
+#: janitoo_manager/templates/management/users.html:10
+msgid "Manage Users"
+msgstr "管理使用者"
+
+#: janitoo_manager/templates/management/banned_users.html:62
+#: janitoo_manager/templates/management/groups.html:33
+#: janitoo_manager/templates/management/unread_reports.html:37
+#: janitoo_manager/templates/management/users.html:60
+#, fuzzy
+msgid "Actions"
+msgstr "位置"
+
+#: janitoo_manager/templates/management/banned_users.html:66
+#: janitoo_manager/templates/management/users.html:70
+msgid "Are you sure you want to unban these Users?"
+msgstr ""
+
+#: janitoo_manager/templates/management/banned_users.html:67
+#: janitoo_manager/templates/management/users.html:71
+#, fuzzy
+msgid "Unban selected Users"
+msgstr "可刪除文章"
+
+#: janitoo_manager/templates/management/category_form.html:10
+#: janitoo_manager/templates/management/forum_form.html:10
+#: janitoo_manager/templates/management/forums.html:9
+#: janitoo_manager/templates/management/forums.html:21
+msgid "Manage Forums"
+msgstr "管理論壇"
+
+#: janitoo_manager/templates/management/group_form.html:10
+#: janitoo_manager/templates/management/groups.html:9
+msgid "Manage Groups"
+msgstr "管理群組"
+
+#: janitoo_manager/templates/management/groups.html:1
+#: janitoo_manager/templates/management/groups.html:19
+#: janitoo_manager/templates/management/management_layout.html:14
+msgid "Groups"
+msgstr "群組"
+
+#: janitoo_manager/templates/management/groups.html:37
+msgid "Are you sure you want to delete these Groups?"
+msgstr ""
+
+#: janitoo_manager/templates/management/groups.html:38
+msgid "Delete selected Groups"
+msgstr ""
+
+#: janitoo_manager/templates/management/management_layout.html:8
+#: janitoo_manager/templates/management/overview.html:1
+#: janitoo_manager/templates/management/overview.html:9
+msgid "Overview"
+msgstr "概況"
+
+#: janitoo_manager/templates/management/management_layout.html:10
+#: janitoo_manager/templates/management/reports.html:1
+msgid "Reports"
+msgstr "舉報"
+
+#: janitoo_manager/templates/management/management_layout.html:16
+#: janitoo_manager/templates/management/plugins.html:1
+msgid "Plugins"
+msgstr "外掛"
+
+#: janitoo_manager/templates/management/overview.html:15
+msgid "Global Statistics"
+msgstr "統計"
+
+#: janitoo_manager/templates/management/overview.html:20
+msgid "FlaskBB Version"
+msgstr "FlaskBB 版本"
+
+#: janitoo_manager/templates/management/overview.html:26
+msgid "Python Version"
+msgstr "Python 版本"
+
+#: janitoo_manager/templates/management/overview.html:32
+msgid "Flask Version"
+msgstr "Flask 版本"
+
+#: janitoo_manager/templates/management/plugins.html:10
+msgid "Manage Plugins"
+msgstr "管理外掛"
+
+#: janitoo_manager/templates/management/plugins.html:16
+msgid "Plugin"
+msgstr "外掛"
+
+#: janitoo_manager/templates/management/plugins.html:17
+msgid "Information"
+msgstr "資訊"
+
+#: janitoo_manager/templates/management/plugins.html:18
+msgid "Manage"
+msgstr "管理"
+
+#: janitoo_manager/templates/management/plugins.html:32
+msgid "Version"
+msgstr "版本"
+
+#: janitoo_manager/templates/management/plugins.html:40
+msgid "Enable"
+msgstr "啟用"
+
+#: janitoo_manager/templates/management/plugins.html:45
+msgid "Disable"
+msgstr "取消"
+
+#: janitoo_manager/templates/management/plugins.html:54
+msgid "Install"
+msgstr "安裝"
+
+#: janitoo_manager/templates/management/plugins.html:60
+msgid "Uninstall"
+msgstr "移除"
+
+#: janitoo_manager/templates/management/reports.html:10
+#: janitoo_manager/templates/management/unread_reports.html:10
+msgid "Show unread reports"
+msgstr "顯示未讀舉報"
+
+#: janitoo_manager/templates/management/reports.html:11
+#: janitoo_manager/templates/management/unread_reports.html:11
+msgid "Show all reports"
+msgstr "顯示所有舉報"
+
+#: janitoo_manager/templates/management/reports.html:20
+msgid "All Reports"
+msgstr "所有舉報"
+
+#: janitoo_manager/templates/management/reports.html:28
+#: janitoo_manager/templates/management/unread_reports.html:29
+msgid "Poster"
+msgstr "回覆者"
+
+#: janitoo_manager/templates/management/reports.html:30
+#: janitoo_manager/templates/management/unread_reports.html:31
+msgid "Reporter"
+msgstr "舉報者"
+
+#: janitoo_manager/templates/management/reports.html:31
+#: janitoo_manager/templates/management/unread_reports.html:32
+msgid "Reason"
+msgstr "原因"
+
+#: janitoo_manager/templates/management/reports.html:32
+#: janitoo_manager/templates/management/unread_reports.html:33
+msgid "Reported"
+msgstr "已舉報"
+
+#: janitoo_manager/templates/management/reports.html:47
+msgid "No reports."
+msgstr "無舉報"
+
+#: janitoo_manager/templates/management/unread_reports.html:1
+#: janitoo_manager/templates/management/unread_reports.html:20
+msgid "Unread Reports"
+msgstr "未讀舉報"
+
+#: janitoo_manager/templates/management/unread_reports.html:41
+msgid "Are you sure you want to mark these Reports as read?"
+msgstr ""
+
+#: janitoo_manager/templates/management/unread_reports.html:71
+msgid "No unread reports."
+msgstr "沒有未讀舉報"
+
+#: janitoo_manager/templates/management/users.html:64
+msgid "Are you sure you want to ban these Users?"
+msgstr ""
+
+#: janitoo_manager/templates/management/users.html:65
+#, fuzzy
+msgid "Ban selected Users"
+msgstr "可刪除文章"
+
+#: janitoo_manager/templates/management/users.html:76
+msgid "Are you sure you want to delete these Users?"
+msgstr ""
+
+#: janitoo_manager/templates/management/users.html:77
+msgid "Delete selected Users"
+msgstr ""
+
+#: janitoo_manager/templates/message/conversation_list.html:4
+msgid "Conversations"
+msgstr "對話"
+
+#: janitoo_manager/templates/message/conversation_list.html:80
+msgid "No conversations found."
+msgstr "沒有對話"
+
+#: janitoo_manager/templates/message/drafts.html:1
+#: janitoo_manager/templates/message/message_layout.html:18
+msgid "Drafts"
+msgstr "草稿"
+
+#: janitoo_manager/templates/message/inbox.html:1
+#: janitoo_manager/templates/message/message_layout.html:16
+msgid "Inbox"
+msgstr "收件箱"
+
+#: janitoo_manager/templates/message/message_layout.html:8
+msgid "Private Message"
+msgstr "訊息"
+
+#: janitoo_manager/templates/message/message_layout.html:17
+msgid "Sent"
+msgstr "已送出"
+
+#: janitoo_manager/templates/message/message_layout.html:19
+#: janitoo_manager/templates/message/trash.html:1
+msgid "Trash"
+msgstr "垃圾"
+
+#: janitoo_manager/templates/message/sent.html:1
+msgid "Sent Messages"
+msgstr "已送出訊息"
+
+#: janitoo_manager/templates/user/all_posts.html:8
+#: janitoo_manager/templates/user/profile.html:29
+msgid "All Posts"
+msgstr "所有文章"
+
+#: janitoo_manager/templates/user/all_posts.html:18
+#, python-format
+msgid "All Posts created by %(user)s"
+msgstr "%(user)s 的所有文章"
+
+#: janitoo_manager/templates/user/all_topics.html:8
+#: janitoo_manager/templates/user/profile.html:28
+msgid "All Topics"
+msgstr "所有主題"
+
+#: janitoo_manager/templates/user/all_topics.html:20
+#, python-format
+msgid "All Topics created by %(user)s"
+msgstr "%(user)s 的所有主題"
+
+#: janitoo_manager/templates/user/change_email.html:6
+#: janitoo_manager/templates/user/settings_layout.html:19
+msgid "Change E-Mail Address"
+msgstr "變更電子郵件"
+
+#: janitoo_manager/templates/user/change_password.html:6
+#: janitoo_manager/templates/user/settings_layout.html:20
+msgid "Change Password"
+msgstr "變更密碼"
+
+#: janitoo_manager/templates/user/change_user_details.html:6
+#: janitoo_manager/templates/user/settings_layout.html:18
+msgid "Change User Details"
+msgstr "變更使用者內容"
+
+#: janitoo_manager/templates/user/general_settings.html:6
+#: janitoo_manager/templates/user/settings_layout.html:17
+msgid "General Settings"
+msgstr "一般設定"
+
+#: janitoo_manager/templates/user/profile.html:11
+msgid "Info"
+msgstr "資訊"
+
+#: janitoo_manager/templates/user/profile.html:12
+msgid "User Stats"
+msgstr "使用者統計"
+
+#: janitoo_manager/templates/user/profile.html:40
+msgid "User has not added any notes about him."
+msgstr "使用者未新增說明"
+
+#: janitoo_manager/templates/user/profile.html:52
+msgid "Joined"
+msgstr "加入於"
+
+#: janitoo_manager/templates/user/profile.html:60
+msgid "Last seen"
+msgstr "最後一次登入"
+
+#: janitoo_manager/templates/user/profile.html:61
+msgid "Never seen"
+msgstr "從未登入"
+
+#: janitoo_manager/templates/user/profile.html:64
+msgid "Last post"
+msgstr "最後一篇文章"
+
+#: janitoo_manager/templates/user/profile.html:68
+msgid "Never"
+msgstr "從未"
+
+#: janitoo_manager/templates/user/profile.html:74
+#: janitoo_manager/templates/user/profile.html:78
+msgid "No Info"
+msgstr "沒有資訊"
+
+#: janitoo_manager/templates/user/settings_layout.html:15
+msgid "Account Settings"
+msgstr "帳號設定"
+
+#: janitoo_manager/user/forms.py:30
+msgid "Theme"
+msgstr "主題"
+
+#: janitoo_manager/user/forms.py:36
+msgid "Old E-Mail Address"
+msgstr "原電子郵件帳號"
+
+#: janitoo_manager/user/forms.py:40
+msgid "New E-Mail Address"
+msgstr "新電子郵件帳號"
+
+#: janitoo_manager/user/forms.py:42
+msgid "E-Mails must match."
+msgstr "電子郵件帳號需一致"
+
+#: janitoo_manager/user/forms.py:45
+msgid "Confirm E-Mail Address"
+msgstr "確認電子郵件帳號"
+
+#: janitoo_manager/user/forms.py:64
+msgid "Old Password"
+msgstr "原密碼"
+
+#: janitoo_manager/user/forms.py:65
+msgid "Password required"
+msgstr "請輸入密碼"
+
+#: janitoo_manager/user/forms.py:71
+msgid "Confirm New Password"
+msgstr "確認密碼"
+
+#: janitoo_manager/user/forms.py:77
+msgid "Old Password is wrong."
+msgstr "原密碼錯誤"
+
+#: janitoo_manager/user/views.py:50
+msgid "Settings updated."
+msgstr "已更新設定"
+
+#: janitoo_manager/user/views.py:66
+msgid "Password updated."
+msgstr "已更新密碼"
+
+#: janitoo_manager/user/views.py:78
+msgid "E-Mail Address updated."
+msgstr "已更新電子郵件帳號"
+
+#: janitoo_manager/user/views.py:91
+msgid "Details updated."
+msgstr "已更新內容"
+
+#: janitoo_manager/utils/helpers.py:82
+#, fuzzy
+msgid "You do not have the permissions to execute this action."
+msgstr "您沒有權限刪除這個主題"
+
+#: janitoo_manager/utils/helpers.py:95
+msgid "You do not have the permissions to delete this topic."
+msgstr "您沒有權限刪除這個主題"
+
+#~ msgid "Quick Reply"
+#~ msgstr "快速回文"
+
+#~ msgid "You cannot post a reply without content."
+#~ msgstr "您不能發表空白的回文"
+
+#~ msgid "Content"
+#~ msgstr "內容"
+
+#~ msgid "Track this Topic"
+#~ msgstr "追蹤這個主題"
+
+#~ msgid "Topic Title"
+#~ msgstr "標題"
+
+#~ msgid "Please choose a Topic Title."
+#~ msgstr "請選擇一個標題"
+
+#~ msgid "Post Topic"
+#~ msgstr "發表文章"
+
+#~ msgid "What's the reason for reporting this post?"
+#~ msgstr "為什麼要舉報這篇文章"
+
+#~ msgid "Criteria"
+#~ msgstr "搜尋條件"
+
+#~ msgid "Post"
+#~ msgstr "文章"
+
+#~ msgid "You do not have the permissions to create a new topic."
+#~ msgstr "您沒有權限發表一個新的主題"
+
+#~ msgid "You do not have the permissions to lock this topic."
+#~ msgstr "您沒有權限鎖定這個主題"
+
+#~ msgid "You do not have the permissions to unlock this topic."
+#~ msgstr "您沒有權限解鎖這個主題"
+
+#~ msgid "You do not have the permissions to highlight this topic."
+#~ msgstr "您沒有權限強調這個主題"
+
+#~ msgid "You do not have the permissions to trivialize this topic."
+#~ msgstr "您沒有權限取消強調這個主題"
+
+#~ msgid "You do not have the permissions to move this topic."
+#~ msgstr "您沒有權限移動這個主題"
+
+#~ msgid "Could not move the topic to forum %(title)s."
+#~ msgstr "無法移動主題至 %(title)s"
+
+#~ msgid "Topic was moved to forum %(title)s."
+#~ msgstr "已移動主題至 %(title)s"
+
+#~ msgid "You do not have the permissions to merge this topic."
+#~ msgstr "您沒有權限合併這個主題"
+
+#~ msgid "Could not merge the topics."
+#~ msgstr "無法合併主題"
+
+#~ msgid "Topics succesfully merged."
+#~ msgstr "已成功合併主題"
+
+#~ msgid "You do not have the permissions to post in this topic."
+#~ msgstr "您沒有權限回覆這個主題"
+
+#~ msgid "You do not have the permissions to edit this post."
+#~ msgstr "您沒有權限編輯這篇文章"
+
+#~ msgid "You do not have the permissions to delete this post."
+#~ msgstr "您沒有權限刪除這篇文章"
+
+#~ msgid "Thanks for reporting."
+#~ msgstr "謝謝您的舉報"
+
+#~ msgid "Forum %(forum)s marked as read."
+#~ msgstr "%(forum)s 論壇已經標記為已讀"
+
+#~ msgid "All forums marked as read."
+#~ msgstr "全部論壇已標記為已讀"
+
+#~ msgid "To User"
+#~ msgstr "收件者"
+
+#~ msgid "Subject"
+#~ msgstr "主題"
+
+#~ msgid "A Subject is required."
+#~ msgstr "請輸入主題"
+
+#~ msgid "Message"
+#~ msgstr "訊息"
+
+#~ msgid "A Message is required."
+#~ msgstr "請輸入訊息"
+
+#~ msgid "Start Conversation"
+#~ msgstr "開始對話"
+
+#~ msgid "The Username you entered doesn't exist"
+#~ msgstr "您輸入的使用者不存在"
+
+#~ msgid "Send Message"
+#~ msgstr "發送訊息"
+
+#~ msgid ""
+#~ msgstr "您無法發送任何訊息，因為您的訊息已達到上限"
+
+#~ msgid "Message saved."
+#~ msgstr "訊息已儲存"
+
+#~ msgid "Message sent."
+#~ msgstr "訊息已送出"
+
+#~ msgid "Compose Message"
+#~ msgstr "編寫訊息"
+
+#~ msgid "You cannot edit a sent message."
+#~ msgstr "您無法編輯一個已送出的訊息"
+
+#~ msgid "Edit Message"
+#~ msgstr "編輯訊息"
+
+#~ msgid "Group Access to the forum"
+#~ msgstr "可使用此論壇的群組"
+
+#~ msgid "Mark all as Read"
+#~ msgstr "全部標記為已讀"
+

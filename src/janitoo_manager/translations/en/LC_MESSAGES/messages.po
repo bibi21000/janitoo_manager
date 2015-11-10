@@ -1,0 +1,2003 @@
+# German translations for FlaskBB.
+# Copyright (C) 2015 FlaskBB
+# This file is distributed under the same license as the FlaskBB project.
+# Peter Justin <sh4nks7@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version:  0.1-dev\n"
+"Report-Msgid-Bugs-To: http://github.com/janitoo_manager/issues\n"
+"POT-Creation-Date: 2015-11-07 02:16+0100\n"
+"PO-Revision-Date: 2015-01-03 13:45+0100\n"
+"Last-Translator: Peter Justin <sh4nks7@gmail.com>\n"
+"Language-Team: FlaskBB Team\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+
+#: janitoo_manager/email.py:20
+msgid "Password Reset"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:23 janitoo_manager/management/forms.py:29
+msgid "You can only use letters, numbers or dashes."
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:27
+msgid "Username or E-Mail Address"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:28
+msgid "A Username or E-Mail Address is required."
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:31 janitoo_manager/auth/forms.py:48
+#: janitoo_manager/auth/forms.py:86 janitoo_manager/auth/forms.py:107
+#: janitoo_manager/user/forms.py:67
+msgid "Password"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:32 janitoo_manager/auth/forms.py:87
+msgid "A Password is required."
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:34
+msgid "Remember Me"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:36
+#: janitoo_manager/templates/navigation.html:59
+#: janitoo_manager/templates/auth/login.html:1
+#: janitoo_manager/templates/auth/login.html:8
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:60
+msgid "Login"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:40 janitoo_manager/management/forms.py:49
+#: janitoo_manager/templates/forum/memberlist.html:31
+#: janitoo_manager/templates/forum/search_result.html:259
+#: janitoo_manager/templates/management/banned_users.html:55
+#: janitoo_manager/templates/management/users.html:53
+msgid "Username"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:41 janitoo_manager/management/forms.py:50
+msgid "A Username is required."
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:44 janitoo_manager/auth/forms.py:93
+#: janitoo_manager/auth/forms.py:103 janitoo_manager/management/forms.py:53
+msgid "E-Mail Address"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:45 janitoo_manager/auth/forms.py:104
+#: janitoo_manager/management/forms.py:54 janitoo_manager/user/forms.py:37
+msgid "A E-Mail Address is required."
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:46 janitoo_manager/management/forms.py:55
+#: janitoo_manager/user/forms.py:38 janitoo_manager/user/forms.py:43
+#: janitoo_manager/user/forms.py:46
+msgid "Invalid E-Mail Address."
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:50 janitoo_manager/auth/forms.py:109
+#: janitoo_manager/user/forms.py:69
+msgid "Passwords must match."
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:52 janitoo_manager/auth/forms.py:111
+msgid "Confirm Password"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:55 janitoo_manager/user/forms.py:29
+msgid "Language"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:57
+msgid "I accept the Terms of Service"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:59
+#: janitoo_manager/templates/navigation.html:65
+#: janitoo_manager/templates/auth/register.html:1
+#: janitoo_manager/templates/auth/register.html:8
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:66
+msgid "Register"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:64 janitoo_manager/management/forms.py:110
+msgid "This Username is already taken."
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:69 janitoo_manager/management/forms.py:124
+#: janitoo_manager/user/forms.py:60
+msgid "This E-Mail Address is already taken."
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:82
+msgid "Captcha"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:89
+#: janitoo_manager/templates/auth/reauth.html:1
+#: janitoo_manager/templates/auth/reauth.html:9
+msgid "Refresh Login"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:94
+msgid "A E-Mail Address is reguired."
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:97
+#: janitoo_manager/templates/auth/forgot_password.html:1
+msgid "Request Password"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:113
+#: janitoo_manager/templates/navigation.html:66
+#: janitoo_manager/templates/auth/forgot_password.html:8
+#: janitoo_manager/templates/auth/reset_password.html:1
+#: janitoo_manager/templates/auth/reset_password.html:8
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:67
+msgid "Reset Password"
+msgstr ""
+
+#: janitoo_manager/auth/forms.py:118
+msgid "Wrong E-Mail Address."
+msgstr ""
+
+#: janitoo_manager/auth/views.py:47
+msgid "Wrong Username or Password."
+msgstr ""
+
+#: janitoo_manager/auth/views.py:62
+msgid "Reauthenticated."
+msgstr ""
+
+#: janitoo_manager/auth/views.py:102
+msgid "Thanks for registering."
+msgstr ""
+
+#: janitoo_manager/auth/views.py:124
+msgid "E-Mail sent! Please check your inbox."
+msgstr ""
+
+#: janitoo_manager/auth/views.py:127
+msgid ""
+"You have entered a Username or E-Mail Address that is not linked with "
+"your account."
+msgstr ""
+
+#: janitoo_manager/auth/views.py:147
+msgid "Your Password Token is invalid."
+msgstr ""
+
+#: janitoo_manager/auth/views.py:151
+msgid "Your Password Token is expired."
+msgstr ""
+
+#: janitoo_manager/auth/views.py:157
+msgid "Your Password has been updated."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:60
+#: janitoo_manager/templates/user/profile.html:77
+#: janitoo_manager/user/forms.py:81
+msgid "Birthday"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:64 janitoo_manager/user/forms.py:85
+msgid "Gender"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:66 janitoo_manager/user/forms.py:87
+msgid "Male"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:67 janitoo_manager/user/forms.py:88
+msgid "Female"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:69
+#: janitoo_manager/templates/user/profile.html:73
+#: janitoo_manager/user/forms.py:90
+msgid "Location"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:72
+#: janitoo_manager/templates/forum/topic.html:113
+#: janitoo_manager/user/forms.py:93
+msgid "Website"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:75 janitoo_manager/user/forms.py:96
+msgid "Avatar"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:78 janitoo_manager/user/forms.py:99
+msgid "Forum Signature"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:81 janitoo_manager/user/forms.py:102
+msgid "Notes"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:85
+msgid "Primary Group"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:90
+msgid "Secondary Groups"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:96
+#: janitoo_manager/management/forms.py:208
+#: janitoo_manager/management/forms.py:325
+#: janitoo_manager/management/forms.py:419
+#: janitoo_manager/templates/management/settings.html:43
+#: janitoo_manager/user/forms.py:32 janitoo_manager/user/forms.py:48
+#: janitoo_manager/user/forms.py:73 janitoo_manager/user/forms.py:105
+msgid "Save"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:145
+#: janitoo_manager/templates/management/groups.html:28
+msgid "Group Name"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:146
+msgid "A Group name is required."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:148
+#: janitoo_manager/management/forms.py:277
+#: janitoo_manager/management/forms.py:407
+#: janitoo_manager/templates/forum/search_result.html:20
+#: janitoo_manager/templates/forum/search_result.html:55
+#: janitoo_manager/templates/forum/search_result.html:226
+#: janitoo_manager/templates/management/groups.html:29
+msgid "Description"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:152
+msgid "Is Admin Group?"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:153
+msgid "With this option the group has access to the admin panel."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:157
+msgid "Is Super Moderator Group?"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:158
+msgid "Check this if the users in this group are allowed to moderate every forum."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:162
+msgid "Is Moderator Group?"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:163
+msgid ""
+"Check this if the users in this group are allowed to moderate specified "
+"forums."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:167
+msgid "Is Banned Group?"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:168
+msgid "Only one Banned group is allowed."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:171
+msgid "Is Guest Group?"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:172
+msgid "Only one Guest group is allowed."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:175
+msgid "Can edit posts"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:176
+msgid "Check this if the users in this group can edit posts."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:179
+msgid "Can delete posts"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:180
+msgid "Check this is the users in this group can delete posts."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:183
+msgid "Can delete topics"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:184
+msgid "Check this is the users in this group can delete topics."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:188
+msgid "Can create topics"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:189
+msgid "Check this is the users in this group can create topics."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:193
+msgid "Can post replies"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:194
+msgid "Check this is the users in this group can post replies."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:198
+msgid "Moderators can edit user profiles"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:199
+msgid ""
+"Allow moderators to edit a another users profile including password and "
+"email changes."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:204
+msgid "Moderators can ban users"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:205
+msgid "Allow moderators to ban other users."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:222
+msgid "This Group name is already taken."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:236
+msgid "There is already a Banned group."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:250
+msgid "There is already a Guest group."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:272
+msgid "Forum Title"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:273
+msgid "A Forum Title is required."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:279
+#: janitoo_manager/management/forms.py:409
+msgid "You can format your description with BBCode."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:283
+#: janitoo_manager/management/forms.py:413
+msgid "Position"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:285
+msgid "The Forum Position is required."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:289
+msgid "Category"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:293
+msgid "The category that contains this forum."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:297
+msgid "External Link"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:299
+msgid "A link to a website i.e. 'http://janitoo_manager.org'."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:303
+#: janitoo_manager/templates/forum/category_layout.html:60
+#: janitoo_manager/templates/forum/search_result.html:337
+msgid "Moderators"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:304
+msgid ""
+"Comma seperated usernames. Leave it blank if you do not want to set any "
+"moderators."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:309
+msgid "Show Moderators"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:310
+msgid "Do you want show the moderators on the index page?"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:314
+msgid "Locked?"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:315
+msgid "Disable new posts and topics in this forum."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:319
+msgid "Group Access to Forum"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:322
+msgid "Select user groups that can access this forum."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:330
+msgid "You cannot convert a forum that contain topics in a external link."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:335
+msgid "You also need to specify some moderators."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:356
+#, python-format
+msgid "%(user)s is not in a moderators group."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:362
+#, python-format
+msgid "User %(moderator)s not found."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:403
+msgid "Category Title"
+msgstr ""
+
+#: janitoo_manager/management/forms.py:404
+msgid "A Category Title is required."
+msgstr ""
+
+#: janitoo_manager/management/forms.py:415
+msgid "The Category Position is required."
+msgstr ""
+
+#: janitoo_manager/management/views.py:83
+msgid "Settings saved."
+msgstr ""
+
+#: janitoo_manager/management/views.py:122
+msgid "You are not allowed to edit this user."
+msgstr ""
+
+#: janitoo_manager/management/views.py:156
+msgid "User successfully updated."
+msgstr ""
+
+#: janitoo_manager/management/views.py:160
+msgid "Edit User"
+msgstr ""
+
+#: janitoo_manager/management/views.py:195
+msgid "You cannot delete yourself."
+msgstr ""
+
+#: janitoo_manager/management/views.py:199
+msgid "User successfully deleted."
+msgstr ""
+
+#: janitoo_manager/management/views.py:209
+msgid "User successfully added."
+msgstr ""
+
+#: janitoo_manager/management/views.py:213
+#: janitoo_manager/templates/management/banned_users.html:14
+#: janitoo_manager/templates/management/user_form.html:14
+#: janitoo_manager/templates/management/users.html:14
+msgid "Add User"
+msgstr ""
+
+#: janitoo_manager/management/views.py:243
+msgid "You do not have the permissions to ban this user."
+msgstr ""
+
+#: janitoo_manager/management/views.py:266
+#: janitoo_manager/templates/management/banned_users.html:90
+#: janitoo_manager/templates/management/users.html:116
+msgid "Unban"
+msgstr ""
+
+#: janitoo_manager/management/views.py:285
+msgid "A moderator cannot ban an admin user."
+msgstr ""
+
+#: janitoo_manager/management/views.py:289
+msgid "User is now banned."
+msgstr ""
+
+#: janitoo_manager/management/views.py:291
+msgid "Could not ban user."
+msgstr ""
+
+#: janitoo_manager/management/views.py:301
+msgid "You do not have the permissions to unban this user."
+msgstr ""
+
+#: janitoo_manager/management/views.py:316
+#: janitoo_manager/templates/management/users.html:106
+msgid "Ban"
+msgstr ""
+
+#: janitoo_manager/management/views.py:331
+msgid "User is now unbanned."
+msgstr ""
+
+#: janitoo_manager/management/views.py:333
+msgid "Could not unban user."
+msgstr ""
+
+#: janitoo_manager/management/views.py:394
+#, python-format
+msgid "Report %(id)s is already marked as read."
+msgstr ""
+
+#: janitoo_manager/management/views.py:401
+#, python-format
+msgid "Report %(id)s marked as read."
+msgstr ""
+
+#: janitoo_manager/management/views.py:415
+msgid "All reports were marked as read."
+msgstr ""
+
+#: janitoo_manager/management/views.py:446
+msgid "Group successfully updated."
+msgstr ""
+
+#: janitoo_manager/management/views.py:450
+msgid "Edit Group"
+msgstr ""
+
+#: janitoo_manager/management/views.py:478
+msgid "You cannot delete one of the standard groups."
+msgstr ""
+
+#: janitoo_manager/management/views.py:486
+msgid "You cannot delete the standard groups. Try renaming them instead."
+msgstr ""
+
+#: janitoo_manager/management/views.py:492
+msgid "Group successfully deleted."
+msgstr ""
+
+#: janitoo_manager/management/views.py:495
+msgid "No group choosen.."
+msgstr ""
+
+#: janitoo_manager/management/views.py:505
+msgid "Group successfully added."
+msgstr ""
+
+#: janitoo_manager/management/views.py:509
+#: janitoo_manager/templates/management/group_form.html:11
+#: janitoo_manager/templates/management/groups.html:10
+msgid "Add Group"
+msgstr ""
+
+#: janitoo_manager/management/views.py:528
+msgid "Forum successfully updated."
+msgstr ""
+
+#: janitoo_manager/management/views.py:539
+msgid "Edit Forum"
+msgstr ""
+
+#: janitoo_manager/management/views.py:552
+msgid "Forum successfully deleted."
+msgstr ""
+
+#: janitoo_manager/management/views.py:564
+msgid "Forum successfully added."
+msgstr ""
+
+#: janitoo_manager/management/views.py:573
+#: janitoo_manager/templates/management/category_form.html:11
+#: janitoo_manager/templates/management/forum_form.html:11
+#: janitoo_manager/templates/management/forums.html:10
+#: janitoo_manager/templates/management/forums.html:32
+msgid "Add Forum"
+msgstr ""
+
+#: janitoo_manager/management/views.py:583
+msgid "Category successfully added."
+msgstr ""
+
+#: janitoo_manager/management/views.py:587
+#: janitoo_manager/templates/management/category_form.html:12
+#: janitoo_manager/templates/management/forum_form.html:12
+#: janitoo_manager/templates/management/forums.html:11
+msgid "Add Category"
+msgstr ""
+
+#: janitoo_manager/management/views.py:599
+msgid "Category successfully updated."
+msgstr ""
+
+#: janitoo_manager/management/views.py:603
+msgid "Edit Category"
+msgstr ""
+
+#: janitoo_manager/management/views.py:616
+msgid "Category with all associated forums deleted."
+msgstr ""
+
+#: janitoo_manager/management/views.py:643
+msgid "Plugin is enabled. Please reload your app."
+msgstr ""
+
+#: janitoo_manager/management/views.py:646
+msgid "Plugin is already enabled. Please reload  your app."
+msgstr ""
+
+#: janitoo_manager/management/views.py:650
+msgid ""
+"If you are using a host which doesn't support writting on the disk, this "
+"won't work - than you need to delete the 'DISABLED' file by yourself."
+msgstr ""
+
+#: janitoo_manager/management/views.py:655
+msgid "Couldn't enable Plugin."
+msgstr ""
+
+#: janitoo_manager/management/views.py:666
+#, python-format
+msgid "Plugin %(plugin)s not found."
+msgstr ""
+
+#: janitoo_manager/management/views.py:678
+msgid "Plugin is disabled. Please reload your app."
+msgstr ""
+
+#: janitoo_manager/management/views.py:681
+msgid ""
+"If you are using a host which doesn't support writting on the disk, this "
+"won't work - than you need to create a 'DISABLED' file by yourself."
+msgstr ""
+
+#: janitoo_manager/management/views.py:696
+msgid "Plugin has been uninstalled."
+msgstr ""
+
+#: janitoo_manager/management/views.py:698
+msgid "Cannot uninstall Plugin."
+msgstr ""
+
+#: janitoo_manager/management/views.py:711
+msgid "Plugin has been installed."
+msgstr ""
+
+#: janitoo_manager/management/views.py:713
+msgid "Cannot install Plugin."
+msgstr ""
+
+#: janitoo_manager/templates/macros.html:318
+msgid "Pages"
+msgstr ""
+
+#: janitoo_manager/templates/navigation.html:19
+#: janitoo_manager/templates/forum/category.html:8
+#: janitoo_manager/templates/forum/category_layout.html:11
+#: janitoo_manager/templates/forum/edit_forum.html:9
+#: janitoo_manager/templates/forum/forum.html:9
+#: janitoo_manager/templates/forum/index.html:5
+#: janitoo_manager/templates/forum/memberlist.html:8
+#: janitoo_manager/templates/forum/new_post.html:14
+#: janitoo_manager/templates/forum/new_topic.html:14
+#: janitoo_manager/templates/forum/search_result.html:289
+#: janitoo_manager/templates/forum/topic.html:13
+#: janitoo_manager/templates/forum/topictracker.html:9
+#: janitoo_manager/templates/management/forums.html:43
+#: janitoo_manager/templates/message/message_layout.html:6
+#: janitoo_manager/templates/user/all_posts.html:6
+#: janitoo_manager/templates/user/all_topics.html:6
+#: janitoo_manager/templates/user/profile.html:4
+#: janitoo_manager/templates/user/settings_layout.html:6
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:19
+msgid "Forum"
+msgstr ""
+
+#: janitoo_manager/templates/navigation.html:20
+#: janitoo_manager/templates/forum/memberlist.html:21
+#: janitoo_manager/templates/forum/search_form.html:1
+#: janitoo_manager/templates/forum/search_form.html:8
+#: janitoo_manager/templates/forum/search_form.html:12
+#: janitoo_manager/templates/forum/search_result.html:1
+#: janitoo_manager/templates/forum/search_result.html:8
+#: janitoo_manager/templates/management/banned_users.html:30
+#: janitoo_manager/templates/management/users.html:30
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:21
+msgid "Search"
+msgstr ""
+
+#: janitoo_manager/templates/navigation.html:34
+#: janitoo_manager/templates/forum/topictracker.html:1
+#: janitoo_manager/templates/forum/topictracker.html:22
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:35
+msgid "Topic Tracker"
+msgstr ""
+
+#: janitoo_manager/templates/navigation.html:37
+#: janitoo_manager/templates/management/management_layout.html:13
+#: janitoo_manager/templates/user/settings_layout.html:8
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:38
+msgid "Settings"
+msgstr ""
+
+#: janitoo_manager/templates/navigation.html:39
+#: janitoo_manager/templates/management/forums.html:44
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:40
+msgid "Management"
+msgstr ""
+
+#: janitoo_manager/templates/navigation.html:43
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:44
+msgid "Logout"
+msgstr ""
+
+#: janitoo_manager/templates/navigation.html:52
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:53
+msgid "Private Messages"
+msgstr ""
+
+#: janitoo_manager/templates/navigation.html:53
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:54
+msgid "New Message"
+msgstr ""
+
+#: janitoo_manager/templates/auth/login.html:18
+msgid "Not a member yet?"
+msgstr ""
+
+#: janitoo_manager/templates/auth/login.html:19
+msgid "Forgot Password?"
+msgstr ""
+
+#: janitoo_manager/templates/email/reset_password.html:1
+#, python-format
+msgid "Dear %(user)s,"
+msgstr ""
+
+#: janitoo_manager/templates/email/reset_password.html:2
+msgid "To reset your password click on the following link:"
+msgstr ""
+
+#: janitoo_manager/templates/email/reset_password.html:4
+msgid "Sincerely,"
+msgstr ""
+
+#: janitoo_manager/templates/email/reset_password.html:5
+msgid "The Administration"
+msgstr ""
+
+#: janitoo_manager/templates/errors/forbidden_page.html:1
+msgid "No Access - 403"
+msgstr ""
+
+#: janitoo_manager/templates/errors/forbidden_page.html:7
+msgid "Forbidden Page"
+msgstr ""
+
+#: janitoo_manager/templates/errors/forbidden_page.html:8
+msgid "You do not have the permission to view this page."
+msgstr ""
+
+#: janitoo_manager/templates/errors/forbidden_page.html:9
+#: janitoo_manager/templates/errors/page_not_found.html:9
+msgid "Back to the Forums"
+msgstr ""
+
+#: janitoo_manager/templates/errors/page_not_found.html:1
+msgid "Oh noes! 404"
+msgstr ""
+
+#: janitoo_manager/templates/errors/page_not_found.html:7
+msgid "Oops, Page not found!"
+msgstr ""
+
+#: janitoo_manager/templates/errors/page_not_found.html:8
+msgid "The page you were looking for does not exist."
+msgstr ""
+
+#: janitoo_manager/templates/errors/server_error.html:1
+msgid "Server Error - 500"
+msgstr ""
+
+#: janitoo_manager/templates/errors/server_error.html:7
+msgid "Server Error"
+msgstr ""
+
+#: janitoo_manager/templates/errors/server_error.html:8
+msgid "Something went wrong!"
+msgstr ""
+
+#: janitoo_manager/templates/forum/category_layout.html:12
+#: janitoo_manager/templates/forum/search_result.html:82
+#: janitoo_manager/templates/forum/search_result.html:290
+#: janitoo_manager/templates/management/overview.html:28
+msgid "Topics"
+msgstr ""
+
+#: janitoo_manager/templates/forum/category_layout.html:13
+#: janitoo_manager/templates/forum/edit_forum.html:34
+#: janitoo_manager/templates/forum/forum.html:52
+#: janitoo_manager/templates/forum/memberlist.html:32
+#: janitoo_manager/templates/forum/search_result.html:89
+#: janitoo_manager/templates/forum/search_result.html:154
+#: janitoo_manager/templates/forum/search_result.html:184
+#: janitoo_manager/templates/forum/search_result.html:260
+#: janitoo_manager/templates/forum/search_result.html:291
+#: janitoo_manager/templates/forum/topic.html:74
+#: janitoo_manager/templates/forum/topictracker.html:30
+#: janitoo_manager/templates/management/banned_users.html:56
+#: janitoo_manager/templates/management/overview.html:22
+#: janitoo_manager/templates/management/users.html:54
+#: janitoo_manager/templates/user/all_topics.html:28
+#: janitoo_manager/templates/user/profile.html:56
+msgid "Posts"
+msgstr ""
+
+#: janitoo_manager/templates/forum/category_layout.html:14
+#: janitoo_manager/templates/forum/edit_forum.html:38
+#: janitoo_manager/templates/forum/forum.html:56
+#: janitoo_manager/templates/forum/search_result.html:93
+#: janitoo_manager/templates/forum/search_result.html:292
+#: janitoo_manager/templates/forum/topictracker.html:34
+#: janitoo_manager/templates/user/all_topics.html:32
+msgid "Last Post"
+msgstr ""
+
+#: janitoo_manager/templates/forum/category_layout.html:80
+#: janitoo_manager/templates/forum/edit_forum.html:70
+#: janitoo_manager/templates/forum/edit_forum.html:89
+#: janitoo_manager/templates/forum/forum.html:86
+#: janitoo_manager/templates/forum/forum.html:105
+#: janitoo_manager/templates/forum/search_result.html:116
+#: janitoo_manager/templates/forum/search_result.html:135
+#: janitoo_manager/templates/forum/search_result.html:357
+#: janitoo_manager/templates/forum/topic.html:39
+#: janitoo_manager/templates/forum/topictracker.html:52
+#: janitoo_manager/templates/forum/topictracker.html:70
+#: janitoo_manager/templates/management/plugins.html:34
+#: janitoo_manager/templates/user/all_topics.html:42
+#: janitoo_manager/templates/user/all_topics.html:60
+msgid "by"
+msgstr ""
+
+#: janitoo_manager/templates/forum/category_layout.html:88
+#: janitoo_manager/templates/forum/search_result.html:365
+#: janitoo_manager/templates/user/all_posts.html:40
+msgid "No posts."
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:32
+#: janitoo_manager/templates/forum/forum.html:50
+#: janitoo_manager/templates/forum/search_result.html:87
+#: janitoo_manager/templates/forum/topictracker.html:28
+#: janitoo_manager/templates/management/reports.html:29
+#: janitoo_manager/templates/management/unread_reports.html:30
+#: janitoo_manager/templates/user/all_topics.html:26
+msgid "Topic"
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:36
+#: janitoo_manager/templates/forum/forum.html:54
+#: janitoo_manager/templates/forum/search_result.html:91
+#: janitoo_manager/templates/forum/topictracker.html:32
+#: janitoo_manager/templates/user/all_topics.html:30
+msgid "Views"
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:102
+#: janitoo_manager/templates/forum/forum.html:117
+msgid "No Topics."
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:114
+msgid "Back"
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:124
+msgid "Lock"
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:127
+msgid "Unlock"
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:132
+msgid "Highlight"
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:135
+msgid "Trivialize"
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:140
+#: janitoo_manager/templates/forum/topic.html:130
+#: janitoo_manager/templates/forum/topic.html:137
+#: janitoo_manager/templates/management/forums.html:36
+#: janitoo_manager/templates/management/forums.html:67
+#: janitoo_manager/templates/management/groups.html:60
+#: janitoo_manager/templates/management/users.html:126
+msgid "Delete"
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:147
+msgid "Move to..."
+msgstr ""
+
+#: janitoo_manager/templates/forum/edit_forum.html:154
+msgid "Move"
+msgstr ""
+
+#: janitoo_manager/templates/forum/forum.html:23
+#: janitoo_manager/templates/management/unread_reports.html:42
+#: janitoo_manager/templates/management/unread_reports.html:64
+msgid "Mark as Read"
+msgstr ""
+
+#: janitoo_manager/templates/forum/forum.html:29
+msgid "Locked"
+msgstr ""
+
+#: janitoo_manager/templates/forum/forum.html:33
+#: janitoo_manager/templates/forum/new_topic.html:1
+#: janitoo_manager/templates/forum/new_topic.html:16
+#: janitoo_manager/templates/forum/new_topic.html:21
+msgid "New Topic"
+msgstr ""
+
+#: janitoo_manager/templates/forum/forum.html:127
+msgid "Moderation Mode"
+msgstr ""
+
+#: janitoo_manager/templates/forum/index.html:17
+msgid "Board Statistics"
+msgstr ""
+
+#: janitoo_manager/templates/forum/index.html:18
+msgid "Who is online?"
+msgstr ""
+
+#: janitoo_manager/templates/forum/index.html:25
+msgid "Total number of registered users"
+msgstr ""
+
+#: janitoo_manager/templates/forum/index.html:26
+msgid "Total number of topics"
+msgstr ""
+
+#: janitoo_manager/templates/forum/index.html:27
+msgid "Total number of posts"
+msgstr ""
+
+#: janitoo_manager/templates/forum/index.html:30
+msgid "Newest registered user"
+msgstr ""
+
+#: janitoo_manager/templates/forum/index.html:30
+msgid "No users"
+msgstr ""
+
+#: janitoo_manager/templates/forum/index.html:31
+msgid "Registered users online"
+msgstr ""
+
+#: janitoo_manager/templates/forum/index.html:33
+msgid "Guests online"
+msgstr ""
+
+#: janitoo_manager/templates/forum/memberlist.html:1
+#: janitoo_manager/templates/forum/memberlist.html:9
+#: janitoo_manager/themes/bootstrap2/templates/navigation.html:20
+msgid "Memberlist"
+msgstr ""
+
+#: janitoo_manager/templates/forum/memberlist.html:33
+#: janitoo_manager/templates/forum/search_result.html:261
+#: janitoo_manager/templates/management/banned_users.html:57
+#: janitoo_manager/templates/management/users.html:55
+msgid "Date registered"
+msgstr ""
+
+#: janitoo_manager/templates/forum/memberlist.html:34
+#: janitoo_manager/templates/forum/search_result.html:262
+#: janitoo_manager/templates/management/banned_users.html:58
+#: janitoo_manager/templates/management/users.html:56
+#: janitoo_manager/templates/user/profile.html:48
+msgid "Group"
+msgstr ""
+
+#: janitoo_manager/templates/forum/new_post.html:1
+#: janitoo_manager/templates/forum/new_post.html:17
+#: janitoo_manager/templates/forum/new_post.html:22
+msgid "New Post"
+msgstr ""
+
+#: janitoo_manager/templates/forum/new_post.html:27
+#: janitoo_manager/templates/forum/new_topic.html:26
+msgid "Preview"
+msgstr ""
+
+#: janitoo_manager/templates/forum/online_users.html:1
+#: janitoo_manager/templates/forum/online_users.html:10
+msgid "Online Users"
+msgstr ""
+
+#: janitoo_manager/templates/forum/report_post.html:1
+#: janitoo_manager/templates/forum/report_post.html:13
+msgid "Report Post"
+msgstr ""
+
+#: janitoo_manager/templates/forum/report_post.html:17
+#: janitoo_manager/templates/forum/topic.html:120
+msgid "Report"
+msgstr ""
+
+#: janitoo_manager/templates/forum/report_post.html:18
+msgid "Close"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:12
+#: janitoo_manager/templates/forum/search_result.html:47
+msgid "Modules"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:18
+#: janitoo_manager/templates/forum/search_result.html:53
+msgid "Module"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:19
+#: janitoo_manager/templates/forum/search_result.html:54
+#: janitoo_manager/templates/forum/search_result.html:225
+msgid "Title"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:21
+#: janitoo_manager/templates/forum/search_result.html:56
+msgid "Developper"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:22
+#: janitoo_manager/templates/forum/search_result.html:57
+#: janitoo_manager/templates/forum/search_result.html:228
+msgid "Last updated"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:23
+#: janitoo_manager/templates/forum/search_result.html:58
+#: janitoo_manager/templates/forum/search_result.html:229
+msgid "Date creation"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:39
+#: janitoo_manager/templates/forum/search_result.html:74
+msgid "No modules found matching your search criteria."
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:146
+msgid "No topics found matching your search criteria."
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:185
+#: janitoo_manager/templates/forum/topic.html:75
+msgid "Registered since"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:191
+#: janitoo_manager/templates/forum/topic.html:81
+msgid "Guest"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:210
+msgid "No posts found matching your search criteria."
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:218
+#: janitoo_manager/templates/forum/search_result.html:224
+msgid "Articles"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:227
+msgid "Author"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:245
+msgid "No articles found matching your search criteria."
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:253
+#: janitoo_manager/templates/management/management_layout.html:9
+#: janitoo_manager/templates/management/overview.html:34
+#: janitoo_manager/templates/management/users.html:1
+#: janitoo_manager/templates/management/users.html:25
+msgid "Users"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:276
+#: janitoo_manager/templates/management/banned_users.html:99
+#: janitoo_manager/templates/management/users.html:135
+msgid "No users found matching your search criteria."
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:284
+#: janitoo_manager/templates/management/forums.html:1
+#: janitoo_manager/templates/management/management_layout.html:15
+msgid "Forums"
+msgstr ""
+
+#: janitoo_manager/templates/forum/search_result.html:373
+msgid "No forums found matching your search criteria."
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic.html:2
+#, python-format
+msgid "%(title)s - Topic"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic.html:39
+msgid "Last modified"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic.html:110
+msgid "PM"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic.html:124
+#: janitoo_manager/templates/management/forums.html:33
+#: janitoo_manager/templates/management/forums.html:64
+#: janitoo_manager/templates/management/groups.html:55
+#: janitoo_manager/templates/management/users.html:97
+msgid "Edit"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic.html:144
+msgid "Ban user"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic.html:149
+msgid "Quote"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic.html:151
+#: janitoo_manager/templates/forum/topic_controls.html:25
+msgid "Reply"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic_controls.html:11
+msgid "Untrack Topic"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic_controls.html:18
+msgid "Track Topic"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic_controls.html:36
+msgid "Delete Topic"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic_controls.html:45
+msgid "Lock Topic"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic_controls.html:52
+msgid "Unlock Topic"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic_controls.html:61
+msgid "Highlight Topic"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topic_controls.html:68
+msgid "Trivialize Topic"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topictracker.html:10
+msgid "Tracked Topics"
+msgstr ""
+
+#: janitoo_manager/templates/forum/topictracker.html:82
+#: janitoo_manager/templates/user/all_topics.html:72
+msgid "No topics."
+msgstr ""
+
+#: janitoo_manager/templates/management/banned_users.html:1
+#: janitoo_manager/templates/management/banned_users.html:11
+#: janitoo_manager/templates/management/banned_users.html:25
+#: janitoo_manager/templates/management/user_form.html:11
+#: janitoo_manager/templates/management/users.html:11
+msgid "Banned Users"
+msgstr ""
+
+#: janitoo_manager/templates/management/banned_users.html:10
+#: janitoo_manager/templates/management/user_form.html:10
+#: janitoo_manager/templates/management/users.html:10
+msgid "Manage Users"
+msgstr ""
+
+#: janitoo_manager/templates/management/banned_users.html:62
+#: janitoo_manager/templates/management/groups.html:33
+#: janitoo_manager/templates/management/unread_reports.html:37
+#: janitoo_manager/templates/management/users.html:60
+msgid "Actions"
+msgstr ""
+
+#: janitoo_manager/templates/management/banned_users.html:66
+#: janitoo_manager/templates/management/users.html:70
+msgid "Are you sure you want to unban these Users?"
+msgstr ""
+
+#: janitoo_manager/templates/management/banned_users.html:67
+#: janitoo_manager/templates/management/users.html:71
+msgid "Unban selected Users"
+msgstr ""
+
+#: janitoo_manager/templates/management/category_form.html:10
+#: janitoo_manager/templates/management/forum_form.html:10
+#: janitoo_manager/templates/management/forums.html:9
+#: janitoo_manager/templates/management/forums.html:21
+msgid "Manage Forums"
+msgstr ""
+
+#: janitoo_manager/templates/management/group_form.html:10
+#: janitoo_manager/templates/management/groups.html:9
+msgid "Manage Groups"
+msgstr ""
+
+#: janitoo_manager/templates/management/groups.html:1
+#: janitoo_manager/templates/management/groups.html:19
+#: janitoo_manager/templates/management/management_layout.html:14
+msgid "Groups"
+msgstr ""
+
+#: janitoo_manager/templates/management/groups.html:37
+msgid "Are you sure you want to delete these Groups?"
+msgstr ""
+
+#: janitoo_manager/templates/management/groups.html:38
+msgid "Delete selected Groups"
+msgstr ""
+
+#: janitoo_manager/templates/management/management_layout.html:8
+#: janitoo_manager/templates/management/overview.html:1
+#: janitoo_manager/templates/management/overview.html:9
+msgid "Overview"
+msgstr ""
+
+#: janitoo_manager/templates/management/management_layout.html:10
+#: janitoo_manager/templates/management/reports.html:1
+msgid "Reports"
+msgstr ""
+
+#: janitoo_manager/templates/management/management_layout.html:16
+#: janitoo_manager/templates/management/plugins.html:1
+msgid "Plugins"
+msgstr ""
+
+#: janitoo_manager/templates/management/overview.html:15
+msgid "Global Statistics"
+msgstr ""
+
+#: janitoo_manager/templates/management/overview.html:20
+msgid "FlaskBB Version"
+msgstr ""
+
+#: janitoo_manager/templates/management/overview.html:26
+msgid "Python Version"
+msgstr ""
+
+#: janitoo_manager/templates/management/overview.html:32
+msgid "Flask Version"
+msgstr ""
+
+#: janitoo_manager/templates/management/plugins.html:10
+msgid "Manage Plugins"
+msgstr ""
+
+#: janitoo_manager/templates/management/plugins.html:16
+msgid "Plugin"
+msgstr ""
+
+#: janitoo_manager/templates/management/plugins.html:17
+msgid "Information"
+msgstr ""
+
+#: janitoo_manager/templates/management/plugins.html:18
+msgid "Manage"
+msgstr ""
+
+#: janitoo_manager/templates/management/plugins.html:32
+msgid "Version"
+msgstr ""
+
+#: janitoo_manager/templates/management/plugins.html:40
+msgid "Enable"
+msgstr ""
+
+#: janitoo_manager/templates/management/plugins.html:45
+msgid "Disable"
+msgstr ""
+
+#: janitoo_manager/templates/management/plugins.html:54
+msgid "Install"
+msgstr ""
+
+#: janitoo_manager/templates/management/plugins.html:60
+msgid "Uninstall"
+msgstr ""
+
+#: janitoo_manager/templates/management/reports.html:10
+#: janitoo_manager/templates/management/unread_reports.html:10
+msgid "Show unread reports"
+msgstr ""
+
+#: janitoo_manager/templates/management/reports.html:11
+#: janitoo_manager/templates/management/unread_reports.html:11
+msgid "Show all reports"
+msgstr ""
+
+#: janitoo_manager/templates/management/reports.html:20
+msgid "All Reports"
+msgstr ""
+
+#: janitoo_manager/templates/management/reports.html:28
+#: janitoo_manager/templates/management/unread_reports.html:29
+msgid "Poster"
+msgstr ""
+
+#: janitoo_manager/templates/management/reports.html:30
+#: janitoo_manager/templates/management/unread_reports.html:31
+msgid "Reporter"
+msgstr ""
+
+#: janitoo_manager/templates/management/reports.html:31
+#: janitoo_manager/templates/management/unread_reports.html:32
+msgid "Reason"
+msgstr ""
+
+#: janitoo_manager/templates/management/reports.html:32
+#: janitoo_manager/templates/management/unread_reports.html:33
+msgid "Reported"
+msgstr ""
+
+#: janitoo_manager/templates/management/reports.html:47
+msgid "No reports."
+msgstr ""
+
+#: janitoo_manager/templates/management/unread_reports.html:1
+#: janitoo_manager/templates/management/unread_reports.html:20
+msgid "Unread Reports"
+msgstr ""
+
+#: janitoo_manager/templates/management/unread_reports.html:41
+msgid "Are you sure you want to mark these Reports as read?"
+msgstr ""
+
+#: janitoo_manager/templates/management/unread_reports.html:71
+msgid "No unread reports."
+msgstr ""
+
+#: janitoo_manager/templates/management/users.html:64
+msgid "Are you sure you want to ban these Users?"
+msgstr ""
+
+#: janitoo_manager/templates/management/users.html:65
+msgid "Ban selected Users"
+msgstr ""
+
+#: janitoo_manager/templates/management/users.html:76
+msgid "Are you sure you want to delete these Users?"
+msgstr ""
+
+#: janitoo_manager/templates/management/users.html:77
+msgid "Delete selected Users"
+msgstr ""
+
+#: janitoo_manager/templates/message/conversation_list.html:4
+msgid "Conversations"
+msgstr ""
+
+#: janitoo_manager/templates/message/conversation_list.html:80
+msgid "No conversations found."
+msgstr ""
+
+#: janitoo_manager/templates/message/drafts.html:1
+#: janitoo_manager/templates/message/message_layout.html:18
+msgid "Drafts"
+msgstr ""
+
+#: janitoo_manager/templates/message/inbox.html:1
+#: janitoo_manager/templates/message/message_layout.html:16
+msgid "Inbox"
+msgstr ""
+
+#: janitoo_manager/templates/message/message_layout.html:8
+msgid "Private Message"
+msgstr ""
+
+#: janitoo_manager/templates/message/message_layout.html:17
+msgid "Sent"
+msgstr ""
+
+#: janitoo_manager/templates/message/message_layout.html:19
+#: janitoo_manager/templates/message/trash.html:1
+msgid "Trash"
+msgstr ""
+
+#: janitoo_manager/templates/message/sent.html:1
+msgid "Sent Messages"
+msgstr ""
+
+#: janitoo_manager/templates/user/all_posts.html:8
+#: janitoo_manager/templates/user/profile.html:29
+msgid "All Posts"
+msgstr ""
+
+#: janitoo_manager/templates/user/all_posts.html:18
+#, python-format
+msgid "All Posts created by %(user)s"
+msgstr ""
+
+#: janitoo_manager/templates/user/all_topics.html:8
+#: janitoo_manager/templates/user/profile.html:28
+msgid "All Topics"
+msgstr ""
+
+#: janitoo_manager/templates/user/all_topics.html:20
+#, python-format
+msgid "All Topics created by %(user)s"
+msgstr ""
+
+#: janitoo_manager/templates/user/change_email.html:6
+#: janitoo_manager/templates/user/settings_layout.html:19
+msgid "Change E-Mail Address"
+msgstr ""
+
+#: janitoo_manager/templates/user/change_password.html:6
+#: janitoo_manager/templates/user/settings_layout.html:20
+msgid "Change Password"
+msgstr ""
+
+#: janitoo_manager/templates/user/change_user_details.html:6
+#: janitoo_manager/templates/user/settings_layout.html:18
+msgid "Change User Details"
+msgstr ""
+
+#: janitoo_manager/templates/user/general_settings.html:6
+#: janitoo_manager/templates/user/settings_layout.html:17
+msgid "General Settings"
+msgstr ""
+
+#: janitoo_manager/templates/user/profile.html:11
+msgid "Info"
+msgstr ""
+
+#: janitoo_manager/templates/user/profile.html:12
+msgid "User Stats"
+msgstr ""
+
+#: janitoo_manager/templates/user/profile.html:40
+msgid "User has not added any notes about him."
+msgstr ""
+
+#: janitoo_manager/templates/user/profile.html:52
+msgid "Joined"
+msgstr ""
+
+#: janitoo_manager/templates/user/profile.html:60
+msgid "Last seen"
+msgstr ""
+
+#: janitoo_manager/templates/user/profile.html:61
+msgid "Never seen"
+msgstr ""
+
+#: janitoo_manager/templates/user/profile.html:64
+msgid "Last post"
+msgstr ""
+
+#: janitoo_manager/templates/user/profile.html:68
+msgid "Never"
+msgstr ""
+
+#: janitoo_manager/templates/user/profile.html:74
+#: janitoo_manager/templates/user/profile.html:78
+msgid "No Info"
+msgstr ""
+
+#: janitoo_manager/templates/user/settings_layout.html:15
+msgid "Account Settings"
+msgstr ""
+
+#: janitoo_manager/user/forms.py:30
+msgid "Theme"
+msgstr ""
+
+#: janitoo_manager/user/forms.py:36
+msgid "Old E-Mail Address"
+msgstr ""
+
+#: janitoo_manager/user/forms.py:40
+msgid "New E-Mail Address"
+msgstr ""
+
+#: janitoo_manager/user/forms.py:42
+msgid "E-Mails must match."
+msgstr ""
+
+#: janitoo_manager/user/forms.py:45
+msgid "Confirm E-Mail Address"
+msgstr ""
+
+#: janitoo_manager/user/forms.py:64
+msgid "Old Password"
+msgstr ""
+
+#: janitoo_manager/user/forms.py:65
+msgid "Password required"
+msgstr ""
+
+#: janitoo_manager/user/forms.py:71
+msgid "Confirm New Password"
+msgstr ""
+
+#: janitoo_manager/user/forms.py:77
+msgid "Old Password is wrong."
+msgstr ""
+
+#: janitoo_manager/user/views.py:50
+msgid "Settings updated."
+msgstr ""
+
+#: janitoo_manager/user/views.py:66
+msgid "Password updated."
+msgstr ""
+
+#: janitoo_manager/user/views.py:78
+msgid "E-Mail Address updated."
+msgstr ""
+
+#: janitoo_manager/user/views.py:91
+msgid "Details updated."
+msgstr ""
+
+#: janitoo_manager/utils/helpers.py:82
+msgid "You do not have the permissions to execute this action."
+msgstr ""
+
+#: janitoo_manager/utils/helpers.py:95
+msgid "You do not have the permissions to delete this topic."
+msgstr ""
+
+#~ msgid ""
+#~ msgstr ""
+
+#~ msgid "All Topics created by"
+#~ msgstr ""
+
+#~ msgid "You can only use letters, numbers or dashes"
+#~ msgstr ""
+
+#~ msgid "Username or E-Mail"
+#~ msgstr ""
+
+#~ msgid "E-Mail"
+#~ msgstr ""
+
+#~ msgid "This Username is taken."
+#~ msgstr ""
+
+#~ msgid "This E-Mail is taken."
+#~ msgstr ""
+
+#~ msgid "Wrong E-Mail."
+#~ msgstr ""
+
+#~ msgid "Wrong username or password"
+#~ msgstr ""
+
+#~ msgid "Reauthenticated"
+#~ msgstr ""
+
+#~ msgid "Thanks for registering"
+#~ msgstr ""
+
+#~ msgid "Your password token is invalid."
+#~ msgstr ""
+
+#~ msgid "Your password is expired."
+#~ msgstr ""
+
+#~ msgid "Your password has been updated."
+#~ msgstr ""
+
+#~ msgid "Quickreply"
+#~ msgstr ""
+
+#~ msgid "Please choose a Topic title."
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to delete the topic"
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to lock this topic"
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to unlock this topic"
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to highlight this topic"
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to trivialize this topic"
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to move this topic"
+#~ msgstr ""
+
+#~ msgid "Could not move the topic to forum %(title)s"
+#~ msgstr ""
+
+#~ msgid "Topic was moved to forum %(title)s"
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to merge this topic"
+#~ msgstr ""
+
+#~ msgid "Could not merge the topic."
+#~ msgstr ""
+
+#~ msgid "Topic succesfully merged."
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to post here"
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to post in this topic"
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to edit this post"
+#~ msgstr ""
+
+#~ msgid "Thanks for reporting!"
+#~ msgstr ""
+
+#~ msgid "Only one Banned group is allowed"
+#~ msgstr ""
+
+#~ msgid "Only one Guest group is allowed"
+#~ msgstr ""
+
+#~ msgid "Check this if the users in this group can edit posts"
+#~ msgstr ""
+
+#~ msgid "Check this is the users in this group can delete posts"
+#~ msgstr ""
+
+#~ msgid "Check this is the users in this group can delete topics"
+#~ msgstr ""
+
+#~ msgid "Check this is the users in this group can create topics"
+#~ msgstr ""
+
+#~ msgid "Check this is the users in this group can post replies"
+#~ msgstr ""
+
+#~ msgid "Allow moderators to ban other users"
+#~ msgstr ""
+
+#~ msgid "This Group name is taken."
+#~ msgstr ""
+
+#~ msgid "A link to a website i.e. 'http://janitoo_manager.org'"
+#~ msgstr ""
+
+#~ msgid "You cannot convert a forum that contain topics in a external link"
+#~ msgstr ""
+
+#~ msgid "%(user)s is not in a moderators group"
+#~ msgstr ""
+
+#~ msgid "User %(moderator)s not found"
+#~ msgstr ""
+
+#~ msgid "User successfully edited"
+#~ msgstr ""
+
+#~ msgid "User successfully deleted"
+#~ msgstr ""
+
+#~ msgid "User was banned successfully."
+#~ msgstr ""
+
+#~ msgid "Report %(id)s is already marked as read"
+#~ msgstr ""
+
+#~ msgid "Report %(id)s marked as read"
+#~ msgstr ""
+
+#~ msgid "All reports were marked as read"
+#~ msgstr ""
+
+#~ msgid "Group successfully edited."
+#~ msgstr ""
+
+#~ msgid "Forum successfully edited."
+#~ msgstr ""
+
+#~ msgid "Category successfully created."
+#~ msgstr ""
+
+#~ msgid "Plugin is not enabled"
+#~ msgstr ""
+
+#~ msgid "Plugin %(plugin)s not found"
+#~ msgstr ""
+
+#~ msgid "Cannot uninstall Plugin"
+#~ msgstr ""
+
+#~ msgid "Cannot install Plugin"
+#~ msgstr ""
+
+#~ msgid "No posts"
+#~ msgstr ""
+
+#~ msgid "No Topics so far."
+#~ msgstr ""
+
+#~ msgid "No users found matching your search query"
+#~ msgstr ""
+
+#~ msgid "No Posts so far."
+#~ msgstr ""
+
+#~ msgid "Change E-Mail Adress"
+#~ msgstr ""
+
+#~ msgid "This E-Mail is invalid"
+#~ msgstr ""
+
+#~ msgid "A username is required."
+#~ msgstr ""
+
+#~ msgid "A subject is required."
+#~ msgstr ""
+
+#~ msgid "A message is required."
+#~ msgstr ""
+
+#~ msgid "The username you entered doesn't exist"
+#~ msgstr ""
+
+#~ msgid "Your settings have been updated!"
+#~ msgstr ""
+
+#~ msgid "Your password have been updated!"
+#~ msgstr ""
+
+#~ msgid "Your email have been updated!"
+#~ msgstr ""
+
+#~ msgid "Your details have been updated!"
+#~ msgstr ""
+
+#~ msgid "Message saved!"
+#~ msgstr ""
+
+#~ msgid "Message sent!"
+#~ msgstr ""
+
+#~ msgid "You cannot edit a sent message"
+#~ msgstr ""
+
+#~ msgid "Message moved to Trash!"
+#~ msgstr ""
+
+#~ msgid "Message restored from Trash!"
+#~ msgstr ""
+
+#~ msgid "Message deleted!"
+#~ msgstr ""
+
+#~ msgid "Quick Reply"
+#~ msgstr ""
+
+#~ msgid "You cannot post a reply without content."
+#~ msgstr ""
+
+#~ msgid "Content"
+#~ msgstr ""
+
+#~ msgid "Track this Topic"
+#~ msgstr ""
+
+#~ msgid "Topic Title"
+#~ msgstr ""
+
+#~ msgid "Please choose a Topic Title."
+#~ msgstr ""
+
+#~ msgid "Post Topic"
+#~ msgstr ""
+
+#~ msgid "What's the reason for reporting this post?"
+#~ msgstr ""
+
+#~ msgid "Criteria"
+#~ msgstr ""
+
+#~ msgid "Post"
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to create a new topic."
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to lock this topic."
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to unlock this topic."
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to highlight this topic."
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to trivialize this topic."
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to move this topic."
+#~ msgstr ""
+
+#~ msgid "Could not move the topic to forum %(title)s."
+#~ msgstr ""
+
+#~ msgid "Topic was moved to forum %(title)s."
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to merge this topic."
+#~ msgstr ""
+
+#~ msgid "Could not merge the topics."
+#~ msgstr ""
+
+#~ msgid "Topics succesfully merged."
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to post in this topic."
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to edit this post."
+#~ msgstr ""
+
+#~ msgid "You do not have the permissions to delete this post."
+#~ msgstr ""
+
+#~ msgid "Thanks for reporting."
+#~ msgstr ""
+
+#~ msgid "Forum %(forum)s marked as read."
+#~ msgstr ""
+
+#~ msgid "All forums marked as read."
+#~ msgstr ""
+
+#~ msgid "Mark all as Read"
+#~ msgstr ""
+
+#~ msgid "To"
+#~ msgstr ""
+
+#~ msgid "Subject"
+#~ msgstr ""
+
+#~ msgid "Date"
+#~ msgstr ""
+
+#~ msgid "Options"
+#~ msgstr ""
+
+#~ msgid "No Subject"
+#~ msgstr ""
+
+#~ msgid "This message folder is empty."
+#~ msgstr ""
+
+#~ msgid "From"
+#~ msgstr ""
+
+#~ msgid "deleted"
+#~ msgstr ""
+
+#~ msgid "New PM"
+#~ msgstr ""
+
+#~ msgid "No User"
+#~ msgstr ""
+
+#~ msgid "Restore"
+#~ msgstr ""
+
+#~ msgid "No Message"
+#~ msgstr ""
+
+#~ msgid "Only jpg, jpeg, png and gifs are allowed!"
+#~ msgstr ""
+
+#~ msgid "Your Birthday"
+#~ msgstr ""
+
+#~ msgid "To User"
+#~ msgstr ""
+
+#~ msgid "A Subject is required."
+#~ msgstr ""
+
+#~ msgid "Message"
+#~ msgstr ""
+
+#~ msgid "A Message is required."
+#~ msgstr ""
+
+#~ msgid "Send Message"
+#~ msgstr ""
+
+#~ msgid "Save Message"
+#~ msgstr ""
+
+#~ msgid "The Username you entered doesn't exist"
+#~ msgstr ""
+
+#~ msgid "You cannot send a PM to yourself."
+#~ msgstr ""
+
+#~ msgid "Message saved."
+#~ msgstr ""
+
+#~ msgid "Message sent."
+#~ msgstr ""
+
+#~ msgid "Compose Message"
+#~ msgstr ""
+
+#~ msgid "You cannot edit a sent message."
+#~ msgstr ""
+
+#~ msgid "Edit Message"
+#~ msgstr ""
+
+#~ msgid "Message moved to Trash."
+#~ msgstr ""
+
+#~ msgid "Message restored from Trash."
+#~ msgstr ""
+
+#~ msgid "Message deleted."
+#~ msgstr ""
+

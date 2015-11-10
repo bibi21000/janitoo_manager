@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JaNitOO</title>
+    {% import 'includes.html' as includes %}
+    {{ includes.bootstrap() }}
+    {{ includes.janitoo() }}
+    {% block head %}
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">;
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="container">
+        <script type='text/javascript'>
+          $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
+        </script>
+        <script type="text/javascript" src="/javascript/janitoo_constants.js"></script>
+        <h1>Welcome to Janitoo</h1>
+        {% for key,item in application_entries %}
+            <a href="{{ key }}">{{ item.label }}</a>&nbsp;
+        {% endfor %}
+        {% block content %}
+        {% endblock %}
+    </div>
+  </body>
+</html>
