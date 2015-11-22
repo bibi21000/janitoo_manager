@@ -91,6 +91,7 @@ setup(
     package_dir = { '': 'src' },
     install_requires=[
                     'janitoo_flask >= %s'%'0.0.6',
+                    'Flask >= 0.9',
                     'Flask-Mail',
                     'Flask-Cache',
                     'Flask-Bower',
