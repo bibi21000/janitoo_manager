@@ -102,6 +102,9 @@ setup(
                     'Flask-WTF',
                     'MarkupSafe',
                     ],
+    dependency_links = [
+      'https://github.com/bibi21000/janitoo_flask/archive/master.zip#egg=janitoo_flask-%s'%"0.0.6",
+    ],
     entry_points = {
         'janitoo_manager.network': [
             'manager = janitoo_manager.network:extend',
