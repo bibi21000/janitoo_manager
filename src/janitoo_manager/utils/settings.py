@@ -1,18 +1,51 @@
 # -*- coding: utf-8 -*-
 """
-    janitoo_manager.utils.settings
-    ~~~~~~~~~~~~~~~~~~~~~~
-
-    This module contains the interface for interacting with janitoo_manager's
-    configuration.
-
-    :copyright: (c) 2014 by the janitoo_manager Team.
-    :license: BSD, see LICENSE for more details.
 """
+__license__ = """
+    This file is part of Janitoo.
+
+    Janitoo is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Janitoo is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Janitoo. If not, see <http://www.gnu.org/licenses/>.
+
+    Original copyright :
+    Copyright (c) 2013 Roger Light <roger@atchoo.org>
+
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Distribution License v1.0
+    which accompanies this distribution.
+
+    The Eclipse Distribution License is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    Contributors:
+     - Roger Light - initial implementation
+
+    This example shows how you can use the MQTT client in a class.
+
+"""
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
+from gevent import monkey
+monkey.patch_all()
+
+import logging
+logger = logging.getLogger('janitoo.manager')
+
 import collections
 
-from janitoo_manager.management.models import Setting
-
+from janitoo_manager.management.models import SettingMan
+#~ import janitoo_db.models as jnt_models
 
 class ManagerConfig(collections.MutableMapping):
     """Provides a dictionary like interface for interacting with janitoo_manager's
@@ -23,19 +56,18 @@ class ManagerConfig(collections.MutableMapping):
         self.update(dict(*args, **kwargs))
 
     def __getitem__(self, key):
-        return Setting.as_dict()[key]
+        return SettingMan.as_dict()[key]
 
     def __setitem__(self, key, value):
-        Setting.update({key.lower(): value})
+        SettingMan.update({key.lower(): value})
 
     def __delitem__(self, key):  # pragma: no cover
         pass
 
     def __iter__(self):
-        return iter(Setting.as_dict())
+        return iter(SettingMan.as_dict())
 
     def __len__(self):
-        return len(Setting.as_dict())
+        return len(SettingMan.as_dict())
 
-
-janitoo_config = ManagerConfig()
+flask_config = ManagerConfig()

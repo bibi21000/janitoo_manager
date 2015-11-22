@@ -1,13 +1,47 @@
 # -*- coding: utf-8 -*-
 """
-    janitoo_manager.utils.helpers
-    ~~~~~~~~~~~~~~~~~~~~
-
-    A few helpers that are used by janitoo_manager
-
-    :copyright: (c) 2014 by the janitoo_manager Team.
-    :license: BSD, see LICENSE for more details.
 """
+__license__ = """
+    This file is part of Janitoo.
+
+    Janitoo is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Janitoo is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Janitoo. If not, see <http://www.gnu.org/licenses/>.
+
+    Original copyright :
+    Copyright (c) 2013 Roger Light <roger@atchoo.org>
+
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Distribution License v1.0
+    which accompanies this distribution.
+
+    The Eclipse Distribution License is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    Contributors:
+     - Roger Light - initial implementation
+
+    This example shows how you can use the MQTT client in a class.
+
+"""
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
+from gevent import monkey
+monkey.patch_all()
+
+import logging
+logger = logging.getLogger('janitoo.manager')
+
 import re
 import time
 import itertools
@@ -21,13 +55,26 @@ import unidecode
 from flask import session, url_for, flash
 from babel.dates import format_timedelta
 from flask_babelex import lazy_gettext as _
-from flask_themes2 import render_theme_template
+from flask_themes2 import render_theme_template, get_themes_list
 from flask_login import current_user
 
+
+from janitoo_manager.extensions import babel
+
 from janitoo_manager._compat import range_method, text_type
-from janitoo_manager.utils.settings import janitoo_config
+from janitoo_manager.utils.settings import flask_config
 from janitoo_manager.utils.markup import markdown
 
+
+def available_themes():
+    return [(theme.identifier, theme.name) for theme in get_themes_list()]
+
+def available_avatar_types():
+    return [("image/png", "PNG"), ("image/jpeg", "JPG"), ("image/gif", "GIF")]
+
+def available_languages():
+    return [(locale.language, locale.display_name)
+            for locale in babel.list_translations()]
 
 _punct_re = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.]+')
 
@@ -51,13 +98,13 @@ def render_template(template, **context):  # pragma: no cover
     """A helper function that uses the `render_theme_template` function
     without needing to edit all the views
     """
-    print("janitoo_config : %s"%janitoo_config)
-    for key in janitoo_config:
-        print "%s"%janitoo_config[key]
+    #~ print("flask_config : %s"%flask_config)
+    #~ for key in janitoo_config:
+        #~ print "%s"%janitoo_config[key]
     if current_user.is_authenticated() and current_user.theme:
         theme = current_user.theme
     else:
-        theme = session.get('theme', janitoo_config['DEFAULT_THEME'])
+        theme = session.get('theme', flask_config['DEFAULT_THEME'])
     return render_theme_template(theme, template, **context)
 
 
@@ -191,10 +238,10 @@ def forum_is_unread(forum, forumsread, user):
         return False
 
     read_cutoff = datetime.utcnow() - timedelta(
-        days=janitoo_config["TRACKER_LENGTH"])
+        days=flask_config["TRACKER_LENGTH"])
 
     # disable tracker if TRACKER_LENGTH is set to 0
-    if janitoo_config["TRACKER_LENGTH"] == 0:
+    if flask_config["TRACKER_LENGTH"] == 0:
         return False
 
     # If there are no topics in the forum, mark it as read
@@ -238,10 +285,10 @@ def topic_is_unread(topic, topicsread, user, forumsread=None):
         return False
 
     read_cutoff = datetime.utcnow() - timedelta(
-        days=janitoo_config["TRACKER_LENGTH"])
+        days=flask_config["TRACKER_LENGTH"])
 
     # disable tracker if read_cutoff is set to 0
-    if janitoo_config["TRACKER_LENGTH"] == 0:
+    if flask_config["TRACKER_LENGTH"] == 0:
         return False
 
     # check read_cutoff
@@ -274,7 +321,7 @@ def mark_online(user_id, guest=False):  # pragma: no cover
     Ref: http://flask.pocoo.org/snippets/71/
     """
     now = int(time.time())
-    expires = now + (janitoo_config['ONLINE_LAST_MINUTES'] * 60) + 10
+    expires = now + (flask_config['ONLINE_LAST_MINUTES'] * 60) + 10
     if guest:
         all_users_key = 'online-guests/%d' % (now // 60)
         user_key = 'guest-activity/%s' % user_id
@@ -295,7 +342,7 @@ def get_online_users(guest=False):  # pragma: no cover
     :param guest: If True, it will return the online guests
     """
     current = int(time.time()) // 60
-    minutes = range_method(janitoo_config['ONLINE_LAST_MINUTES'])
+    minutes = range_method(flask_config['ONLINE_LAST_MINUTES'])
     if guest:
         return redis_store.sunion(['online-guests/%d' % (current - x)
                                    for x in minutes])
@@ -311,7 +358,7 @@ def crop_title(title, length=None, suffix="..."):
     :param suffix: The suffix which should be appended at the
                    end of the title.
     """
-    length = janitoo_config['TITLE_LENGTH'] if length is None else length
+    length = flask_config['TITLE_LENGTH'] if length is None else length
 
     if len(title) <= length:
         return title
@@ -341,7 +388,7 @@ def time_diff():
     variable from the configuration.
     """
     now = datetime.utcnow()
-    diff = now - timedelta(minutes=janitoo_config['ONLINE_LAST_MINUTES'])
+    diff = now - timedelta(minutes=flask_config['ONLINE_LAST_MINUTES'])
     return diff
 
 
@@ -466,7 +513,7 @@ def get_image_info(url):
 
 def check_image(url):
     """A little wrapper for the :func:`get_image_info` function.
-    If the image doesn't match the ``janitoo_config`` settings it will
+    If the image doesn't match the ``flask_config`` settings it will
     return a tuple with a the first value is the custom error message and
     the second value ``False`` for not passing the check.
     If the check is successful, it will return ``None`` for the error message
@@ -477,27 +524,27 @@ def check_image(url):
     img_info = get_image_info(url)
     error = None
 
-    if not img_info["content-type"] in janitoo_config["AVATAR_TYPES"]:
+    if not img_info["content-type"] in flask_config["AVATAR_TYPES"]:
         error = "Image type is not allowed. Allowed types are: {}".format(
-            ", ".join(janitoo_config["AVATAR_TYPES"])
+            ", ".join(flask_config["AVATAR_TYPES"])
         )
         return error, False
 
-    if img_info["width"] > janitoo_config["AVATAR_WIDTH"]:
+    if img_info["width"] > flask_config["AVATAR_WIDTH"]:
         error = "Image is too wide! {}px width is allowed.".format(
-            janitoo_config["AVATAR_WIDTH"]
+            flask_config["AVATAR_WIDTH"]
         )
         return error, False
 
-    if img_info["height"] > janitoo_config["AVATAR_HEIGHT"]:
+    if img_info["height"] > flask_config["AVATAR_HEIGHT"]:
         error = "Image is too high! {}px height is allowed.".format(
-            janitoo_config["AVATAR_HEIGHT"]
+            flask_config["AVATAR_HEIGHT"]
         )
         return error, False
 
-    if img_info["size"] > janitoo_config["AVATAR_SIZE"]:
+    if img_info["size"] > flask_config["AVATAR_SIZE"]:
         error = "Image is too big! {}kb are allowed.".format(
-            janitoo_config["AVATAR_SIZE"]
+            flask_config["AVATAR_SIZE"]
         )
         return error, False
 

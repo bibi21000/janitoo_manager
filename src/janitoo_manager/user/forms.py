@@ -1,13 +1,47 @@
 # -*- coding: utf-8 -*-
 """
-    janitoo_manager.user.forms
-    ~~~~~~~~~~~~~~~~~~~~
-
-    It provides the forms that are needed for the user views.
-
-    :copyright: (c) 2014 by the FlaskBB Team.
-    :license: BSD, see LICENSE for more details.
 """
+__license__ = """
+    This file is part of Janitoo.
+
+    Janitoo is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Janitoo is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Janitoo. If not, see <http://www.gnu.org/licenses/>.
+
+    Original copyright :
+    Copyright (c) 2013 Roger Light <roger@atchoo.org>
+
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Distribution License v1.0
+    which accompanies this distribution.
+
+    The Eclipse Distribution License is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    Contributors:
+     - Roger Light - initial implementation
+
+    This example shows how you can use the MQTT client in a class.
+
+"""
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
+from gevent import monkey
+monkey.patch_all()
+
+import logging
+logger = logging.getLogger('janitoo.manager')
+
 from flask_login import current_user
 from flask_wtf import Form
 from wtforms import (StringField, PasswordField, TextAreaField, SelectField,
@@ -16,7 +50,7 @@ from wtforms.validators import (Length, DataRequired, InputRequired, Email,
                                 EqualTo, Optional, URL)
 from flask_babelex import lazy_gettext as _
 
-from janitoo_manager.user.models import User
+from janitoo_manager.user.models import UserMan
 from janitoo_manager.extensions import db
 from janitoo_manager.utils.widgets import SelectBirthdayWidget
 from janitoo_manager.utils.fields import BirthdayField
@@ -53,9 +87,9 @@ class ChangeEmailForm(Form):
         super(ChangeEmailForm, self).__init__(*args, **kwargs)
 
     def validate_email(self, field):
-        user = User.query.filter(db.and_(
-                                 User.email.like(field.data),
-                                 db.not_(User.id == self.user.id))).first()
+        user = UserMan.query.filter(db.and_(
+                                 UserMan.email.like(field.data),
+                                 db.not_(UserMan.id == self.user.id))).first()
         if user:
             raise ValidationError(_("This E-Mail Address is already taken."))
 

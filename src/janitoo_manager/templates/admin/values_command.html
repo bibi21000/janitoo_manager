@@ -1,39 +1,48 @@
-{% extends "layout.html" %}
-
-{% import 'includes.html' as includes %}
-{% block head %}
-{{ includes.socketio() }}
-{{ includes.datatables() }}
-{% endblock %}
+{% extends theme("layout.html") %}
 
 {% import 'widgets.html' as widgets %}
+{% block head %}
+<h1 class="page-header"> <i class="fa fa-table fa-fw">&nbsp;{% trans %}Command&nbsp;values{% endtrans %}</h1></i>
+{% endblock %}
+
 {% block content %}
-    <script type="text/javascript" charset="utf-8">
-        var namespace = '/janitoo'; // change to an empty string to use the global namespace
-        // the socket.io documentation recommends sending an explicit package upon connection
-        // this is specially important when using the global namespace
-        var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
-        // event handler for server sent data
-        // the data is displayed in the "Received" section of the page
-    </script>
-    {{ widgets.network_state(size='small') }}
-    <h2>Command values:</h2>
-    <table id="commands" class="display responsive nowrap" cellspacing="0" width="100%">
+    {{ widgets.network_state(size='large') }}
+    <table id="jnt_values_command" class="display responsive nowrap" cellspacing="0" width="100%">
       <thead>
-        <tr><th class="command_id">Id</th><th>Node id</th><th>Help</th><th>is_readonly</th><th>is_writeonly</th></tr>
+        <tr><th class="command_id">Id</th><th>Node id</th><th>Index</th><th>Label</th><th>Help</th><th>Value</th><th>Units</th></tr>
       </thead>
       <tfoot>
-        <tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr>
+        <tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr>
       </tfoot>
       <tbody>
       </tbody>
     </table>
 
+{% endblock %}
+
+{% block scripts %}
+{{ widgets.janitoo_socket_script() }}
+{{ widgets.network_state_script() }}
+
     <script type="text/javascript" charset="utf-8">
+
+    function msg2data(msg) {
+        var data = [
+            msg["uuid"],
+            msg["hadd"],
+            msg["index"],
+            msg["label"],
+            msg["help"],
+            msg["data"],
+            msg["units"]
+        ];
+        return data
+    }
+
     $(document).ready(function() {
-        console.log('Document ready started');
+        console.log('Document ready in html page');
         // Add `no-wrap` class so the text doesn't wrap for this example
-        $("#commands").dataTable({
+        $("#jnt_values_command").dataTable({
           "pageLength": 50,
           "aaData":[
           ],
@@ -49,40 +58,61 @@
                 }
           }],
           "fnRowCallback": function(nRow, aData, iDisplayIndex) {
-            nRow.setAttribute('id',aData[0]);
+            nRow.setAttribute('id',aData[1].replace('/','\\/')+'_'+aData[0]+'_'+aData[2]);
           },
           responsive: true,
         });
-        socket.on('connect', function() {
-            socket.emit('my echo event', {data: 'I\'m connected!'});
-        });
-        // event handler for server sent data
-        // the data is displayed in the "Received" section of the page
-        socket.on('my echo response', function(msg) {
-            console.log("Received " + msg.data)
-        });
-        socket.on('my network response', function(msg) {
-            console.log("Received " + msg.data['state']);
-            jnt_network_state_update(msg.data);
-        });
+
         socket.on('my commands response', function(msg) {
-            console.log("Received commands response : " + msg.data);
-            $("#commands").dataTable().fnClearTable();
+            //~ console.log("Received commands response : " + msg.data);
+            var oTable = $("#jnt_values_command").DataTable();
+            oTable.clear();
             $.each(msg.data, function (nkey, nitem) {
                 $.each(msg.data[nkey], function (key, item) {
-                    $("#commands").dataTable().fnAddData([
-                        item["uuid"],
-                        item["hadd"],
-                        item["help"],
-                        item["is_readonly"],
-                        item["is_writeonly"],
-                    ]);
+                    //~ console.log("Received commands hadd : " + item["uuid"]);
+                    if (oTable.rows($('tr#'+(item["hadd"].replace('/','\\/')+'_'+item['uuid']+'_'+item['index']))).data().length == 1) {
+                        oTable.row($('tr#'+item["hadd"].replace('/','\\/')+'_'+item['uuid']+'_'+item['index'])).data(
+                            msg2data(item)).draw();
+                    } else {
+                        oTable.row.add(msg2data(item)).draw();
+                    }
                 });
             });
         });
+        socket.on('my command response', function(msg) {
+            console.log("Received command response : " + msg.data['hadd']);
+            var oTable = $("#jnt_values_command").DataTable();
+            if (typeof msg.data['hadd'] == 'undefined') {
+                $.each(msg.data, function (key, item) {
+                    //var aPos = oTable.fnGetPosition( $('tr#'+item["hadd"].replace('/','\\/'))[0] );
+                    //console.log("pos in table : " + aPos[0]);
+                    console.log("Received uuid response : " + item['uuis']);
+                    console.log("Received hadd response : " + item['hadd']);
+                    if (oTable.rows($('tr#'+(item["hadd"].replace('/','\\/')+'_'+item['uuid']+'_'+item['index']))).data().length == 1) {
+                        oTable.row($('tr#'+item["hadd"].replace('/','\\/')+'_'+item['uuid']+'_'+item['index'])).data(
+                            msg2data(item)).draw();
+                    } else {
+                        oTable.row.add(msg2data(item)).draw();
+                    }
+                });
+            } else {
+                //var aPos = oTable.fnGetPosition( $('tr#'+msg.data["hadd"].replace('/','\\/'))[0] );
+                //console.log("pos in table : " + aPos[0]);
+                console.log("Received msg response : " + msg.data['hadd']);
+                if (oTable.rows($('tr#'+msg.data["hadd"].replace('/','\\/')+'_'+msg.data['uuid']+'_'+msg.data['index'])).data().length == 1) {
+                    oTable.row($('tr#'+msg.data["hadd"].replace('/','\\/')+'_'+msg.data['uuid']+'_'+msg.data['index'])).data(
+                        msg2data(msg.data)).draw();
+                } else {
+                    oTable.row.add(msg2data(msg.data)).draw();
+                }
+            }
+        });
+
         socket.emit('my network event', {});
+        //~ socket.emit('my command event', {});
         socket.emit('my commands event', {});
     } );
 
     </script>
+
 {% endblock %}

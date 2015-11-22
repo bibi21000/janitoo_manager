@@ -1,0 +1,92 @@
+{% macro modules_summerize(size='normal',title="Last updates", modules={}) -%}
+    {% if size == 'normal' %}
+    <div class="panel panel-default panel-widget">
+      <div class="panel-heading panel-widget-heading">
+        <h3 class="panel-title">{{ title }}</h3>
+      </div>
+      <div class="panel-body panel-widget-body">
+      {% for module in modules %}
+
+          <div class="modules-topic">
+            <div class="modules-topic-name">
+              <a href="{{ url_for('modules.view_module', module_id=module) }}">{{ modules[module]['title'] | truncate(length=35) }}</a></br>{{ modules[module]['description'] | truncate(length=40) }}
+            </div>
+            <div class="modules-topic-updated-by">
+              {{ modules[module]['username'] }}
+            </div>
+            <div class="modules-topic-updated">
+              {{ modules[module]['last_updated'] | time_since }}
+            </div>
+          </div> <!-- /.topic -->
+
+      {% endfor %}
+      </div>
+    </div>
+    {% else %}
+        <p>Not implemented</p>
+    {% endif %}
+{%- endmacro %}
+
+{% macro modules_statistic(size='normal', module_count=0, user_count=0, newest_user=None, online_users=0, online_guests=0 ) -%}
+    {% if size == 'normal' %}
+    <div class="panel panel-default panel-widget">
+      <div class="panel-heading panel-widget-heading">
+        <h3 class="panel-title">Statistics</h3>
+      </div>
+      <div class="panel-body panel-widget-body">
+
+            <div class="modules-stats">
+              <div class="modules-stats-left">
+                Modules
+              </div>
+              <div class="modules-stats-right">
+                {{ module_count }}
+              </div>
+            </div>
+
+            <div class="modules-stats">
+              <div class="modules-stats-left">
+                Registered Users
+              </div>
+              <div class="modules-stats-right">
+                {{ user_count }}
+              </div>
+            </div>
+
+            {% if newest_user %}
+            <div class="modules-stats">
+              <div class="modules-stats-left">
+                Newest User
+              </div>
+              <div class="modules-stats-right">
+                <a href="{{ newest_user.url }}">{{ newest_user.username }}</a>
+              </div>
+            </div>
+            {% endif %}
+
+            <div class="modules-stats">
+              <div class="modules-stats-left">
+                Online Users
+              </div>
+
+              <div class="modules-stats-right">
+                {{ online_users }}
+              </div>
+            </div>
+
+            {% if config["REDIS_ENABLED"] %}
+            <div class="modules-stats">
+              <div class="modules-stats-left">
+                Guests online
+              </div>
+
+              <div class="modules-stats-right">
+                {{ online_guests }}
+              </div>
+            </div>
+            {% endif %}
+      </div>
+    {% else %}
+        <p>Not implemented</p>
+    {% endif %}
+{%- endmacro %}

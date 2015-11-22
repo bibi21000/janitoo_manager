@@ -1,0 +1,9 @@
+{
+    "application": "janitoo_manager",
+    "identifier": "admin",
+    "name": "Admin",
+    "author": "bibi21000",
+    "license": "GPL3 (Bootstrap)",
+    "description": "The default Admin theme",
+    "version": "1.0.0"
+}

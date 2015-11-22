@@ -1,18 +1,53 @@
 # -*- coding: utf-8 -*-
 """
-    janitoo_manager.utils.populate
-    ~~~~~~~~~~~~~~~~~~~~
-
-    A module that makes creating data more easily
-
-    :copyright: (c) 2014 by the janitoo_manager Team.
-    :license: BSD, see LICENSE for more details.
 """
+__license__ = """
+    This file is part of Janitoo.
+
+    Janitoo is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Janitoo is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Janitoo. If not, see <http://www.gnu.org/licenses/>.
+
+    Original copyright :
+    Copyright (c) 2013 Roger Light <roger@atchoo.org>
+
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Distribution License v1.0
+    which accompanies this distribution.
+
+    The Eclipse Distribution License is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    Contributors:
+     - Roger Light - initial implementation
+
+    This example shows how you can use the MQTT client in a class.
+
+"""
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
+from gevent import monkey
+monkey.patch_all()
+
+import logging
+logger = logging.getLogger('janitoo.manager')
+
 import os
-from janitoo_manager.management.models import Setting, SettingsGroup
-from janitoo_manager.user.models import User, Group
+from janitoo_manager.management.models import SettingMan, SettingGroupMan
+from janitoo_manager.user.models import UserMan, GroupMan
 #~ from janitoo_manager.forum.models import Post, Topic, Forum, Category
 #~ from janitoo_manager.plugins.modules.models import Module, ModuleCategory
+#~ import janitoo_db.models as jnt_models
 
 def delete_settings_from_fixture(fixture):
     """Deletes the settings from a fixture from the database.
@@ -23,11 +58,11 @@ def delete_settings_from_fixture(fixture):
     deleted_settings = {}
 
     for settingsgroup in fixture:
-        group = SettingsGroup.query.filter_by(key=settingsgroup[0]).first()
+        group = SettingGroupMan.query.filter_by(key=settingsgroup[0]).first()
         deleted_settings[group] = []
 
         for settings in settingsgroup[1]["settings"]:
-            setting = Setting.query.filter_by(key=settings[0]).first()
+            setting = SettingMan.query.filter_by(key=settings[0]).first()
             if setting:
                 deleted_settings[group].append(setting)
                 setting.delete()
@@ -45,7 +80,7 @@ def create_settings_from_fixture(fixture):
     """
     created_settings = {}
     for settingsgroup in fixture:
-        group = SettingsGroup(
+        group = SettingGroupMan(
             key=settingsgroup[0],
             name=settingsgroup[1]["name"],
             description=settingsgroup[1]["description"]
@@ -54,7 +89,7 @@ def create_settings_from_fixture(fixture):
         created_settings[group] = []
 
         for settings in settingsgroup[1]["settings"]:
-            setting = Setting(
+            setting = SettingMan(
                 key=settings[0],
                 value=settings[1]["value"],
                 value_type=settings[1]["value_type"],
@@ -90,7 +125,7 @@ def update_settings_from_fixture(fixture, overwrite_group=False,
 
     for settingsgroup in fixture:
 
-        group = SettingsGroup.query.filter_by(key=settingsgroup[0]).first()
+        group = SettingGroupMan.query.filter_by(key=settingsgroup[0]).first()
 
         if (group is not None and overwrite_group) or group is None:
 
@@ -98,7 +133,7 @@ def update_settings_from_fixture(fixture, overwrite_group=False,
                 group.name = settingsgroup[1]["name"]
                 group.description = settingsgroup[1]["description"]
             else:
-                group = SettingsGroup(
+                group = SettingGroupMan(
                     key=settingsgroup[0],
                     name=settingsgroup[1]["name"],
                     description=settingsgroup[1]["description"]
@@ -109,7 +144,7 @@ def update_settings_from_fixture(fixture, overwrite_group=False,
 
         for settings in settingsgroup[1]["settings"]:
 
-            setting = Setting.query.filter_by(key=settings[0]).first()
+            setting = SettingMan.query.filter_by(key=settings[0]).first()
 
             if (setting is not None and overwrite_setting) or setting is None:
 
@@ -121,7 +156,7 @@ def update_settings_from_fixture(fixture, overwrite_group=False,
                     setting.extra = settings[1].get("extra", "")
                     setting.settingsgroup = group.key
                 else:
-                    setting = Setting(
+                    setting = SettingMan(
                         key=settings[0],
                         value=settings[1]["value"],
                         value_type=settings[1]["value_type"],

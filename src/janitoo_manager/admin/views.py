@@ -11,8 +11,6 @@ Thinking about rooms.
 
 When joining a room, you will receive message from it.
 
-
-
 """
 
 __license__ = """
@@ -46,21 +44,29 @@ import time
 from threading import Thread
 
 from flask import Blueprint, flash
-from flask import Flask, render_template, session, request, current_app, g
+from flask import Flask, session, request, current_app, g
 from flask.ext.socketio import SocketIO, emit, join_room, leave_room, close_room, disconnect
-
 from flask_themes2 import get_themes_list
 from flask_babelex import gettext as _
 
-from janitoo_manager.extensions import babel
+from janitoo_manager.extensions import babel, janitoo
+from janitoo_manager.utils.helpers import render_template
 
-from janitoo_web.app import socketio, app, sort_application_entries, sorted_application_entries
-from janitoo_web.app.listener import listener
+#~ from janitoo_web.app import socketio, app, sort_application_entries, sorted_application_entries
+#~ from janitoo_web.app.listener import listener
 
 
 admin = Blueprint("admin", __name__)
 
+@admin.before_request
+def start_listener():
+    janitoo.start_listener()
+
 @admin.route('/')
+@admin.route('/nodes')
+def nodes():
+    return render_template('admin/nodes.html')
+
 @admin.route('/node')
 @admin.route('/node/<int:ctrl_id>/<int:device_id>')
 def node(ctrl_id=None, device_id=None):
@@ -95,23 +101,23 @@ def cron(ctrl_id=None, device_id=None):
 
 @admin.route('/values_user')
 def values_user():
-    return render_template('values_user.html')
+    return render_template('admin/values_user.html')
 
 @admin.route('/values_config')
 def values_config():
-    return render_template('values_config.html')
+    return render_template('admin/values_config.html')
 
 @admin.route('/values_command')
 def values_command():
-    return render_template('values_command.html')
+    return render_template('admin/values_command.html')
 
 @admin.route('/values_system')
 def values_system():
-    return render_template('values_system.html')
+    return render_template('admin/values_system.html')
 
 @admin.route('/values_basic')
 def values_basic():
-    return render_template('values_basic.html')
+    return render_template('admin/values_basic.html')
 
 @admin.route('/controller')
 def controller():

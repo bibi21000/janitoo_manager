@@ -1,13 +1,47 @@
 # -*- coding: utf-8 -*-
 """
-    janitoo_manager.management.models
-    ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    This module contains all management related models.
-
-    :copyright: (c) 2014 by the janitoo_manager Team.
-    :license: BSD, see LICENSE for more details.
 """
+__license__ = """
+    This file is part of Janitoo.
+
+    Janitoo is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Janitoo is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Janitoo. If not, see <http://www.gnu.org/licenses/>.
+
+    Original copyright :
+    Copyright (c) 2013 Roger Light <roger@atchoo.org>
+
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Distribution License v1.0
+    which accompanies this distribution.
+
+    The Eclipse Distribution License is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    Contributors:
+     - Roger Light - initial implementation
+
+    This example shows how you can use the MQTT client in a class.
+
+"""
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
+from gevent import monkey
+monkey.patch_all()
+
+import logging
+logger = logging.getLogger('janitoo.manager')
+
 from wtforms import (TextField, IntegerField, FloatField, BooleanField,
                      SelectField, SelectMultipleField, validators)
 from flask_wtf import Form
@@ -16,40 +50,12 @@ from janitoo_manager._compat import max_integer, text_type, iteritems
 from janitoo_manager.extensions import db, cache
 from janitoo_manager.utils.database import CRUDMixin
 
+import janitoo_db.models as jnt_models
 
-class SettingsGroup(db.Model, CRUDMixin):
-    __tablename__ = "settingsgroup"
+class SettingGroupMan(jnt_models.SettingGroup, db.Model):
+    pass
 
-    key = db.Column(db.String(255), primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
-    description = db.Column(db.Text, nullable=False)
-    settings = db.relationship("Setting", lazy="dynamic", backref="group",
-                               cascade="all, delete-orphan")
-
-
-class Setting(db.Model, CRUDMixin):
-    __tablename__ = "settings"
-
-    key = db.Column(db.String(255), primary_key=True)
-    value = db.Column(db.PickleType, nullable=False)
-    settingsgroup = db.Column(db.String,
-                              db.ForeignKey('settingsgroup.key',
-                                            use_alter=True,
-                                            name="fk_settingsgroup"),
-                              nullable=False)
-
-    # The name (displayed in the form)
-    name = db.Column(db.String(200), nullable=False)
-
-    # The description (displayed in the form)
-    description = db.Column(db.Text, nullable=False)
-
-    # Available types: string, integer, float, boolean, select, selectmultiple
-    value_type = db.Column(db.String(20), nullable=False)
-
-    # Extra attributes like, validation things (min, max length...)
-    # For Select*Fields required: choices
-    extra = db.Column(db.PickleType)
+class SettingMan(jnt_models.Setting, db.Model):
 
     @classmethod
     def get_form(cls, group):
@@ -152,85 +158,17 @@ class Setting(db.Model, CRUDMixin):
 
         return SettingsForm
 
-    @classmethod
-    def get_all(cls):
-        return cls.query.all()
-
-    @classmethod
-    def update(cls, settings, app=None):
-        """Updates the cache and stores the changes in the
-        database.
-
-        :param settings: A dictionary with setting items.
-        """
-        # update the database
-        for key, value in iteritems(settings):
-            setting = cls.query.filter(Setting.key == key.lower()).first()
-
-            setting.value = value
-
-            db.session.add(setting)
-            db.session.commit()
-
-        cls.invalidate_cache()
-
-    @classmethod
-    def get_settings(cls, from_group=None):
-        """This will return all settings with the key as the key for the dict
-        and the values are packed again in a dict which contains
-        the remaining attributes.
-
-        :param from_group: Optionally - Returns only the settings from a group.
-        """
-        result = None
-        if from_group is not None:
-            result = from_group.settings
-        else:
-            result = cls.query.all()
-
-        settings = {}
-        for setting in result:
-            settings[setting.key] = {
-                'name': setting.name,
-                'description': setting.description,
-                'value': setting.value,
-                'value_type': setting.value_type,
-                'extra': setting.extra
-            }
-
-        return settings
-
-    @classmethod
-    @cache.memoize(timeout=max_integer)
-    def as_dict(cls, from_group=None, upper=True):
-        """Returns all settings as a dict. This method is cached. If you want
-        to invalidate the cache, simply execute ``self.invalidate_cache()``.
-
-        :param from_group: Returns only the settings from the group as a dict.
-        :param upper: If upper is ``True``, the key will use upper-case
-                      letters. Defaults to ``False``.
-        """
-
-        settings = {}
-        result = None
-        if from_group is not None:
-            result = SettingsGroup.query.filter_by(key=from_group).\
-                first_or_404()
-            result = result.settings
-        else:
-            print(Setting.query)
-            result = cls.query.all()
-
-        print result
-        for setting in result:
-            if upper:
-                setting_key = setting.key.upper()
-            else:
-                setting_key = setting.key
-
-            settings[setting_key] = setting.value
-
-        return settings
+    #~ @classmethod
+    #~ @cache.memoize(timeout=max_integer)
+    #~ def as_dict(cls, from_group=None, upper=True):
+        #~ """Returns all settings as a dict. This method is cached. If you want
+        #~ to invalidate the cache, simply execute ``self.invalidate_cache()``.
+#~
+        #~ :param from_group: Returns only the settings from the group as a dict.
+        #~ :param upper: If upper is ``True``, the key will use upper-case
+                      #~ letters. Defaults to ``False``.
+        #~ """
+        #~ return jnt_models.Setting.as_dict(cls, from_group, upper)
 
     @classmethod
     def invalidate_cache(cls):

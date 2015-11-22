@@ -1,14 +1,47 @@
 # -*- coding: utf-8 -*-
 """
-    janitoo_manager.user.views
-    ~~~~~~~~~~~~~~~~~~~~
-
-    The user view handles the user profile
-    and the user settings from a signed in user.
-
-    :copyright: (c) 2014 by the FlaskBB Team.
-    :license: BSD, see LICENSE for more details.
 """
+__license__ = """
+    This file is part of Janitoo.
+
+    Janitoo is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Janitoo is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Janitoo. If not, see <http://www.gnu.org/licenses/>.
+
+    Original copyright :
+    Copyright (c) 2013 Roger Light <roger@atchoo.org>
+
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Distribution License v1.0
+    which accompanies this distribution.
+
+    The Eclipse Distribution License is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    Contributors:
+     - Roger Light - initial implementation
+
+    This example shows how you can use the MQTT client in a class.
+
+"""
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
+from gevent import monkey
+monkey.patch_all()
+
+import logging
+logger = logging.getLogger('janitoo.manager')
+
 from flask import Blueprint, flash, request
 from flask_login import login_required, current_user
 from flask_themes2 import get_themes_list
@@ -16,7 +49,7 @@ from flask_babelex import gettext as _
 
 from janitoo_manager.extensions import babel
 from janitoo_manager.utils.helpers import render_template
-from janitoo_manager.user.models import User
+from janitoo_manager.user.models import UserMan
 from janitoo_manager.user.forms import (ChangePasswordForm, ChangeEmailForm,
                                 ChangeUserDetailsForm, GeneralSettingsForm)
 
@@ -26,7 +59,7 @@ user = Blueprint("user", __name__)
 
 @user.route("/<username>")
 def profile(username):
-    user = User.query.filter_by(username=username).first_or_404()
+    user = UserMan.query.filter_by(username=username).first_or_404()
 
     return render_template("user/profile.html", user=user)
 

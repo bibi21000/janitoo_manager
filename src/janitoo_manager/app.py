@@ -1,17 +1,55 @@
 # -*- coding: utf-8 -*-
 """
-    janitoo_manager.app
-    ~~~~~~~~~~~~~~~~~~~~
-
-    manages the app creation and configuration process
-
-    :copyright: (c) 2014 by the FlaskBB Team.
-    :license: BSD, see LICENSE for more details.
 """
+__license__ = """
+    This file is part of Janitoo.
+
+    Janitoo is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Janitoo is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Janitoo. If not, see <http://www.gnu.org/licenses/>.
+
+    Original copyright :
+    Copyright (c) 2013 Roger Light <roger@atchoo.org>
+
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Distribution License v1.0
+    which accompanies this distribution.
+
+    The Eclipse Distribution License is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    Contributors:
+     - Roger Light - initial implementation
+
+    This example shows how you can use the MQTT client in a class.
+
+"""
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
+from gevent import monkey
+monkey.patch_all()
+
+import logging
+logger = logging.getLogger('janitoo.manager')
+
 import os
 import logging
+logger = logging.getLogger("janitoo.manager")
+
 import datetime
 import time
+
+from pkg_resources import iter_entry_points
 
 from sqlalchemy import event
 from sqlalchemy.engine import Engine
@@ -21,12 +59,13 @@ from flask_login import current_user
 
 # Import the user blueprint
 from janitoo_manager.admin.views import admin
-import janitoo_manager.admin.socket
-from janitoo_manager.user.views import user
-from janitoo_manager.user.models import User, Guest
+from janitoo_manager.user.models import UserMan, GuestMan
 from janitoo_manager.auth.views import auth
+from janitoo_manager.user.views import user
+from janitoo_manager.admin.views import admin
+from janitoo_manager.portal.views import portal
 from janitoo_manager.extensions import db, login_manager, mail, cache, janitoo, \
-    debugtoolbar, migrate, plugin_manager, themes, babel, csrf, socketio
+    debugtoolbar, plugin_manager, themes, babel, csrf, socketio, bower
 # various helpers
 from janitoo_manager.utils.helpers import format_date, time_since, crop_title, \
     is_online, render_markup, mark_online, forum_is_unread, topic_is_unread, \
@@ -38,8 +77,11 @@ from janitoo_manager.utils.translations import JanitooDomain
     #~ can_ban_user, can_moderate, is_admin, is_moderator, is_admin_or_moderator
 from janitoo_manager.utils.permissions import is_admin, is_power, is_admin_or_power
 # app specific configurations
-from janitoo_manager.utils.settings import janitoo_config
+from janitoo_manager.utils.settings import flask_config
 
+#~ import janitoo_db.models as jnt_models
+from janitoo_db.base import Base, create_db_engine
+from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_config
 
 def create_app(config=None):
     """Creates the app."""
@@ -54,8 +96,8 @@ def create_app(config=None):
     # try to update the config via the environment variable
     app.config.from_envvar("JANITOO_SETTINGS", silent=True)
 
-    configure_blueprints(app)
     configure_extensions(app)
+    configure_blueprints(app)
     configure_template_filters(app)
     configure_context_processors(app)
     configure_before_handlers(app)
@@ -66,10 +108,14 @@ def create_app(config=None):
 
 
 def configure_blueprints(app):
+    app.register_blueprint(portal, url_prefix=app.config["PORTAL_URL_PREFIX"])
     app.register_blueprint(admin, url_prefix=app.config["ADMIN_URL_PREFIX"])
     app.register_blueprint(user, url_prefix=app.config["USER_URL_PREFIX"])
     app.register_blueprint(auth, url_prefix=app.config["AUTH_URL_PREFIX"])
-
+    import janitoo_manager.admin.socket
+    #~ from janitoo_manager_proxy.views import proxy
+    #~ app.register_blueprint(proxy, url_prefix='/proxy')
+    janitoo.extend_blueprints('janitoo_manager')
 
 def configure_extensions(app):
     """Configures the extensions."""
@@ -84,13 +130,16 @@ def configure_extensions(app):
     db.init_app(app)
 
     # Flask-Migrate
-    migrate.init_app(app, db, directory="config", filename="janitoo_manager.conf", section="database")
+    #~ migrate.init_app(app, db, directory="config", filename="janitoo_manager.conf", section="database")
 
     # Flask-Mail
     mail.init_app(app)
 
     # Flask-Cache
     cache.init_app(app)
+
+    # Flask-Bower
+    bower.init_app(app)
 
     # Flask-Debugtoolbar
     debugtoolbar.init_app(app)
@@ -101,7 +150,7 @@ def configure_extensions(app):
     # Flask-Login
     login_manager.login_view = app.config["LOGIN_VIEW"]
     login_manager.refresh_view = app.config["REAUTH_VIEW"]
-    login_manager.anonymous_user = Guest
+    login_manager.anonymous_user = GuestMan
 
     @login_manager.user_loader
     def load_user(user_id):
@@ -112,7 +161,7 @@ def configure_extensions(app):
                    #~ Conversation.user_id == user_id).subquery()
         #~ u = db.session.query(User, unread_count).filter(User.id == user_id).\
             #~ first()
-        u = db.session.query(User).filter(User.id == user_id).\
+        u = db.session.query(UserMan).filter(UserMan.id == user_id).\
             first()
 
         if u:
@@ -133,13 +182,16 @@ def configure_extensions(app):
         if current_user.is_authenticated() and current_user.language:
             return current_user.language
         # otherwise we will just fallback to the default language
-        return janitoo_config["DEFAULT_LANGUAGE"]
+        print "============================>>>>>>>>>>>>>>>>>>>>> flask_config : %s" % flask_config
+        return flask_config["DEFAULT_LANGUAGE"]
 
     # SocketIO
     socketio.init_app(app)
 
     # janitoo_flask
-    janitoo.init_app(app, socketio, options={}, db=db)
+    janitoo.init_app(app, socketio, options={'conf_file':'/opt/janitoo/config/janitoo_manager.conf'}, db=db)
+    janitoo.extend_network('janitoo_manager')
+    janitoo.extend_listener('janitoo_manager')
 
 def configure_template_filters(app):
     """Configures the template filters."""
@@ -172,10 +224,10 @@ def configure_context_processors(app):
 
     @app.context_processor
     def inject_janitoo_config():
-        """Injects the ``janitoo_config`` config variable into the
+        """Injects the ``flask_config`` config variable into the
         templates.
         """
-        return dict(janitoo_config=janitoo_config)
+        return dict(flask_config=flask_config)
 
 
 def configure_before_handlers(app):

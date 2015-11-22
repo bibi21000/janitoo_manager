@@ -10,9 +10,9 @@
         <title>
         {% block title %}
             {%- if not page_title -%}
-                {{ janitoo_config["PROJECT_TITLE"] }} - {{ janitoo_config["PROJECT_SUBTITLE"] }}
+                {{ flask_config["PROJECT_TITLE"] }} - {{ flask_config["PROJECT_SUBTITLE"] }}
             {%- else -%}
-                {{ page_title }} - {{ janitoo_config["PROJECT_TITLE"] }}
+                {{ page_title }} - {{ flask_config["PROJECT_TITLE"] }}
             {%- endif -%}
         {% endblock %}
         </title>

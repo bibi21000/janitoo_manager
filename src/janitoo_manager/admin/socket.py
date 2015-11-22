@@ -62,7 +62,42 @@ from threading import Thread
 from flask import Flask, render_template, session, request, current_app
 from flask.ext.socketio import SocketIO, emit, join_room, leave_room, close_room, disconnect
 
-from janitoo_manager.extensions import socketio
+from janitoo_manager.extensions import socketio, janitoo
+
+@socketio.on('my echo event', namespace='/janitoo')
+def echo_message(message):
+    logger.debug("Client %s request echo message : %s", request.remote_addr, message)
+    emit('my response',
+         {'data': message['data']})
+
+@socketio.on('disconnect request', namespace='/janitoo')
+def disconnect_request():
+    logger.debug("Client %s disconnects", request.remote_addr)
+    emit('my response',
+         {'data': 'Disconnected!'})
+    disconnect()
+
+@socketio.on('connect', namespace='/janitoo')
+def echo_connect():
+    logger.debug("Client %s connects", request.remote_addr)
+    emit('my response', {'data': 'Connected', 'count': 0})
+
+@socketio.on('my network event', namespace='/janitoo')
+def echo_network_event(message):
+    logger.debug("Client %s network event : %s", request.remote_addr, message)
+    done=False
+    keys = ['zoomlevel','zoomx','zoomy','panx','pany']
+    kvals = {}
+    for key in keys:
+        if key in message:
+            kvals[key]=message[key]
+    logger.debug("kvals : %s", kvals)
+    if len(kvals) > 0:
+        janitoo.listener.network.kvals = kvals
+        done = True
+        #Should we emit an event ? Or the api should send a new python louie mesage ? Or nothing
+    if done == False :
+        janitoo.listener.network.emit_network()
 
 @socketio.on('my node event', namespace='/janitoo')
 def echo_node_event(message):
@@ -102,13 +137,13 @@ def echo_node_event(message):
 def echo_nodes_event(message):
     logger.debug("Client %s nodes event : %s", request.remote_addr, message)
     #print "%s"%current_app.extensions['zwnetwork'].nodes_to_dict()
-    current_app.extensions['listener'].network.emit_nodes()
+    janitoo.listener.network.emit_nodes()
 
 @socketio.on('my controller event', namespace='/janitoo')
 def echo_controller_event(message):
     logger.debug("Client %s controller event : %s", request.remote_addr, message)
     emit('my controller response',
-         {'data': current_app.extensions['listener'].network.nodes})
+         {'data': janitoo.listener.network.nodes})
 
 @socketio.on('my command event', namespace='/janitoo')
 def echo_command_event(message):
@@ -244,14 +279,14 @@ def echo_command_event(message):
 def echo_commands_event(message):
     logger.debug("Client %s commands event : %s", request.remote_addr, message)
     #print "%s"%current_app.extensions['zwnetwork'].nodes_to_dict()
-    current_app.extensions['listener'].network.emit_commands()
+    janitoo.listener.network.emit_commands()
 
 @socketio.on('my user event', namespace='/janitoo')
 def echo_user_event(message):
     session['receive_count'] = session.get('receive_count', 0) + 1
     node_id = message['hadd']
     user_id = message['uuid']
-    logger.debug("Client %s user event : %s", request.remote_addr, current_app.extensions['listener'].users_count)
+    logger.debug("Client %s user event : %s", request.remote_addr, janitoo.listener.users_count)
     #~ emit('my user response',
          #~ {'data': current_app.extensions['zwnetwork'].nodes[node_id].users[user_id].to_dict(), 'count': session['receive_count']})
 
@@ -259,14 +294,14 @@ def echo_user_event(message):
 def echo_users_event(message):
     logger.debug("Client %s users event : %s", request.remote_addr, message)
     #print "%s"%current_app.extensions['zwnetwork'].nodes_to_dict()
-    current_app.extensions['listener'].network.emit_users()
+    janitoo.listener.network.emit_users()
 
 @socketio.on('my system event', namespace='/janitoo')
 def echo_system_event(message):
     session['receive_count'] = session.get('receive_count', 0) + 1
     node_id = message['hadd']
     system_id = message['uuid']
-    logger.debug("Client %s system event : %s", request.remote_addr, current_app.extensions['listener'].systems_count)
+    logger.debug("Client %s system event : %s", request.remote_addr, janitoo.listener.systems_count)
     #~ emit('my system response',
          #~ {'data': current_app.extensions['zwnetwork'].nodes[node_id].systems[system_id].to_dict(), 'count': session['receive_count']})
 
@@ -274,13 +309,13 @@ def echo_system_event(message):
 def echo_systems_event(message):
     logger.debug("Client %s systems event : %s", request.remote_addr, message)
     #print "%s"%current_app.extensions['zwnetwork'].nodes_to_dict()
-    current_app.extensions['listener'].network.emit_systems()
+    janitoo.listener.network.emit_systems()
 
 @socketio.on('my basic event', namespace='/janitoo')
 def echo_basic_event(message):
     node_id = message['hadd']
     basic_id = message['uuid']
-    logger.debug("Client %s basic event : %s", request.remote_addr, current_app.extensions['listener'].basics_count)
+    logger.debug("Client %s basic event : %s", request.remote_addr, janitoo.listener.basics_count)
     #~ emit('my basic response',
          #~ {'data': current_app.extensions['zwnetwork'].nodes[node_id].basics[basic_id].to_dict(), 'count': session['receive_count']})
 
@@ -288,13 +323,13 @@ def echo_basic_event(message):
 def echo_basics_event(message):
     logger.debug("Client %s basics event : %s", request.remote_addr, message)
     #print "%s"%current_app.extensions['zwnetwork'].nodes_to_dict()
-    current_app.extensions['listener'].network.emit_basics()
+    janitoo.listener.network.emit_basics()
 
 @socketio.on('my config event', namespace='/janitoo')
 def echo_config_event(message):
     node_id = message['hadd']
     value_id = message['uuid']
-    logger.debug("Client %s config event : %s", request.remote_addr, current_app.extensions['listener'].configs_count)
+    logger.debug("Client %s config event : %s", request.remote_addr, janitoo.listener.configs_count)
     #~ emit('my value response',
          #~ {'data': current_app.extensions['zwnetwork'].nodes[node_id].values[value_id].to_dict(), 'count': session['receive_count']})
 
@@ -302,26 +337,26 @@ def echo_config_event(message):
 def echo_configs_event(message):
     logger.debug("Client %s emit_configs event : %s", request.remote_addr, message)
     #print "%s"%current_app.extensions['zwnetwork'].nodes_to_dict()
-    current_app.extensions['listener'].network.emit_configs()
+    janitoo.listener.network.emit_configs()
 
 @socketio.on('my scenes event', namespace='/janitoo')
 def echo_scenes_event(message):
     logger.debug("Client %s scenes event : %s", request.remote_addr, message)
-    print "get_scenes %s"%current_app.extensions['listener'].network.get_scenes()
+    print "get_scenes %s"%janitoo.listener.network.get_scenes()
     emit('my scenes response',
-         {'data': current_app.extensions['listener'].network.get_scenes()})
+         {'data': janitoo.listener.network.get_scenes()})
 
 @socketio.on('my scenarios event', namespace='/janitoo')
 def echo_scenarios_event(message):
     logger.debug("Client %s scenarios event : %s", request.remote_addr, message)
-    print "get_scenarios %s"%current_app.extensions['listener'].network.get_scenarios()
+    print "get_scenarios %s"%janitoo.listener.network.get_scenarios()
     emit('my scenarios response',
-         {'data': current_app.extensions['listener'].network.get_scenarios()})
+         {'data': janitoo.listener.network.get_scenarios()})
 
 @socketio.on('my crons event', namespace='/janitoo')
 def echo_crons_event(message):
     logger.debug("Client %s crons event : %s", request.remote_addr, message)
-    print "get_crons %s"%current_app.extensions['listener'].network.get_crons()
+    print "get_crons %s"%janitoo.listener.network.get_crons()
     emit('my crons response',
-         {'data': current_app.extensions['listener'].network.get_crons()})
+         {'data': janitoo.listener.network.get_crons()})
 

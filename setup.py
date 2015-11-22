@@ -82,7 +82,7 @@ setup(
     """,
     url='http://bibi21000.gallet.info/',
     version = janitoo_version,
-    #~ scripts=['src/scripts/jnt_dbman'],
+    scripts=['src/scripts/jnt_webman'],
     keywords = "admin",
     zip_safe = False,
     include_package_data=True,
@@ -90,6 +90,21 @@ setup(
     packages = find_packages('src', exclude=["scripts", "docs", "config"]),
     package_dir = { '': 'src' },
     install_requires=[
-                     'janitoo_flask >= %s'%'0.0.6',
+                    'janitoo_flask >= %s'%'0.0.6',
+                    'Flask-Mail',
+                    'Flask-Cache',
+                    'Flask-Bower',
+                    'Flask-DebugToolbar',
+                    'Flask-Login',
+                    'Flask-Plugins',
+                    'Flask-Script',
+                    'Flask-Themes2',
+                    'Flask-WTF',
+                    'MarkupSafe',
                     ],
+    entry_points = {
+        'janitoo_manager.network': [
+            'manager = janitoo_manager.network:extend',
+        ],
+    }
 )
