@@ -18,8 +18,12 @@ function UpdateElementsByClassName(name, text) {
     var elements = document.getElementsByClassName(name);
     for(var i=0; i<elements.length; i++) {
         elements[i].textContent = text;
+    }
+
 }
 
+function ValueUuid(hadd, uuid, index) {
+    return hadd.replace('/','__')+'_'+uuid+'_'+index
 }
 
 // First, checks if it isn't implemented yet.

@@ -51,7 +51,7 @@
             }
           ],
           "fnRowCallback": function(nRow, aData, iDisplayIndex) {
-            nRow.setAttribute('id',aData[0].replace('/','\\/'));
+            nRow.setAttribute('id',aData[0].replace('/','__'));
           },
           responsive: true,
         });
@@ -70,8 +70,8 @@
             oTable.clear();
             $.each(msg.data, function (key, item) {
                 console.log("Received nodes hadd : " + item["hadd"]);
-                if (oTable.rows($('tr#'+(item["hadd"].replace('/','\\/')))).data().length == 1) {
-                    oTable.row($('tr#'+item["hadd"].replace('/','\\/'))).data(
+                if (oTable.rows($('tr#'+(item["hadd"].replace('/','__')))).data().length == 1) {
+                    oTable.row($('tr#'+item["hadd"].replace('/','__'))).data(
                         msg2data(item)).draw();
                 } else {
                     oTable.row.add(msg2data(item)).draw();
@@ -87,8 +87,8 @@
                     //console.log("pos in table : " + aPos[0]);
                     console.log("Received hadd response : " + item['hadd']);
                     console.log("Received item response : " + item['state']);
-                    if (oTable.rows($('tr#'+(item["hadd"].replace('/','\\/')))).data().length == 1) {
-                        oTable.row($('tr#'+item["hadd"].replace('/','\\/'))).data(
+                    if (oTable.rows($('tr#'+(item["hadd"].replace('/','__')))).data().length == 1) {
+                        oTable.row($('tr#'+item["hadd"].replace('/','__'))).data(
                             msg2data(item)).draw();
                     } else {
                         oTable.row.add(msg2data(item)).draw();
@@ -98,8 +98,8 @@
                 //var aPos = oTable.fnGetPosition( $('tr#'+msg.data["hadd"].replace('/','\\/'))[0] );
                 //console.log("pos in table : " + aPos[0]);
                 console.log("Received msg response : " + msg.data['state']);
-                if (oTable.rows($('tr#'+msg.data["hadd"].replace('/','\\/'))).data().length == 1) {
-                    oTable.row($('tr#'+msg.data["hadd"].replace('/','\\/'))).data(
+                if (oTable.rows($('tr#'+msg.data["hadd"].replace('/','__'))).data().length == 1) {
+                    oTable.row($('tr#'+msg.data["hadd"].replace('/','__'))).data(
                         msg2data(msg.data)).draw();
                 } else {
                     oTable.row.add(msg2data(msg.data)).draw();

@@ -54,62 +54,34 @@
                   "aTargets": [ 0 ]
                 , "bSortable": false
                 , "mRender": function ( url, type, full )  {
-                    return  '<a href="/basic/'+url+'">' + url + '</a>';
+                    return  '<a href="basic/'+url+'">' + url + '</a>';
                 }
           }],
           "fnRowCallback": function(nRow, aData, iDisplayIndex) {
-            nRow.setAttribute('id',aData[1].replace('/','\\/')+'_'+aData[0]+'_'+aData[2]);
+            nRow.setAttribute('id',ValueUuid(aData[1], aData[0], aData[2]));
           },
           responsive: true,
         });
 
         socket.on('my basics response', function(msg) {
-            //~ console.log("Received basics response : " + msg.data);
+            //~ console.log("Received users response : " + msg.data);
             var oTable = $("#jnt_values_basic").DataTable();
-            oTable.clear();
             $.each(msg.data, function (nkey, nitem) {
                 $.each(msg.data[nkey], function (key, item) {
-                    //~ console.log("Received basics hadd : " + item["uuid"]);
-                    if (oTable.rows($('tr#'+(item["hadd"].replace('/','\\/')+'_'+item['uuid']+'_'+item['index']))).data().length == 1) {
-                        oTable.row($('tr#'+item["hadd"].replace('/','\\/')+'_'+item['uuid']+'_'+item['index'])).data(
-                            msg2data(item)).draw();
+                    //~ console.log("Received users hadd : " + item["uuid"]);
+                    if (oTable.rows($('tr#'+ValueUuid(item["hadd"],item['uuid'],item['index']))).data().length >= 1) {
+                        oTable.row($('tr#'+ValueUuid(item["hadd"],item['uuid'],item['index']))).data(msg2data(item)).draw();
+                        //~ console.log('update'+'tr#'+ValueUuid(item["hadd"], item['uuid'], item['index']));
                     } else {
                         oTable.row.add(msg2data(item)).draw();
+                        //~ console.log('add'+'tr#'+ValueUuid(item["hadd"],item['uuid'],item['index']));
                     }
                 });
             });
         });
-        socket.on('my basic response', function(msg) {
-            console.log("Received basic response : " + msg.data['hadd']);
-            var oTable = $("#jnt_values_basic").DataTable();
-            if (typeof msg.data['hadd'] == 'undefined') {
-                $.each(msg.data, function (key, item) {
-                    //var aPos = oTable.fnGetPosition( $('tr#'+item["hadd"].replace('/','\\/'))[0] );
-                    //console.log("pos in table : " + aPos[0]);
-                    console.log("Received uuid response : " + item['uuis']);
-                    console.log("Received hadd response : " + item['hadd']);
-                    if (oTable.rows($('tr#'+(item["hadd"].replace('/','\\/')+'_'+item['uuid']+'_'+item['index']))).data().length == 1) {
-                        oTable.row($('tr#'+item["hadd"].replace('/','\\/')+'_'+item['uuid']+'_'+item['index'])).data(
-                            msg2data(item)).draw();
-                    } else {
-                        oTable.row.add(msg2data(item)).draw();
-                    }
-                });
-            } else {
-                //var aPos = oTable.fnGetPosition( $('tr#'+msg.data["hadd"].replace('/','\\/'))[0] );
-                //console.log("pos in table : " + aPos[0]);
-                console.log("Received msg response : " + msg.data['hadd']);
-                if (oTable.rows($('tr#'+msg.data["hadd"].replace('/','\\/')+'_'+msg.data['uuid']+'_'+msg.data['index'])).data().length == 1) {
-                    oTable.row($('tr#'+msg.data["hadd"].replace('/','\\/')+'_'+msg.data['uuid']+'_'+msg.data['index'])).data(
-                        msg2data(msg.data)).draw();
-                } else {
-                    oTable.row.add(msg2data(msg.data)).draw();
-                }
-            }
-        });
 
         socket.emit('my network event', {});
-        //~ socket.emit('my basic event', {});
+        $("#jnt_values_basic").DataTable().clear();
         socket.emit('my basics event', {});
     } );
 
