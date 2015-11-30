@@ -62,6 +62,6 @@ class TestLiveFlask(JNTTFlaskLive, JNTTFlaskLiveCommon):
         return app
 
     def test_001_server_is_up_and_running(self):
-        self.list_routes()
+        #~ self.list_routes()
         #~ self.assertUrl('/', 200)
 
