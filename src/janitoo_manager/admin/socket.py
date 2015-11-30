@@ -80,7 +80,7 @@ def disconnect_request():
 @socketio.on('connect', namespace='/janitoo')
 def echo_connect():
     logger.debug("Client %s connects", request.remote_addr)
-    emit('my response', {'data': 'Connected', 'count': 0})
+    emit('my response', {'data': 'Connected'})
 
 @socketio.on('my network event', namespace='/janitoo')
 def echo_network_event(message):

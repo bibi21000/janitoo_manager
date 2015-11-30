@@ -111,6 +111,7 @@ def populate(dropdb=False, createdb=False):
     """
     pass
 
+
 @manager.option('-u', '--username', dest='username')
 @manager.option('-p', '--password', dest='password')
 @manager.option('-e', '--email', dest='email')
