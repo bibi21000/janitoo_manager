@@ -58,7 +58,7 @@ class TestingConfig(OptionsConfig):
         'sqlite://'
     )
 
-    SERVER_NAME = "localhost:5000"
+    #SERVER_NAME = "localhost:5000"
 
     # This will print all SQL statements
     SQLALCHEMY_ECHO = False
@@ -98,7 +98,13 @@ class TestingConfig(OptionsConfig):
     # The user who should recieve the error logs
     ADMINS = ["your_admin_user@gmail.com"]
 
-    def __init__(self, conf_file):
+    # URL Prefixes
+    USER_URL_PREFIX = "/user"
+    AUTH_URL_PREFIX = "/auth"
+    ADMIN_URL_PREFIX = "/admin"
+    PORTAL_URL_PREFIX = "/"
+
+    def __init__(self, conf_file='/opt/janitoo/config'):
         """Update Flask default data from janitoo option file
         """
-        OptionsConfig.__init__(self, '/opt/janitoo/config')
+        OptionsConfig.__init__(self, conf_file)
