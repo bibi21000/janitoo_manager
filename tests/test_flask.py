@@ -61,8 +61,7 @@ class TestLiveFlask(JNTTFlaskLive, JNTTFlaskLiveCommon):
         app.config['LIVESERVER_PORT'] = 8943
         return app
 
-    def tst_001_server_is_up_and_running(self):
-        pass
-        #~ self.list_routes()
-        #~ self.assertUrl('/', 200)
+    def test_001_server_home_is_up(self):
+        self.list_routes()
+        self.assertUrl('/', 200)
 
