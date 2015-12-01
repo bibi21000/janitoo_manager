@@ -101,7 +101,7 @@ def render_template(template, **context):  # pragma: no cover
     #~ print("flask_config : %s"%flask_config)
     #~ for key in janitoo_config:
         #~ print "%s"%janitoo_config[key]
-    if current_user.is_authenticated() and current_user.theme:
+    if current_user.is_authenticated and current_user.theme:
         theme = current_user.theme
     else:
         theme = session.get('theme', flask_config['DEFAULT_THEME'])
@@ -412,7 +412,7 @@ def time_since(time):  # pragma: no cover
     delta = time - datetime.utcnow()
 
     locale = "en"
-    if current_user.is_authenticated() and current_user.language is not None:
+    if current_user.is_authenticated and current_user.language is not None:
         locale = current_user.language
 
     return format_timedelta(delta, add_direction=True, locale=locale)
