@@ -26,7 +26,6 @@ __copyright__ = "Copyright © 2013-2014-2015 Sébastien GALLET aka bibi21000"
 import sys, os
 import time, datetime
 import unittest
-import threading
 import logging
 
 from janitoo_manager import create_app
