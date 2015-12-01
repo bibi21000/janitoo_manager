@@ -99,9 +99,9 @@ setup(
                     'Flask-Login',
                     'Flask-Plugins',
                     'Flask-Script',
-                    'Flask-Themes2',
                     'Flask-WTF',
                     'MarkupSafe',
+                    'Flask-Themes2',
                     ],
     dependency_links = [
       'https://github.com/bibi21000/janitoo_flask/archive/master.zip#egg=janitoo_flask-%s'%"0.0.6",

@@ -8,12 +8,9 @@ python:
 # command to install dependencies
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get -y install mosquitto
-install:
   - make travis-deps
+install:
   - python setup.py install
 # command to run tests
 script:
- #- make tests
- - nosetests --verbosity=2 --cover-package=janitoo,janitoo_db,janitoo_manager --cover-min-percentage= --with-coverage --cover-inclusive --cover-tests --cover-html --cover-html-dir=build/docs/html/tools/coverage --with-html --html-file=build/docs/html/tools/nosetests/index.html tests/test_flask.py
- - nosetests --verbosity=2 --cover-package=janitoo,janitoo_db,janitoo_manager --cover-min-percentage= --with-coverage --cover-inclusive --cover-tests --cover-html --cover-html-dir=build/docs/html/tools/coverage --with-html --html-file=build/docs/html/tools/nosetests/index.html tests/test_socketio.py
+ - make tests
