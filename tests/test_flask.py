@@ -30,7 +30,7 @@ import threading
 import logging
 
 from janitoo_manager import create_app
-from janitoo_manager.extensions import db, plugin_manager, socketio
+from janitoo_manager.extensions import db, socketio
 
 from janitoo_nosetests.flask import JNTTFlask, JNTTFlaskCommon
 from janitoo_nosetests.flask import JNTTFlaskLive, JNTTFlaskLiveCommon
