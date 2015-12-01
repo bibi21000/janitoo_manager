@@ -179,7 +179,7 @@ def configure_extensions(app):
     @babel.localeselector
     def get_locale():
         # if a user is logged in, use the locale from the user settings
-        if current_user.is_authenticated() and current_user.language:
+        if current_user.is_authenticated and current_user.language:
             return current_user.language
         # otherwise we will just fallback to the default language
         print "============================>>>>>>>>>>>>>>>>>>>>> flask_config : %s" % flask_config
@@ -238,7 +238,7 @@ def configure_before_handlers(app):
         """Updates `lastseen` before every reguest if the user is
         authenticated."""
 
-        if current_user.is_authenticated():
+        if current_user.is_authenticated:
             current_user.lastseen = datetime.datetime.utcnow()
             db.session.add(current_user)
             db.session.commit()
