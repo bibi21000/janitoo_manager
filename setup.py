@@ -102,6 +102,7 @@ setup(
                     'Flask-WTF',
                     'MarkupSafe',
                     'Flask-Themes2',
+                    'requests',
                     ],
     dependency_links = [
       'https://github.com/bibi21000/janitoo_flask/archive/master.zip#egg=janitoo_flask-%s'%"0.0.6",
