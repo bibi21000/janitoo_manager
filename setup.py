@@ -105,6 +105,7 @@ setup(
                     ],
     dependency_links = [
       'https://github.com/bibi21000/janitoo_flask/archive/master.zip#egg=janitoo_flask-%s'%"0.0.6",
+      'https://github.com/sysr-q/flask-themes2/archive/master.zip#egg=Flask-Themes2',
     ],
     entry_points = {
         'janitoo_manager.network': [
