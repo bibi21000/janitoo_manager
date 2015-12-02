@@ -17,25 +17,10 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with Janitoo. If not, see <http://www.gnu.org/licenses/>.
 
-    Original copyright :
-    Copyright (c) 2013 Roger Light <roger@atchoo.org>
-
-    All rights reserved. This program and the accompanying materials
-    are made available under the terms of the Eclipse Distribution License v1.0
-    which accompanies this distribution.
-
-    The Eclipse Distribution License is available at
-    http://www.eclipse.org/org/documents/edl-v10.php.
-
-    Contributors:
-     - Roger Light - initial implementation
-
-    This example shows how you can use the MQTT client in a class.
-
 """
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
+__copyright__ = "Copyright © 2013-2014-2015 Sébastien GALLET aka bibi21000"
 from gevent import monkey
 monkey.patch_all()
 
@@ -43,8 +28,6 @@ import logging
 logger = logging.getLogger('janitoo.manager')
 
 import os
-import logging
-logger = logging.getLogger("janitoo.manager")
 
 import datetime
 import time
@@ -96,13 +79,17 @@ def create_app(config=None):
     # try to update the config via the environment variable
     app.config.from_envvar("JANITOO_SETTINGS", silent=True)
 
+    configure_logging(app)
+
+    import logging.config
+    logging.config.fileConfig(config.CONF_FILE)
+
     configure_extensions(app)
     configure_blueprints(app)
     configure_template_filters(app)
     configure_context_processors(app)
     configure_before_handlers(app)
     configure_errorhandlers(app)
-    configure_logging(app)
 
     return app
 
@@ -113,8 +100,6 @@ def configure_blueprints(app):
     app.register_blueprint(user, url_prefix=app.config["USER_URL_PREFIX"])
     app.register_blueprint(auth, url_prefix=app.config["AUTH_URL_PREFIX"])
     import janitoo_manager.admin.socket
-    #~ from janitoo_manager_proxy.views import proxy
-    #~ app.register_blueprint(proxy, url_prefix='/proxy')
     janitoo.extend_blueprints('janitoo_manager')
 
 def configure_extensions(app):

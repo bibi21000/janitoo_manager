@@ -28,8 +28,12 @@ import time, datetime
 import unittest
 import logging
 
+from alembic import command as alcommand
+from sqlalchemy import create_engine
+
 from janitoo_manager import create_app
 from janitoo_manager.extensions import db, plugin_manager, socketio
+from janitoo_manager.configs.testing import TestingConfig
 
 from janitoo_nosetests.socketio import JNTTSocketIO, JNTTSocketIOCommon
 
@@ -40,14 +44,22 @@ from janitoo.utils import TOPIC_NODES, TOPIC_NODES_REPLY, TOPIC_NODES_REQUEST
 from janitoo.utils import TOPIC_BROADCAST_REPLY, TOPIC_BROADCAST_REQUEST
 from janitoo.utils import TOPIC_VALUES_USER, TOPIC_VALUES_CONFIG, TOPIC_VALUES_SYSTEM, TOPIC_VALUES_BASIC
 
+from janitoo_db.base import Base, create_db_engine
+from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_config
+
 class TestFlask(JNTTSocketIO, JNTTSocketIOCommon):
     """Test SocketIO
     """
     flask_conf = "tests/data/janitoo_manager.conf"
 
+    def setUp(self):
+        JNTTSocketIO.setUp(self)
+        # Use the testing configuration
+        self.config = TestingConfig(self.flask_conf)
+        alcommand.upgrade(janitoo_config(self.config.SQLALCHEMY_DATABASE_URI), 'heads')
+
     def create_app(self):
         # Use the development configuration if available
-        from janitoo_manager.configs.testing import TestingConfig
         config = TestingConfig(self.flask_conf)
         app = create_app(config)
         app.config['LIVESERVER_PORT'] = 8943

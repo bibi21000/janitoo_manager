@@ -23,10 +23,12 @@ __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 __copyright__ = "Copyright © 2013-2014-2015 Sébastien GALLET aka bibi21000"
 
+from gevent import monkey
+monkey.patch_all()
+
 import sys, os
 import time, datetime
 import unittest
-import logging
 
 from alembic import command as alcommand
 from sqlalchemy import create_engine
@@ -45,6 +47,8 @@ from janitoo.utils import TOPIC_NODES, TOPIC_NODES_REPLY, TOPIC_NODES_REQUEST
 from janitoo.utils import TOPIC_BROADCAST_REPLY, TOPIC_BROADCAST_REQUEST
 from janitoo.utils import TOPIC_VALUES_USER, TOPIC_VALUES_CONFIG, TOPIC_VALUES_SYSTEM, TOPIC_VALUES_BASIC
 
+from alembic import command as alcommand
+from janitoo.options import JNTOptions
 from janitoo_db.base import Base, create_db_engine
 from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_config
 
@@ -59,22 +63,21 @@ class TestLiveFlask(JNTTFlaskLive, JNTTFlaskLiveCommon):
     """
     flask_conf = "tests/data/janitoo_manager.conf"
 
+    def setUp(self):
+        JNTTFlaskLive.setUp(self)
+        # Use the testing configuration
+        self.config = TestingConfig(self.flask_conf)
+        alcommand.upgrade(janitoo_config(self.config.SQLALCHEMY_DATABASE_URI), 'heads')
+
     def create_app(self):
         # Use the testing configuration
-        config = TestingConfig(self.flask_conf)
-        #Drop old database
-        engine = create_engine(config.SQLALCHEMY_DATABASE_URI)
-        Base.metadata.drop_all(bind=engine)
-        #Update database
-        engine = create_engine(config.SQLALCHEMY_DATABASE_URI)
-        Base.metadata.create_all(bind=engine)
-
-        app = create_app(config)
+        self.config = TestingConfig(self.flask_conf)
+        app = create_app(self.config)
         app.config['LIVESERVER_PORT'] = 8943
         return app
 
     def test_001_server_home_is_up(self):
-        time.sleep(5)
         self.list_routes()
         self.assertUrl('/', 200)
+        time.sleep(0.5)
 

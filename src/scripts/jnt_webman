@@ -4,6 +4,9 @@
 """DBManager for Janitoo
 """
 from __future__ import print_function
+from gevent import monkey
+monkey.patch_all()
+
 __license__ = """
     This file is part of Janitoo.
 
@@ -94,7 +97,7 @@ manager.add_command("shell", Shell(make_context=make_shell_context))
 def initdb():
     """Creates the database."""
 
-    alcommand.upgrade(janitoo_config(args.url), 'heads')
+    alcommand.upgrade(janitoo_config(config.SQLALCHEMY_DATABASE_URI), 'heads')
 
 
 @manager.command

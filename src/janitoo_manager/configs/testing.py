@@ -98,6 +98,8 @@ class TestingConfig(OptionsConfig):
     # The user who should recieve the error logs
     ADMINS = ["your_admin_user@gmail.com"]
 
+    DEBUG_TB_INTERCEPT_REDIRECTS = False
+
     # URL Prefixes
     USER_URL_PREFIX = "/user"
     AUTH_URL_PREFIX = "/auth"
