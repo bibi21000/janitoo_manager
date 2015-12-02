@@ -65,11 +65,16 @@ manager = Manager(app)
 
 # Used to get the plugin translations
 PLUGINS_FOLDER = os.path.join(app.root_path, "plugins")
+host = None
+port = None
+if hasattr(config, 'SERVER_NAME'):
+    host,port = config.SERVER_NAME.split(":")
+port = int(port)
 
 @manager.command
 def runserver():
     """Run the server."""
-    socketio.run(app, use_reloader=True)
+    socketio.run(app, use_reloader=True, host=host, port=port)
 #manager.add_command("runserver", Server(host, port=port))
 
 @manager.command
