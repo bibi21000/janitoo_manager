@@ -31,9 +31,11 @@ __copyright__ = "Copyright © 2013-2014-2015 Sébastien GALLET aka bibi21000"
 # Set default logging handler to avoid "No handler found" warnings.
 import logging
 logger = logging.getLogger( 'janitoo.manager' )
+
 import threading
 import datetime
-from flask import request
+#~ from flask import request
+
 from janitoo.value import JNTValue
 from janitoo.node import JNTNode
 from janitoo.utils import HADD, HADD_SEP, json_dumps, json_loads, hadd_split
@@ -58,7 +60,7 @@ def extend( self ):
             self.socketio.emit('my nodes response',
                 {'data':res},
                 namespace='/janitoo')
-            logger.debug('Nodes event :%s' % (self.nodes))
+            logger.debug(u'Nodes event :%s', self.nodes)
 
     self.emit_nodes = emit_nodes
 
@@ -76,7 +78,7 @@ def extend( self ):
             self.socketio.emit('my node response',
                 {'data':nodes},
                 namespace='/janitoo')
-            logger.debug('Node event :%s' % (nodes))
+            logger.debug(u'Node event :%s', nodes)
 
     self.emit_node = emit_node
 
@@ -107,7 +109,7 @@ def extend( self ):
             for idx2 in data[idx1]:
                 #~ logger.debug('User event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
                 res[idx1][idx2] = data[idx1][idx2]
-        logger.debug('User event :%s' % (res))
+        logger.debug('User event :%s', res)
         with self.app.test_request_context():
             self.socketio.emit('my users response',
                 {'data':res},
@@ -133,7 +135,7 @@ def extend( self ):
             for idx2 in data[idx1]:
                 #~ logger.debug('Basic event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
                 res[idx1][idx2] = data[idx1][idx2]
-        logger.debug('Basic event :%s' % (res))
+        logger.debug(u'Basic event :%s', res)
         with self.app.test_request_context():
             self.socketio.emit('my basics response',
                 {'data':res},
@@ -162,13 +164,13 @@ def extend( self ):
         if 'uuid' in data[data.keys()[0]]:
             data = {0:data}
         for idx1 in data:
-            logger.debug('System event idx1 :%s,%s' % (idx1,data[idx1]))
+            logger.debug(u'System event idx1 :%s,%s', idx1, data[idx1])
             if idx1 not in res:
                 res[idx1]={}
             for idx2 in data[idx1]:
-                logger.debug('System event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
+                logger.debug(u'System event idx2 :%s,%s', idx2, data[idx1][idx2])
                 res[idx1][idx2] = data[idx1][idx2]
-        logger.debug('System event :%s' % (res))
+        logger.debug(u'System event :%s', res)
         with self.app.test_request_context():
             self.socketio.emit('my systems response',
                 {'data':res},
@@ -212,7 +214,7 @@ def extend( self ):
             for idx2 in data[idx1]:
                 #~ logger.debug('Command event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
                 res[idx1][idx1] = data[idx1][idx2]
-        logger.debug('Command event :%s' % (res))
+        logger.debug(u'Command event :%s', res)
         with self.app.test_request_context():
             self.socketio.emit('my commands response',
                 {'data':res},
@@ -224,7 +226,7 @@ def extend( self ):
         """Emit a scene state event
         nodes : a single scene or a dict of scenes
         """
-        logger.debug('Value event :%s' % (scenes))
+        logger.debug('Scenes event :%s', scenes)
 
     self.emit_scene = emit_scene
 
@@ -237,7 +239,7 @@ def extend( self ):
             self.socketio.emit('my scenes response',
                 {'data':res},
                 namespace='/janitoo')
-            logger.debug('Values event :%s' % (res))
+            logger.debug(u'Scene event :%s',res)
 
     self.emit_scenes = emit_scenes
 
@@ -245,7 +247,7 @@ def extend( self ):
         """Emit a scenario state event
         nodes : a single scenario or a dict of scenarios
         """
-        logger.debug('Value event :%s' % (scenarios))
+        logger.debug(u'Scenario event :%s', scenarios)
 
     self.emit_scenario = emit_scenario
 
@@ -258,7 +260,7 @@ def extend( self ):
             self.socketio.emit('my scenarios response',
                 {'data':res},
                 namespace='/janitoo')
-            logger.debug('Values event :%s' % (res))
+            logger.debug(u'Scenarios event :%s', res)
 
     self.emit_scenarios = emit_scenarios
 
@@ -266,7 +268,7 @@ def extend( self ):
         """Emit a cron state event
         nodes : a single cron or a dict of crons
         """
-        logger.debug('Value event :%s' % (crons))
+        logger.debug(u'Cron event :%s', crons)
 
     self.emit_cron = emit_cron
 
@@ -279,7 +281,7 @@ def extend( self ):
             self.socketio.emit('my crons response',
                 {'data':res},
                 namespace='/janitoo')
-            logger.debug('Values event :%s' % (res))
+            logger.debug(u'Crons event :%s', res)
 
     self.emit_crons = emit_crons
 
@@ -309,7 +311,7 @@ def extend( self ):
             for idx2 in data[idx1]:
                 #~ logger.debug('Config event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
                 res[idx1][idx2] = data[idx1][idx2]
-        logger.debug('Config event :%s' % (res))
+        logger.debug(u'Config event :%s', res)
         with self.app.test_request_context():
             self.socketio.emit('my configs response',
                 {'data':res},

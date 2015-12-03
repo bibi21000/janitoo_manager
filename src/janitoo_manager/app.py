@@ -32,15 +32,12 @@ import os
 import datetime
 import time
 
-from pkg_resources import iter_entry_points
-
 from sqlalchemy import event
 from sqlalchemy.engine import Engine
 
 from flask import Flask, request
 from flask_login import current_user
 
-# Import the user blueprint
 from janitoo_manager.admin.views import admin
 from janitoo_manager.user.models import UserMan, GuestMan
 from janitoo_manager.auth.views import auth
@@ -49,20 +46,14 @@ from janitoo_manager.admin.views import admin
 from janitoo_manager.portal.views import portal
 from janitoo_manager.extensions import db, login_manager, mail, cache, janitoo, \
     debugtoolbar, plugin_manager, themes, babel, csrf, socketio, bower
-# various helpers
 from janitoo_manager.utils.helpers import format_date, time_since, crop_title, \
     is_online, render_markup, mark_online, forum_is_unread, topic_is_unread, \
     render_template
 from janitoo_manager.utils.translations import JanitooDomain
-# permission checks (here they are used for the jinja filters)
-#~ from janitoo_manager.utils.permissions import can_post_reply, can_post_topic, \
-    #~ can_delete_topic, can_delete_post, can_edit_post, can_edit_user, \
-    #~ can_ban_user, can_moderate, is_admin, is_moderator, is_admin_or_moderator
 from janitoo_manager.utils.permissions import is_admin, is_power, is_admin_or_power
-# app specific configurations
 from janitoo_manager.utils.settings import flask_config
 
-#~ import janitoo_db.models as jnt_models
+from janitoo.options import JNTOptions
 from janitoo_db.base import Base, create_db_engine
 from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_config
 
@@ -84,7 +75,7 @@ def create_app(config=None):
     import logging.config
     logging.config.fileConfig(config.CONF_FILE)
 
-    configure_extensions(app)
+    configure_extensions(app, config)
     configure_blueprints(app)
     configure_template_filters(app)
     configure_context_processors(app)
@@ -102,7 +93,7 @@ def configure_blueprints(app):
     import janitoo_manager.admin.socket
     janitoo.extend_blueprints('janitoo_manager')
 
-def configure_extensions(app):
+def configure_extensions(app, config):
     """Configures the extensions."""
 
     # Flask-WTF CSRF
@@ -167,14 +158,15 @@ def configure_extensions(app):
         if current_user.is_authenticated and current_user.language:
             return current_user.language
         # otherwise we will just fallback to the default language
-        print "============================>>>>>>>>>>>>>>>>>>>>> flask_config : %s" % flask_config
         return flask_config["DEFAULT_LANGUAGE"]
 
     # SocketIO
     socketio.init_app(app)
 
     # janitoo_flask
-    janitoo.init_app(app, socketio, options={'conf_file':'/opt/janitoo/config/janitoo_manager.conf'}, db=db)
+    options = JNTOptions({"conf_file":config.CONF_FILE})
+    options.load()
+    janitoo.init_app(app, socketio, options=options.data, db=db)
     janitoo.extend_network('janitoo_manager')
     janitoo.extend_listener('janitoo_manager')
 
