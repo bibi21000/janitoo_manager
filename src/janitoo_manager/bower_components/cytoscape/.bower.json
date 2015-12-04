@@ -67,15 +67,15 @@
     "build",
     "node_modules"
   ],
-  "version": "2.5.0",
-  "_release": "2.5.0",
+  "version": "2.5.1",
+  "_release": "2.5.1",
   "_resolution": {
     "type": "version",
-    "tag": "v2.5.0",
-    "commit": "7dfc16aef12be37ee7b7c50c10f3522f70357ad9"
+    "tag": "v2.5.1",
+    "commit": "5133e2590151427a62b5815242e4bcb589146020"
   },
   "_source": "git://github.com/cytoscape/cytoscape.js.git",
-  "_target": "~2.5.0",
+  "_target": "~2.5.1",
   "_originalSource": "cytoscape",
   "_direct": true
 }
