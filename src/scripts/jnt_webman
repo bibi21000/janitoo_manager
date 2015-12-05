@@ -38,8 +38,13 @@ from werkzeug.utils import import_string
 from sqlalchemy.exc import IntegrityError, OperationalError
 from flask_script import (Manager, Shell, Server, prompt, prompt_pass,
                           prompt_bool)
-#~ from flask_migrate import MigrateCommand, upgrade
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, scoped_session
+from alembic.script import ScriptDirectory as alScriptDirectory
 from alembic import command as alcommand
+from alembic.migration import MigrationContext
+
 from janitoo.options import JNTOptions
 from janitoo_db.base import Base, create_db_engine
 from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_config
@@ -110,6 +115,22 @@ def dropdb():
     """Deletes the database."""
 
     db.drop_all()
+
+
+@manager.command
+def versiondb():
+    """Show the database version."""
+    engine = create_engine(config.SQLALCHEMY_DATABASE_URI)
+    conn = engine.connect()
+    context = MigrationContext.configure(conn)
+    current_rev = context.get_current_heads()
+    print current_rev
+
+
+@manager.command
+def heads():
+    """Show the heads of migration scripts<."""
+    alcommand.heads(janitoo_config(args.url), verbose=True)
 
 
 @manager.command
