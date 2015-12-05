@@ -44,7 +44,7 @@ from janitoo.mqtt import MQTTClient
 from janitoo.options import JNTOptions
 
 def extend( self ):
-
+    #~ pass
     def emit_nodes():
         """Emit a nodes state event
         """
@@ -56,32 +56,28 @@ def extend( self ):
                 res[key]['state'] = self.heartbeat_cache.entries[add_ctrl][add_node]['state']
             else:
                 res[key]['state'] = 'UNKNOWN'
-        with self.app.test_request_context():
-            self.socketio.emit('my nodes response',
-                {'data':res},
-                namespace='/janitoo')
-            logger.debug(u'Nodes event :%s', self.nodes)
+        #~ self.socketio.emit('my nodes response',
+            #~ {'data':res},
+            #~ namespace='/janitoo')
+        logger.debug(u'Nodes event :%s', self.nodes)
 
     self.emit_nodes = emit_nodes
-
 
     def emit_node(nodes):
         """Emit a node state event
         nodes : a single node or a dict of nodes
         """
-        #~ print " emit_node %s" %nodes
-        #~ if 'hadd' not in nodes:
-            #~ print " emit_node hadd not in nodes"
-            #~ for key in nodes:
-                #~ nodes[key]['state'] = 'online'
-        with self.app.test_request_context():
-            self.socketio.emit('my node response',
-                {'data':nodes},
-                namespace='/janitoo')
-            logger.debug(u'Node event :%s', nodes)
+        # print " emit_node %s" %nodes
+        # if 'hadd' not in nodes:
+            # print " emit_node hadd not in nodes"
+            # for key in nodes:
+                # nodes[key]['state'] = 'online'
+        #~ self.socketio.emit('my node response',
+            #~ {'data':nodes},
+            #~ namespace='/janitoo')
+        logger.debug(u'Node event :%s', nodes)
 
     self.emit_node = emit_node
-
 
     def emit_users():
         """Emit a users state event
@@ -90,7 +86,6 @@ def extend( self ):
             self.emit_user(self.users[hadd])
 
     self.emit_users = emit_users
-
 
     def emit_user(data):
         """Emit a usere state event
@@ -103,20 +98,18 @@ def extend( self ):
         if 'uuid' in data[data.keys()[0]]:
             data = {0:data}
         for idx1 in data:
-            #~ logger.debug('User event idx1 :%s,%s' % (idx1,data[idx1]))
+            # logger.debug('User event idx1 :%s,%s' % (idx1,data[idx1]))
             if idx1 not in res:
                 res[idx1]={}
             for idx2 in data[idx1]:
-                #~ logger.debug('User event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
+                # logger.debug('User event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
                 res[idx1][idx2] = data[idx1][idx2]
         logger.debug('User event :%s', res)
-        with self.app.test_request_context():
-            self.socketio.emit('my users response',
-                {'data':res},
-                namespace='/janitoo')
+        #~ self.socketio.emit('my users response',
+            #~ {'data':res},
+            #~ namespace='/janitoo')
 
     self.emit_user = emit_user
-
 
     def emit_basic(data):
         """Emit a basice state event
@@ -129,27 +122,25 @@ def extend( self ):
         if 'uuid' in data[data.keys()[0]]:
             data = {0:data}
         for idx1 in data:
-            #~ logger.debug('Basic event idx1 :%s,%s' % (idx1,data[idx1]))
+            logger.debug('Basic event idx1 :%s,%s' % (idx1,data[idx1]))
             if idx1 not in res:
                 res[idx1]={}
             for idx2 in data[idx1]:
-                #~ logger.debug('Basic event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
+                logger.debug('Basic event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
                 res[idx1][idx2] = data[idx1][idx2]
         logger.debug(u'Basic event :%s', res)
-        with self.app.test_request_context():
-            self.socketio.emit('my basics response',
-                {'data':res},
-                namespace='/janitoo')
+        #~ self.socketio.emit('my basics response',
+            #~ {'data':res},
+            #~ namespace='/janitoo')
 
     self.emit_basic = emit_basic
-
 
     def emit_basics():
         """Emit a basics state event
         """
         for hadd in self.basics.keys():
             self.emit_basic(self.basics[hadd])
-            #~ logger.debug('Values event :%s' % (self.basics))
+            logger.debug('Values event :%s' % (self.basics))
 
     self.emit_basics = emit_basics
 
@@ -171,10 +162,9 @@ def extend( self ):
                 logger.debug(u'System event idx2 :%s,%s', idx2, data[idx1][idx2])
                 res[idx1][idx2] = data[idx1][idx2]
         logger.debug(u'System event :%s', res)
-        with self.app.test_request_context():
-            self.socketio.emit('my systems response',
-                {'data':res},
-                namespace='/janitoo')
+        #~ self.socketio.emit('my systems response',
+            #~ {'data':res},
+            #~ namespace='/janitoo')
 
     self.emit_system = emit_system
 
@@ -196,7 +186,6 @@ def extend( self ):
 
     self.emit_commands = emit_commands
 
-
     def emit_command(data):
         """Emit a commande state event
         nodes : a single node or a dict of nodes
@@ -208,17 +197,16 @@ def extend( self ):
         if 'uuid' in data[data.keys()[0]]:
             data = {0:data}
         for idx1 in data:
-            #~ logger.debug('Command event idx1 :%s,%s' % (idx1,data[idx1]))
+            #~ #logger.debug('Command event idx1 :%s,%s' % (idx1,data[idx1]))
             if idx1 not in res:
                 res[idx1]={}
             for idx2 in data[idx1]:
-                #~ logger.debug('Command event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
+                #~ #logger.debug('Command event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
                 res[idx1][idx1] = data[idx1][idx2]
         logger.debug(u'Command event :%s', res)
-        with self.app.test_request_context():
-            self.socketio.emit('my commands response',
-                {'data':res},
-                namespace='/janitoo')
+        #~ self.socketio.emit('my commands response',
+            #~ {'data':res},
+            #~ namespace='/janitoo')
 
     self.emit_command = emit_command
 
@@ -235,11 +223,10 @@ def extend( self ):
         """
         res = {}
         res.update(self.get_scenes())
-        with self.app.test_request_context():
-            self.socketio.emit('my scenes response',
-                {'data':res},
-                namespace='/janitoo')
-            logger.debug(u'Scene event :%s',res)
+        #~ self.socketio.emit('my scenes response',
+            #~ {'data':res},
+            #~ namespace='/janitoo')
+        #~ logger.debug(u'Scene event :%s',res)
 
     self.emit_scenes = emit_scenes
 
@@ -256,11 +243,10 @@ def extend( self ):
         """
         res = {}
         res.update(self.get_scenarios())
-        with self.app.test_request_context():
-            self.socketio.emit('my scenarios response',
-                {'data':res},
-                namespace='/janitoo')
-            logger.debug(u'Scenarios event :%s', res)
+        #~ self.socketio.emit('my scenarios response',
+            #~ {'data':res},
+            #~ namespace='/janitoo')
+        #~ logger.debug(u'Scenarios event :%s', res)
 
     self.emit_scenarios = emit_scenarios
 
@@ -277,11 +263,10 @@ def extend( self ):
         """
         res = {}
         res.update(self.get_crons())
-        with self.app.test_request_context():
-            self.socketio.emit('my crons response',
-                {'data':res},
-                namespace='/janitoo')
-            logger.debug(u'Crons event :%s', res)
+        #~ self.socketio.emit('my crons response',
+            #~ {'data':res},
+            #~ namespace='/janitoo')
+        #~ logger.debug(u'Crons event :%s', res)
 
     self.emit_crons = emit_crons
 
@@ -292,7 +277,6 @@ def extend( self ):
             self.emit_config(self.configs[hadd])
 
     self.emit_configs = emit_configs
-
 
     def emit_config(data):
         """Emit a config state event
@@ -305,17 +289,15 @@ def extend( self ):
         if 'uuid' in data[data.keys()[0]]:
             data = {0:data}
         for idx1 in data:
-            #~ logger.debug('Config event idx1 :%s,%s' % (idx1,data[idx1]))
+            #~ #logger.debug('Config event idx1 :%s,%s' % (idx1,data[idx1]))
             if idx1 not in res:
                 res[idx1]={}
             for idx2 in data[idx1]:
-                #~ logger.debug('Config event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
+                #~ #logger.debug('Config event idx2 :%s,%s' % (idx2,data[idx1][idx2]))
                 res[idx1][idx2] = data[idx1][idx2]
         logger.debug(u'Config event :%s', res)
-        with self.app.test_request_context():
-            self.socketio.emit('my configs response',
-                {'data':res},
-                namespace='/janitoo')
-
+        #~ self.socketio.emit('my configs response',
+            #~ {'data':res},
+            #~ namespace='/janitoo')
 
     self.emit_config = emit_config
