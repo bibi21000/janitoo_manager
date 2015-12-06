@@ -40,7 +40,7 @@ from gevent import monkey
 monkey.patch_all()
 
 import logging
-logger = logging.getLogger('janitoo.manager')
+logger = logging.getLogger(__name__)
 
 from flask import render_template
 from flask_mail import Message

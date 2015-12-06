@@ -40,7 +40,7 @@ from gevent import monkey
 monkey.patch_all()
 
 import logging
-logger = logging.getLogger('janitoo.manager')
+logger = logging.getLogger(__name__)
 
 def check_perm(user, perm, forum, post_user_id=None):
     """Checks if the `user` has a specified `perm` in the `forum`

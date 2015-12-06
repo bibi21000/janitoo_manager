@@ -54,7 +54,7 @@ from gevent import monkey
 monkey.patch_all()
 
 import logging
-logger = logging.getLogger('janitoo.manager')
+logger = logging.getLogger(__name__)
 import os, sys
 import time
 from threading import Thread

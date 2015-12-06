@@ -40,7 +40,7 @@ from gevent import monkey
 monkey.patch_all()
 
 import logging
-logger = logging.getLogger('janitoo.manager')
+logger = logging.getLogger(__name__)
 
 from flask import Blueprint, flash, request
 from flask_login import login_required, current_user

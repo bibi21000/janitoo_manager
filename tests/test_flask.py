@@ -32,6 +32,7 @@ import unittest
 
 from alembic import command as alcommand
 from sqlalchemy import create_engine
+from alembic import command as alcommand
 
 from janitoo_manager import create_app
 from janitoo_manager.extensions import db, socketio
@@ -47,7 +48,6 @@ from janitoo.utils import TOPIC_NODES, TOPIC_NODES_REPLY, TOPIC_NODES_REQUEST
 from janitoo.utils import TOPIC_BROADCAST_REPLY, TOPIC_BROADCAST_REQUEST
 from janitoo.utils import TOPIC_VALUES_USER, TOPIC_VALUES_CONFIG, TOPIC_VALUES_SYSTEM, TOPIC_VALUES_BASIC
 
-from alembic import command as alcommand
 from janitoo.options import JNTOptions
 from janitoo_db.base import Base, create_db_engine
 from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_config

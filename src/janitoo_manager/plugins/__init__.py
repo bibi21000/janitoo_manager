@@ -40,7 +40,7 @@ from gevent import monkey
 monkey.patch_all()
 
 import logging
-logger = logging.getLogger('janitoo.manager')
+logger = logging.getLogger(__name__)
 
 from flask import current_app
 from flask_plugins import Plugin
