@@ -51,7 +51,6 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask_themes2 import Themes
 from flask_plugins import PluginManager
 from flask_babelex import Babel
-from flask_bower import Bower
 from flask_wtf.csrf import CsrfProtect
 from janitoo_flask_socketio import FlaskJanitooSocketio
 from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, disconnect
@@ -85,9 +84,6 @@ babel = Babel()
 
 # CSRF
 csrf = CsrfProtect()
-
-# Bower
-bower = Bower()
 
 # SocketIO
 socketio = SocketIO()

@@ -45,7 +45,7 @@ from janitoo_manager.user.views import user
 from janitoo_manager.admin.views import admin
 from janitoo_manager.portal.views import portal
 from janitoo_manager.extensions import db, login_manager, mail, cache, janitoo, \
-    debugtoolbar, plugin_manager, themes, babel, csrf, socketio, bower
+    debugtoolbar, plugin_manager, themes, babel, csrf, socketio
 from janitoo_manager.utils.helpers import format_date, time_since, crop_title, \
     is_online, render_markup, mark_online, forum_is_unread, topic_is_unread, \
     render_template
@@ -113,9 +113,6 @@ def configure_extensions(app, config):
 
     # Flask-Cache
     cache.init_app(app)
-
-    # Flask-Bower
-    bower.init_app(app)
 
     # Flask-Debugtoolbar
     debugtoolbar.init_app(app)
