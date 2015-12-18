@@ -45,7 +45,6 @@ logger = logging.getLogger(__name__)
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_mail import Mail
-from flask_cache import Cache
 from flask_debugtoolbar import DebugToolbarExtension
 #~ from flask_migrate import Migrate
 from flask_themes2 import Themes
@@ -60,9 +59,6 @@ db = SQLAlchemy()
 
 # Login
 login_manager = LoginManager()
-
-# Caching
-cache = Cache()
 
 # Mail
 mail = Mail()
@@ -90,6 +86,8 @@ socketio = SocketIO()
 
 # flask_janitoo
 janitoo = FlaskJanitooSocketio()
+cache = janitoo.cache
+bower = janitoo.bower
 
 def auth_func(*args, **kw):
     if not current_user.is_authenticated():

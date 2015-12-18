@@ -93,7 +93,6 @@ setup(
                     'janitoo_flask >= %s'%'0.0.6',
                     'janitoo_flask_socketio >= %s'%'0.0.6',
                     'Flask-Mail',
-                    'Flask-Cache',
                     'Flask-DebugToolbar',
                     'Flask-Login',
                     'Flask-Plugins',
