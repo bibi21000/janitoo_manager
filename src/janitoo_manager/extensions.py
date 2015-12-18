@@ -53,7 +53,7 @@ from flask_plugins import PluginManager
 from flask_babelex import Babel
 from flask_bower import Bower
 from flask_wtf.csrf import CsrfProtect
-from janitoo_flask import FlaskJanitoo
+from janitoo_flask_socketio import FlaskJanitooSocketio
 from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, disconnect
 
 # Database
@@ -93,7 +93,7 @@ bower = Bower()
 socketio = SocketIO()
 
 # flask_janitoo
-janitoo = FlaskJanitoo()
+janitoo = FlaskJanitooSocketio()
 
 def auth_func(*args, **kw):
     if not current_user.is_authenticated():

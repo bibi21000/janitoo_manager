@@ -45,6 +45,25 @@ from janitoo.options import JNTOptions
 
 def extend( self ):
     #~ pass
+
+    def emit_network():
+        """Emit a network state event
+        """
+        ret = {}
+        ret['state'] = self.state,
+        ret['state_str'] = self.state_str,
+        ret['nodes_count'] = self.nodes_count,
+        ret['home_id'] = self.home_id,
+        ret['is_failed'] = self.is_failed,
+        ret['is_secondary'] = self.is_secondary,
+        ret['is_primary'] = self.is_primary,
+        self.socketio.emit('my network response',
+            {'data':ret},
+            namespace='/janitoo')
+        logger.debug('Network event : homeid %s (state:%s) - %d nodes were found.' % (self.home_id, self.state, self.nodes_count))
+
+    self.emit_network = emit_network
+
     def emit_nodes():
         """Emit a nodes state event
         """
@@ -114,7 +133,7 @@ def extend( self ):
     self.emit_user = emit_user
 
     def emit_basic(data):
-        """Emit a basice state event
+        """Emit a basic state event
         nodes : a single node or a dict of nodes
         """
         #~ pass

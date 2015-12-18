@@ -124,8 +124,7 @@ def versiondb():
     conn = engine.connect()
     context = MigrationContext.configure(conn)
     current_rev = context.get_current_heads()
-    print current_rev
-
+    print(current_rev)
 
 @manager.command
 def heads():

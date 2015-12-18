@@ -91,7 +91,7 @@ setup(
     package_dir = { '': 'src' },
     install_requires=[
                     'janitoo_flask >= %s'%'0.0.6',
-                    'Flask >= 0.9',
+                    'janitoo_flask_socketio >= %s'%'0.0.6',
                     'Flask-Mail',
                     'Flask-Cache',
                     'Flask-Bower',
@@ -109,6 +109,7 @@ setup(
                     ],
     dependency_links = [
       'https://github.com/bibi21000/janitoo_flask/archive/master.zip#egg=janitoo_flask-%s'%"0.0.6",
+      'https://github.com/bibi21000/janitoo_flask_socketio/archive/master.zip#egg=janitoo_flask_socketio-%s'%"0.0.6",
       'https://github.com/sysr-q/flask-themes2/archive/master.zip#egg=Flask-Themes2',
       'https://github.com/sh4nks/flask-babelex/tarball/master#egg=Flask-BabelEx',
     ],
