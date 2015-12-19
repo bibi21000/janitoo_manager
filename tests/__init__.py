@@ -19,9 +19,3 @@ __license__ = """
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
-
-try:                                                         # pragma: no cover
-    __import__('pkg_resources').declare_namespace(__name__)  # pragma: no cover
-except:                                                      # pragma: no cover
-    # bootstrapping                                          # pragma: no cover
-    pass                                                     # pragma: no cover
