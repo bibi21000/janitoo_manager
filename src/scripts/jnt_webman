@@ -49,7 +49,7 @@ from janitoo.options import JNTOptions
 from janitoo_db.base import Base, create_db_engine
 from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_config
 
-from janitoo_manager import create_app
+from janitoo_manager.app import create_app
 from janitoo_manager.extensions import db, plugin_manager, socketio
 
 # Use the development configuration if available

@@ -31,7 +31,7 @@ import logging
 from alembic import command as alcommand
 from sqlalchemy import create_engine
 
-from janitoo_manager import create_app
+from janitoo_manager.app import create_app
 from janitoo_manager.extensions import db, plugin_manager, socketio
 from janitoo_manager.configs.testing import TestingConfig
 

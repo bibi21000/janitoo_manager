@@ -42,4 +42,4 @@ monkey.patch_all()
 import logging
 logger = logging.getLogger(__name__)
 
-from janitoo_manager.app import create_app
+#~ from . import create_app
