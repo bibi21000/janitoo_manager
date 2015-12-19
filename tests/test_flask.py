@@ -52,32 +52,31 @@ from janitoo.options import JNTOptions
 from janitoo_db.base import Base, create_db_engine
 from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_config
 
-class TestFlask(JNTTFlask, JNTTFlaskCommon):
+class ManagerCommon(object):
     """Test flask
     """
     flask_conf = "tests/data/janitoo_manager.conf"
-    pass
-
-class TestLiveFlask(JNTTFlaskLive, JNTTFlaskLiveCommon):
-    """Test flask
-    """
-    flask_conf = "tests/data/janitoo_manager.conf"
-
-    def setUp(self):
-        JNTTFlaskLive.setUp(self)
-        # Use the testing configuration
-        self.config = TestingConfig(self.flask_conf)
-        alcommand.upgrade(janitoo_config(self.config.SQLALCHEMY_DATABASE_URI), 'heads')
 
     def create_app(self):
         # Use the testing configuration
         self.config = TestingConfig(self.flask_conf)
+        alcommand.upgrade(janitoo_config(self.config.SQLALCHEMY_DATABASE_URI), 'heads')
         app = create_app(self.config)
         app.config['LIVESERVER_PORT'] = 8943
         return app
 
-    def test_001_server_home_is_up(self):
-        self.list_routes()
-        self.assertUrl('/', 200)
-        time.sleep(0.5)
+class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
+    """Test flask
+    """
+    pass
+
+class TestLiveFlask(ManagerCommon, JNTTFlaskLive, JNTTFlaskLiveCommon):
+    """Test flask
+    """
+
+    pass
+    #~ def test_001_server_home_is_up(self):
+        #~ self.list_routes()
+        #~ self.assertUrl('/', 200)
+        #~ time.sleep(0.5)
 
