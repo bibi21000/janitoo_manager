@@ -40,6 +40,7 @@ from janitoo_manager.configs.testing import TestingConfig
 
 from janitoo_nosetests.flask import JNTTFlask, JNTTFlaskCommon
 from janitoo_nosetests.flask import JNTTFlaskLive, JNTTFlaskLiveCommon
+from janitoo_nosetests import JNTTBase
 
 from janitoo.utils import json_dumps, json_loads
 from janitoo.utils import HADD_SEP, HADD
@@ -64,6 +65,14 @@ class ManagerCommon(object):
         app = create_app(self.config)
         app.config['LIVESERVER_PORT'] = 8943
         return app
+
+class TestApp(JNTTBase):
+    """Test app
+    """
+    def test_001_create_app(self):
+        from janitoo_manager import create_app
+        config = TestingConfig(self.flask_conf)
+        app = create_app(self.config)
 
 class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
     """Test flask
