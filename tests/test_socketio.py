@@ -66,5 +66,7 @@ class TestFlask(JNTTSocketIO, JNTTSocketIOCommon):
         return app, socketio
 
     def test_001_server_connect(self):
+        #~ self.wipTest()
+        time.sleep(5)
         self.assertConnect("/janitoo")
 
