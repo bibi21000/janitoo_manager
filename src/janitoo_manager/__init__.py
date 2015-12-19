@@ -42,4 +42,4 @@ monkey.patch_all()
 import logging
 logger = logging.getLogger(__name__)
 
-from .app import create_app
+from app import create_app
