@@ -32,7 +32,7 @@ from alembic import command as alcommand
 from sqlalchemy import create_engine
 
 from janitoo_manager.app import create_app
-from janitoo_manager.extensions import db, plugin_manager, socketio
+from janitoo_manager.extensions import db, socketio
 from janitoo_manager.configs.testing import TestingConfig
 
 from janitoo_nosetests.socketio import JNTTSocketIO, JNTTSocketIOCommon
@@ -66,7 +66,7 @@ class TestFlask(JNTTSocketIO, JNTTSocketIOCommon):
         return app, socketio
 
     def test_001_server_connect(self):
-        #~ self.wipTest()
+        self.wipTest()
         time.sleep(5)
         self.assertConnect("/janitoo")
 

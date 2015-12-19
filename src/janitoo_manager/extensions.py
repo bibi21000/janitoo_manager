@@ -48,7 +48,6 @@ from flask_mail import Mail
 from flask_debugtoolbar import DebugToolbarExtension
 #~ from flask_migrate import Migrate
 from flask_themes2 import Themes
-from flask_plugins import PluginManager
 from flask_babelex import Babel
 from flask_wtf.csrf import CsrfProtect
 from janitoo_flask_socketio import FlaskJanitooSocketio
@@ -71,9 +70,6 @@ debugtoolbar = DebugToolbarExtension()
 
 # Themes
 themes = Themes()
-
-# PluginManager
-plugin_manager = PluginManager()
 
 # Babel
 babel = Babel()

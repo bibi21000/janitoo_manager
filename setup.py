@@ -95,7 +95,6 @@ setup(
                     'Flask-Mail',
                     'Flask-DebugToolbar',
                     'Flask-Login',
-                    'Flask-Plugins',
                     'Flask-Script',
                     'Flask-WTF',
                     'MarkupSafe',
