@@ -35,7 +35,7 @@ from janitoo_manager.app import create_app
 from janitoo_manager.extensions import db, socketio
 from janitoo_manager.configs.testing import TestingConfig
 
-from janitoo_nosetests.socketio import JNTTSocketIO, JNTTSocketIOCommon
+from janitoo_nosetests_flask.socketio import JNTTSocketIO, JNTTSocketIOCommon
 
 from janitoo.utils import json_dumps, json_loads
 from janitoo.utils import HADD_SEP, HADD
