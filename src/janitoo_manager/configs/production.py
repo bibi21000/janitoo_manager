@@ -43,49 +43,32 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-from janitoo_manager.configs.default import DefaultConfig
+from janitoo_flask.options import OptionsConfig
 
+class ProductionConfig(OptionsConfig):
 
-class ProductionConfig(DefaultConfig):
+    # Indicates that it is a dev environment
+    #DEBUG = True
 
-    ## Database
-    # If no SQL service is choosen, it will fallback to sqlite
-    # For PostgresSQL:
-    #SQLALCHEMY_DATABASE_URI = "postgresql://localhost/example"
-    # For SQLite:
-    #SQLALCHEMY_DATABASE_URI = 'sqlite:///' + DefaultConfig._basedir + '/' + \
-    #                          'janitoo_manager.sqlite'
+    # This will print all SQL statements
+    #SQLALCHEMY_ECHO = True
 
-    ## Security
-    # This is the secret key that is used for session signing.
-    # You can generate a secure key with os.urandom(24)
-    SECRET_KEY = 'secret key'
-
-    # You can generate the WTF_CSRF_SECRET_KEY the same way as you have
-    # generated the SECRET_KEY. If no WTF_CSRF_SECRET_KEY is provided, it will
-    # use the SECRET_KEY.
+    # Security
+    SECRET_KEY = "SecretKeyForSessionSigning"
     WTF_CSRF_ENABLED = True
     WTF_CSRF_SECRET_KEY = "reallyhardtoguess"
 
-
-    ## Caching
-    # For all available caching types, take a look at the Flask-Cache docs
-    # https://pythonhosted.org/Flask-Cache/#configuring-flask-cache
-    CACHE_TYPE = "simple"
-    CACHE_DEFAULT_TIMEOUT = 60
-
-
-    ## Captcha
+    # Recaptcha
     # To get recaptcha, visit the link below:
     # https://www.google.com/recaptcha/admin/create
-    RECAPTCHA_ENABLED = False
+    # Those keys are only going to work on localhost!
+    RECAPTCHA_ENABLED = True
     RECAPTCHA_USE_SSL = False
-    RECAPTCHA_PUBLIC_KEY = "your_public_recaptcha_key"
-    RECAPTCHA_PRIVATE_KEY = "your_private_recaptcha_key"
+    RECAPTCHA_PUBLIC_KEY = "6LcZB-0SAAAAAGIddBuSFU9aBpHKDa16p5gSqnxK"
+    RECAPTCHA_PRIVATE_KEY = "6LcZB-0SAAAAAPuPHhazscMJYa2mBe7MJSoWXrUu"
     RECAPTCHA_OPTIONS = {"theme": "white"}
 
-
-    ## Mail
+    # Mail
     # Local SMTP Server
     #MAIL_SERVER = "localhost"
     #MAIL_PORT = 25
@@ -105,24 +88,16 @@ class ProductionConfig(DefaultConfig):
     # The user who should recieve the error logs
     ADMINS = ["your_admin_user@gmail.com"]
 
+    #DEBUG_TB_INTERCEPT_REDIRECTS = True
 
-    ## Error/Info Logging
-    # If SEND_LOGS is set to True, the admins (see the mail configuration) will
-    # recieve the error logs per email.
-    SEND_LOGS = False
-
-    # The filename for the info and error logs. The logfiles are stored at
-    # janitoo_manager/logs
-    INFO_LOG = "info.log"
-    ERROR_LOG = "error.log"
-
-    # Flask-Redis
-    REDIS_ENABLED = False
-    REDIS_URL = "redis://:password@localhost:6379"
-    REDIS_DATABASE = 0
-
-    # URL Prefixes. Only change it when you know what you are doing.
-    FORUM_URL_PREFIX = ""
+    # URL Prefixes
     USER_URL_PREFIX = "/user"
     AUTH_URL_PREFIX = "/auth"
     ADMIN_URL_PREFIX = "/admin"
+    PORTAL_URL_PREFIX = "/"
+
+    def __init__(self):
+        """Update Flask default data from janitoo option file
+        """
+        OptionsConfig.__init__(self, '/opt/janitoo/etc/janitoo_manager.conf')
+        print "from file"
