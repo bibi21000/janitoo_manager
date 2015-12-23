@@ -96,8 +96,7 @@ class ProductionConfig(OptionsConfig):
     ADMIN_URL_PREFIX = "/admin"
     PORTAL_URL_PREFIX = "/"
 
-    def __init__(self):
+    def __init__(self, conf_file='/opt/janitoo/etc/janitoo_manager.conf'):
         """Update Flask default data from janitoo option file
         """
-        OptionsConfig.__init__(self, '/opt/janitoo/etc/janitoo_manager.conf')
-        print "from file"
+        OptionsConfig.__init__(self, conf_file)
