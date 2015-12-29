@@ -82,6 +82,7 @@ class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
         app = self.app
         themes = get_themes_list()
         themes_names = [ t.name for t in themes ]
+        print "themes_names %s" % themes_names
         self.assertTrue('Admin' in themes_names)
         self.assertTrue('Bootstrap3' in themes_names)
         self.assertTrue('Bootstrap2' in themes_names)
