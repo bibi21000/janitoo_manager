@@ -81,9 +81,8 @@ class TestLiveFlask(ManagerCommon, JNTTFlaskLive, JNTTFlaskLiveCommon):
     """Test flask
     """
 
-    pass
-    #~ def test_001_server_home_is_up(self):
-        #~ self.list_routes()
-        #~ self.assertUrl('/', 200)
-        #~ time.sleep(0.5)
+    def test_001_server_home_is_up(self):
+        self.list_routes()
+        self.assertUrl('/', 200)
+        time.sleep(0.5)
 
