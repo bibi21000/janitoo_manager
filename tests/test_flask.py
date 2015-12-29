@@ -85,6 +85,10 @@ class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
         self.assertTrue('Admin' in themes_names)
         self.assertTrue('Bootstrap3' in themes_names)
         self.assertTrue('Bootstrap2' in themes_names)
+        themes_identifiers = [ t.identifier for t in themes ]
+        self.assertTrue('admin' in themes_identifiers)
+        self.assertTrue('bootstrap3' in themes_identifiers)
+        self.assertTrue('bootstrap2' in themes_identifiers)
 
 class TestLiveFlask(ManagerCommon, JNTTFlaskLive, JNTTFlaskLiveCommon):
     """Test flask
