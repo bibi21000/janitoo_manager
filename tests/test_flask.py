@@ -34,6 +34,8 @@ from alembic import command as alcommand
 from sqlalchemy import create_engine
 from alembic import command as alcommand
 
+from flask_themes2 import get_themes_list
+
 from janitoo_manager.app import create_app
 from janitoo_manager.extensions import db, socketio
 from janitoo_manager.configs.testing import TestingConfig
@@ -75,7 +77,14 @@ class TestApp(JNTTBase, ManagerCommon):
 class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
     """Test flask
     """
-    pass
+
+    def test_011_themes(self):
+        app = self.app
+        themes = get_themes_list()
+        themes_names = [ t.name for t in themes ]
+        self.assertTrue('Admin' in themes_names)
+        self.assertTrue('Bootstrap3' in themes_names)
+        self.assertTrue('Bootstrap2' in themes_names)
 
 class TestLiveFlask(ManagerCommon, JNTTFlaskLive, JNTTFlaskLiveCommon):
     """Test flask
@@ -86,3 +95,7 @@ class TestLiveFlask(ManagerCommon, JNTTFlaskLive, JNTTFlaskLiveCommon):
         self.assertUrl('/', 200)
         time.sleep(0.5)
 
+    def test_011__themes_is_up(self):
+        self.list_routes()
+        self.assertUrl('/_themes/', 200)
+        time.sleep(0.5)
