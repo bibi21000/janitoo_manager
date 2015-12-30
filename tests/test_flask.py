@@ -98,9 +98,9 @@ class TestLiveFlask(ManagerCommon, JNTTFlaskLive, JNTTFlaskLiveCommon):
     def test_001_server_home_is_up(self):
         self.list_routes()
         self.assertUrl('/', 200)
-        time.sleep(0.5)
+        time.sleep(2)
 
     def test_011__themes_is_up(self):
         self.list_routes()
         self.assertUrl('/_themes/', 200)
-        time.sleep(0.5)
+        time.sleep(2)
