@@ -42,7 +42,7 @@ for arg in sys.argv:
         filtered_args.append(arg)
 sys.argv = filtered_args
 
-def data_files_config(res, rsrc, src, pattern):
+def get_data_files(res, rsrc, src, pattern):
     for root, dirs, fils in os.walk(src):
         if src == root:
             sub = []
@@ -50,17 +50,33 @@ def data_files_config(res, rsrc, src, pattern):
                 sub.append(os.path.join(root,fil))
             res.append((rsrc, sub))
             for dire in dirs:
-                    data_files_config(res, os.path.join(rsrc, dire), os.path.join(root, dire), pattern)
+                get_data_files(res, os.path.join(rsrc, dire), os.path.join(root, dire), pattern)
+    return res
 
 data_files = []
-data_files_config(data_files, 'templates','src/janitoo_manager/templates/','*')
-data_files_config(data_files, 'themes','src/janitoo_manager/themes/','*')
-data_files_config(data_files, 'static','src/janitoo_manager/static/','*')
-data_files_config(data_files, 'docs','src/docs/','*')
-data_files_config(data_files, 'config','src/config','*.py')
-data_files_config(data_files, 'config','src/config','*.conf')
-data_files_config(data_files, 'config','src/config','*.mako')
-data_files_config(data_files, 'config','src/config','README')
+get_data_files(data_files, 'docs','src/docs/','*')
+get_data_files(data_files, 'config','src/config','*.py')
+get_data_files(data_files, 'config','src/config','*.conf')
+get_data_files(data_files, 'config','src/config','*.cfg')
+get_data_files(data_files, 'config','src/config','*.mako')
+get_data_files(data_files, 'config','src/config','README')
+
+def get_package_data(res, pkgdir, src, pattern):
+    for root, dirs, fils in os.walk(os.path.join(pkgdir, src)):
+        #~ print os.path.join(pkgdir, src), root, dirs, fils
+        if os.path.join(pkgdir, src) == root:
+            sub = []
+            for fil in fils:
+                sub.append(os.path.join(src,fil))
+            res.extend(sub)
+            for dire in dirs:
+                get_package_data(res, pkgdir, os.path.join(src, dire), pattern)
+    return res
+
+package_data = []
+get_package_data(package_data, 'src/janitoo_manager', 'templates','*')
+get_package_data(package_data, 'src/janitoo_manager', 'themes','*')
+get_package_data(package_data, 'src/janitoo_manager', 'static','*')
 
 setup(
     name = 'janitoo_manager',
@@ -91,6 +107,9 @@ setup(
     zip_safe = False,
     include_package_data=True,
     data_files = data_files,
+    package_data={
+            'janitoo_manager': package_data,
+        },
     packages = find_packages('src', exclude=["scripts", "docs", "config"]),
     package_dir = { '': 'src' },
     install_requires=[
