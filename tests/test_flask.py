@@ -78,7 +78,7 @@ class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
     """Test flask
     """
 
-    def test_011_admin_is_loaded(self):
+    def test_011_endpoints(self):
         print self.get_routes()
         self.assertEndpoint('admin.nodes')
         self.assertEndpoint('admin.values_user')
