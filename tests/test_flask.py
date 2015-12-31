@@ -96,6 +96,7 @@ class TestLiveFlask(ManagerCommon, JNTTFlaskLive, JNTTFlaskLiveCommon):
     """
 
     def test_001_server_home_is_up(self):
+        self.wipTest()
         self.list_routes()
         self.assertUrl('/', 200)
         time.sleep(2)
