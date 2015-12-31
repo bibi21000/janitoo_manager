@@ -45,7 +45,7 @@ from threading import Thread
 
 from flask import Blueprint, flash
 from flask import Flask, session, request, current_app, g
-from flask.ext.socketio import SocketIO, emit, join_room, leave_room, close_room, disconnect
+from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, disconnect
 from flask_themes2 import get_themes_list
 from flask_babelex import gettext as _
 

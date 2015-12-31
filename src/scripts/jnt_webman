@@ -79,6 +79,7 @@ port = int(port)
 @manager.command
 def runserver():
     """Run the server."""
+    #~ socketio.run(app, use_reloader=True, host=host, port=port)
     socketio.run(app, use_reloader=True, host=host, port=port)
 #manager.add_command("runserver", Server(host, port=port))
 

@@ -17,10 +17,12 @@ src/${MODULENAME}/bower_components/bootstrap-markdown-editor:
 
 bower: src/${MODULENAME}/bower_components/bootstrap-markdown-editor
 	cd src/${MODULENAME} && bower install jquery
-	cd src/${MODULENAME} && bower install bootstrap#3.3.6
+	#~ cd src/${MODULENAME} && bower install bootstrap#3.3.6
+	cd src/${MODULENAME} && bower install bootstrap
 	cd src/${MODULENAME} && bower install startbootstrap-sb-admin-2
 	cd src/${MODULENAME} && bower install bootstrap-markdown
-	cd src/${MODULENAME} && bower install socket.io-client#0.9.17
+	cd src/${MODULENAME} && bower install socket.io-client
+	#~ cd src/${MODULENAME} && bower install socket.io-client#0.9.17
 	cd src/${MODULENAME} && bower install cytoscape
 	cd src/${MODULENAME} && bower install bootstrap-web-components
 

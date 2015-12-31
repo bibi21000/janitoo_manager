@@ -1,5 +1,5 @@
 /*!
- * This file is part of Cytoscape.js 2.5.1.
+ * This file is part of Cytoscape.js 2.5.4.
  *
  * Cytoscape.js is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published by the Free
@@ -1646,7 +1646,7 @@ var elesfn = ({
                       edgeNext);
 
         return cy.collection( pathArr );
-      },
+      }
     };
 
     return res;
@@ -2049,7 +2049,7 @@ var elesfn = ({
   clearQueue: define.clearQueue(),
   delay: define.delay(),
   delayAnimation: define.delayAnimation(),
-  stop: define.stop(),
+  stop: define.stop()
 });
 
 module.exports = elesfn;
@@ -2750,7 +2750,7 @@ fn = elesfn = ({
           } else if( ppos !== undefined ){ // set whole position
             ele._private.position = {
               x: ppos.x + origin.x,
-              y: ppos.y + origin.y,
+              y: ppos.y + origin.y
             };
           }
         }
@@ -6557,7 +6557,7 @@ var Core = function( opts ){
     wheelSensitivity: is.number(options.wheelSensitivity) && options.wheelSensitivity > 0 ? options.wheelSensitivity : 1,
     motionBlur: options.motionBlur === undefined ? true : options.motionBlur, // on by default
     motionBlurOpacity: options.motionBlurOpacity === undefined ? 0.05 : options.motionBlurOpacity,
-    pixelRatio: is.number(options.pixelRatio) && options.pixelRatio > 0 ? options.pixelRatio : (options.pixelRatio === 'auto' ? undefined : 1),
+    pixelRatio: is.number(options.pixelRatio) && options.pixelRatio > 0 ? options.pixelRatio : undefined,
     desktopTapThreshold: options.desktopTapThreshold === undefined ? 4 : options.desktopTapThreshold,
     touchTapThreshold: options.touchTapThreshold === undefined ? 8 : options.touchTapThreshold
   }, options.renderer) );
@@ -7768,7 +7768,7 @@ var corefn = ({
       x1: ( rb.x1 - pan.x )/zoom,
       x2: ( rb.x2 - pan.x )/zoom,
       y1: ( rb.y1 - pan.y )/zoom,
-      y2: ( rb.y2 - pan.y )/zoom,
+      y2: ( rb.y2 - pan.y )/zoom
     };
 
     b.w = b.x2 - b.x1;
@@ -11598,7 +11598,7 @@ BRp.registerArrowShapes = function(){
       -0.15, -0.3,
       0, 0,
       0.15, -0.3,
-      0, -0.15,
+      0, -0.15
     ],
 
     gap: function( edge ){
@@ -11635,7 +11635,7 @@ BRp.registerArrowShapes = function(){
     spacing: function( edge ){
       return renderer.getArrowWidth(edge._private.style['width'].pfValue)
         * this.radius;
-    },
+    }
   } );
 
   defineArrowShape( 'inhibitor', {
@@ -15435,8 +15435,12 @@ BRp.load = function() {
       });
     };
 
+    var pointerIsMouse = function( e ){
+      return e.pointerType === 'mouse' || e.pointerType === 4;
+    };
+
     r.registerBinding(r.container, 'pointerdown', function(e){
-      if( e.pointerType === 'mouse' ){ return; } // mouse already handled
+      if( pointerIsMouse(e) ){ return; } // mouse already handled
 
       e.preventDefault();
 
@@ -15447,7 +15451,7 @@ BRp.load = function() {
     });
 
     r.registerBinding(r.container, 'pointerup', function(e){
-      if( e.pointerType === 'mouse' ){ return; } // mouse already handled
+      if( pointerIsMouse(e) ){ return; } // mouse already handled
 
       removePointer( e );
 
@@ -15456,7 +15460,7 @@ BRp.load = function() {
     });
 
     r.registerBinding(r.container, 'pointercancel', function(e){
-      if( e.pointerType === 'mouse' ){ return; } // mouse already handled
+      if( pointerIsMouse(e) ){ return; } // mouse already handled
 
       removePointer( e );
 
@@ -15465,7 +15469,7 @@ BRp.load = function() {
     });
 
     r.registerBinding(r.container, 'pointermove', function(e){
-      if( e.pointerType === 'mouse' ){ return; } // mouse already handled
+      if( pointerIsMouse(e) ){ return; } // mouse already handled
 
       e.preventDefault();
 
@@ -18793,7 +18797,7 @@ var cytoscape = function( options ){ // jshint ignore:line
 };
 
 // replaced by build system
-cytoscape.version = '2.5.1';
+cytoscape.version = '2.5.4';
 
 // try to register w/ jquery
 if( window && window.jQuery ){
@@ -21311,8 +21315,10 @@ styfn.updateStyleHints = function(ele){
     var cpd = style['control-point-distances'] ? style['control-point-distances'].pfValue.join('_') : undefined;
     var cpw = style['control-point-weights'].value.join('_');
     var curve = style['curve-style'].strValue;
+    var sd = style['segment-distances'] ? style['segment-distances'].pfValue.join('_') : undefined;
+    var sw = style['segment-weights'].value.join('_');
 
-    _p.boundingBoxKey += '$'+ cpss +'$'+ cpd +'$'+ cpw +'$'+ curve;
+    _p.boundingBoxKey += '$'+ cpss +'$'+ cpd +'$'+ cpw +'$'+ sd +'$'+ sw +'$'+ curve;
   }
 
   _p.styleKey = Date.now();
@@ -22382,7 +22388,7 @@ var parseImpl = function( name, value, propIsBypass, propIsFlat ){
     };
   }
 
-  if( type.multiple && !propIsFlat ){
+  if( type.multiple && propIsFlat !== 'multiple' ){
     var vals;
 
     if( valueIsString ){
@@ -22396,7 +22402,7 @@ var parseImpl = function( name, value, propIsBypass, propIsFlat ){
     if( type.evenMultiple && vals.length % 2 !== 0 ){ return null; }
 
     var valArr = vals.map(function( v ){
-      var p = self.parse( name, v, propIsBypass, true );
+      var p = self.parse( name, v, propIsBypass, 'multiple' );
 
       if( p.pfValue != null ){
         return p.pfValue;
@@ -22965,7 +22971,7 @@ styfn.addDefaultStylesheet = function(){
         'padding-left': 0,
         'padding-right': 0,
         'position': 'origin',
-        'compound-sizing-wrt-labels': 'include',
+        'compound-sizing-wrt-labels': 'include'
       }, {
         // node pie bg
         'pie-size': '100%'
@@ -22988,7 +22994,7 @@ styfn.addDefaultStylesheet = function(){
         'line-color': '#ddd',
         'control-point-step-size': 40,
         'control-point-weights': 0.5,
-        'segment-weights': 0.25,
+        'segment-weights': 0.5,
         'segment-distances': 20,
         'curve-style': 'bezier',
         'haystack-radius': 0.8
@@ -23317,7 +23323,7 @@ var Thread = function( opts ){
 var thdfn = Thread.prototype; // short alias
 
 var stringifyFieldVal = function( val ){
-  var valStr = is.fn( val ) ? val.toString() : 'JSON.parse("' + JSON.stringify(val) + '")';
+  var valStr = is.fn( val ) ? val.toString() : "JSON.parse('" + JSON.stringify(val) + "')";
 
   return valStr;
 };
