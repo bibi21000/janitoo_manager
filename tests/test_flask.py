@@ -78,12 +78,12 @@ class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
     """Test flask
     """
 
-    def test_011_endpoints(self):
+    def test_011_admin_endpoints(self):
         print self.get_routes()
         self.assertEndpoint('admin.nodes')
         self.assertEndpoint('admin.values_user')
 
-    def test_051_themes(self):
+    def test_051_load_themes(self):
         app = self.app
         themes = get_themes_list()
         themes_names = [ t.name for t in themes ]
