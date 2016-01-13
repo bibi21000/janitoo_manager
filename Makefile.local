@@ -26,3 +26,9 @@ bower: src/${MODULENAME}/bower_components/bootstrap-markdown-editor
 	cd src/${MODULENAME} && bower install cytoscape
 	cd src/${MODULENAME} && bower install bootstrap-web-components
 
+docker-test:
+	-netcat -zv 127.0.0.1 1-9999 2>&1|grep succeeded
+	netcat -zv 127.0.0.1 1-9999 2>&1|grep succeeded|grep 8001
+	netcat -zv 127.0.0.1 1-9999 2>&1|grep succeeded|grep 8880
+	@echo
+	@echo "Docker tests for ${MODULENAME} finished."
