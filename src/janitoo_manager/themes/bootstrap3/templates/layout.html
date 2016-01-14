@@ -20,8 +20,8 @@
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
         {% block stylesheets %}
-        <link rel="stylesheet" href="{{ url_for('bower.static', filename='bootstrap/dist/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ url_for('bower.static', filename='font-awesome/css/font-awesome.min.css') }}" >
+        <link rel="stylesheet" href="{{ url_for('bower.serve', filename='bootstrap/dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('bower.serve', filename='font-awesome/css/font-awesome.min.css') }}" >
         <link rel="stylesheet" href="{{ url_for('static', filename='css/janitoo_manager.css') }}">
         {% endblock %}
 
@@ -35,8 +35,8 @@
 
         {# standard javascript libs #}
         {% block javascript %}
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.static', filename='jquery/dist/jquery.min.js') }}"></script>
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.static', filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.serve', filename='jquery/dist/jquery.min.js') }}"></script>
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.serve', filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
         <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='js/janitoo_manager.js') }}"></script>
         {% endblock %}
 
