@@ -41,7 +41,7 @@ from janitoo_manager.extensions import db, socketio
 from janitoo_manager.configs.testing import TestingConfig
 
 from janitoo_nosetests_flask.flask import JNTTFlask, JNTTFlaskCommon
-from janitoo_nosetests_flask.flask import JNTTFlaskLive, JNTTFlaskLiveCommon
+#~ from janitoo_nosetests_flask.flask import JNTTFlaskLive, JNTTFlaskLiveCommon
 from janitoo_nosetests import JNTTBase
 
 from janitoo.utils import json_dumps, json_loads
@@ -68,7 +68,7 @@ class ManagerCommon(object):
         app.config['LIVESERVER_PORT'] = 8943
         return app
 
-class TestApp(JNTTBase, ManagerCommon):
+class TestApp(ManagerCommon, JNTTBase):
     """Test app
     """
     def test_001_create_app(self):
@@ -78,12 +78,12 @@ class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
     """Test flask
     """
 
-    def test_011_admin_endpoints(self):
+    def test_101_admin_endpoints(self):
         print self.get_routes()
         self.assertEndpoint('admin.nodes')
         self.assertEndpoint('admin.values_user')
 
-    def test_051_load_themes(self):
+    def test_151_load_themes(self):
         app = self.app
         themes = get_themes_list()
         themes_names = [ t.name for t in themes ]
@@ -96,18 +96,6 @@ class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
         self.assertTrue('bootstrap3' in themes_identifiers)
         self.assertTrue('bootstrap2' in themes_identifiers)
 
-class TestLiveFlask(ManagerCommon, JNTTFlaskLive, JNTTFlaskLiveCommon):
-    """Test flask
-    """
-
-    def test_001_server_home_is_up(self):
-        self.wipTest()
+    def test_201_admin_is_up(self):
         self.list_routes()
-        self.assertUrl('/', 200)
-        time.sleep(2)
-
-    def test_011__themes_is_up(self):
-        self.wipTest()
-        self.list_routes()
-        self.assertUrl('/_themes/', 200)
-        time.sleep(2)
+        self.assertUrl('/admin/', "200 OK")
