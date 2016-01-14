@@ -4,8 +4,8 @@
 """DBManager for Janitoo
 """
 from __future__ import print_function
-from gevent import monkey
-monkey.patch_all()
+#~ from gevent import monkey
+#~ monkey.patch_all()
 
 __license__ = """
     This file is part of Janitoo.

@@ -25,11 +25,11 @@ __license__ = """
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 __copyright__ = "Copyright © 2013-2014-2015 Sébastien GALLET aka bibi21000"
-try:
-    from gevent import monkey
-    monkey.patch_all()
-except ImportError:
-    pass
+#~ try:
+    #~ from gevent import monkey
+    #~ monkey.patch_all()
+#~ except ImportError:
+    #~ pass
 from janitoo_manager.app import create_app
 from janitoo_manager.configs.production import ProductionConfig
 from janitoo_manager.extensions import socketio
