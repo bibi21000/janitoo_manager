@@ -99,3 +99,23 @@ class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
     def test_201_admin_is_up(self):
         self.list_routes()
         self.assertUrl('/admin/', "200 OK")
+
+    def test_211_values_basic_is_up(self):
+        self.list_routes()
+        self.assertUrl('/admin/values_basic', "200 OK")
+
+    def test_212_values_system_is_up(self):
+        self.list_routes()
+        self.assertUrl('/admin/values_system', "200 OK")
+
+    def test_213_values_config_is_up(self):
+        self.list_routes()
+        self.assertUrl('/admin/values_config', "200 OK")
+
+    def test_214_values_command_is_up(self):
+        self.list_routes()
+        self.assertUrl('/admin/values_command', "200 OK")
+
+    def test_215_values_user_is_up(self):
+        self.list_routes()
+        self.assertUrl('/admin/values_user', "200 OK")
