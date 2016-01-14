@@ -115,6 +115,7 @@ setup(
     install_requires=[
                     'janitoo_flask',
                     'janitoo_flask_socketio',
+                    'Flask >= 0.9',
                     'Flask-Mail',
                     'Flask-DebugToolbar',
                     'Flask-Login',
