@@ -20,14 +20,14 @@
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
         {% block stylesheets %}
-            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.serve', filename='bootstrap/dist/css/bootstrap.min.css') }}">
-            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.serve', filename='metisMenu/dist/metisMenu.min.css') }}" >
-            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.serve', filename='startbootstrap-sb-admin-2/dist/css/timeline.css') }}" >
-            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.serve', filename='startbootstrap-sb-admin-2/dist/css/sb-admin-2.css') }}" >
-            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.serve', filename='font-awesome/css/font-awesome.min.css') }}" >
-            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.serve', filename='morrisjs/morris.css') }}" >
-            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.serve', filename='datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css') }}" >
-            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.serve', filename='datatables-responsive/css/responsive.dataTables.scss') }}" >
+            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.static', filename='bootstrap/dist/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.static', filename='metisMenu/dist/metisMenu.min.css') }}" >
+            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.static', filename='startbootstrap-sb-admin-2/dist/css/timeline.css') }}" >
+            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.static', filename='startbootstrap-sb-admin-2/dist/css/sb-admin-2.css') }}" >
+            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.static', filename='font-awesome/css/font-awesome.min.css') }}" >
+            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.static', filename='morrisjs/morris.css') }}" >
+            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.static', filename='datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css') }}" >
+            <link rel="stylesheet" type="text/css" href="{{ url_for('bower.static', filename='datatables-responsive/css/responsive.dataTables.scss') }}" >
             <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/janitoo_manager.css') }}">
             <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
             <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,15 +48,15 @@
 
         {# standard javascript libs #}
         {% block javascript %}
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.serve', filename='jquery/dist/jquery.min.js') }}"></script>
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.serve', filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.serve', filename='metisMenu/dist/metisMenu.min.js') }}"></script>
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.serve', filename='raphael/raphael-min.js') }}"></script>
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.serve', filename='morrisjs/morris.min.js') }}"></script>
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.serve', filename='startbootstrap-sb-admin-2/dist/js/sb-admin-2.js') }}"></script>
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.serve', filename='datatables/media/js/jquery.dataTables.min.js') }}"></script>
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.serve', filename='datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.serve', filename='socket.io-client/socket.io.js') }}"></script>
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.static', filename='jquery/dist/jquery.min.js') }}"></script>
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.static', filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.static', filename='metisMenu/dist/metisMenu.min.js') }}"></script>
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.static', filename='raphael/raphael-min.js') }}"></script>
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.static', filename='morrisjs/morris.min.js') }}"></script>
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.static', filename='startbootstrap-sb-admin-2/dist/js/sb-admin-2.js') }}"></script>
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.static', filename='datatables/media/js/jquery.dataTables.min.js') }}"></script>
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.static', filename='datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('bower.static', filename='socket.io-client/socket.io.js') }}"></script>
         <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='js/janitoo_manager.js') }}"></script>
         <script language="JavaScript" type="text/javascript" src="/janitoo_constants.js"></script>
         {% endblock %}
