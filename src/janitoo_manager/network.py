@@ -48,6 +48,7 @@ def extend( self ):
     def emit_network():
         """Emit a network state event
         """
+        print "event received"
         ret = {}
         ret['state'] = self.state,
         ret['state_str'] = self.state_str,
@@ -60,6 +61,7 @@ def extend( self ):
             {'data':ret},
             namespace='/janitoo')
         logger.debug('Network event : homeid %s (state:%s) - %d nodes were found.' % (self.home_id, self.state, self.nodes_count))
+        print "response sent %s" % ret
 
     self.emit_network = emit_network
 

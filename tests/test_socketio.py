@@ -28,6 +28,8 @@ import time, datetime
 import unittest
 import logging
 
+from flask import Flask, session, request
+
 from alembic import command as alcommand
 from sqlalchemy import create_engine
 
@@ -35,7 +37,7 @@ from janitoo_manager.app import create_app
 from janitoo_manager.extensions import db, socketio
 from janitoo_manager.configs.testing import TestingConfig
 
-from janitoo_nosetests_flask.socketio import JNTTSocketIO, JNTTSocketIOCommon
+from janitoo_nosetests_flask.socketio import JNTTSocketIO, JNTTSocketIOCommon, socketio
 from janitoo_nosetests import JNTTBase
 
 from janitoo.utils import json_dumps, json_loads
@@ -50,7 +52,21 @@ from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_conf
 
 from . import ManagerCommon
 
+request_response_network = None
+
 class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
     """Test SocketIO
     """
     flask_conf = "tests/data/janitoo_manager.conf"
+
+    def test_101_event_network(self):
+        self.connect()
+        received = self.client.get_received(self.namespace)
+        print received
+        self.client.emit('my network event', {})
+        time.sleep(1)
+        received = self.client.get_received(self.namespace)
+        print received
+        self.assertTrue(len(received) >= 1)
+        self.assertEqual(len(received[0]['args']), 1)
+        self.assertEqual(received[0]['name'], 'my network response')
