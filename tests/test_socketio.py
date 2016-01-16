@@ -57,14 +57,29 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
     """
     flask_conf = "tests/data/janitoo_manager.conf"
 
-    def test_101_event_network(self):
+    def test_101_network_starting(self):
         self.connect()
         received = self.client.get_received(self.namespace)
         print received
+        time.sleep(5)
+        received = self.client.get_received(self.namespace)
+        print received
+        self.assertTrue(len(received) > 1)
+
+    def test_111_event_network(self):
+        self.connect()
+        received = self.client.get_received(self.namespace)
+        print received
+        time.sleep(30)
+        received = self.client.get_received(self.namespace)
+        print received
         self.client.emit('my network event', {})
-        time.sleep(1)
+        time.sleep(5)
         received = self.client.get_received(self.namespace)
         print received
         self.assertTrue(len(received) >= 1)
+        data = [ (res['name'],res['data']) for res in received ]
+        print data
         self.assertEqual(len(received[0]['args']), 1)
         self.assertEqual(received[0]['name'], 'my network response')
+        assert False
