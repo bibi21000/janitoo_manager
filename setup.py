@@ -77,6 +77,7 @@ package_data = []
 get_package_data(package_data, 'src/janitoo_manager', 'templates','*')
 get_package_data(package_data, 'src/janitoo_manager', 'themes','*')
 get_package_data(package_data, 'src/janitoo_manager', 'static','*')
+get_package_data(package_data, 'src/janitoo_manager', 'bower_components','*')
 
 setup(
     name = 'janitoo_manager',
