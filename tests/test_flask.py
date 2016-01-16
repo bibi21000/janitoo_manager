@@ -32,6 +32,7 @@ from sqlalchemy import create_engine
 from alembic import command as alcommand
 
 from flask_themes2 import get_themes_list
+from flask import url_for
 
 from janitoo_manager.app import create_app
 from janitoo_manager.extensions import db, socketio
@@ -70,6 +71,12 @@ class TestApp(ManagerCommon, JNTTBase):
     """
     def test_001_create_app(self):
         app = self.create_app()
+        app.extensions['janitoo'].start_listener()
+        time.sleep(10)
+        app.extensions['janitoo'].stop_listener()
+        del app.extensions['janitoo']
+        app = None
+        #~ self.assertTrue(False)
 
 class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
     """Test flask
@@ -96,6 +103,11 @@ class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
     def test_201_admin_is_up(self):
         self.list_routes()
         self.assertUrl('/admin/', "200 OK")
+        #~ self.assertTrue(False)
+
+    def test_202_bower_bootstrap(self):
+        self.list_routes()
+        self.assertEqual(url_for('bower.static', filename='bootstrap/dist/css/bootstrap.min.css'), '/bower/bootstrap/dist/css/bootstrap.min.css?version=3.3.6')
 
     def test_211_values_basic_is_up(self):
         self.list_routes()
