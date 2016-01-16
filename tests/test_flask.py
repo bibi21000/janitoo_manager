@@ -53,18 +53,20 @@ from janitoo.options import JNTOptions
 from janitoo_db.base import Base, create_db_engine
 from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_config
 
-class ManagerCommon(object):
-    """Test flask
-    """
-    flask_conf = "tests/data/janitoo_manager.conf"
+from . import ManagerCommon
 
-    def create_app(self):
-        # Use the testing configuration
-        self.config = TestingConfig(self.flask_conf)
-        alcommand.upgrade(janitoo_config(self.config.SQLALCHEMY_DATABASE_URI), 'heads')
-        app = create_app(self.config)
-        app.config['LIVESERVER_PORT'] = 8943
-        return app
+#~ class ManagerCommon(object):
+    #~ """Test flask
+    #~ """
+    #~ flask_conf = "tests/data/janitoo_manager.conf"
+#~
+    #~ def create_app(self):
+        #~ # Use the testing configuration
+        #~ self.config = TestingConfig(self.flask_conf)
+        #~ alcommand.upgrade(janitoo_config(self.config.SQLALCHEMY_DATABASE_URI), 'heads')
+        #~ app = create_app(self.config)
+        #~ app.config['LIVESERVER_PORT'] = 8943
+        #~ return app
 
 class TestApp(ManagerCommon, JNTTBase):
     """Test app

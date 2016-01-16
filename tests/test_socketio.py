@@ -36,6 +36,7 @@ from janitoo_manager.extensions import db, socketio
 from janitoo_manager.configs.testing import TestingConfig
 
 from janitoo_nosetests_flask.socketio import JNTTSocketIO, JNTTSocketIOCommon
+from janitoo_nosetests import JNTTBase
 
 from janitoo.utils import json_dumps, json_loads
 from janitoo.utils import HADD_SEP, HADD
@@ -47,26 +48,9 @@ from janitoo.utils import TOPIC_VALUES_USER, TOPIC_VALUES_CONFIG, TOPIC_VALUES_S
 from janitoo_db.base import Base, create_db_engine
 from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_config
 
-class TestFlask(JNTTSocketIO, JNTTSocketIOCommon):
+from . import ManagerCommon
+
+class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
     """Test SocketIO
     """
     flask_conf = "tests/data/janitoo_manager.conf"
-
-    def setUp(self):
-        JNTTSocketIO.setUp(self)
-        # Use the testing configuration
-        self.config = TestingConfig(self.flask_conf)
-        alcommand.upgrade(janitoo_config(self.config.SQLALCHEMY_DATABASE_URI), 'heads')
-
-    def create_app(self):
-        # Use the development configuration if available
-        config = TestingConfig(self.flask_conf)
-        app = create_app(config)
-        app.config['LIVESERVER_PORT'] = 8943
-        return app, socketio
-
-    def test_001_server_connect(self):
-        self.wipTest()
-        time.sleep(5)
-        self.assertConnect("/janitoo")
-
