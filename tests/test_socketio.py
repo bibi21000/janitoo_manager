@@ -37,7 +37,7 @@ from janitoo_manager.app import create_app
 from janitoo_manager.extensions import db, socketio
 from janitoo_manager.configs.testing import TestingConfig
 
-from janitoo_nosetests_flask.socketio import JNTTSocketIO, JNTTSocketIOCommon, socketio
+from janitoo_nosetests_flask.socketio import JNTTSocketIO, JNTTSocketIOCommon
 from janitoo_nosetests import JNTTBase
 
 from janitoo.utils import json_dumps, json_loads
@@ -51,8 +51,6 @@ from janitoo_db.base import Base, create_db_engine
 from janitoo_db.migrate import Config as alConfig, collect_configs, janitoo_config
 
 from . import ManagerCommon
-
-request_response_network = None
 
 class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
     """Test SocketIO
