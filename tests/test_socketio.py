@@ -60,7 +60,7 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
     def test_101_network_starting(self):
         self.connect()
         received = self.client.get_received(self.namespace)
-        print received
+        #~ print received
         time.sleep(5)
         received = self.client.get_received(self.namespace)
         print received
@@ -69,17 +69,40 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
     def test_111_event_network(self):
         self.connect()
         received = self.client.get_received(self.namespace)
-        print received
-        time.sleep(30)
+        #~ print received
+        time.sleep(1)
         received = self.client.get_received(self.namespace)
-        print received
+        #~ print received
         self.client.emit('my network event', {})
         time.sleep(5)
         received = self.client.get_received(self.namespace)
-        print received
+        #~ print received
         self.assertTrue(len(received) >= 1)
-        data = [ (res['name'],res['data']) for res in received ]
-        print data
         self.assertEqual(len(received[0]['args']), 1)
-        self.assertEqual(received[0]['name'], 'my network response')
-        assert False
+        data = {}
+        for res in received:
+            data[res['name']] = res['args'][0]['data']
+        print data
+        self.assertTrue('my network response' in data)
+        self.assertEqual(data['my network response']['state'], ('STARTED',))
+
+    def test_112_event_nodes(self):
+        self.wipTest()
+        self.connect()
+        received = self.client.get_received(self.namespace)
+        #~ print received
+        time.sleep(90)
+        received = self.client.get_received(self.namespace)
+        #~ print received
+        self.client.emit('my nodes event', {})
+        time.sleep(10)
+        received = self.client.get_received(self.namespace)
+        #~ print received
+        self.assertTrue(len(received) >= 1)
+        self.assertEqual(len(received[0]['args']), 1)
+        data = {}
+        for res in received:
+            data[res['name']] = res['args'][0]['data']
+        print data
+        self.assertTrue('my nodes response' in data)
+        self.assertEqual(data['my nodes response']['state'], ('STARTED',))
