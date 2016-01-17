@@ -89,6 +89,7 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
         self.assertEqual(data[response]['state'], ('STARTED',))
 
     def test_121_event_nodes(self):
+        self.wipTest()
         response = "my nodes response"
         event = "my nodes event"
         self.connect()
@@ -111,6 +112,7 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
         self.assertEqual(data[response]['state'], ('STARTED',))
 
     def test_131_event_basics(self):
+        self.wipTest()
         response = "my basics response"
         event = "my basics event"
         self.connect()
@@ -132,6 +134,7 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
         self.assertTrue(response in data)
 
     def test_141_event_basics(self):
+        self.wipTest()
         response = "my systems response"
         event = "my systems event"
         self.connect()
