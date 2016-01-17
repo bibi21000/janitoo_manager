@@ -67,13 +67,15 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
         self.assertTrue(len(received) > 1)
 
     def test_111_event_network(self):
+        event = "my network event"
+        response = "my network response"
         self.connect()
         received = self.client.get_received(self.namespace)
         #~ print received
         time.sleep(1)
         received = self.client.get_received(self.namespace)
         #~ print received
-        self.client.emit('my network event', {})
+        self.client.emit(event, {})
         time.sleep(5)
         received = self.client.get_received(self.namespace)
         #~ print received
@@ -83,18 +85,19 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
         for res in received:
             data[res['name']] = res['args'][0]['data']
         print data
-        self.assertTrue('my network response' in data)
-        self.assertEqual(data['my network response']['state'], ('STARTED',))
+        self.assertTrue(response in data)
+        self.assertEqual(data[response]['state'], ('STARTED',))
 
-    def test_112_event_nodes(self):
-        self.wipTest()
+    def test_121_event_nodes(self):
+        response = "my nodes response"
+        event = "my nodes event"
         self.connect()
         received = self.client.get_received(self.namespace)
         #~ print received
         time.sleep(90)
         received = self.client.get_received(self.namespace)
         #~ print received
-        self.client.emit('my nodes event', {})
+        self.client.emit(event, {})
         time.sleep(10)
         received = self.client.get_received(self.namespace)
         #~ print received
@@ -104,5 +107,47 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
         for res in received:
             data[res['name']] = res['args'][0]['data']
         print data
-        self.assertTrue('my nodes response' in data)
-        self.assertEqual(data['my nodes response']['state'], ('STARTED',))
+        self.assertTrue(response in data)
+        self.assertEqual(data[response]['state'], ('STARTED',))
+
+    def test_131_event_basics(self):
+        response = "my basics response"
+        event = "my basics event"
+        self.connect()
+        received = self.client.get_received(self.namespace)
+        #~ print received
+        time.sleep(90)
+        received = self.client.get_received(self.namespace)
+        #~ print received
+        self.client.emit(event, {})
+        time.sleep(10)
+        received = self.client.get_received(self.namespace)
+        #~ print received
+        self.assertTrue(len(received) >= 1)
+        self.assertEqual(len(received[0]['args']), 1)
+        data = {}
+        for res in received:
+            data[res['name']] = res['args'][0]['data']
+        print data
+        self.assertTrue(response in data)
+
+    def test_141_event_basics(self):
+        response = "my systems response"
+        event = "my systems event"
+        self.connect()
+        received = self.client.get_received(self.namespace)
+        #~ print received
+        time.sleep(90)
+        received = self.client.get_received(self.namespace)
+        #~ print received
+        self.client.emit(event, {})
+        time.sleep(10)
+        received = self.client.get_received(self.namespace)
+        #~ print received
+        self.assertTrue(len(received) >= 1)
+        self.assertEqual(len(received[0]['args']), 1)
+        data = {}
+        for res in received:
+            data[res['name']] = res['args'][0]['data']
+        print data
+        self.assertTrue(response in data)
