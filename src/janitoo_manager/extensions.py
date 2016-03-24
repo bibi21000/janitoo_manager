@@ -48,7 +48,7 @@ from flask_mail import Mail
 from flask_debugtoolbar import DebugToolbarExtension
 #~ from flask_migrate import Migrate
 from flask_themes2 import Themes
-from flask_babelex import Babel
+from flask_babelplus import Babel
 from flask_wtf.csrf import CsrfProtect
 from janitoo_flask_socketio import FlaskJanitooSocketio
 from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, disconnect
