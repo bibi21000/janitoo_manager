@@ -45,7 +45,7 @@ logger = logging.getLogger(__name__)
 from flask import Blueprint, flash, request
 from flask_login import login_required, current_user
 from flask_themes2 import get_themes_list
-from flask_babelex import gettext as _
+from flask_babelplus import gettext as _
 
 from janitoo.classes import CAPABILITY_DESC, GENRE_DESC, VALUE_DESC, COMMAND_DESC
 

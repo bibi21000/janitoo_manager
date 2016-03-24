@@ -49,13 +49,12 @@ from wtforms import (StringField, PasswordField, BooleanField, HiddenField,
                      SubmitField, SelectField)
 from wtforms.validators import (DataRequired, InputRequired, Email, EqualTo,
                                 regexp, ValidationError)
-from flask_babelex import lazy_gettext as _
+from flask_babelplus import lazy_gettext as _
 from janitoo_manager.user.models import UserMan
 
 USERNAME_RE = r'^[\w.+-]+$'
 is_username = regexp(USERNAME_RE,
                      message=_("You can only use letters, numbers or dashes."))
-
 
 class LoginForm(Form):
     login = StringField(_("Username or E-Mail Address"), validators=[

@@ -46,7 +46,7 @@ import os
 
 import babel
 
-from flask_babelex import Domain, get_locale
+from flask_babelplus import Domain, get_locale
 #~ from flask_plugins import get_plugins_list
 
 from janitoo_manager._compat import PY2

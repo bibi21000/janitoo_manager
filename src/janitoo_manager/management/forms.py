@@ -51,7 +51,7 @@ from wtforms.validators import (DataRequired, Optional, Email, regexp, Length,
 from wtforms.ext.sqlalchemy.fields import (QuerySelectField,
                                            QuerySelectMultipleField)
 from sqlalchemy.orm.session import make_transient, make_transient_to_detached
-from flask_babelex import lazy_gettext as _
+from flask_babelplus import lazy_gettext as _
 
 from janitoo_manager.utils.fields import BirthdayField
 from janitoo_manager.utils.widgets import SelectBirthdayWidget, MultiSelect

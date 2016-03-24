@@ -47,7 +47,7 @@ from flask import Blueprint, flash
 from flask import Flask, session, request, current_app, g
 from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, disconnect
 from flask_themes2 import get_themes_list
-from flask_babelex import gettext as _
+from flask_babelplus import gettext as _
 
 from janitoo_manager.extensions import babel, janitoo
 from janitoo_manager.utils.helpers import render_template

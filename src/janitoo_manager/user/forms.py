@@ -48,7 +48,7 @@ from wtforms import (StringField, PasswordField, TextAreaField, SelectField,
                      ValidationError, SubmitField)
 from wtforms.validators import (Length, DataRequired, InputRequired, Email,
                                 EqualTo, Optional, URL)
-from flask_babelex import lazy_gettext as _
+from flask_babelplus import lazy_gettext as _
 
 from janitoo_manager.user.models import UserMan
 from janitoo_manager.extensions import db
