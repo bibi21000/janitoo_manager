@@ -124,7 +124,7 @@ setup(
                     'Flask-WTF',
                     'MarkupSafe',
                     'Flask-Themes2',
-                    'Flask-BabelEx',
+                    'Flask-BabelPlus',
                     'requests',
                     'Unidecode',
                     'mistune',
@@ -133,7 +133,7 @@ setup(
       'https://github.com/bibi21000/janitoo_flask/archive/master.zip#egg=janitoo_flask',
       'https://github.com/bibi21000/janitoo_flask_socketio/archive/master.zip#egg=janitoo_flask_socketio',
       'https://github.com/sysr-q/flask-themes2/archive/master.zip#egg=Flask-Themes2',
-      'https://github.com/sh4nks/flask-babelex/tarball/master#egg=Flask-BabelEx',
+      'https://github.com/sh4nks/flask-babelplus/tarball/master#egg=Flask-BabelPlus',
     ],
     entry_points = {
         'janitoo_manager.network': [
