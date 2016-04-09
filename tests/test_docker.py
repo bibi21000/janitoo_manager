@@ -48,5 +48,5 @@ class TestPortSerser(JNTTBase):
     port = 8001
 
     def test_001_connect_to_server(self):
-        JNTTDockerServer.onlyDockerTest()
+        JNTTBase.onlyDockerTest()
         self.assertTCP(self.host, self.port)
