@@ -41,3 +41,12 @@ from janitoo.runner import Runner, jnt_parse_args
 from janitoo.server import JNTServer
 from janitoo.utils import HADD_SEP, HADD
 
+class TestPortSerser(JNTTBase):
+    """Test the server
+    """
+    host = 'localhost'
+    port = 8001
+
+    def test_001_connect_to_server(self):
+        JNTTDockerServer.onlyDockerTest()
+        self.assertTCP(self.host, self.port)
