@@ -8,5 +8,6 @@
 
 dependencies:
     pre:
+        - make directories
         - make deps
         - make travis-deps
