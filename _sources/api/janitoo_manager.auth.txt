@@ -1,0 +1,30 @@
+janitoo_manager.auth package
+============================
+
+Submodules
+----------
+
+janitoo_manager.auth.forms module
+---------------------------------
+
+.. automodule:: janitoo_manager.auth.forms
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.auth.views module
+---------------------------------
+
+.. automodule:: janitoo_manager.auth.views
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: janitoo_manager.auth
+    :members:
+    :undoc-members:
+    :show-inheritance:

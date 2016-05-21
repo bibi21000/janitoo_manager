@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>janitoo_manager.utils package &mdash; janitoo_manager 0.0.8 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="janitoo_manager 0.0.8 documentation" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          janitoo_manager</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../tools/index.html">Tools</a></li>
+                <li><a href="index.html">Reference</a></li>
+                <li><a href="../extensions/index.html">Janitoo extensions</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="simple">
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="janitoo-manager-utils-package">
+<h1>janitoo_manager.utils package<a class="headerlink" href="#janitoo-manager-utils-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-janitoo_manager.utils.database">
+<span id="janitoo-manager-utils-database-module"></span><h2>janitoo_manager.utils.database module<a class="headerlink" href="#module-janitoo_manager.utils.database" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="janitoo_manager.utils.database.CRUDMixin">
+<em class="property">class </em><tt class="descclassname">janitoo_manager.utils.database.</tt><tt class="descname">CRUDMixin</tt><a class="reference internal" href="../_modules/janitoo_manager/utils/database.html#CRUDMixin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.database.CRUDMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<dl class="method">
+<dt id="janitoo_manager.utils.database.CRUDMixin.delete">
+<tt class="descname">delete</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/database.html#CRUDMixin.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.database.CRUDMixin.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the object from the database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="janitoo_manager.utils.database.CRUDMixin.save">
+<tt class="descname">save</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/database.html#CRUDMixin.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.database.CRUDMixin.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the object to the database.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-janitoo_manager.utils.decorators">
+<span id="janitoo-manager-utils-decorators-module"></span><h2>janitoo_manager.utils.decorators module<a class="headerlink" href="#module-janitoo_manager.utils.decorators" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="janitoo_manager.utils.decorators.admin_required">
+<tt class="descclassname">janitoo_manager.utils.decorators.</tt><tt class="descname">admin_required</tt><big>(</big><em>f</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/decorators.html#admin_required"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.decorators.admin_required" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.decorators.can_access_forum">
+<tt class="descclassname">janitoo_manager.utils.decorators.</tt><tt class="descname">can_access_forum</tt><big>(</big><em>func</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/decorators.html#can_access_forum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.decorators.can_access_forum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.decorators.can_access_topic">
+<tt class="descclassname">janitoo_manager.utils.decorators.</tt><tt class="descname">can_access_topic</tt><big>(</big><em>func</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/decorators.html#can_access_topic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.decorators.can_access_topic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.decorators.moderator_required">
+<tt class="descclassname">janitoo_manager.utils.decorators.</tt><tt class="descname">moderator_required</tt><big>(</big><em>f</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/decorators.html#moderator_required"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.decorators.moderator_required" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-janitoo_manager.utils.fields">
+<span id="janitoo-manager-utils-fields-module"></span><h2>janitoo_manager.utils.fields module<a class="headerlink" href="#module-janitoo_manager.utils.fields" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="janitoo_manager.utils.fields.BirthdayField">
+<em class="property">class </em><tt class="descclassname">janitoo_manager.utils.fields.</tt><tt class="descname">BirthdayField</tt><big>(</big><em>label=None</em>, <em>validators=None</em>, <em>format='%Y-%m-%d'</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/fields.html#BirthdayField"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.fields.BirthdayField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">wtforms.fields.core.DateField</span></tt></p>
+<p>Same as DateField, except it allows <tt class="docutils literal"><span class="pre">None</span></tt> values in case a user
+wants to delete his birthday.</p>
+<dl class="method">
+<dt id="janitoo_manager.utils.fields.BirthdayField.process_formdata">
+<tt class="descname">process_formdata</tt><big>(</big><em>valuelist</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/fields.html#BirthdayField.process_formdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.fields.BirthdayField.process_formdata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-janitoo_manager.utils.helpers">
+<span id="janitoo-manager-utils-helpers-module"></span><h2>janitoo_manager.utils.helpers module<a class="headerlink" href="#module-janitoo_manager.utils.helpers" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.available_avatar_types">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">available_avatar_types</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#available_avatar_types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.available_avatar_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.available_languages">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">available_languages</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#available_languages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.available_languages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.available_themes">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">available_themes</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#available_themes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.available_themes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.check_image">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">check_image</tt><big>(</big><em>url</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#check_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.check_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>A little wrapper for the <a class="reference internal" href="#janitoo_manager.utils.helpers.get_image_info" title="janitoo_manager.utils.helpers.get_image_info"><tt class="xref py py-func docutils literal"><span class="pre">get_image_info()</span></tt></a> function.
+If the image doesn&#8217;t match the <tt class="docutils literal"><span class="pre">flask_config</span></tt> settings it will
+return a tuple with a the first value is the custom error message and
+the second value <tt class="docutils literal"><span class="pre">False</span></tt> for not passing the check.
+If the check is successful, it will return <tt class="docutils literal"><span class="pre">None</span></tt> for the error message
+and <tt class="docutils literal"><span class="pre">True</span></tt> for the passed check.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>url</strong> &#8211; The image url to be checked.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.crop_title">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">crop_title</tt><big>(</big><em>title</em>, <em>length=None</em>, <em>suffix='...'</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#crop_title"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.crop_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crops the title to a specified length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>title</strong> &#8211; The title that should be cropped</li>
+<li><strong>suffix</strong> &#8211; The suffix which should be appended at the
+end of the title.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.do_topic_action">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">do_topic_action</tt><big>(</big><em>topics</em>, <em>user</em>, <em>action</em>, <em>reverse</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#do_topic_action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.do_topic_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes a specific action for topics. Returns a list with the modified
+topic objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>topics</strong> &#8211; A iterable with <tt class="docutils literal"><span class="pre">Topic</span></tt> objects.</li>
+<li><strong>user</strong> &#8211; The user object which wants to perform the action.</li>
+<li><strong>action</strong> &#8211; One of the following actions: locked, important and delete.</li>
+<li><strong>reverse</strong> &#8211; If the action should be done in a reversed way.
+For example, to unlock a topic, <tt class="docutils literal"><span class="pre">reverse</span></tt> should be
+set to <tt class="docutils literal"><span class="pre">True</span></tt>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.format_date">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">format_date</tt><big>(</big><em>value</em>, <em>format='%Y-%m-%d'</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#format_date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.format_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a formatted time string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> &#8211; The datetime object that should be formatted</li>
+<li><strong>format</strong> &#8211; How the result should look like. A full list of available
+directives is here: <a class="reference external" href="http://goo.gl/gNxMHE">http://goo.gl/gNxMHE</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.format_quote">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">format_quote</tt><big>(</big><em>username</em>, <em>content</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#format_quote"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.format_quote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a formatted quote depending on the markup language.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>username</strong> &#8211; The username of a user.</li>
+<li><strong>content</strong> &#8211; The content of the quote</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.forum_is_unread">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">forum_is_unread</tt><big>(</big><em>forum</em>, <em>forumsread</em>, <em>user</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#forum_is_unread"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.forum_is_unread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a forum is unread</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>forum</strong> &#8211; The forum that should be checked if it is unread</li>
+<li><strong>forumsread</strong> &#8211; The forumsread object for the forum</li>
+<li><strong>user</strong> &#8211; The user who should be checked if he has read the forum</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.get_categories_and_forums">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">get_categories_and_forums</tt><big>(</big><em>query_result</em>, <em>user</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#get_categories_and_forums"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.get_categories_and_forums" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns a list with categories. Every category has a list for all</dt>
+<dd><p class="first">their associated forums.</p>
+<dl class="last docutils">
+<dt>The structure looks like this::</dt>
+<dd><dl class="first last docutils">
+<dt>[(&lt;Category 1&gt;,</dt>
+<dd><blockquote class="first">
+<div><dl class="docutils">
+<dt>[(&lt;Forum 1&gt;, None),</dt>
+<dd>(&lt;Forum 2&gt;, &lt;janitoo_manager.forum.models.ForumsRead at 0x38fdb50&gt;)]),</dd>
+</dl>
+</div></blockquote>
+<dl class="last docutils">
+<dt>(&lt;Category 2&gt;,</dt>
+<dd>[(&lt;Forum 3&gt;, None),
+(&lt;Forum 4&gt;, None)])]</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>and to unpack the values you can do this::</dt>
+<dd><dl class="first last docutils">
+<dt>In [110]: for category, forums in x:</dt>
+<dd>.....:     print category
+.....:     for forum, forumsread in forums:
+.....:         print &#8221;       &#8221;, forum, forumsread</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>This will print something like this:</dt>
+<dd><blockquote class="first">
+<div><dl class="docutils">
+<dt>&lt;Category 1&gt;</dt>
+<dd>&lt;Forum 1&gt; None
+&lt;Forum 2&gt; &lt;janitoo_manager.forum.models.ForumsRead object at 0x38fdb50&gt;</dd>
+<dt>&lt;Category 2&gt;</dt>
+<dd>&lt;Forum 3&gt; None
+&lt;Forum 4&gt; None</dd>
+</dl>
+</div></blockquote>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param query_result:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">A tuple (KeyedTuple) with all categories and forums</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param user:</th><td class="field-body">The user object is needed because a signed out user does not
+have the ForumsRead relation joined.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.get_forums">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">get_forums</tt><big>(</big><em>query_result</em>, <em>user</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#get_forums"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.get_forums" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple which contains the category and the forums as list.
+This is the counterpart for get_categories_and_forums and especially
+usefull when you just need the forums for one category.</p>
+<dl class="docutils">
+<dt>For example::</dt>
+<dd><dl class="first last docutils">
+<dt>(&lt;Category 2&gt;,</dt>
+<dd>[(&lt;Forum 3&gt;, None),
+(&lt;Forum 4&gt;, None)])</dd>
+</dl>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>query_result</strong> &#8211; A tuple (KeyedTuple) with all categories and forums</li>
+<li><strong>user</strong> &#8211; The user object is needed because a signed out user does not
+have the ForumsRead relation joined.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.get_image_info">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">get_image_info</tt><big>(</big><em>url</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#get_image_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.get_image_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the content-type, image size (kb), height and width of a image
+without fully downloading it. It will just download the first 1024 bytes.</p>
+<p>LICENSE: New BSD License (taken from the start page of the repository)
+<a class="reference external" href="https://code.google.com/p/bfg-pages/source/browse/trunk/pages/getimageinfo.py">https://code.google.com/p/bfg-pages/source/browse/trunk/pages/getimageinfo.py</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.get_online_users">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">get_online_users</tt><big>(</big><em>guest=False</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#get_online_users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.get_online_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all online users within a specified time range</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>guest</strong> &#8211; If True, it will return the online guests</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.is_online">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">is_online</tt><big>(</big><em>user</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#is_online"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.is_online" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple check to see if the user was online within a specified
+time range</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> &#8211; The user who needs to be checked</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.mark_online">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">mark_online</tt><big>(</big><em>user_id</em>, <em>guest=False</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#mark_online"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.mark_online" title="Permalink to this definition">¶</a></dt>
+<dd><p>Marks a user as online</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>user_id</strong> &#8211; The id from the user who should be marked as online</li>
+<li><strong>guest</strong> &#8211; If set to True, it will add the user to the guest activity
+instead of the user activity.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ref: <a class="reference external" href="http://flask.pocoo.org/snippets/71/">http://flask.pocoo.org/snippets/71/</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.render_markup">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">render_markup</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#render_markup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.render_markup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders the given text as markdown</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> &#8211; The text that should be rendered as markdown</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.render_template">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">render_template</tt><big>(</big><em>template</em>, <em>**context</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#render_template"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.render_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper function that uses the <cite>render_theme_template</cite> function
+without needing to edit all the views</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.slugify">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">slugify</tt><big>(</big><em>text</em>, <em>delim=u'-'</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#slugify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.slugify" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Generates an slightly worse ASCII-only slug.</dt>
+<dd>Taken from the Flask Snippets page.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>text</strong> &#8211; The text which should be slugified</li>
+<li><strong>delim</strong> &#8211; Default &#8220;-&#8221;. The delimeter for whitespace</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.time_diff">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">time_diff</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#time_diff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.time_diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the time difference between now and the ONLINE_LAST_MINUTES
+variable from the configuration.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.time_since">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">time_since</tt><big>(</big><em>time</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#time_since"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.time_since" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string representing time since e.g.
+3 days ago, 5 hours ago.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>time</strong> &#8211; A datetime object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.helpers.topic_is_unread">
+<tt class="descclassname">janitoo_manager.utils.helpers.</tt><tt class="descname">topic_is_unread</tt><big>(</big><em>topic</em>, <em>topicsread</em>, <em>user</em>, <em>forumsread=None</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/helpers.html#topic_is_unread"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.helpers.topic_is_unread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a topic is unread.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>topic</strong> &#8211; The topic that should be checked if it is unread</li>
+<li><strong>topicsread</strong> &#8211; The topicsread object for the topic</li>
+<li><strong>user</strong> &#8211; The user who should be checked if he has read the last post
+in the topic</li>
+<li><strong>forumsread</strong> &#8211; The forumsread object in which the topic is. If you
+also want to check if the user has marked the forum as
+read, than you will also need to pass an forumsread
+object.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-janitoo_manager.utils.markup">
+<span id="janitoo-manager-utils-markup-module"></span><h2>janitoo_manager.utils.markup module<a class="headerlink" href="#module-janitoo_manager.utils.markup" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="janitoo_manager.utils.markup.JanitooManagerRenderer">
+<em class="property">class </em><tt class="descclassname">janitoo_manager.utils.markup.</tt><tt class="descname">JanitooManagerRenderer</tt><big>(</big><em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/markup.html#JanitooManagerRenderer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.markup.JanitooManagerRenderer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">mistune.Renderer</span></tt></p>
+<p>Markdown with some syntetic sugar such as &#64;user gets linked to the
+user&#8217;s profile and emoji support.</p>
+<dl class="method">
+<dt id="janitoo_manager.utils.markup.JanitooManagerRenderer.block_code">
+<tt class="descname">block_code</tt><big>(</big><em>code</em>, <em>lang</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/markup.html#JanitooManagerRenderer.block_code"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.markup.JanitooManagerRenderer.block_code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janitoo_manager.utils.markup.JanitooManagerRenderer.paragraph">
+<tt class="descname">paragraph</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/markup.html#JanitooManagerRenderer.paragraph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.markup.JanitooManagerRenderer.paragraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rendering paragraph tags. Like <tt class="docutils literal"><span class="pre">&lt;p&gt;</span></tt> with emoji support.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.markup.collect_emojis">
+<tt class="descclassname">janitoo_manager.utils.markup.</tt><tt class="descname">collect_emojis</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/markup.html#collect_emojis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.markup.collect_emojis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary containing all emojis with their
+name and filename. If the folder doesn&#8217;t exist it returns a empty
+dictionary.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-janitoo_manager.utils.permissions">
+<span id="janitoo-manager-utils-permissions-module"></span><h2>janitoo_manager.utils.permissions module<a class="headerlink" href="#module-janitoo_manager.utils.permissions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="janitoo_manager.utils.permissions.can_ban_user">
+<tt class="descclassname">janitoo_manager.utils.permissions.</tt><tt class="descname">can_ban_user</tt><big>(</big><em>user</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/permissions.html#can_ban_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.permissions.can_ban_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the user is allowed to ban another user.
+Requires at least <tt class="docutils literal"><span class="pre">mod</span></tt> permissions.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.permissions.can_delete_post">
+<tt class="descclassname">janitoo_manager.utils.permissions.</tt><tt class="descname">can_delete_post</tt><big>(</big><em>user</em>, <em>post</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/permissions.html#can_delete_post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.permissions.can_delete_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the post can be deleted by the user.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.permissions.can_delete_topic">
+<tt class="descclassname">janitoo_manager.utils.permissions.</tt><tt class="descname">can_delete_topic</tt><big>(</big><em>user</em>, <em>topic</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/permissions.html#can_delete_topic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.permissions.can_delete_topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the topic can be deleted by the user.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.permissions.can_edit_post">
+<tt class="descclassname">janitoo_manager.utils.permissions.</tt><tt class="descname">can_edit_post</tt><big>(</big><em>user</em>, <em>post</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/permissions.html#can_edit_post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.permissions.can_edit_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the post can be edited by the user.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.permissions.can_edit_user">
+<tt class="descclassname">janitoo_manager.utils.permissions.</tt><tt class="descname">can_edit_user</tt><big>(</big><em>user</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/permissions.html#can_edit_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.permissions.can_edit_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the user is allowed to edit another users profile.
+Requires at least <tt class="docutils literal"><span class="pre">mod</span></tt> permissions.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.permissions.can_moderate">
+<tt class="descclassname">janitoo_manager.utils.permissions.</tt><tt class="descname">can_moderate</tt><big>(</big><em>user</em>, <em>forum=None</em>, <em>perm=None</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/permissions.html#can_moderate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.permissions.can_moderate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a user can moderate a forum or a user.
+He needs to be super moderator or a moderator of the
+specified forum.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>user</strong> &#8211; The user for whom we should check the permission.</li>
+<li><strong>forum</strong> &#8211; The forum that should be checked. If no forum is specified
+it will check if the user has at least moderator permissions
+and then it will perform another permission check for <tt class="docutils literal"><span class="pre">mod</span></tt>
+permissions (they start with <tt class="docutils literal"><span class="pre">mod_</span></tt>).</li>
+<li><strong>perm</strong> &#8211; Optional - Check if the user also has the permission to do
+certain things in the forum. There are a few permissions
+where you need to be at least a moderator (or anything higher)
+in the forum and therefore you can pass a permission and
+it will check if the user has it. Those special permissions
+are documented here: &lt;INSERT LINK TO DOCS&gt;</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.permissions.can_post_reply">
+<tt class="descclassname">janitoo_manager.utils.permissions.</tt><tt class="descname">can_post_reply</tt><big>(</big><em>user</em>, <em>topic</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/permissions.html#can_post_reply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.permissions.can_post_reply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the user is allowed to post in the forum.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.permissions.can_post_topic">
+<tt class="descclassname">janitoo_manager.utils.permissions.</tt><tt class="descname">can_post_topic</tt><big>(</big><em>user</em>, <em>forum</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/permissions.html#can_post_topic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.permissions.can_post_topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the user is allowed to create a new topic in the forum.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.permissions.check_perm">
+<tt class="descclassname">janitoo_manager.utils.permissions.</tt><tt class="descname">check_perm</tt><big>(</big><em>user</em>, <em>perm</em>, <em>forum</em>, <em>post_user_id=None</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/permissions.html#check_perm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.permissions.check_perm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the <cite>user</cite> has a specified <cite>perm</cite> in the <cite>forum</cite>
+If post_user_id is provided, it will also check if the user
+has created the post</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>user</strong> &#8211; The user for whom we should check the permission</li>
+<li><strong>perm</strong> &#8211; The permission. You can find a full list of available
+permissions here: &lt;INSERT LINK TO DOCS&gt;</li>
+<li><strong>forum</strong> &#8211; The forum where we should check the permission against</li>
+<li><strong>post_user_id</strong> &#8211; If post_user_id is given, it will also perform an
+check if the user is the owner of this topic or post.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.permissions.is_admin">
+<tt class="descclassname">janitoo_manager.utils.permissions.</tt><tt class="descname">is_admin</tt><big>(</big><em>user</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/permissions.html#is_admin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.permissions.is_admin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the user is a administrator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> &#8211; The user who should be checked.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.permissions.is_admin_or_power">
+<tt class="descclassname">janitoo_manager.utils.permissions.</tt><tt class="descname">is_admin_or_power</tt><big>(</big><em>user</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/permissions.html#is_admin_or_power"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.permissions.is_admin_or_power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the user is either a admin or in a moderator group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> &#8211; The user who should be checked.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.permissions.is_power">
+<tt class="descclassname">janitoo_manager.utils.permissions.</tt><tt class="descname">is_power</tt><big>(</big><em>user</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/permissions.html#is_power"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.permissions.is_power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the user is in a moderator or super moderator group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> &#8211; The user who should be checked.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-janitoo_manager.utils.populate">
+<span id="janitoo-manager-utils-populate-module"></span><h2>janitoo_manager.utils.populate module<a class="headerlink" href="#module-janitoo_manager.utils.populate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.create_admin_user">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">create_admin_user</tt><big>(</big><em>username</em>, <em>password</em>, <em>email</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#create_admin_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.create_admin_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the administrator user.
+Returns the created admin user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>username</strong> &#8211; The username of the user.</li>
+<li><strong>password</strong> &#8211; The password of the user.</li>
+<li><strong>email</strong> &#8211; The email address of the user.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.create_default_categories">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">create_default_categories</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#create_default_categories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.create_default_categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will create the 5 default groups.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.create_default_forums">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">create_default_forums</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#create_default_forums"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.create_default_forums" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will create the 5 default groups.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.create_default_groups">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">create_default_groups</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#create_default_groups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.create_default_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will create the 5 default groups.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.create_default_modules">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">create_default_modules</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#create_default_modules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.create_default_modules" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will create the 5 default groups.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.create_default_modules_categories">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">create_default_modules_categories</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#create_default_modules_categories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.create_default_modules_categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will create the 5 default groups.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.create_default_settings">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">create_default_settings</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#create_default_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.create_default_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the default settings.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.create_power_user">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">create_power_user</tt><big>(</big><em>username</em>, <em>password</em>, <em>email</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#create_power_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.create_power_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the power user.
+Returns the created power user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>username</strong> &#8211; The username of the user.</li>
+<li><strong>password</strong> &#8211; The password of the user.</li>
+<li><strong>email</strong> &#8211; The email address of the user.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.create_settings_from_fixture">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">create_settings_from_fixture</tt><big>(</big><em>fixture</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#create_settings_from_fixture"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.create_settings_from_fixture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts the settings from a fixture into the database.
+Returns the created groups and settings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fixture</strong> &#8211; The fixture which should inserted.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.create_test_data">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">create_test_data</tt><big>(</big><em>users=5</em>, <em>categories=2</em>, <em>forums=2</em>, <em>topics=1</em>, <em>posts=1</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#create_test_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.create_test_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates 5 users, 2 categories and 2 forums in each category.
+It also creates a new topic topic in each forum with a post.
+Returns the amount of created users, categories, forums, topics and posts
+as a dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>users</strong> &#8211; The number of users.</li>
+<li><strong>categories</strong> &#8211; The number of categories.</li>
+<li><strong>forums</strong> &#8211; The number of forums which are created in each category.</li>
+<li><strong>topics</strong> &#8211; The number of topics which are created in each forum.</li>
+<li><strong>posts</strong> &#8211; The number of posts which are created in each topic.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.create_welcome_forum">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">create_welcome_forum</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#create_welcome_forum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.create_welcome_forum" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will create the <cite>welcome forum</cite> with a welcome topic.
+Returns True if it&#8217;s created successfully.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.delete_settings_from_fixture">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">delete_settings_from_fixture</tt><big>(</big><em>fixture</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#delete_settings_from_fixture"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.delete_settings_from_fixture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the settings from a fixture from the database.
+Returns the deleted groups and settings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fixture</strong> &#8211; The fixture that should be deleted.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.insert_mass_data">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">insert_mass_data</tt><big>(</big><em>topics=100</em>, <em>posts=100</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#insert_mass_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.insert_mass_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a few topics in the first forum and each topic has
+a few posts. WARNING: This might take very long!
+Returns the count of created topics and posts.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>topics</strong> &#8211; The amount of topics in the forum.</li>
+<li><strong>posts</strong> &#8211; The number of posts in each topic.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.populates_modules">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">populates_modules</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#populates_modules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.populates_modules" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will create the 5 default groups.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_manager.utils.populate.update_settings_from_fixture">
+<tt class="descclassname">janitoo_manager.utils.populate.</tt><tt class="descname">update_settings_from_fixture</tt><big>(</big><em>fixture</em>, <em>overwrite_group=False</em>, <em>overwrite_setting=False</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/populate.html#update_settings_from_fixture"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.populate.update_settings_from_fixture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the database settings from a fixture.
+Returns the updated groups and settings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fixture</strong> &#8211; The fixture which should be inserted/updated.</li>
+<li><strong>overwrite_group</strong> &#8211; Set this to <tt class="docutils literal"><span class="pre">True</span></tt> if you want to overwrite
+the group if it already exists.
+Defaults to <tt class="docutils literal"><span class="pre">False</span></tt>.</li>
+<li><strong>overwrite_setting</strong> &#8211; Set this to <tt class="docutils literal"><span class="pre">True</span></tt> if you want to overwrite the
+setting if it already exists.
+Defaults to <tt class="docutils literal"><span class="pre">False</span></tt>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-janitoo_manager.utils.settings">
+<span id="janitoo-manager-utils-settings-module"></span><h2>janitoo_manager.utils.settings module<a class="headerlink" href="#module-janitoo_manager.utils.settings" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="janitoo_manager.utils.settings.ManagerConfig">
+<em class="property">class </em><tt class="descclassname">janitoo_manager.utils.settings.</tt><tt class="descname">ManagerConfig</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/settings.html#ManagerConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.settings.ManagerConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">_abcoll.MutableMapping</span></tt></p>
+<p>Provides a dictionary like interface for interacting with janitoo_manager&#8217;s
+Settings cache.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-janitoo_manager.utils.translations">
+<span id="janitoo-manager-utils-translations-module"></span><h2>janitoo_manager.utils.translations module<a class="headerlink" href="#module-janitoo_manager.utils.translations" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="janitoo_manager.utils.translations.JanitooDomain">
+<em class="property">class </em><tt class="descclassname">janitoo_manager.utils.translations.</tt><tt class="descname">JanitooDomain</tt><big>(</big><em>app</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/translations.html#JanitooDomain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.translations.JanitooDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">flask_babelplus.Domain</span></tt></p>
+<dl class="method">
+<dt id="janitoo_manager.utils.translations.JanitooDomain.get_translations">
+<tt class="descname">get_translations</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/translations.html#JanitooDomain.get_translations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.translations.JanitooDomain.get_translations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the correct gettext translations that should be used for
+this request.  This will never fail and return a dummy translation
+object if used outside of the request or if a translation cannot be
+found.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-janitoo_manager.utils.widgets">
+<span id="janitoo-manager-utils-widgets-module"></span><h2>janitoo_manager.utils.widgets module<a class="headerlink" href="#module-janitoo_manager.utils.widgets" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="janitoo_manager.utils.widgets.MultiSelect">
+<em class="property">class </em><tt class="descclassname">janitoo_manager.utils.widgets.</tt><tt class="descname">MultiSelect</tt><a class="reference internal" href="../_modules/janitoo_manager/utils/widgets.html#MultiSelect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.widgets.MultiSelect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Renders a megalist-multiselect widget.</p>
+<p>The field must provide an <cite>iter_choices()</cite> method which the widget will
+call on rendering; this method must yield tuples of
+<cite>(value, label, selected)</cite>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="janitoo_manager.utils.widgets.SelectBirthdayWidget">
+<em class="property">class </em><tt class="descclassname">janitoo_manager.utils.widgets.</tt><tt class="descname">SelectBirthdayWidget</tt><big>(</big><em>years=[1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939, 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016]</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/utils/widgets.html#SelectBirthdayWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.utils.widgets.SelectBirthdayWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Renders a DateTime field with 3 selects.
+For more information see: <a class="reference external" href="http://stackoverflow.com/a/14664504">http://stackoverflow.com/a/14664504</a></p>
+<dl class="attribute">
+<dt id="janitoo_manager.utils.widgets.SelectBirthdayWidget.FORMAT_CHOICES">
+<tt class="descname">FORMAT_CHOICES</tt><em class="property"> = {'%m': [(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5'), (6, '6'), (7, '7'), (8, '8'), (9, '9'), (10, '10'), (11, '11'), (12, '12')], '%d': [(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5'), (6, '6'), (7, '7'), (8, '8'), (9, '9'), (10, '10'), (11, '11'), (12, '12'), (13, '13'), (14, '14'), (15, '15'), (16, '16'), (17, '17'), (18, '18'), (19, '19'), (20, '20'), (21, '21'), (22, '22'), (23, '23'), (24, '24'), (25, '25'), (26, '26'), (27, '27'), (28, '28'), (29, '29'), (30, '30'), (31, '31')], '%Y': [(1930, '1930'), (1931, '1931'), (1932, '1932'), (1933, '1933'), (1934, '1934'), (1935, '1935'), (1936, '1936'), (1937, '1937'), (1938, '1938'), (1939, '1939'), (1940, '1940'), (1941, '1941'), (1942, '1942'), (1943, '1943'), (1944, '1944'), (1945, '1945'), (1946, '1946'), (1947, '1947'), (1948, '1948'), (1949, '1949'), (1950, '1950'), (1951, '1951'), (1952, '1952'), (1953, '1953'), (1954, '1954'), (1955, '1955'), (1956, '1956'), (1957, '1957'), (1958, '1958'), (1959, '1959'), (1960, '1960'), (1961, '1961'), (1962, '1962'), (1963, '1963'), (1964, '1964'), (1965, '1965'), (1966, '1966'), (1967, '1967'), (1968, '1968'), (1969, '1969'), (1970, '1970'), (1971, '1971'), (1972, '1972'), (1973, '1973'), (1974, '1974'), (1975, '1975'), (1976, '1976'), (1977, '1977'), (1978, '1978'), (1979, '1979'), (1980, '1980'), (1981, '1981'), (1982, '1982'), (1983, '1983'), (1984, '1984'), (1985, '1985'), (1986, '1986'), (1987, '1987'), (1988, '1988'), (1989, '1989'), (1990, '1990'), (1991, '1991'), (1992, '1992'), (1993, '1993'), (1994, '1994'), (1995, '1995'), (1996, '1996'), (1997, '1997'), (1998, '1998'), (1999, '1999'), (2000, '2000'), (2001, '2001'), (2002, '2002'), (2003, '2003'), (2004, '2004'), (2005, '2005'), (2006, '2006'), (2007, '2007'), (2008, '2008'), (2009, '2009'), (2010, '2010'), (2011, '2011'), (2012, '2012'), (2013, '2013'), (2014, '2014'), (2015, '2015'), (2016, '2016')]}</em><a class="headerlink" href="#janitoo_manager.utils.widgets.SelectBirthdayWidget.FORMAT_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janitoo_manager.utils.widgets.SelectBirthdayWidget.FORMAT_CLASSES">
+<tt class="descname">FORMAT_CLASSES</tt><em class="property"> = {'%m': 'select_date_month', '%d': 'select_date_day', '%Y': 'select_date_year'}</em><a class="headerlink" href="#janitoo_manager.utils.widgets.SelectBirthdayWidget.FORMAT_CLASSES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janitoo_manager.utils.widgets.SelectBirthdayWidget.x">
+<tt class="descname">x</tt><em class="property"> = 12</em><a class="headerlink" href="#janitoo_manager.utils.widgets.SelectBirthdayWidget.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-janitoo_manager.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-janitoo_manager.utils" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014,2015,2016 Sébastien GALLET aka bibi2100 &lt;bibi21000@gmail.com&gt;.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

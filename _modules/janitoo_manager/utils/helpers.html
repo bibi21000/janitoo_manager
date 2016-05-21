@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>janitoo_manager.utils.helpers &mdash; janitoo_manager 0.0.8 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="janitoo_manager 0.0.8 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          janitoo_manager</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../../tools/index.html">Tools</a></li>
+                <li><a href="../../../api/index.html">Reference</a></li>
+                <li><a href="../../../extensions/index.html">Janitoo extensions</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="simple">
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for janitoo_manager.utils.helpers</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    This file is part of Janitoo.</span>
+
+<span class="s">    Janitoo is free software: you can redistribute it and/or modify</span>
+<span class="s">    it under the terms of the GNU General Public License as published by</span>
+<span class="s">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="s">    (at your option) any later version.</span>
+
+<span class="s">    Janitoo is distributed in the hope that it will be useful,</span>
+<span class="s">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="s">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="s">    GNU General Public License for more details.</span>
+
+<span class="s">    You should have received a copy of the GNU General Public License</span>
+<span class="s">    along with Janitoo. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="s">    Original copyright :</span>
+<span class="s">    Copyright (c) 2013 Roger Light &lt;roger@atchoo.org&gt;</span>
+
+<span class="s">    All rights reserved. This program and the accompanying materials</span>
+<span class="s">    are made available under the terms of the Eclipse Distribution License v1.0</span>
+<span class="s">    which accompanies this distribution.</span>
+
+<span class="s">    The Eclipse Distribution License is available at</span>
+<span class="s">    http://www.eclipse.org/org/documents/edl-v10.php.</span>
+
+<span class="s">    Contributors:</span>
+<span class="s">     - Roger Light - initial implementation</span>
+
+<span class="s">    This example shows how you can use the MQTT client in a class.</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Sébastien GALLET aka bibi21000&#39;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s">&#39;bibi21000@gmail.com&#39;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s">&quot;Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000&quot;</span>
+<span class="c">#~ from gevent import monkey</span>
+<span class="c">#~ monkey.patch_all()</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">operator</span>
+<span class="kn">import</span> <span class="nn">struct</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">unidecode</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">session</span><span class="p">,</span> <span class="n">url_for</span><span class="p">,</span> <span class="n">flash</span>
+<span class="kn">from</span> <span class="nn">babel.dates</span> <span class="kn">import</span> <span class="n">format_timedelta</span>
+<span class="kn">from</span> <span class="nn">flask_babelplus</span> <span class="kn">import</span> <span class="n">lazy_gettext</span> <span class="k">as</span> <span class="n">_</span>
+<span class="kn">from</span> <span class="nn">flask_themes2</span> <span class="kn">import</span> <span class="n">render_theme_template</span><span class="p">,</span> <span class="n">get_themes_list</span>
+<span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">current_user</span>
+
+
+<span class="kn">from</span> <span class="nn">janitoo_manager.extensions</span> <span class="kn">import</span> <span class="n">babel</span>
+
+<span class="kn">from</span> <span class="nn">janitoo_manager._compat</span> <span class="kn">import</span> <span class="n">range_method</span><span class="p">,</span> <span class="n">text_type</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.utils.settings</span> <span class="kn">import</span> <span class="n">flask_config</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.utils.markup</span> <span class="kn">import</span> <span class="n">markdown</span>
+
+
+<div class="viewcode-block" id="available_themes"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.available_themes">[docs]</a><span class="k">def</span> <span class="nf">available_themes</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="n">theme</span><span class="o">.</span><span class="n">identifier</span><span class="p">,</span> <span class="n">theme</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">theme</span> <span class="ow">in</span> <span class="n">get_themes_list</span><span class="p">()]</span>
+</div>
+<div class="viewcode-block" id="available_avatar_types"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.available_avatar_types">[docs]</a><span class="k">def</span> <span class="nf">available_avatar_types</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="s">&quot;image/png&quot;</span><span class="p">,</span> <span class="s">&quot;PNG&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s">&quot;image/jpeg&quot;</span><span class="p">,</span> <span class="s">&quot;JPG&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s">&quot;image/gif&quot;</span><span class="p">,</span> <span class="s">&quot;GIF&quot;</span><span class="p">)]</span>
+</div>
+<div class="viewcode-block" id="available_languages"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.available_languages">[docs]</a><span class="k">def</span> <span class="nf">available_languages</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="n">locale</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">locale</span><span class="o">.</span><span class="n">display_name</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">locale</span> <span class="ow">in</span> <span class="n">babel</span><span class="o">.</span><span class="n">list_translations</span><span class="p">()]</span>
+</div>
+<span class="n">_punct_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;[\t !&quot;#$%&amp;</span><span class="se">\&#39;</span><span class="s">()*\-/&lt;=&gt;?@\[</span><span class="se">\\</span><span class="s">\]^_`{|},.]+&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="slugify"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.slugify">[docs]</a><span class="k">def</span> <span class="nf">slugify</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">delim</span><span class="o">=</span><span class="s">u&#39;-&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generates an slightly worse ASCII-only slug.</span>
+<span class="sd">    Taken from the Flask Snippets page.</span>
+
+<span class="sd">   :param text: The text which should be slugified</span>
+<span class="sd">   :param delim: Default &quot;-&quot;. The delimeter for whitespace</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">unidecode</span><span class="o">.</span><span class="n">unidecode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">_punct_re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">word</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text_type</span><span class="p">(</span><span class="n">delim</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+
+</div>
+<div class="viewcode-block" id="render_template"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.render_template">[docs]</a><span class="k">def</span> <span class="nf">render_template</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="o">**</span><span class="n">context</span><span class="p">):</span>  <span class="c"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;A helper function that uses the `render_theme_template` function</span>
+<span class="sd">    without needing to edit all the views</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c">#~ print(&quot;flask_config : %s&quot;%flask_config)</span>
+    <span class="c">#~ for key in janitoo_config:</span>
+        <span class="c">#~ print &quot;%s&quot;%janitoo_config[key]</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">is_authenticated</span> <span class="ow">and</span> <span class="n">current_user</span><span class="o">.</span><span class="n">theme</span><span class="p">:</span>
+        <span class="n">theme</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">theme</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">theme</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;theme&#39;</span><span class="p">,</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&#39;DEFAULT_THEME&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">render_theme_template</span><span class="p">(</span><span class="n">theme</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="o">**</span><span class="n">context</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="do_topic_action"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.do_topic_action">[docs]</a><span class="k">def</span> <span class="nf">do_topic_action</span><span class="p">(</span><span class="n">topics</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">reverse</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Executes a specific action for topics. Returns a list with the modified</span>
+<span class="sd">    topic objects.</span>
+
+<span class="sd">    :param topics: A iterable with ``Topic`` objects.</span>
+<span class="sd">    :param user: The user object which wants to perform the action.</span>
+<span class="sd">    :param action: One of the following actions: locked, important and delete.</span>
+<span class="sd">    :param reverse: If the action should be done in a reversed way.</span>
+<span class="sd">                    For example, to unlock a topic, ``reverse`` should be</span>
+<span class="sd">                    set to ``True``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">janitoo_manager.utils.permissions</span> <span class="kn">import</span> <span class="n">can_moderate</span><span class="p">,</span> <span class="n">can_delete_topic</span>
+    <span class="kn">from</span> <span class="nn">janitoo_manager.user.models</span> <span class="kn">import</span> <span class="n">User</span>
+    <span class="kn">from</span> <span class="nn">janitoo_manager.forum.models</span> <span class="kn">import</span> <span class="n">Post</span>
+
+    <span class="n">modified_topics</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">action</span> <span class="o">!=</span> <span class="s">&quot;delete&quot;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">can_moderate</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="p">):</span>
+                <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;You do not have the permissions to execute this &quot;</span>
+                        <span class="s">&quot;action.&quot;</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">False</span>
+
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">reverse</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="ow">not</span> <span class="n">reverse</span><span class="p">)</span>
+            <span class="n">modified_topics</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">topic</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s">&quot;delete&quot;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">can_delete_topic</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">topic</span><span class="p">):</span>
+                <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;You do not have the permissions to delete this &quot;</span>
+                        <span class="s">&quot;topic.&quot;</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">False</span>
+
+            <span class="n">involved_users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Post</span><span class="o">.</span><span class="n">topic_id</span> <span class="o">==</span> <span class="n">topic</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                                               <span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">Post</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+            <span class="n">modified_topics</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">topic</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">involved_users</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">modified_topics</span>
+
+</div>
+<div class="viewcode-block" id="get_categories_and_forums"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.get_categories_and_forums">[docs]</a><span class="k">def</span> <span class="nf">get_categories_and_forums</span><span class="p">(</span><span class="n">query_result</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a list with categories. Every category has a list for all</span>
+<span class="sd">    their associated forums.</span>
+
+<span class="sd">    The structure looks like this::</span>
+<span class="sd">        [(&lt;Category 1&gt;,</span>
+<span class="sd">          [(&lt;Forum 1&gt;, None),</span>
+<span class="sd">           (&lt;Forum 2&gt;, &lt;janitoo_manager.forum.models.ForumsRead at 0x38fdb50&gt;)]),</span>
+<span class="sd">         (&lt;Category 2&gt;,</span>
+<span class="sd">          [(&lt;Forum 3&gt;, None),</span>
+<span class="sd">          (&lt;Forum 4&gt;, None)])]</span>
+
+<span class="sd">    and to unpack the values you can do this::</span>
+<span class="sd">        In [110]: for category, forums in x:</span>
+<span class="sd">           .....:     print category</span>
+<span class="sd">           .....:     for forum, forumsread in forums:</span>
+<span class="sd">           .....:         print &quot;\t&quot;, forum, forumsread</span>
+
+<span class="sd">   This will print something like this:</span>
+<span class="sd">        &lt;Category 1&gt;</span>
+<span class="sd">            &lt;Forum 1&gt; None</span>
+<span class="sd">            &lt;Forum 2&gt; &lt;janitoo_manager.forum.models.ForumsRead object at 0x38fdb50&gt;</span>
+<span class="sd">        &lt;Category 2&gt;</span>
+<span class="sd">            &lt;Forum 3&gt; None</span>
+<span class="sd">            &lt;Forum 4&gt; None</span>
+
+<span class="sd">    :param query_result: A tuple (KeyedTuple) with all categories and forums</span>
+
+<span class="sd">    :param user: The user object is needed because a signed out user does not</span>
+<span class="sd">                 have the ForumsRead relation joined.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">it</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">query_result</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">forums</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
+            <span class="n">forums</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="p">[(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
+            <span class="n">forums</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="p">[(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]))</span>
+
+    <span class="k">return</span> <span class="n">forums</span>
+
+</div>
+<div class="viewcode-block" id="get_forums"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.get_forums">[docs]</a><span class="k">def</span> <span class="nf">get_forums</span><span class="p">(</span><span class="n">query_result</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a tuple which contains the category and the forums as list.</span>
+<span class="sd">    This is the counterpart for get_categories_and_forums and especially</span>
+<span class="sd">    usefull when you just need the forums for one category.</span>
+
+<span class="sd">    For example::</span>
+<span class="sd">        (&lt;Category 2&gt;,</span>
+<span class="sd">          [(&lt;Forum 3&gt;, None),</span>
+<span class="sd">          (&lt;Forum 4&gt;, None)])</span>
+
+<span class="sd">    :param query_result: A tuple (KeyedTuple) with all categories and forums</span>
+
+<span class="sd">    :param user: The user object is needed because a signed out user does not</span>
+<span class="sd">                 have the ForumsRead relation joined.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">it</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">query_result</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
+            <span class="n">forums</span> <span class="o">=</span> <span class="n">key</span><span class="p">,</span> <span class="p">[(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
+            <span class="n">forums</span> <span class="o">=</span> <span class="n">key</span><span class="p">,</span> <span class="p">[(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">forums</span>
+
+</div>
+<div class="viewcode-block" id="forum_is_unread"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.forum_is_unread">[docs]</a><span class="k">def</span> <span class="nf">forum_is_unread</span><span class="p">(</span><span class="n">forum</span><span class="p">,</span> <span class="n">forumsread</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Checks if a forum is unread</span>
+
+<span class="sd">    :param forum: The forum that should be checked if it is unread</span>
+
+<span class="sd">    :param forumsread: The forumsread object for the forum</span>
+
+<span class="sd">    :param user: The user who should be checked if he has read the forum</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c"># If the user is not signed in, every forum is marked as read</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">():</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="n">read_cutoff</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span>
+        <span class="n">days</span><span class="o">=</span><span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;TRACKER_LENGTH&quot;</span><span class="p">])</span>
+
+    <span class="c"># disable tracker if TRACKER_LENGTH is set to 0</span>
+    <span class="k">if</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;TRACKER_LENGTH&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="c"># If there are no topics in the forum, mark it as read</span>
+    <span class="k">if</span> <span class="n">forum</span> <span class="ow">and</span> <span class="n">forum</span><span class="o">.</span><span class="n">topic_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="c"># If the user hasn&#39;t visited a topic in the forum - therefore,</span>
+    <span class="c"># forumsread is None and we need to check if it is still unread</span>
+    <span class="k">if</span> <span class="n">forum</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">forumsread</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">forum</span><span class="o">.</span><span class="n">last_post_created</span> <span class="o">&gt;</span> <span class="n">read_cutoff</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c"># check if the forum has been cleared and if there is a new post</span>
+        <span class="c"># since it have been cleared</span>
+        <span class="k">if</span> <span class="n">forum</span><span class="o">.</span><span class="n">last_post_created</span> <span class="o">&gt;</span> <span class="n">forumsread</span><span class="o">.</span><span class="n">cleared</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">forum</span><span class="o">.</span><span class="n">last_post_created</span> <span class="o">&lt;</span> <span class="n">forumsread</span><span class="o">.</span><span class="n">last_read</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="c"># else just check if the user has read the last post</span>
+    <span class="k">return</span> <span class="n">forum</span><span class="o">.</span><span class="n">last_post_created</span> <span class="o">&gt;</span> <span class="n">forumsread</span><span class="o">.</span><span class="n">last_read</span>
+
+</div>
+<div class="viewcode-block" id="topic_is_unread"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.topic_is_unread">[docs]</a><span class="k">def</span> <span class="nf">topic_is_unread</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">topicsread</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">forumsread</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Checks if a topic is unread.</span>
+
+<span class="sd">    :param topic: The topic that should be checked if it is unread</span>
+
+<span class="sd">    :param topicsread: The topicsread object for the topic</span>
+
+<span class="sd">    :param user: The user who should be checked if he has read the last post</span>
+<span class="sd">                 in the topic</span>
+
+<span class="sd">    :param forumsread: The forumsread object in which the topic is. If you</span>
+<span class="sd">                       also want to check if the user has marked the forum as</span>
+<span class="sd">                       read, than you will also need to pass an forumsread</span>
+<span class="sd">                       object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">():</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="n">read_cutoff</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span>
+        <span class="n">days</span><span class="o">=</span><span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;TRACKER_LENGTH&quot;</span><span class="p">])</span>
+
+    <span class="c"># disable tracker if read_cutoff is set to 0</span>
+    <span class="k">if</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;TRACKER_LENGTH&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="c"># check read_cutoff</span>
+    <span class="k">if</span> <span class="n">topic</span><span class="o">.</span><span class="n">last_post</span><span class="o">.</span><span class="n">date_created</span> <span class="o">&lt;</span> <span class="n">read_cutoff</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="c"># topicsread is none if the user has marked the forum as read</span>
+    <span class="c"># or if he hasn&#39;t visited yet</span>
+    <span class="k">if</span> <span class="n">topicsread</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="c"># user has cleared the forum sometime ago - check if there is a new post</span>
+        <span class="k">if</span> <span class="n">forumsread</span> <span class="ow">and</span> <span class="n">forumsread</span><span class="o">.</span><span class="n">cleared</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">forumsread</span><span class="o">.</span><span class="n">cleared</span> <span class="o">&lt;</span> <span class="n">topic</span><span class="o">.</span><span class="n">last_post</span><span class="o">.</span><span class="n">date_created</span>
+
+        <span class="c"># user hasn&#39;t read the topic yet, or there is a new post since the user</span>
+        <span class="c"># has marked the forum as read</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="c"># check if there is a new post since the user&#39;s last topic visit</span>
+    <span class="k">return</span> <span class="n">topicsread</span><span class="o">.</span><span class="n">last_read</span> <span class="o">&lt;</span> <span class="n">topic</span><span class="o">.</span><span class="n">last_post</span><span class="o">.</span><span class="n">date_created</span>
+
+</div>
+<div class="viewcode-block" id="mark_online"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.mark_online">[docs]</a><span class="k">def</span> <span class="nf">mark_online</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">guest</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>  <span class="c"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Marks a user as online</span>
+
+<span class="sd">    :param user_id: The id from the user who should be marked as online</span>
+
+<span class="sd">    :param guest: If set to True, it will add the user to the guest activity</span>
+<span class="sd">                  instead of the user activity.</span>
+
+<span class="sd">    Ref: http://flask.pocoo.org/snippets/71/</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+    <span class="n">expires</span> <span class="o">=</span> <span class="n">now</span> <span class="o">+</span> <span class="p">(</span><span class="n">flask_config</span><span class="p">[</span><span class="s">&#39;ONLINE_LAST_MINUTES&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span>
+    <span class="k">if</span> <span class="n">guest</span><span class="p">:</span>
+        <span class="n">all_users_key</span> <span class="o">=</span> <span class="s">&#39;online-guests/</span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">now</span> <span class="o">//</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="n">user_key</span> <span class="o">=</span> <span class="s">&#39;guest-activity/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">user_id</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">all_users_key</span> <span class="o">=</span> <span class="s">&#39;online-users/</span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">now</span> <span class="o">//</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="n">user_key</span> <span class="o">=</span> <span class="s">&#39;user-activity/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">user_id</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">redis_store</span><span class="o">.</span><span class="n">pipeline</span><span class="p">()</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">sadd</span><span class="p">(</span><span class="n">all_users_key</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">user_key</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">expireat</span><span class="p">(</span><span class="n">all_users_key</span><span class="p">,</span> <span class="n">expires</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">expireat</span><span class="p">(</span><span class="n">user_key</span><span class="p">,</span> <span class="n">expires</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+
+</div>
+<div class="viewcode-block" id="get_online_users"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.get_online_users">[docs]</a><span class="k">def</span> <span class="nf">get_online_users</span><span class="p">(</span><span class="n">guest</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>  <span class="c"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Returns all online users within a specified time range</span>
+
+<span class="sd">    :param guest: If True, it will return the online guests</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span> <span class="o">//</span> <span class="mi">60</span>
+    <span class="n">minutes</span> <span class="o">=</span> <span class="n">range_method</span><span class="p">(</span><span class="n">flask_config</span><span class="p">[</span><span class="s">&#39;ONLINE_LAST_MINUTES&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">guest</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redis_store</span><span class="o">.</span><span class="n">sunion</span><span class="p">([</span><span class="s">&#39;online-guests/</span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">current</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+                                   <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">minutes</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">redis_store</span><span class="o">.</span><span class="n">sunion</span><span class="p">([</span><span class="s">&#39;online-users/</span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">current</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+                               <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">minutes</span><span class="p">])</span>
+
+</div>
+<div class="viewcode-block" id="crop_title"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.crop_title">[docs]</a><span class="k">def</span> <span class="nf">crop_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s">&quot;...&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Crops the title to a specified length</span>
+
+<span class="sd">    :param title: The title that should be cropped</span>
+
+<span class="sd">    :param suffix: The suffix which should be appended at the</span>
+<span class="sd">                   end of the title.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&#39;TITLE_LENGTH&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">length</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">length</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">title</span>
+
+    <span class="k">return</span> <span class="n">title</span><span class="p">[:</span><span class="n">length</span><span class="p">]</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">suffix</span>
+
+</div>
+<div class="viewcode-block" id="render_markup"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.render_markup">[docs]</a><span class="k">def</span> <span class="nf">render_markup</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Renders the given text as markdown</span>
+
+<span class="sd">    :param text: The text that should be rendered as markdown</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">markdown</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="is_online"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.is_online">[docs]</a><span class="k">def</span> <span class="nf">is_online</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple check to see if the user was online within a specified</span>
+<span class="sd">    time range</span>
+
+<span class="sd">    :param user: The user who needs to be checked</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">lastseen</span> <span class="o">&gt;=</span> <span class="n">time_diff</span><span class="p">()</span>
+
+</div>
+<div class="viewcode-block" id="time_diff"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.time_diff">[docs]</a><span class="k">def</span> <span class="nf">time_diff</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Calculates the time difference between now and the ONLINE_LAST_MINUTES</span>
+<span class="sd">    variable from the configuration.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">flask_config</span><span class="p">[</span><span class="s">&#39;ONLINE_LAST_MINUTES&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">diff</span>
+
+</div>
+<div class="viewcode-block" id="format_date"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.format_date">[docs]</a><span class="k">def</span> <span class="nf">format_date</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a formatted time string</span>
+
+<span class="sd">    :param value: The datetime object that should be formatted</span>
+
+<span class="sd">    :param format: How the result should look like. A full list of available</span>
+<span class="sd">                   directives is here: http://goo.gl/gNxMHE</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">format</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="time_since"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.time_since">[docs]</a><span class="k">def</span> <span class="nf">time_since</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>  <span class="c"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Returns a string representing time since e.g.</span>
+<span class="sd">    3 days ago, 5 hours ago.</span>
+
+<span class="sd">    :param time: A datetime object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">time</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+
+    <span class="n">locale</span> <span class="o">=</span> <span class="s">&quot;en&quot;</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">is_authenticated</span> <span class="ow">and</span> <span class="n">current_user</span><span class="o">.</span><span class="n">language</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">locale</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">language</span>
+
+    <span class="k">return</span> <span class="n">format_timedelta</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="n">add_direction</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="format_quote"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.format_quote">[docs]</a><span class="k">def</span> <span class="nf">format_quote</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a formatted quote depending on the markup language.</span>
+
+<span class="sd">    :param username: The username of a user.</span>
+<span class="sd">    :param content: The content of the quote</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">profile_url</span> <span class="o">=</span> <span class="n">url_for</span><span class="p">(</span><span class="s">&#39;user.profile&#39;</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&gt; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">))</span>
+    <span class="n">quote</span> <span class="o">=</span> <span class="s">u&quot;**[{username}]({profile_url}) wrote:**</span><span class="se">\n</span><span class="s">&gt; {content}</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span>\
+            <span class="n">format</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">profile_url</span><span class="o">=</span><span class="n">profile_url</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">quote</span>
+
+</div>
+<div class="viewcode-block" id="get_image_info"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.get_image_info">[docs]</a><span class="k">def</span> <span class="nf">get_image_info</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns the content-type, image size (kb), height and width of a image</span>
+<span class="sd">    without fully downloading it. It will just download the first 1024 bytes.</span>
+
+<span class="sd">    LICENSE: New BSD License (taken from the start page of the repository)</span>
+<span class="sd">    https://code.google.com/p/bfg-pages/source/browse/trunk/pages/getimageinfo.py</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">image_size</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;content-length&quot;</span><span class="p">)</span>
+    <span class="n">image_size</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">image_size</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span>  <span class="c"># in kilobyte</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">content_type</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="n">size</span><span class="p">:</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+    <span class="c"># handle GIFs</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="ow">in</span> <span class="p">(</span><span class="n">b</span><span class="s">&#39;GIF87a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;GIF89a&#39;</span><span class="p">):</span>
+        <span class="c"># Check to see if content_type is correct</span>
+        <span class="n">content_type</span> <span class="o">=</span> <span class="s">&#39;image/gif&#39;</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;&lt;HH&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+    <span class="c"># See PNG 2. Edition spec (http://www.w3.org/TR/PNG/)</span>
+    <span class="c"># Bytes 0-7 are below, 4-byte chunk length, then &#39;IHDR&#39;</span>
+    <span class="c"># and finally the 4-byte width, height</span>
+    <span class="k">elif</span> <span class="p">((</span><span class="n">size</span> <span class="o">&gt;=</span> <span class="mi">24</span><span class="p">)</span> <span class="ow">and</span> <span class="n">data</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\211</span><span class="s">PNG</span><span class="se">\r\n\032\n</span><span class="s">&#39;</span><span class="p">)</span> <span class="ow">and</span>
+            <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;IHDR&#39;</span><span class="p">)):</span>
+        <span class="n">content_type</span> <span class="o">=</span> <span class="s">&#39;image/png&#39;</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">b</span><span class="s">&quot;&gt;LL&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">16</span><span class="p">:</span><span class="mi">24</span><span class="p">])</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+    <span class="c"># Maybe this is for an older PNG version.</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">size</span> <span class="o">&gt;=</span> <span class="mi">16</span><span class="p">)</span> <span class="ow">and</span> <span class="n">data</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\211</span><span class="s">PNG</span><span class="se">\r\n\032\n</span><span class="s">&#39;</span><span class="p">):</span>
+        <span class="c"># Check to see if we have the right content type</span>
+        <span class="n">content_type</span> <span class="o">=</span> <span class="s">&#39;image/png&#39;</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">b</span><span class="s">&quot;&gt;LL&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">16</span><span class="p">])</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+    <span class="c"># handle JPEGs</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">size</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">and</span> <span class="n">data</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\377\330</span><span class="s">&#39;</span><span class="p">):</span>
+        <span class="n">content_type</span> <span class="o">=</span> <span class="s">&#39;image/jpeg&#39;</span>
+        <span class="n">jpeg</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">jpeg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">jpeg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">b</span> <span class="ow">and</span> <span class="nb">ord</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">!=</span> <span class="mh">0xDA</span><span class="p">):</span>
+
+                <span class="k">while</span> <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">!=</span> <span class="mh">0xFF</span><span class="p">):</span>
+                    <span class="n">b</span> <span class="o">=</span> <span class="n">jpeg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+                <span class="k">while</span> <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="mh">0xFF</span><span class="p">):</span>
+                    <span class="n">b</span> <span class="o">=</span> <span class="n">jpeg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mh">0xC0</span> <span class="ow">and</span> <span class="nb">ord</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mh">0xC3</span><span class="p">):</span>
+                    <span class="n">jpeg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+                    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">b</span><span class="s">&quot;&gt;HH&quot;</span><span class="p">,</span> <span class="n">jpeg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+                    <span class="k">break</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">jpeg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">b</span><span class="s">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">jpeg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">jpeg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+            <span class="n">height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">struct</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s">&quot;content-type&quot;</span><span class="p">:</span> <span class="n">content_type</span><span class="p">,</span> <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="n">image_size</span><span class="p">,</span>
+            <span class="s">&quot;width&quot;</span><span class="p">:</span> <span class="n">width</span><span class="p">,</span> <span class="s">&quot;height&quot;</span><span class="p">:</span> <span class="n">height</span><span class="p">}</span>
+
+</div>
+<div class="viewcode-block" id="check_image"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.helpers.check_image">[docs]</a><span class="k">def</span> <span class="nf">check_image</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A little wrapper for the :func:`get_image_info` function.</span>
+<span class="sd">    If the image doesn&#39;t match the ``flask_config`` settings it will</span>
+<span class="sd">    return a tuple with a the first value is the custom error message and</span>
+<span class="sd">    the second value ``False`` for not passing the check.</span>
+<span class="sd">    If the check is successful, it will return ``None`` for the error message</span>
+<span class="sd">    and ``True`` for the passed check.</span>
+
+<span class="sd">    :param url: The image url to be checked.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">img_info</span> <span class="o">=</span> <span class="n">get_image_info</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">img_info</span><span class="p">[</span><span class="s">&quot;content-type&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;AVATAR_TYPES&quot;</span><span class="p">]:</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="s">&quot;Image type is not allowed. Allowed types are: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="s">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;AVATAR_TYPES&quot;</span><span class="p">])</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">error</span><span class="p">,</span> <span class="bp">False</span>
+
+    <span class="k">if</span> <span class="n">img_info</span><span class="p">[</span><span class="s">&quot;width&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;AVATAR_WIDTH&quot;</span><span class="p">]:</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="s">&quot;Image is too wide! {}px width is allowed.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;AVATAR_WIDTH&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">error</span><span class="p">,</span> <span class="bp">False</span>
+
+    <span class="k">if</span> <span class="n">img_info</span><span class="p">[</span><span class="s">&quot;height&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;AVATAR_HEIGHT&quot;</span><span class="p">]:</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="s">&quot;Image is too high! {}px height is allowed.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;AVATAR_HEIGHT&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">error</span><span class="p">,</span> <span class="bp">False</span>
+
+    <span class="k">if</span> <span class="n">img_info</span><span class="p">[</span><span class="s">&quot;size&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;AVATAR_SIZE&quot;</span><span class="p">]:</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="s">&quot;Image is too big! {}kb are allowed.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;AVATAR_SIZE&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">error</span><span class="p">,</span> <span class="bp">False</span>
+
+    <span class="k">return</span> <span class="n">error</span><span class="p">,</span> <span class="bp">True</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014,2015,2016 Sébastien GALLET aka bibi2100 &lt;bibi21000@gmail.com&gt;.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

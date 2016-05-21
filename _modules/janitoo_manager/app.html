@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>janitoo_manager.app &mdash; janitoo_manager 0.0.8 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="janitoo_manager 0.0.8 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          janitoo_manager</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../tools/index.html">Tools</a></li>
+                <li><a href="../../api/index.html">Reference</a></li>
+                <li><a href="../../extensions/index.html">Janitoo extensions</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="simple">
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for janitoo_manager.app</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    This file is part of Janitoo.</span>
+
+<span class="s">    Janitoo is free software: you can redistribute it and/or modify</span>
+<span class="s">    it under the terms of the GNU General Public License as published by</span>
+<span class="s">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="s">    (at your option) any later version.</span>
+
+<span class="s">    Janitoo is distributed in the hope that it will be useful,</span>
+<span class="s">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="s">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="s">    GNU General Public License for more details.</span>
+
+<span class="s">    You should have received a copy of the GNU General Public License</span>
+<span class="s">    along with Janitoo. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Sébastien GALLET aka bibi21000&#39;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s">&#39;bibi21000@gmail.com&#39;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s">&quot;Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">event</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.engine</span> <span class="kn">import</span> <span class="n">Engine</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">current_user</span>
+
+<span class="kn">from</span> <span class="nn">janitoo_manager.admin.views</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.user.models</span> <span class="kn">import</span> <span class="n">UserMan</span><span class="p">,</span> <span class="n">GuestMan</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.auth.views</span> <span class="kn">import</span> <span class="n">auth</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.user.views</span> <span class="kn">import</span> <span class="n">user</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.admin.views</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.portal.views</span> <span class="kn">import</span> <span class="n">portal</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.extensions</span> <span class="kn">import</span> <span class="n">db</span><span class="p">,</span> <span class="n">login_manager</span><span class="p">,</span> <span class="n">mail</span><span class="p">,</span> <span class="n">janitoo</span><span class="p">,</span> \
+    <span class="n">debugtoolbar</span><span class="p">,</span> <span class="n">themes</span><span class="p">,</span> <span class="n">babel</span><span class="p">,</span> <span class="n">csrf</span><span class="p">,</span> <span class="n">socketio</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.utils.helpers</span> <span class="kn">import</span> <span class="n">format_date</span><span class="p">,</span> <span class="n">time_since</span><span class="p">,</span> <span class="n">crop_title</span><span class="p">,</span> \
+    <span class="n">is_online</span><span class="p">,</span> <span class="n">render_markup</span><span class="p">,</span> <span class="n">mark_online</span><span class="p">,</span> <span class="n">forum_is_unread</span><span class="p">,</span> <span class="n">topic_is_unread</span><span class="p">,</span> \
+    <span class="n">render_template</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.utils.translations</span> <span class="kn">import</span> <span class="n">JanitooDomain</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.utils.permissions</span> <span class="kn">import</span> <span class="n">is_admin</span><span class="p">,</span> <span class="n">is_power</span><span class="p">,</span> <span class="n">is_admin_or_power</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.utils.settings</span> <span class="kn">import</span> <span class="n">flask_config</span>
+
+<span class="kn">from</span> <span class="nn">janitoo.options</span> <span class="kn">import</span> <span class="n">JNTOptions</span>
+<span class="kn">from</span> <span class="nn">janitoo_db.base</span> <span class="kn">import</span> <span class="n">Base</span><span class="p">,</span> <span class="n">create_db_engine</span>
+<span class="kn">from</span> <span class="nn">janitoo_db.migrate</span> <span class="kn">import</span> <span class="n">Config</span> <span class="k">as</span> <span class="n">alConfig</span><span class="p">,</span> <span class="n">collect_configs</span><span class="p">,</span> <span class="n">janitoo_config</span>
+
+<div class="viewcode-block" id="create_app"><a class="viewcode-back" href="../../api/index.html#janitoo_manager.app.create_app">[docs]</a><span class="k">def</span> <span class="nf">create_app</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Creates the app.&quot;&quot;&quot;</span>
+
+    <span class="c"># Initialize the app</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="s">&quot;janitoo_manager&quot;</span><span class="p">)</span>
+
+    <span class="c"># Use the default config and override it afterwards</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="s">&#39;janitoo_flask.options.Config&#39;</span><span class="p">)</span>
+    <span class="c"># Update the config</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="c"># try to update the config via the environment variable</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_envvar</span><span class="p">(</span><span class="s">&quot;JANITOO_SETTINGS&quot;</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">configure_logging</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="kn">import</span> <span class="nn">logging.config</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">fileConfig</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">CONF_FILE</span><span class="p">)</span>
+
+    <span class="n">configure_extensions</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+    <span class="n">configure_blueprints</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">configure_template_filters</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">configure_context_processors</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">configure_before_handlers</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">configure_errorhandlers</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">app</span>
+
+</div>
+<div class="viewcode-block" id="configure_blueprints"><a class="viewcode-back" href="../../api/index.html#janitoo_manager.app.configure_blueprints">[docs]</a><span class="k">def</span> <span class="nf">configure_blueprints</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">portal</span><span class="p">,</span> <span class="n">url_prefix</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;PORTAL_URL_PREFIX&quot;</span><span class="p">])</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">admin</span><span class="p">,</span> <span class="n">url_prefix</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;ADMIN_URL_PREFIX&quot;</span><span class="p">])</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">url_prefix</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;USER_URL_PREFIX&quot;</span><span class="p">])</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">url_prefix</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;AUTH_URL_PREFIX&quot;</span><span class="p">])</span>
+    <span class="kn">import</span> <span class="nn">janitoo_manager.admin.socket</span>
+    <span class="n">janitoo</span><span class="o">.</span><span class="n">extend_blueprints</span><span class="p">(</span><span class="s">&#39;janitoo_manager&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="configure_extensions"><a class="viewcode-back" href="../../api/index.html#janitoo_manager.app.configure_extensions">[docs]</a><span class="k">def</span> <span class="nf">configure_extensions</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Configures the extensions.&quot;&quot;&quot;</span>
+
+    <span class="c"># Flask-WTF CSRF</span>
+    <span class="n">csrf</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="c"># Flask-SQLAlchemy</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="c"># Flask-Migrate</span>
+    <span class="c">#~ migrate.init_app(app, db, directory=&quot;config&quot;, filename=&quot;janitoo_manager.conf&quot;, section=&quot;database&quot;)</span>
+
+    <span class="c"># Flask-Mail</span>
+    <span class="n">mail</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="c"># Flask-Debugtoolbar</span>
+    <span class="n">debugtoolbar</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="c"># Flask-Themes</span>
+    <span class="n">themes</span><span class="o">.</span><span class="n">init_themes</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">app_identifier</span><span class="o">=</span><span class="s">&quot;janitoo_manager&quot;</span><span class="p">)</span>
+
+    <span class="c"># Flask-Login</span>
+    <span class="n">login_manager</span><span class="o">.</span><span class="n">login_view</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;LOGIN_VIEW&quot;</span><span class="p">]</span>
+    <span class="n">login_manager</span><span class="o">.</span><span class="n">refresh_view</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;REAUTH_VIEW&quot;</span><span class="p">]</span>
+    <span class="n">login_manager</span><span class="o">.</span><span class="n">anonymous_user</span> <span class="o">=</span> <span class="n">GuestMan</span>
+
+    <span class="nd">@login_manager.user_loader</span>
+    <span class="k">def</span> <span class="nf">load_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Loads the user. Required by the `login` extension.&quot;&quot;&quot;</span>
+
+        <span class="c">#~ unread_count = db.session.query(db.func.count(Conversation.id)).\</span>
+            <span class="c">#~ filter(Conversation.unread,</span>
+                   <span class="c">#~ Conversation.user_id == user_id).subquery()</span>
+        <span class="c">#~ u = db.session.query(User, unread_count).filter(User.id == user_id).\</span>
+            <span class="c">#~ first()</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">UserMan</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">UserMan</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">user_id</span><span class="p">)</span><span class="o">.</span>\
+            <span class="n">first</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">u</span><span class="p">:</span>
+            <span class="n">user_instance</span> <span class="o">=</span> <span class="n">u</span>
+            <span class="c">#~ user_instance, user_instance.pm_unread = u</span>
+            <span class="k">return</span> <span class="n">user_instance</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="n">login_manager</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="c"># Flask-BabelEx</span>
+    <span class="n">babel</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">,</span> <span class="n">default_domain</span><span class="o">=</span><span class="n">JanitooDomain</span><span class="p">(</span><span class="n">app</span><span class="p">))</span>
+
+    <span class="nd">@babel.localeselector</span>
+    <span class="k">def</span> <span class="nf">get_locale</span><span class="p">():</span>
+        <span class="c"># if a user is logged in, use the locale from the user settings</span>
+        <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">is_authenticated</span> <span class="ow">and</span> <span class="n">current_user</span><span class="o">.</span><span class="n">language</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">current_user</span><span class="o">.</span><span class="n">language</span>
+        <span class="c"># otherwise we will just fallback to the default language</span>
+        <span class="k">return</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&quot;DEFAULT_LANGUAGE&quot;</span><span class="p">]</span>
+
+    <span class="c"># SocketIO</span>
+    <span class="n">socketio</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="c"># janitoo_flask</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="n">JNTOptions</span><span class="p">({</span><span class="s">&quot;conf_file&quot;</span><span class="p">:</span><span class="n">config</span><span class="o">.</span><span class="n">CONF_FILE</span><span class="p">})</span>
+    <span class="n">options</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+    <span class="n">janitoo</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">socketio</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+    <span class="n">janitoo</span><span class="o">.</span><span class="n">extend_network</span><span class="p">(</span><span class="s">&#39;janitoo_manager&#39;</span><span class="p">)</span>
+    <span class="n">janitoo</span><span class="o">.</span><span class="n">extend_listener</span><span class="p">(</span><span class="s">&#39;janitoo_manager&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="configure_template_filters"><a class="viewcode-back" href="../../api/index.html#janitoo_manager.app.configure_template_filters">[docs]</a><span class="k">def</span> <span class="nf">configure_template_filters</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Configures the template filters.&quot;&quot;&quot;</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;markup&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">render_markup</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;format_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">format_date</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;time_since&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_since</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;is_online&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_online</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;crop_title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">crop_title</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;forum_is_unread&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">forum_is_unread</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;topic_is_unread&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">topic_is_unread</span>
+    <span class="c"># Permission filters</span>
+    <span class="c">#~ app.jinja_env.filters[&#39;edit_post&#39;] = can_edit_post</span>
+    <span class="c">#~ app.jinja_env.filters[&#39;delete_post&#39;] = can_delete_post</span>
+    <span class="c">#~ app.jinja_env.filters[&#39;delete_topic&#39;] = can_delete_topic</span>
+    <span class="c">#~ app.jinja_env.filters[&#39;post_reply&#39;] = can_post_reply</span>
+    <span class="c">#~ app.jinja_env.filters[&#39;post_topic&#39;] = can_post_topic</span>
+    <span class="c"># Moderator permission filters</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;is_admin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_admin</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;is_power&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_power</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;is_admin_or_power&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_admin_or_power</span>
+    <span class="c">#~ app.jinja_env.filters[&#39;can_moderate&#39;] = can_moderate</span>
+<span class="c">#~</span>
+    <span class="c">#~ app.jinja_env.filters[&#39;can_edit_user&#39;] = can_edit_user</span>
+    <span class="c">#~ app.jinja_env.filters[&#39;can_ban_user&#39;] = can_ban_user</span>
+
+</div>
+<div class="viewcode-block" id="configure_context_processors"><a class="viewcode-back" href="../../api/index.html#janitoo_manager.app.configure_context_processors">[docs]</a><span class="k">def</span> <span class="nf">configure_context_processors</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Configures the context processors.&quot;&quot;&quot;</span>
+
+    <span class="nd">@app.context_processor</span>
+    <span class="k">def</span> <span class="nf">inject_janitoo_config</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;Injects the ``flask_config`` config variable into the</span>
+<span class="sd">        templates.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">flask_config</span><span class="o">=</span><span class="n">flask_config</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="configure_before_handlers"><a class="viewcode-back" href="../../api/index.html#janitoo_manager.app.configure_before_handlers">[docs]</a><span class="k">def</span> <span class="nf">configure_before_handlers</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Configures the before request handlers.&quot;&quot;&quot;</span>
+
+    <span class="nd">@app.before_request</span>
+    <span class="k">def</span> <span class="nf">update_lastseen</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;Updates `lastseen` before every reguest if the user is</span>
+<span class="sd">        authenticated.&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+            <span class="n">current_user</span><span class="o">.</span><span class="n">lastseen</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">current_user</span><span class="p">)</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="configure_errorhandlers"><a class="viewcode-back" href="../../api/index.html#janitoo_manager.app.configure_errorhandlers">[docs]</a><span class="k">def</span> <span class="nf">configure_errorhandlers</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Configures the error handlers.&quot;&quot;&quot;</span>
+
+    <span class="nd">@app.errorhandler</span><span class="p">(</span><span class="mi">403</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">forbidden_page</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;errors/forbidden_page.html&quot;</span><span class="p">),</span> <span class="mi">403</span>
+
+    <span class="nd">@app.errorhandler</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">page_not_found</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;errors/page_not_found.html&quot;</span><span class="p">),</span> <span class="mi">404</span>
+
+    <span class="nd">@app.errorhandler</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">server_error_page</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;errors/server_error.html&quot;</span><span class="p">),</span> <span class="mi">500</span>
+
+</div>
+<div class="viewcode-block" id="configure_logging"><a class="viewcode-back" href="../../api/index.html#janitoo_manager.app.configure_logging">[docs]</a><span class="k">def</span> <span class="nf">configure_logging</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Configures logging.&quot;&quot;&quot;</span>
+
+    <span class="c">#~ logs_folder = os.path.join(app.root_path, os.pardir, &quot;logs&quot;)</span>
+    <span class="c">#~ from logging.handlers import SMTPHandler</span>
+    <span class="c">#~ formatter = logging.Formatter(</span>
+        <span class="c">#~ &#39;%(asctime)s %(levelname)s: %(message)s &#39;</span>
+        <span class="c">#~ &#39;[in %(pathname)s:%(lineno)d]&#39;)</span>
+<span class="c">#~</span>
+    <span class="c">#~ info_log = os.path.join(logs_folder, app.config[&#39;INFO_LOG&#39;])</span>
+<span class="c">#~</span>
+    <span class="c">#~ info_file_handler = logging.handlers.RotatingFileHandler(</span>
+        <span class="c">#~ info_log,</span>
+        <span class="c">#~ maxBytes=100000,</span>
+        <span class="c">#~ backupCount=10</span>
+    <span class="c">#~ )</span>
+<span class="c">#~</span>
+    <span class="c">#~ info_file_handler.setLevel(logging.INFO)</span>
+    <span class="c">#~ info_file_handler.setFormatter(formatter)</span>
+    <span class="c">#~ app.logger.addHandler(info_file_handler)</span>
+<span class="c">#~</span>
+    <span class="c">#~ error_log = os.path.join(logs_folder, app.config[&#39;ERROR_LOG&#39;])</span>
+<span class="c">#~</span>
+    <span class="c">#~ error_file_handler = logging.handlers.RotatingFileHandler(</span>
+        <span class="c">#~ error_log,</span>
+        <span class="c">#~ maxBytes=100000,</span>
+        <span class="c">#~ backupCount=10</span>
+    <span class="c">#~ )</span>
+<span class="c">#~</span>
+    <span class="c">#~ error_file_handler.setLevel(logging.ERROR)</span>
+    <span class="c">#~ error_file_handler.setFormatter(formatter)</span>
+    <span class="c">#~ app.logger.addHandler(error_file_handler)</span>
+<span class="c">#~</span>
+    <span class="c">#~ if app.config[&quot;SEND_LOGS&quot;]:</span>
+        <span class="c">#~ mail_handler = \</span>
+            <span class="c">#~ SMTPHandler(</span>
+                <span class="c">#~ app.config[&#39;MAIL_SERVER&#39;],</span>
+                <span class="c">#~ app.config[&#39;MAIL_DEFAULT_SENDER&#39;],</span>
+                <span class="c">#~ app.config[&#39;ADMINS&#39;],</span>
+                <span class="c">#~ &#39;application error, no admins specified&#39;,</span>
+                <span class="c">#~ (app.config[&#39;MAIL_USERNAME&#39;], app.config[&#39;MAIL_PASSWORD&#39;])</span>
+            <span class="c">#~ )</span>
+<span class="c">#~</span>
+        <span class="c">#~ mail_handler.setLevel(logging.ERROR)</span>
+        <span class="c">#~ mail_handler.setFormatter(formatter)</span>
+        <span class="c">#~ app.logger.addHandler(mail_handler)</span>
+
+    <span class="k">if</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&quot;SQLALCHEMY_ECHO&quot;</span><span class="p">]:</span>
+        <span class="c"># Ref: http://stackoverflow.com/a/8428546</span>
+        <span class="nd">@event.listens_for</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span> <span class="s">&quot;before_cursor_execute&quot;</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">before_cursor_execute</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">statement</span><span class="p">,</span>
+                                  <span class="n">parameters</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">executemany</span><span class="p">):</span>
+            <span class="n">conn</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;query_start_time&#39;</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+        <span class="nd">@event.listens_for</span><span class="p">(</span><span class="n">Engine</span><span class="p">,</span> <span class="s">&quot;after_cursor_execute&quot;</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">after_cursor_execute</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">statement</span><span class="p">,</span>
+                                 <span class="n">parameters</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">executemany</span><span class="p">):</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">conn</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s">&#39;query_start_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Total Time: </span><span class="si">%f</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014,2015,2016 Sébastien GALLET aka bibi2100 &lt;bibi21000@gmail.com&gt;.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

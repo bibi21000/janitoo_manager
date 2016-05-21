@@ -1,0 +1,22 @@
+janitoo_manager.portal package
+==============================
+
+Submodules
+----------
+
+janitoo_manager.portal.views module
+-----------------------------------
+
+.. automodule:: janitoo_manager.portal.views
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: janitoo_manager.portal
+    :members:
+    :undoc-members:
+    :show-inheritance:
