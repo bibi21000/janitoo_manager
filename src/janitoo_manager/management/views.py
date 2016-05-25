@@ -52,19 +52,18 @@ from flask_login import current_user
 from flask_plugins import get_all_plugins, get_plugin, get_plugin_from_all
 from flask_babelplus import gettext as _
 
-from janitoo_manager import __version__ as janitoo_manager_version
 from janitoo_manager._compat import iteritems
-from janitoo_manager.utils.settings import janitoo_config
+from janitoo_manager.utils.settings import flask_config
 from janitoo_manager.utils.helpers import render_template
 from janitoo_manager.utils.decorators import admin_required, moderator_required
 from janitoo_manager.utils.permissions import can_ban_user, can_edit_user
 from janitoo_manager.extensions import db
-from janitoo_manager.user.models import Guest, User, Group
-from janitoo_manager.management.models import Setting, SettingsGroup
+import janitoo_db.models as jnt_models
 from janitoo_manager.management.forms import (AddUserForm, EditUserForm, AddGroupForm,
                                       EditGroupForm, EditForumForm,
                                       AddForumForm, CategoryForm)
 
+janitoo_manager_version = '0.0.0'
 
 management = Blueprint("management", __name__)
 
@@ -73,7 +72,7 @@ management = Blueprint("management", __name__)
 @moderator_required
 def overview():
     python_version = "%s.%s" % (sys.version_info[0], sys.version_info[1])
-    user_count = User.query.count()
+    user_count = jnt_models.User.query.count()
     topic_count = Topic.query.count()
     post_count = Post.query.count()
     return render_template("management/overview.html",
@@ -92,13 +91,13 @@ def settings(slug=None):
     slug = slug if slug else "general"
 
     # get the currently active group
-    active_group = SettingsGroup.query.filter_by(key=slug).first_or_404()
+    active_group = jnt_models.SettingsGroup.query.filter_by(key=slug).first_or_404()
     # get all groups - used to build the navigation
-    all_groups = SettingsGroup.query.all()
+    all_groups = jnt_models.SettingsGroup.query.all()
 
-    SettingsForm = Setting.get_form(active_group)
+    SettingsForm = jnt_models.Setting.get_form(active_group)
 
-    old_settings = Setting.get_settings(active_group)
+    old_settings = jnt_models.Setting.get_settings(active_group)
     new_settings = {}
 
     form = SettingsForm()
@@ -113,7 +112,7 @@ def settings(slug=None):
                     new_settings[key] = form[key].data
             except KeyError:
                 pass
-        Setting.update(settings=new_settings, app=current_app)
+        jnt_models.Setting.update(settings=new_settings, app=current_app)
         flash(_("Settings saved."), "success")
     else:
         for key, values in iteritems(old_settings):
@@ -135,13 +134,13 @@ def users():
 
     if search_form.validate():
         users = search_form.get_results().\
-            paginate(page, janitoo_config['USERS_PER_PAGE'], False)
+            paginate(page, flask_config['USERS_PER_PAGE'], False)
         return render_template("management/users.html", users=users,
                                search_form=search_form)
 
-    users = User.query. \
-        order_by(User.id.asc()).\
-        paginate(page, janitoo_config['USERS_PER_PAGE'], False)
+    users = jnt_models.User.query. \
+        order_by(jnt_models.User.id.asc()).\
+        paginate(page, flask_config['USERS_PER_PAGE'], False)
 
     return render_template("management/users.html", users=users,
                            search_form=search_form)
@@ -150,29 +149,29 @@ def users():
 @management.route("/users/<int:user_id>/edit", methods=["GET", "POST"])
 @moderator_required
 def edit_user(user_id):
-    user = User.query.filter_by(id=user_id).first_or_404()
+    user = jnt_models.User.query.filter_by(id=user_id).first_or_404()
 
     if not can_edit_user(current_user):
         flash(_("You are not allowed to edit this user."), "danger")
         return redirect(url_for("management.users"))
 
-    member_group = db.and_(*[db.not_(getattr(Group, p)) for p in ['admin',
+    member_group = db.and_(*[db.not_(getattr(jnt_models.Group, p)) for p in ['admin',
                                               'mod',
                                               'super_mod',
                                               'banned',
                                               'guest'
                                               ]])
 
-    filt = db.or_(Group.id.in_(g.id for g in user.groups),
+    filt = db.or_(jnt_models.Group.id.in_(g.id for g in user.groups),
                    member_group)
 
     if any(user.permissions[p] for p in ['super_mod', 'admin']):
-        filt = db.or_(filt, Group.mod)
+        filt = db.or_(filt, jnt_models.Group.mod)
 
     if user.permissions['admin']:
-        filt = db.or_(filt, Group.admin, Group.super_mod)
+        filt = db.or_(filt, jnt_models.Group.admin, jnt_models.Group.super_mod)
 
-    group_query = Group.query.filter(filt)
+    group_query = jnt_models.Group.query.filter(filt)
 
     form = EditUserForm(user)
     form.primary_group.query = group_query
@@ -203,7 +202,7 @@ def delete_user(user_id=None):
         ids = request.get_json()["ids"]
 
         data = []
-        for user in User.query.filter(User.id.in_(ids)).all():
+        for user in jnt_models.User.query.filter(jnt_models.User.id.in_(ids)).all():
             # do not delete current user
             if current_user.id == user.id:
                 continue
@@ -224,7 +223,7 @@ def delete_user(user_id=None):
             status=200
         )
 
-    user = User.query.filter_by(id=user_id).first_or_404()
+    user = jnt_models.User.query.filter_by(id=user_id).first_or_404()
     if current_user.id == user.id:
         flash(_("You cannot delete yourself.", "danger"))
         return redirect(url_for("management.users"))
@@ -253,14 +252,14 @@ def banned_users():
     page = request.args.get("page", 1, type=int)
     search_form = UserSearchForm()
 
-    users = User.query.filter(
-        Group.banned == True,
-        Group.id == User.primary_group_id
-    ).paginate(page, janitoo_config['USERS_PER_PAGE'], False)
+    users = jnt_models.User.query.filter(
+        jnt_models.Group.banned == True,
+        jnt_models.Group.id == jnt_models.User.primary_group_id
+    ).paginate(page, flask_config['USERS_PER_PAGE'], False)
 
     if search_form.validate():
         users = search_form.get_results().\
-            paginate(page, janitoo_config['USERS_PER_PAGE'], False)
+            paginate(page, flask_config['USERS_PER_PAGE'], False)
 
         return render_template("management/banned_users.html", users=users,
                                search_form=search_form)
@@ -282,7 +281,7 @@ def ban_user(user_id=None):
         ids = request.get_json()["ids"]
 
         data = []
-        users = User.query.filter(User.id.in_(ids)).all()
+        users = jnt_models.User.query.filter(jnt_models.User.id.in_(ids)).all()
         for user in users:
             # don't let a user ban himself and do not allow a moderator to ban
             # a admin user
@@ -309,7 +308,7 @@ def ban_user(user_id=None):
             status=200
         )
 
-    user = User.query.filter_by(id=user_id).first_or_404()
+    user = jnt_models.User.query.filter_by(id=user_id).first_or_404()
 
     # Do not allow moderators to ban admins
     if user.get_permissions()['admin'] and \
@@ -341,7 +340,7 @@ def unban_user(user_id=None):
         ids = request.get_json()["ids"]
 
         data = []
-        for user in User.query.filter(User.id.in_(ids)).all():
+        for user in jnt_models.User.query.filter(jnt_models.User.id.in_(ids)).all():
             if user.unban():
                 data.append({
                     "id": user.id,
@@ -359,7 +358,7 @@ def unban_user(user_id=None):
             status=200
         )
 
-    user = User.query.filter_by(id=user_id).first_or_404()
+    user = jnt_models.User.query.filter_by(id=user_id).first_or_404()
 
     if user.unban():
         flash(_("User is now unbanned."), "success")
@@ -376,7 +375,7 @@ def reports():
     page = request.args.get("page", 1, type=int)
     reports = Report.query.\
         order_by(Report.id.asc()).\
-        paginate(page, janitoo_config['USERS_PER_PAGE'], False)
+        paginate(page, flask_config['USERS_PER_PAGE'], False)
 
     return render_template("management/reports.html", reports=reports)
 
@@ -388,7 +387,7 @@ def unread_reports():
     reports = Report.query.\
         filter(Report.zapped == None).\
         order_by(Report.id.desc()).\
-        paginate(page, janitoo_config['USERS_PER_PAGE'], False)
+        paginate(page, flask_config['USERS_PER_PAGE'], False)
 
     return render_template("management/unread_reports.html", reports=reports)
 
@@ -456,9 +455,9 @@ def report_markread(report_id=None):
 def groups():
     page = request.args.get("page", 1, type=int)
 
-    groups = Group.query.\
-        order_by(Group.id.asc()).\
-        paginate(page, janitoo_config['USERS_PER_PAGE'], False)
+    groups = jnt_models.Group.query.\
+        order_by(jnt_models.Group.id.asc()).\
+        paginate(page, flask_config['USERS_PER_PAGE'], False)
 
     return render_template("management/groups.html", groups=groups)
 
@@ -466,7 +465,7 @@ def groups():
 @management.route("/groups/<int:group_id>/edit", methods=["GET", "POST"])
 @admin_required
 def edit_group(group_id):
-    group = Group.query.filter_by(id=group_id).first_or_404()
+    group = jnt_models.Group.query.filter_by(id=group_id).first_or_404()
 
     form = EditGroupForm(group)
 
@@ -475,7 +474,7 @@ def edit_group(group_id):
         group.save()
 
         if group.guest:
-            Guest.invalidate_cache()
+            jnt_models.Guest.invalidate_cache()
 
         flash(_("Group successfully updated."), "success")
         return redirect(url_for("management.groups", group_id=group.id))
@@ -492,7 +491,7 @@ def delete_group(group_id=None):
         ids = request.get_json()["ids"]
         if not (set(ids) & set(["1", "2", "3", "4", "5"])):
             data = []
-            for group in Group.query.filter(Group.id.in_(ids)).all():
+            for group in jnt_models.Group.query.filter(jnt_models.Group.id.in_(ids)).all():
                 group.delete()
                 data.append({
                     "id": group.id,
@@ -521,7 +520,7 @@ def delete_group(group_id=None):
                     "Try renaming them instead.", "danger"))
             return redirect(url_for("management.groups"))
 
-        group = Group.query.filter_by(id=group_id).first_or_404()
+        group = jnt_models.Group.query.filter_by(id=group_id).first_or_404()
         group.delete()
         flash(_("Group successfully deleted."), "success")
         return redirect(url_for("management.groups"))
@@ -547,7 +546,7 @@ def add_group():
 @management.route("/forums")
 @admin_required
 def forums():
-    categories = Category.query.order_by(Category.position.asc()).all()
+    categories = jnt_models.Category.query.order_by(jnt_models.Category.position.asc()).all()
     return render_template("management/forums.html", categories=categories)
 
 
@@ -578,8 +577,8 @@ def edit_forum(forum_id):
 def delete_forum(forum_id):
     forum = Forum.query.filter_by(id=forum_id).first_or_404()
 
-    involved_users = User.query.filter(Topic.forum_id == forum.id,
-                                       Post.user_id == User.id).all()
+    involved_users = jnt_models.User.query.filter(Topic.forum_id == forum.id,
+                                       Post.user_id == jnt_models.User.id).all()
 
     forum.delete(involved_users)
 
@@ -598,9 +597,9 @@ def add_forum(category_id=None):
         flash(_("Forum successfully added."), "success")
         return redirect(url_for("management.forums"))
     else:
-        form.groups.data = Group.query.order_by(Group.id.asc()).all()
+        form.groups.data = jnt_models.Group.query.order_by(jnt_models.Group.id.asc()).all()
         if category_id:
-            category = Category.query.filter_by(id=category_id).first()
+            category = jnt_models.Category.query.filter_by(id=category_id).first()
             form.category.data = category
 
     return render_template("management/forum_form.html", form=form,
@@ -624,7 +623,7 @@ def add_category():
 @management.route("/category/<int:category_id>/edit", methods=["GET", "POST"])
 @admin_required
 def edit_category(category_id):
-    category = Category.query.filter_by(id=category_id).first_or_404()
+    category = jnt_models.Category.query.filter_by(id=category_id).first_or_404()
 
     form = CategoryForm(obj=category)
 
@@ -640,11 +639,11 @@ def edit_category(category_id):
 @management.route("/category/<int:category_id>/delete", methods=["POST"])
 @admin_required
 def delete_category(category_id):
-    category = Category.query.filter_by(id=category_id).first_or_404()
+    category = jnt_models.Category.query.filter_by(id=category_id).first_or_404()
 
-    involved_users = User.query.filter(Forum.category_id == category.id,
+    involved_users = jnt_models.User.query.filter(Forum.category_id == category.id,
                                        Topic.forum_id == Forum.id,
-                                       Post.user_id == User.id).all()
+                                       Post.user_id == jnt_models.User.id).all()
 
     category.delete(involved_users)
     flash(_("Category with all associated forums deleted."), "success")
@@ -725,7 +724,7 @@ def uninstall_plugin(plugin):
     plugin = get_plugin_from_all(plugin)
     if plugin.uninstallable:
         plugin.uninstall()
-        Setting.invalidate_cache()
+        jnt_models.Setting.invalidate_cache()
 
         flash(_("Plugin has been uninstalled."), "success")
     else:
@@ -740,7 +739,7 @@ def install_plugin(plugin):
     plugin = get_plugin_from_all(plugin)
     if plugin.installable and not plugin.uninstallable:
         plugin.install()
-        Setting.invalidate_cache()
+        jnt_models.Setting.invalidate_cache()
 
         flash(_("Plugin has been installed."), "success")
     else:
