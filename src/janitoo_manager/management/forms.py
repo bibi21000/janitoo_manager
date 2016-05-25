@@ -56,7 +56,7 @@ from flask_babelplus import lazy_gettext as _
 from janitoo_manager.utils.fields import BirthdayField
 from janitoo_manager.utils.widgets import SelectBirthdayWidget, MultiSelect
 from janitoo_manager.extensions import db
-from janitoo_manager.user.models import User, Group
+import janitoo_db.models as jnt_models
 
 USERNAME_RE = r'^[\w.+-]+$'
 is_username = regexp(USERNAME_RE,
@@ -64,19 +64,19 @@ is_username = regexp(USERNAME_RE,
 
 
 def selectable_forums():
-    return Forum.query.order_by(Forum.position)
+    return jnt_models.Forum.query.order_by(jnt_models.Forum.position)
 
 
 def selectable_categories():
-    return Category.query.order_by(Category.position)
+    return jnt_models.Category.query.order_by(jnt_models.Category.position)
 
 
 def selectable_groups():
-    return Group.query.order_by(Group.id.asc()).all()
+    return jnt_models.Group.query.order_by(jnt_models.Group.id.asc()).all()
 
 
 def select_primary_group():
-    return Group.query.filter(Group.guest != True).order_by(Group.id)
+    return jnt_models.Group.query.filter(jnt_models.Group.guest != True).order_by(jnt_models.Group.id)
 
 
 class UserForm(Form):
@@ -131,28 +131,28 @@ class UserForm(Form):
 
     def validate_username(self, field):
         if hasattr(self, "user"):
-            user = User.query.filter(
+            user = jnt_models.User.query.filter(
                 db.and_(
-                    User.username.like(field.data),
+                    jnt_models.User.username.like(field.data),
                     db.not_(User.id == self.user.id)
                 )
             ).first()
         else:
-            user = User.query.filter(User.username.like(field.data)).first()
+            user = jnt_models.User.query.filter(jnt_models.User.username.like(field.data)).first()
 
         if user:
             raise ValidationError(_("This Username is already taken."))
 
     def validate_email(self, field):
         if hasattr(self, "user"):
-            user = User.query.filter(
+            user = jnt_models.User.query.filter(
                 db.and_(
-                    User.email.like(field.data),
+                    jnt_models.User.email.like(field.data),
                     db.not_(User.id == self.user.id)
                 )
             ).first()
         else:
-            user = User.query.filter(User.email.like(field.data)).first()
+            user = jnt_models.User.query.filter(jnt_models.User.email.like(field.data)).first()
 
         if user:
             raise ValidationError(_("This E-Mail Address is already taken."))
@@ -160,7 +160,7 @@ class UserForm(Form):
     def save(self):
         data = self.data
         data.pop('submit', None)
-        user = User(**data)
+        user = jnt_models.User(**data)
         return user.save()
 
 
@@ -243,42 +243,42 @@ class GroupForm(Form):
 
     def validate_name(self, field):
         if hasattr(self, "group"):
-            group = Group.query.filter(
+            group = jnt_models.Group.query.filter(
                 db.and_(
-                    Group.name.like(field.data),
-                    db.not_(Group.id == self.group.id)
+                    jnt_models.Group.name.like(field.data),
+                    db.not_(jnt_models.Group.id == self.group.id)
                 )
             ).first()
         else:
-            group = Group.query.filter(Group.name.like(field.data)).first()
+            group = jnt_models.Group.query.filter(jnt_models.Group.name.like(field.data)).first()
 
         if group:
             raise ValidationError(_("This Group name is already taken."))
 
     def validate_banned(self, field):
         if hasattr(self, "group"):
-            group = Group.query.filter(
+            group = jnt_models.Group.query.filter(
                 db.and_(
-                    Group.banned,
-                    db.not_(Group.id == self.group.id)
+                    jnt_models.Group.banned,
+                    db.not_(jnt_models.Group.id == self.group.id)
                 )
             ).count()
         else:
-            group = Group.query.filter_by(banned=True).count()
+            group = jnt_models.Group.query.filter_by(banned=True).count()
 
         if field.data and group > 0:
             raise ValidationError(_("There is already a Banned group."))
 
     def validate_guest(self, field):
         if hasattr(self, "group"):
-            group = Group.query.filter(
+            group = jnt_models.Group.query.filter(
                 db.and_(
-                    Group.guest,
-                    db.not_(Group.id == self.group.id)
+                    jnt_models.Group.guest,
+                    db.not_(jnt_models.Group.id == self.group.id)
                 )
             ).count()
         else:
-            group = Group.query.filter_by(guest=True).count()
+            group = jnt_models.Group.query.filter_by(guest=True).count()
 
         if field.data and group > 0:
             raise ValidationError(_("There is already a Guest group."))
@@ -286,7 +286,7 @@ class GroupForm(Form):
     def save(self):
         data = self.data
         data.pop('submit', None)
-        group = Group(**data)
+        group = jnt_models.Group(**data)
         return group.save()
 
 
@@ -379,7 +379,7 @@ class ForumForm(Form):
             moderators = [mod.strip() for mod in moderators]
             for moderator in moderators:
                 # Check if the usernames exist
-                user = User.query.filter_by(username=moderator).first()
+                user = jnt_models.User.query.filter_by(username=moderator).first()
 
                 # Check if the user has the permissions to moderate a forum
                 if user:
@@ -404,7 +404,7 @@ class ForumForm(Form):
         data = self.data
         # remove the button
         data.pop('submit', None)
-        forum = Forum(**data)
+        forum = jnt_models.Forum(**data)
         return forum.save()
 
 
@@ -421,7 +421,7 @@ class EditForumForm(ForumForm):
         data = self.data
         # remove the button
         data.pop('submit', None)
-        forum = Forum(**data)
+        forum = jnt_models.Forum(**data)
         # flush SQLA info from created instance so that it can be merged
         make_transient(forum)
         make_transient_to_detached(forum)
@@ -455,5 +455,5 @@ class CategoryForm(Form):
     def save(self):
         data = self.data
         data.pop('submit', None)
-        category = Category(**data)
-        return category.save()
+        category = jnt_models.Category(**data)
+        return jnt_models.category.save()
