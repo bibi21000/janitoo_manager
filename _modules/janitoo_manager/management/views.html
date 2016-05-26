@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>janitoo_manager.management.views &mdash; janitoo_manager 0.0.8 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="janitoo_manager 0.0.8 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          janitoo_manager</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../../tools/index.html">Tools</a></li>
+                <li><a href="../../../api/index.html">Reference</a></li>
+                <li><a href="../../../extensions/index.html">Janitoo extensions</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../using_doc.html"> Using documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../using_doc.html#the-header">The header</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for janitoo_manager.management.views</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    This file is part of Janitoo.</span>
+
+<span class="s">    Janitoo is free software: you can redistribute it and/or modify</span>
+<span class="s">    it under the terms of the GNU General Public License as published by</span>
+<span class="s">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="s">    (at your option) any later version.</span>
+
+<span class="s">    Janitoo is distributed in the hope that it will be useful,</span>
+<span class="s">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="s">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="s">    GNU General Public License for more details.</span>
+
+<span class="s">    You should have received a copy of the GNU General Public License</span>
+<span class="s">    along with Janitoo. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="s">    Original copyright :</span>
+<span class="s">    Copyright (c) 2013 Roger Light &lt;roger@atchoo.org&gt;</span>
+
+<span class="s">    All rights reserved. This program and the accompanying materials</span>
+<span class="s">    are made available under the terms of the Eclipse Distribution License v1.0</span>
+<span class="s">    which accompanies this distribution.</span>
+
+<span class="s">    The Eclipse Distribution License is available at</span>
+<span class="s">    http://www.eclipse.org/org/documents/edl-v10.php.</span>
+
+<span class="s">    Contributors:</span>
+<span class="s">     - Roger Light - initial implementation</span>
+
+<span class="s">    This example shows how you can use the MQTT client in a class.</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Sébastien GALLET aka bibi21000&#39;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s">&#39;bibi21000@gmail.com&#39;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s">&quot;Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000&quot;</span>
+<span class="c">#~ from gevent import monkey</span>
+<span class="c">#~ monkey.patch_all()</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Blueprint</span><span class="p">,</span> <span class="n">current_app</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span><span class="p">,</span> <span class="n">flash</span><span class="p">,</span>
+                   <span class="n">jsonify</span><span class="p">,</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">flask_version</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">current_user</span>
+<span class="kn">from</span> <span class="nn">flask_plugins</span> <span class="kn">import</span> <span class="n">get_all_plugins</span><span class="p">,</span> <span class="n">get_plugin</span><span class="p">,</span> <span class="n">get_plugin_from_all</span>
+<span class="kn">from</span> <span class="nn">flask_babelplus</span> <span class="kn">import</span> <span class="n">gettext</span> <span class="k">as</span> <span class="n">_</span>
+
+<span class="kn">from</span> <span class="nn">janitoo_manager._compat</span> <span class="kn">import</span> <span class="n">iteritems</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.utils.settings</span> <span class="kn">import</span> <span class="n">flask_config</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.utils.helpers</span> <span class="kn">import</span> <span class="n">render_template</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.utils.decorators</span> <span class="kn">import</span> <span class="n">admin_required</span><span class="p">,</span> <span class="n">moderator_required</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.utils.permissions</span> <span class="kn">import</span> <span class="n">can_ban_user</span><span class="p">,</span> <span class="n">can_edit_user</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.extensions</span> <span class="kn">import</span> <span class="n">db</span>
+<span class="kn">import</span> <span class="nn">janitoo_db.models</span> <span class="kn">as</span> <span class="nn">jnt_models</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager.management.forms</span> <span class="kn">import</span> <span class="p">(</span><span class="n">AddUserForm</span><span class="p">,</span> <span class="n">EditUserForm</span><span class="p">,</span> <span class="n">AddGroupForm</span><span class="p">,</span>
+                                      <span class="n">EditGroupForm</span><span class="p">,</span> <span class="n">EditForumForm</span><span class="p">,</span>
+                                      <span class="n">AddForumForm</span><span class="p">,</span> <span class="n">CategoryForm</span><span class="p">)</span>
+
+<span class="n">janitoo_manager_version</span> <span class="o">=</span> <span class="s">&#39;0.0.0&#39;</span>
+
+<span class="n">management</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s">&quot;management&quot;</span><span class="p">,</span> <span class="n">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+<span class="nd">@moderator_required</span>
+<div class="viewcode-block" id="overview"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.overview">[docs]</a><span class="k">def</span> <span class="nf">overview</span><span class="p">():</span>
+    <span class="n">python_version</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">.</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">user_count</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">topic_count</span> <span class="o">=</span> <span class="n">Topic</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">post_count</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/overview.html&quot;</span><span class="p">,</span>
+                           <span class="n">python_version</span><span class="o">=</span><span class="n">python_version</span><span class="p">,</span>
+                           <span class="n">flask_version</span><span class="o">=</span><span class="n">flask_version</span><span class="p">,</span>
+                           <span class="n">janitoo_manager_version</span><span class="o">=</span><span class="n">janitoo_manager_version</span><span class="p">,</span>
+                           <span class="n">user_count</span><span class="o">=</span><span class="n">user_count</span><span class="p">,</span>
+                           <span class="n">topic_count</span><span class="o">=</span><span class="n">topic_count</span><span class="p">,</span>
+                           <span class="n">post_count</span><span class="o">=</span><span class="n">post_count</span><span class="p">)</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/settings&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/settings/&lt;path:slug&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="settings"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.settings">[docs]</a><span class="k">def</span> <span class="nf">settings</span><span class="p">(</span><span class="n">slug</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">slug</span> <span class="o">=</span> <span class="n">slug</span> <span class="k">if</span> <span class="n">slug</span> <span class="k">else</span> <span class="s">&quot;general&quot;</span>
+
+    <span class="c"># get the currently active group</span>
+    <span class="n">active_group</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">SettingsGroup</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">slug</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
+    <span class="c"># get all groups - used to build the navigation</span>
+    <span class="n">all_groups</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">SettingsGroup</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="n">SettingsForm</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Setting</span><span class="o">.</span><span class="n">get_form</span><span class="p">(</span><span class="n">active_group</span><span class="p">)</span>
+
+    <span class="n">old_settings</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Setting</span><span class="o">.</span><span class="n">get_settings</span><span class="p">(</span><span class="n">active_group</span><span class="p">)</span>
+    <span class="n">new_settings</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">SettingsForm</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="n">old_settings</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c"># check if the value has changed</span>
+                <span class="k">if</span> <span class="n">values</span><span class="p">[</span><span class="s">&#39;value&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">form</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">new_settings</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">form</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="n">jnt_models</span><span class="o">.</span><span class="n">Setting</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">new_settings</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="n">current_app</span><span class="p">)</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Settings saved.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="n">old_settings</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">form</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="s">&#39;value&#39;</span><span class="p">]</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+                <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/settings.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span>
+                           <span class="n">all_groups</span><span class="o">=</span><span class="n">all_groups</span><span class="p">,</span> <span class="n">active_group</span><span class="o">=</span><span class="n">active_group</span><span class="p">)</span>
+
+
+<span class="c"># Users</span></div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/users&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="s">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@moderator_required</span>
+<div class="viewcode-block" id="users"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.users">[docs]</a><span class="k">def</span> <span class="nf">users</span><span class="p">():</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;page&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">search_form</span> <span class="o">=</span> <span class="n">UserSearchForm</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">search_form</span><span class="o">.</span><span class="n">validate</span><span class="p">():</span>
+        <span class="n">users</span> <span class="o">=</span> <span class="n">search_form</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span><span class="o">.</span>\
+            <span class="n">paginate</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&#39;USERS_PER_PAGE&#39;</span><span class="p">],</span> <span class="bp">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/users.html&quot;</span><span class="p">,</span> <span class="n">users</span><span class="o">=</span><span class="n">users</span><span class="p">,</span>
+                               <span class="n">search_form</span><span class="o">=</span><span class="n">search_form</span><span class="p">)</span>
+
+    <span class="n">users</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span> \
+        <span class="n">order_by</span><span class="p">(</span><span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">asc</span><span class="p">())</span><span class="o">.</span>\
+        <span class="n">paginate</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&#39;USERS_PER_PAGE&#39;</span><span class="p">],</span> <span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/users.html&quot;</span><span class="p">,</span> <span class="n">users</span><span class="o">=</span><span class="n">users</span><span class="p">,</span>
+                           <span class="n">search_form</span><span class="o">=</span><span class="n">search_form</span><span class="p">)</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/users/&lt;int:user_id&gt;/edit&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@moderator_required</span>
+<div class="viewcode-block" id="edit_user"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.edit_user">[docs]</a><span class="k">def</span> <span class="nf">edit_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">can_edit_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">):</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;You are not allowed to edit this user.&quot;</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.users&quot;</span><span class="p">))</span>
+
+    <span class="n">member_group</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">and_</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">db</span><span class="o">.</span><span class="n">not_</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;admin&#39;</span><span class="p">,</span>
+                                              <span class="s">&#39;mod&#39;</span><span class="p">,</span>
+                                              <span class="s">&#39;super_mod&#39;</span><span class="p">,</span>
+                                              <span class="s">&#39;banned&#39;</span><span class="p">,</span>
+                                              <span class="s">&#39;guest&#39;</span>
+                                              <span class="p">]])</span>
+
+    <span class="n">filt</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">or_</span><span class="p">(</span><span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">in_</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">user</span><span class="o">.</span><span class="n">groups</span><span class="p">),</span>
+                   <span class="n">member_group</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;super_mod&#39;</span><span class="p">,</span> <span class="s">&#39;admin&#39;</span><span class="p">]):</span>
+        <span class="n">filt</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">or_</span><span class="p">(</span><span class="n">filt</span><span class="p">,</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">mod</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s">&#39;admin&#39;</span><span class="p">]:</span>
+        <span class="n">filt</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">or_</span><span class="p">(</span><span class="n">filt</span><span class="p">,</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">admin</span><span class="p">,</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">super_mod</span><span class="p">)</span>
+
+    <span class="n">group_query</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">filt</span><span class="p">)</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">EditUserForm</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">form</span><span class="o">.</span><span class="n">primary_group</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">group_query</span>
+    <span class="n">form</span><span class="o">.</span><span class="n">secondary_groups</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">group_query</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">populate_obj</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">primary_group_id</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">primary_group</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">id</span>
+
+        <span class="c"># Don&#39;t override the password</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="n">user</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">data</span>
+
+        <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">groups</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">secondary_groups</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;User successfully updated.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.edit_user&quot;</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/user_form.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Edit User&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/users/delete&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/users/&lt;int:user_id&gt;/delete&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="delete_user"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.delete_user">[docs]</a><span class="k">def</span> <span class="nf">delete_user</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="c"># ajax request</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">is_xhr</span><span class="p">:</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()[</span><span class="s">&quot;ids&quot;</span><span class="p">]</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">in_</span><span class="p">(</span><span class="n">ids</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="c"># do not delete current user</span>
+            <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">delete</span><span class="p">():</span>
+                <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;delete&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;reverse&quot;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                    <span class="s">&quot;reverse_name&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+                    <span class="s">&quot;reverse_url&quot;</span><span class="p">:</span> <span class="bp">None</span>
+                <span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span>
+            <span class="n">message</span><span class="o">=</span><span class="s">&quot;{} Users deleted.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span>
+            <span class="n">category</span><span class="o">=</span><span class="s">&quot;success&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+            <span class="n">status</span><span class="o">=</span><span class="mi">200</span>
+        <span class="p">)</span>
+
+    <span class="n">user</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;You cannot delete yourself.&quot;</span><span class="p">,</span> <span class="s">&quot;danger&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.users&quot;</span><span class="p">))</span>
+
+    <span class="n">user</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+    <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;User successfully deleted.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.users&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/users/add&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="add_user"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.add_user">[docs]</a><span class="k">def</span> <span class="nf">add_user</span><span class="p">():</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">AddUserForm</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;User successfully added.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.users&quot;</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/user_form.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Add User&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/users/banned&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@moderator_required</span>
+<div class="viewcode-block" id="banned_users"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.banned_users">[docs]</a><span class="k">def</span> <span class="nf">banned_users</span><span class="p">():</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;page&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">search_form</span> <span class="o">=</span> <span class="n">UserSearchForm</span><span class="p">()</span>
+
+    <span class="n">users</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+        <span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">banned</span> <span class="o">==</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">primary_group_id</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">paginate</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&#39;USERS_PER_PAGE&#39;</span><span class="p">],</span> <span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">search_form</span><span class="o">.</span><span class="n">validate</span><span class="p">():</span>
+        <span class="n">users</span> <span class="o">=</span> <span class="n">search_form</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span><span class="o">.</span>\
+            <span class="n">paginate</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&#39;USERS_PER_PAGE&#39;</span><span class="p">],</span> <span class="bp">False</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/banned_users.html&quot;</span><span class="p">,</span> <span class="n">users</span><span class="o">=</span><span class="n">users</span><span class="p">,</span>
+                               <span class="n">search_form</span><span class="o">=</span><span class="n">search_form</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/banned_users.html&quot;</span><span class="p">,</span> <span class="n">users</span><span class="o">=</span><span class="n">users</span><span class="p">,</span>
+                           <span class="n">search_form</span><span class="o">=</span><span class="n">search_form</span><span class="p">)</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/users/ban&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/users/&lt;int:user_id&gt;/ban&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@moderator_required</span>
+<div class="viewcode-block" id="ban_user"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.ban_user">[docs]</a><span class="k">def</span> <span class="nf">ban_user</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">can_ban_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">):</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;You do not have the permissions to ban this user.&quot;</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.overview&quot;</span><span class="p">))</span>
+
+    <span class="c"># ajax request</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">is_xhr</span><span class="p">:</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()[</span><span class="s">&quot;ids&quot;</span><span class="p">]</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">users</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">in_</span><span class="p">(</span><span class="n">ids</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+            <span class="c"># don&#39;t let a user ban himself and do not allow a moderator to ban</span>
+            <span class="c"># a admin user</span>
+            <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span> <span class="ow">or</span> \
+                    <span class="n">user</span><span class="o">.</span><span class="n">get_permissions</span><span class="p">()[</span><span class="s">&#39;admin&#39;</span><span class="p">]</span> <span class="ow">and</span> \
+                    <span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s">&#39;mod&#39;</span><span class="p">]</span> <span class="ow">or</span>
+                     <span class="n">current_user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s">&#39;super_mod&#39;</span><span class="p">]):</span>
+                <span class="k">continue</span>
+
+            <span class="k">elif</span> <span class="n">user</span><span class="o">.</span><span class="n">ban</span><span class="p">():</span>
+                <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;ban&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;reverse&quot;</span><span class="p">:</span> <span class="s">&quot;unban&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;reverse_name&quot;</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;Unban&quot;</span><span class="p">),</span>
+                    <span class="s">&quot;reverse_url&quot;</span><span class="p">:</span> <span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.unban_user&quot;</span><span class="p">,</span>
+                                           <span class="n">user_id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+                <span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span>
+            <span class="n">message</span><span class="o">=</span><span class="s">&quot;{} Users banned.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span>
+            <span class="n">category</span><span class="o">=</span><span class="s">&quot;success&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+            <span class="n">status</span><span class="o">=</span><span class="mi">200</span>
+        <span class="p">)</span>
+
+    <span class="n">user</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
+
+    <span class="c"># Do not allow moderators to ban admins</span>
+    <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">get_permissions</span><span class="p">()[</span><span class="s">&#39;admin&#39;</span><span class="p">]</span> <span class="ow">and</span> \
+            <span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s">&#39;mod&#39;</span><span class="p">]</span> <span class="ow">or</span>
+             <span class="n">current_user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s">&#39;super_mod&#39;</span><span class="p">]):</span>
+
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;A moderator cannot ban an admin user.&quot;</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.overview&quot;</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span> <span class="ow">and</span> <span class="n">user</span><span class="o">.</span><span class="n">ban</span><span class="p">():</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;User is now banned.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Could not ban user.&quot;</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.banned_users&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/users/unban&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/users/&lt;int:user_id&gt;/unban&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@moderator_required</span>
+<div class="viewcode-block" id="unban_user"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.unban_user">[docs]</a><span class="k">def</span> <span class="nf">unban_user</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">can_ban_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">):</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;You do not have the permissions to unban this user.&quot;</span><span class="p">),</span>
+              <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.overview&quot;</span><span class="p">))</span>
+
+    <span class="c"># ajax request</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">is_xhr</span><span class="p">:</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()[</span><span class="s">&quot;ids&quot;</span><span class="p">]</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">in_</span><span class="p">(</span><span class="n">ids</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">unban</span><span class="p">():</span>
+                <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;unban&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;reverse&quot;</span><span class="p">:</span> <span class="s">&quot;ban&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;reverse_name&quot;</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;Ban&quot;</span><span class="p">),</span>
+                    <span class="s">&quot;reverse_url&quot;</span><span class="p">:</span> <span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.ban_user&quot;</span><span class="p">,</span>
+                                           <span class="n">user_id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+                <span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span>
+            <span class="n">message</span><span class="o">=</span><span class="s">&quot;{} Users unbanned.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span>
+            <span class="n">category</span><span class="o">=</span><span class="s">&quot;success&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+            <span class="n">status</span><span class="o">=</span><span class="mi">200</span>
+        <span class="p">)</span>
+
+    <span class="n">user</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">unban</span><span class="p">():</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;User is now unbanned.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Could not unban user.&quot;</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.banned_users&quot;</span><span class="p">))</span>
+
+
+<span class="c"># Reports</span></div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/reports&quot;</span><span class="p">)</span>
+<span class="nd">@moderator_required</span>
+<div class="viewcode-block" id="reports"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.reports">[docs]</a><span class="k">def</span> <span class="nf">reports</span><span class="p">():</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;page&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">reports</span> <span class="o">=</span> <span class="n">Report</span><span class="o">.</span><span class="n">query</span><span class="o">.</span>\
+        <span class="n">order_by</span><span class="p">(</span><span class="n">Report</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">asc</span><span class="p">())</span><span class="o">.</span>\
+        <span class="n">paginate</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&#39;USERS_PER_PAGE&#39;</span><span class="p">],</span> <span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/reports.html&quot;</span><span class="p">,</span> <span class="n">reports</span><span class="o">=</span><span class="n">reports</span><span class="p">)</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/reports/unread&quot;</span><span class="p">)</span>
+<span class="nd">@moderator_required</span>
+<div class="viewcode-block" id="unread_reports"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.unread_reports">[docs]</a><span class="k">def</span> <span class="nf">unread_reports</span><span class="p">():</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;page&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">reports</span> <span class="o">=</span> <span class="n">Report</span><span class="o">.</span><span class="n">query</span><span class="o">.</span>\
+        <span class="nb">filter</span><span class="p">(</span><span class="n">Report</span><span class="o">.</span><span class="n">zapped</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">order_by</span><span class="p">(</span><span class="n">Report</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">desc</span><span class="p">())</span><span class="o">.</span>\
+        <span class="n">paginate</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&#39;USERS_PER_PAGE&#39;</span><span class="p">],</span> <span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/unread_reports.html&quot;</span><span class="p">,</span> <span class="n">reports</span><span class="o">=</span><span class="n">reports</span><span class="p">)</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/reports/&lt;int:report_id&gt;/markread&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/reports/markread&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@moderator_required</span>
+<div class="viewcode-block" id="report_markread"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.report_markread">[docs]</a><span class="k">def</span> <span class="nf">report_markread</span><span class="p">(</span><span class="n">report_id</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="c"># AJAX request</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">is_xhr</span><span class="p">:</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()[</span><span class="s">&quot;ids&quot;</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">report</span> <span class="ow">in</span> <span class="n">Report</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Report</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">in_</span><span class="p">(</span><span class="n">ids</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="n">report</span><span class="o">.</span><span class="n">zapped_by</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span>
+            <span class="n">report</span><span class="o">.</span><span class="n">zapped</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+            <span class="n">report</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="n">report</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;read&quot;</span><span class="p">,</span>
+                <span class="s">&quot;reverse&quot;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                <span class="s">&quot;reverse_name&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+                <span class="s">&quot;reverse_url&quot;</span><span class="p">:</span> <span class="bp">None</span>
+            <span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span>
+            <span class="n">message</span><span class="o">=</span><span class="s">&quot;{} Reports marked as read.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span>
+            <span class="n">category</span><span class="o">=</span><span class="s">&quot;success&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+            <span class="n">status</span><span class="o">=</span><span class="mi">200</span>
+        <span class="p">)</span>
+
+    <span class="c"># mark single report as read</span>
+    <span class="k">if</span> <span class="n">report_id</span><span class="p">:</span>
+        <span class="n">report</span> <span class="o">=</span> <span class="n">Report</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">report_id</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">report</span><span class="o">.</span><span class="n">zapped</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Report </span><span class="si">%(id)s</span><span class="s"> is already marked as read.&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">report</span><span class="o">.</span><span class="n">id</span><span class="p">),</span>
+                  <span class="s">&quot;success&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.reports&quot;</span><span class="p">))</span>
+
+        <span class="n">report</span><span class="o">.</span><span class="n">zapped_by</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span>
+        <span class="n">report</span><span class="o">.</span><span class="n">zapped</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+        <span class="n">report</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Report </span><span class="si">%(id)s</span><span class="s"> marked as read.&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">report</span><span class="o">.</span><span class="n">id</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.reports&quot;</span><span class="p">))</span>
+
+    <span class="c"># mark all as read</span>
+    <span class="n">reports</span> <span class="o">=</span> <span class="n">Report</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Report</span><span class="o">.</span><span class="n">zapped</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">report_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">report</span> <span class="ow">in</span> <span class="n">reports</span><span class="p">:</span>
+        <span class="n">report</span><span class="o">.</span><span class="n">zapped_by</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span>
+        <span class="n">report</span><span class="o">.</span><span class="n">zapped</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+        <span class="n">report_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add_all</span><span class="p">(</span><span class="n">report_list</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;All reports were marked as read.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.reports&quot;</span><span class="p">))</span>
+
+
+<span class="c"># Groups</span></div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/groups&quot;</span><span class="p">)</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="groups"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.groups">[docs]</a><span class="k">def</span> <span class="nf">groups</span><span class="p">():</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;page&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="n">groups</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">query</span><span class="o">.</span>\
+        <span class="n">order_by</span><span class="p">(</span><span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">asc</span><span class="p">())</span><span class="o">.</span>\
+        <span class="n">paginate</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">flask_config</span><span class="p">[</span><span class="s">&#39;USERS_PER_PAGE&#39;</span><span class="p">],</span> <span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/groups.html&quot;</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">)</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/groups/&lt;int:group_id&gt;/edit&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="edit_group"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.edit_group">[docs]</a><span class="k">def</span> <span class="nf">edit_group</span><span class="p">(</span><span class="n">group_id</span><span class="p">):</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">group_id</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">EditGroupForm</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">populate_obj</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+        <span class="n">group</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">group</span><span class="o">.</span><span class="n">guest</span><span class="p">:</span>
+            <span class="n">jnt_models</span><span class="o">.</span><span class="n">Guest</span><span class="o">.</span><span class="n">invalidate_cache</span><span class="p">()</span>
+
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Group successfully updated.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.groups&quot;</span><span class="p">,</span> <span class="n">group_id</span><span class="o">=</span><span class="n">group</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/group_form.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Edit Group&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/groups/&lt;int:group_id&gt;/delete&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/groups/delete&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="delete_group"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.delete_group">[docs]</a><span class="k">def</span> <span class="nf">delete_group</span><span class="p">(</span><span class="n">group_id</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">is_xhr</span><span class="p">:</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()[</span><span class="s">&quot;ids&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">([</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;2&quot;</span><span class="p">,</span> <span class="s">&quot;3&quot;</span><span class="p">,</span> <span class="s">&quot;4&quot;</span><span class="p">,</span> <span class="s">&quot;5&quot;</span><span class="p">])):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">in_</span><span class="p">(</span><span class="n">ids</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+                <span class="n">group</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;delete&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;reverse&quot;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                    <span class="s">&quot;reverse_name&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+                    <span class="s">&quot;reverse_url&quot;</span><span class="p">:</span> <span class="bp">None</span>
+                <span class="p">})</span>
+
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span>
+                <span class="n">message</span><span class="o">=</span><span class="s">&quot;{} Groups deleted.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span>
+                <span class="n">category</span><span class="o">=</span><span class="s">&quot;success&quot;</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                <span class="n">status</span><span class="o">=</span><span class="mi">200</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span>
+            <span class="n">message</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;You cannot delete one of the standard groups.&quot;</span><span class="p">),</span>
+            <span class="n">category</span><span class="o">=</span><span class="s">&quot;danger&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+            <span class="n">status</span><span class="o">=</span><span class="mi">404</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">group_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">group_id</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>  <span class="c"># there are 5 standard groups</span>
+            <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;You cannot delete the standard groups. &quot;</span>
+                    <span class="s">&quot;Try renaming them instead.&quot;</span><span class="p">,</span> <span class="s">&quot;danger&quot;</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.groups&quot;</span><span class="p">))</span>
+
+        <span class="n">group</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">group_id</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
+        <span class="n">group</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Group successfully deleted.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.groups&quot;</span><span class="p">))</span>
+
+    <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;No group choosen..&quot;</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.groups&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/groups/add&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="add_group"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.add_group">[docs]</a><span class="k">def</span> <span class="nf">add_group</span><span class="p">():</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">AddGroupForm</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Group successfully added.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.groups&quot;</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/group_form.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Add Group&quot;</span><span class="p">))</span>
+
+
+<span class="c"># Forums and Categories</span></div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/forums&quot;</span><span class="p">)</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="forums"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.forums">[docs]</a><span class="k">def</span> <span class="nf">forums</span><span class="p">():</span>
+    <span class="n">categories</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Category</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">jnt_models</span><span class="o">.</span><span class="n">Category</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">asc</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/forums.html&quot;</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="n">categories</span><span class="p">)</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/forums/&lt;int:forum_id&gt;/edit&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="edit_forum"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.edit_forum">[docs]</a><span class="k">def</span> <span class="nf">edit_forum</span><span class="p">(</span><span class="n">forum_id</span><span class="p">):</span>
+    <span class="n">forum</span> <span class="o">=</span> <span class="n">Forum</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">forum_id</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">EditForumForm</span><span class="p">(</span><span class="n">forum</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Forum successfully updated.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.edit_forum&quot;</span><span class="p">,</span> <span class="n">forum_id</span><span class="o">=</span><span class="n">forum</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">forum</span><span class="o">.</span><span class="n">moderators</span><span class="p">:</span>
+            <span class="n">form</span><span class="o">.</span><span class="n">moderators</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="s">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+                <span class="n">user</span><span class="o">.</span><span class="n">username</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">forum</span><span class="o">.</span><span class="n">moderators</span>
+            <span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">form</span><span class="o">.</span><span class="n">moderators</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/forum_form.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Edit Forum&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/forums/&lt;int:forum_id&gt;/delete&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="delete_forum"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.delete_forum">[docs]</a><span class="k">def</span> <span class="nf">delete_forum</span><span class="p">(</span><span class="n">forum_id</span><span class="p">):</span>
+    <span class="n">forum</span> <span class="o">=</span> <span class="n">Forum</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">forum_id</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
+
+    <span class="n">involved_users</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Topic</span><span class="o">.</span><span class="n">forum_id</span> <span class="o">==</span> <span class="n">forum</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                                       <span class="n">Post</span><span class="o">.</span><span class="n">user_id</span> <span class="o">==</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="n">forum</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">involved_users</span><span class="p">)</span>
+
+    <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Forum successfully deleted.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.forums&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/forums/add&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/forums/&lt;int:category_id&gt;/add&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="add_forum"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.add_forum">[docs]</a><span class="k">def</span> <span class="nf">add_forum</span><span class="p">(</span><span class="n">category_id</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">AddForumForm</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Forum successfully added.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.forums&quot;</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">jnt_models</span><span class="o">.</span><span class="n">Group</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">asc</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">category_id</span><span class="p">:</span>
+            <span class="n">category</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Category</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">category_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+            <span class="n">form</span><span class="o">.</span><span class="n">category</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">category</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/forum_form.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Add Forum&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/category/add&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="add_category"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.add_category">[docs]</a><span class="k">def</span> <span class="nf">add_category</span><span class="p">():</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">CategoryForm</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Category successfully added.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.forums&quot;</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/category_form.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Add Category&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/category/&lt;int:category_id&gt;/edit&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="edit_category"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.edit_category">[docs]</a><span class="k">def</span> <span class="nf">edit_category</span><span class="p">(</span><span class="n">category_id</span><span class="p">):</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Category</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">category_id</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">CategoryForm</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">category</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">populate_obj</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Category successfully updated.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+        <span class="n">category</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/category_form.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Edit Category&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/category/&lt;int:category_id&gt;/delete&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="delete_category"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.delete_category">[docs]</a><span class="k">def</span> <span class="nf">delete_category</span><span class="p">(</span><span class="n">category_id</span><span class="p">):</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">Category</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">category_id</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
+
+    <span class="n">involved_users</span> <span class="o">=</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Forum</span><span class="o">.</span><span class="n">category_id</span> <span class="o">==</span> <span class="n">category</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                                       <span class="n">Topic</span><span class="o">.</span><span class="n">forum_id</span> <span class="o">==</span> <span class="n">Forum</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                                       <span class="n">Post</span><span class="o">.</span><span class="n">user_id</span> <span class="o">==</span> <span class="n">jnt_models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="n">category</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">involved_users</span><span class="p">)</span>
+    <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Category with all associated forums deleted.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.forums&quot;</span><span class="p">))</span>
+
+
+<span class="c"># Plugins</span></div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/plugins&quot;</span><span class="p">)</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="plugins"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.plugins">[docs]</a><span class="k">def</span> <span class="nf">plugins</span><span class="p">():</span>
+    <span class="n">plugins</span> <span class="o">=</span> <span class="n">get_all_plugins</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&quot;management/plugins.html&quot;</span><span class="p">,</span> <span class="n">plugins</span><span class="o">=</span><span class="n">plugins</span><span class="p">)</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/plugins/&lt;path:plugin&gt;/enable&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="enable_plugin"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.enable_plugin">[docs]</a><span class="k">def</span> <span class="nf">enable_plugin</span><span class="p">(</span><span class="n">plugin</span><span class="p">):</span>
+    <span class="n">plugin</span> <span class="o">=</span> <span class="n">get_plugin_from_all</span><span class="p">(</span><span class="n">plugin</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">plugin</span><span class="o">.</span><span class="n">enabled</span><span class="p">:</span>
+        <span class="n">plugin_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">))),</span>
+            <span class="s">&quot;plugins&quot;</span><span class="p">,</span> <span class="n">plugin</span><span class="o">.</span><span class="n">identifier</span>
+        <span class="p">)</span>
+
+        <span class="n">disabled_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">plugin_dir</span><span class="p">,</span> <span class="s">&quot;DISABLED&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">disabled_file</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">disabled_file</span><span class="p">)</span>
+                <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Plugin is enabled. Please reload your app.&quot;</span><span class="p">),</span>
+                      <span class="s">&quot;success&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Plugin is already enabled. Please reload  your app.&quot;</span><span class="p">),</span>
+                      <span class="s">&quot;warning&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;If you are using a host which doesn&#39;t support writting &quot;</span>
+                    <span class="s">&quot;on the disk, this won&#39;t work - than you need to delete &quot;</span>
+                    <span class="s">&quot;the &#39;DISABLED&#39; file by yourself.&quot;</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Couldn&#39;t enable Plugin.&quot;</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.plugins&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/plugins/&lt;path:plugin&gt;/disable&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="disable_plugin"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.disable_plugin">[docs]</a><span class="k">def</span> <span class="nf">disable_plugin</span><span class="p">(</span><span class="n">plugin</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">plugin</span> <span class="o">=</span> <span class="n">get_plugin</span><span class="p">(</span><span class="n">plugin</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Plugin </span><span class="si">%(plugin)s</span><span class="s"> not found.&quot;</span><span class="p">,</span> <span class="n">plugin</span><span class="o">=</span><span class="n">plugin</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.plugins&quot;</span><span class="p">))</span>
+
+    <span class="n">plugin_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">))),</span>
+        <span class="s">&quot;plugins&quot;</span><span class="p">,</span> <span class="n">plugin</span><span class="o">.</span><span class="n">identifier</span>
+    <span class="p">)</span>
+
+    <span class="n">disabled_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">plugin_dir</span><span class="p">,</span> <span class="s">&quot;DISABLED&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">open</span><span class="p">(</span><span class="n">disabled_file</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Plugin is disabled. Please reload your app.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;If you are using a host which doesn&#39;t &quot;</span>
+                <span class="s">&quot;support writting on the disk, this won&#39;t work - than you &quot;</span>
+                <span class="s">&quot;need to create a &#39;DISABLED&#39; file by yourself.&quot;</span><span class="p">),</span> <span class="s">&quot;info&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.plugins&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/plugins/&lt;path:plugin&gt;/uninstall&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="uninstall_plugin"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.uninstall_plugin">[docs]</a><span class="k">def</span> <span class="nf">uninstall_plugin</span><span class="p">(</span><span class="n">plugin</span><span class="p">):</span>
+    <span class="n">plugin</span> <span class="o">=</span> <span class="n">get_plugin_from_all</span><span class="p">(</span><span class="n">plugin</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">plugin</span><span class="o">.</span><span class="n">uninstallable</span><span class="p">:</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">uninstall</span><span class="p">()</span>
+        <span class="n">jnt_models</span><span class="o">.</span><span class="n">Setting</span><span class="o">.</span><span class="n">invalidate_cache</span><span class="p">()</span>
+
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Plugin has been uninstalled.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Cannot uninstall Plugin.&quot;</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.plugins&quot;</span><span class="p">))</span>
+
+</div>
+<span class="nd">@management.route</span><span class="p">(</span><span class="s">&quot;/plugins/&lt;path:plugin&gt;/install&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@admin_required</span>
+<div class="viewcode-block" id="install_plugin"><a class="viewcode-back" href="../../../api/janitoo_manager.management.html#janitoo_manager.management.views.install_plugin">[docs]</a><span class="k">def</span> <span class="nf">install_plugin</span><span class="p">(</span><span class="n">plugin</span><span class="p">):</span>
+    <span class="n">plugin</span> <span class="o">=</span> <span class="n">get_plugin_from_all</span><span class="p">(</span><span class="n">plugin</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">plugin</span><span class="o">.</span><span class="n">installable</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">plugin</span><span class="o">.</span><span class="n">uninstallable</span><span class="p">:</span>
+        <span class="n">plugin</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
+        <span class="n">jnt_models</span><span class="o">.</span><span class="n">Setting</span><span class="o">.</span><span class="n">invalidate_cache</span><span class="p">()</span>
+
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Plugin has been installed.&quot;</span><span class="p">),</span> <span class="s">&quot;success&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Cannot install Plugin.&quot;</span><span class="p">),</span> <span class="s">&quot;danger&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;management.plugins&quot;</span><span class="p">))</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014,2015,2016 Sébastien GALLET aka bibi2100 &lt;bibi21000@gmail.com&gt;.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
