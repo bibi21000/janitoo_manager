@@ -49,14 +49,7 @@ def extend( self ):
         """Emit a network state event
         """
         #~ print "event received"
-        ret = {}
-        ret['state'] = self.state,
-        ret['state_str'] = self.state_str,
-        ret['nodes_count'] = self.nodes_count,
-        ret['home_id'] = self.home_id,
-        ret['is_failed'] = self.is_failed,
-        ret['is_secondary'] = self.is_secondary,
-        ret['is_primary'] = self.is_primary,
+        ret = self.state_to_dict()
         self.socketio.emit('my network response',
             {'data':ret},
             namespace='/janitoo')
