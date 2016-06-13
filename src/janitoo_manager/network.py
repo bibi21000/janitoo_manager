@@ -320,3 +320,4 @@ def extend( self ):
             namespace='/janitoo')
 
     self.emit_config = emit_config
+
