@@ -12,19 +12,19 @@ bower-clean:
 	cd src/${MODULENAME}/bower_components && rm -Rf *
 
 src/${MODULENAME}/bower_components/bootstrap-markdown-editor:
-	cd src/${MODULENAME} && bower install install bootstrap-markdown-editor
+	cd src/${MODULENAME} && bower install -q bootstrap-markdown-editor
 	cd src/${MODULENAME}/bower_components && mv "Bootstrap Markdown Editor" bootstrap-markdown-editor
 
 bower: src/${MODULENAME}/bower_components/bootstrap-markdown-editor
-	cd src/${MODULENAME} && bower install jquery
+	cd src/${MODULENAME} && bower install -q jquery
 	#~ cd src/${MODULENAME} && bower install bootstrap#3.3.6
-	cd src/${MODULENAME} && bower install bootstrap
-	cd src/${MODULENAME} && bower install startbootstrap-sb-admin-2
-	cd src/${MODULENAME} && bower install bootstrap-markdown
-	cd src/${MODULENAME} && bower install socket.io-client
+	cd src/${MODULENAME} && bower install -q bootstrap
+	cd src/${MODULENAME} && bower install -q startbootstrap-sb-admin-2
+	cd src/${MODULENAME} && bower install -q bootstrap-markdown
+	cd src/${MODULENAME} && bower install -q socket.io-client
 	#~ cd src/${MODULENAME} && bower install socket.io-client#0.9.17
-	cd src/${MODULENAME} && bower install cytoscape
-	cd src/${MODULENAME} && bower install bootstrap-web-components
+	cd src/${MODULENAME} && bower install -q cytoscape
+	cd src/${MODULENAME} && bower install -q bootstrap-web-components
 
 docker-test:
 	-netcat -zv 127.0.0.1 1-9999 2>&1|grep succeeded
