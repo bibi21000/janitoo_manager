@@ -49,7 +49,7 @@ def extend( self ):
         """Emit a network state event
         """
         #~ print "event received"
-        ret = self.state_to_dict()
+        ret = self.to_dict('state')
         self.socketio.emit('my network response',
             {'data':ret},
             namespace='/janitoo')
@@ -61,14 +61,7 @@ def extend( self ):
     def emit_nodes():
         """Emit a nodes state event
         """
-        res = {}
-        res.update(self.nodes)
-        for key in res:
-            add_ctrl, add_node = hadd_split(key)
-            if add_ctrl in self.heartbeat_cache.entries and add_node in self.heartbeat_cache.entries[add_ctrl]:
-                res[key]['state'] = self.heartbeat_cache.entries[add_ctrl][add_node]['state']
-            else:
-                res[key]['state'] = 'UNKNOWN'
+        res = self.to_dict('nodes')
         self.socketio.emit('my nodes response',
             {'data':res},
             namespace='/janitoo')
