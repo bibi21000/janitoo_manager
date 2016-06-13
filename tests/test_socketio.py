@@ -86,7 +86,7 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
             data[res['name']] = res['args'][0]['data']
         print data
         self.assertTrue(response in data)
-        self.assertEqual(data[response]['state'], ('STARTED',))
+        self.assertEqual(data[response]['state'], 'STARTED')
 
     def test_121_event_nodes(self):
         self.wipTest()
