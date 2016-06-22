@@ -161,14 +161,7 @@
         <span class="sd">&quot;&quot;&quot;Emit a network state event</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c">#~ print &quot;event received&quot;</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">ret</span><span class="p">[</span><span class="s">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span>
-        <span class="n">ret</span><span class="p">[</span><span class="s">&#39;state_str&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_str</span><span class="p">,</span>
-        <span class="n">ret</span><span class="p">[</span><span class="s">&#39;nodes_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_count</span><span class="p">,</span>
-        <span class="n">ret</span><span class="p">[</span><span class="s">&#39;home_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">home_id</span><span class="p">,</span>
-        <span class="n">ret</span><span class="p">[</span><span class="s">&#39;is_failed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_failed</span><span class="p">,</span>
-        <span class="n">ret</span><span class="p">[</span><span class="s">&#39;is_secondary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_secondary</span><span class="p">,</span>
-        <span class="n">ret</span><span class="p">[</span><span class="s">&#39;is_primary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_primary</span><span class="p">,</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s">&#39;state&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">socketio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s">&#39;my network response&#39;</span><span class="p">,</span>
             <span class="p">{</span><span class="s">&#39;data&#39;</span><span class="p">:</span><span class="n">ret</span><span class="p">},</span>
             <span class="n">namespace</span><span class="o">=</span><span class="s">&#39;/janitoo&#39;</span><span class="p">)</span>
@@ -180,14 +173,7 @@
     <span class="k">def</span> <span class="nf">emit_nodes</span><span class="p">():</span>
         <span class="sd">&quot;&quot;&quot;Emit a nodes state event</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
-            <span class="n">add_ctrl</span><span class="p">,</span> <span class="n">add_node</span> <span class="o">=</span> <span class="n">hadd_split</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">add_ctrl</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">heartbeat_cache</span><span class="o">.</span><span class="n">entries</span> <span class="ow">and</span> <span class="n">add_node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">heartbeat_cache</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="n">add_ctrl</span><span class="p">]:</span>
-                <span class="n">res</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">heartbeat_cache</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="n">add_ctrl</span><span class="p">][</span><span class="n">add_node</span><span class="p">][</span><span class="s">&#39;state&#39;</span><span class="p">]</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">res</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;UNKNOWN&#39;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s">&#39;nodes&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">socketio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s">&#39;my nodes response&#39;</span><span class="p">,</span>
             <span class="p">{</span><span class="s">&#39;data&#39;</span><span class="p">:</span><span class="n">res</span><span class="p">},</span>
             <span class="n">namespace</span><span class="o">=</span><span class="s">&#39;/janitoo&#39;</span><span class="p">)</span>
@@ -438,8 +424,8 @@
             <span class="p">{</span><span class="s">&#39;data&#39;</span><span class="p">:</span><span class="n">res</span><span class="p">},</span>
             <span class="n">namespace</span><span class="o">=</span><span class="s">&#39;/janitoo&#39;</span><span class="p">)</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">emit_config</span> <span class="o">=</span> <span class="n">emit_config</span></div>
-</pre></div>
+    <span class="bp">self</span><span class="o">.</span><span class="n">emit_config</span> <span class="o">=</span> <span class="n">emit_config</span>
+</pre></div></div>
 
     </div>
       
