@@ -63,7 +63,7 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
         #~ print received
         time.sleep(5)
         received = self.client.get_received(self.namespace)
-        print received
+        print(received)
         self.assertTrue(len(received) > 1)
 
     def test_111_event_network(self):
@@ -84,7 +84,7 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
         data = {}
         for res in received:
             data[res['name']] = res['args'][0]['data']
-        print data
+        print(data)
         self.assertTrue(response in data)
         self.assertEqual(data[response]['state'], 'STARTED')
 
@@ -107,7 +107,7 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
         data = {}
         for res in received:
             data[res['name']] = res['args'][0]['data']
-        print data
+        print(data)
         self.assertTrue(response in data)
         self.assertEqual(data[response]['state'], ('STARTED',))
 
@@ -130,10 +130,10 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
         data = {}
         for res in received:
             data[res['name']] = res['args'][0]['data']
-        print data
+        print(data)
         self.assertTrue(response in data)
 
-    def test_141_event_basics(self):
+    def test_141_event_system(self):
         self.wipTest()
         response = "my systems response"
         event = "my systems event"
@@ -152,5 +152,5 @@ class TestSocketIO(ManagerCommon, JNTTSocketIO, JNTTSocketIOCommon):
         data = {}
         for res in received:
             data[res['name']] = res['args'][0]['data']
-        print data
+        print(data)
         self.assertTrue(response in data)

@@ -60,7 +60,7 @@ import time
 from threading import Thread
 
 from flask import Flask, render_template, session, request, current_app
-from flask.ext.socketio import SocketIO, emit, join_room, leave_room, close_room, disconnect
+from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, disconnect
 
 from janitoo_manager.extensions import socketio, janitoo
 
@@ -136,7 +136,7 @@ def echo_node_event(message):
 @socketio.on('my nodes event', namespace='/janitoo')
 def echo_nodes_event(message):
     logger.debug("Client %s nodes event : %s", request.remote_addr, message)
-    #print "%s"%current_app.extensions['zwnetwork'].nodes_to_dict()
+    print("%s"%current_app.extensions['zwnetwork'].nodes_to_dict())
     janitoo.listener.network.emit_nodes()
 
 @socketio.on('my controller event', namespace='/janitoo')
@@ -278,7 +278,7 @@ def echo_command_event(message):
 @socketio.on('my commands event', namespace='/janitoo')
 def echo_commands_event(message):
     logger.debug("Client %s commands event : %s", request.remote_addr, message)
-    #print "%s"%current_app.extensions['zwnetwork'].nodes_to_dict()
+    print("%s"%current_app.extensions['zwnetwork'].nodes_to_dict())
     janitoo.listener.network.emit_commands()
 
 @socketio.on('my user event', namespace='/janitoo')
@@ -293,7 +293,7 @@ def echo_user_event(message):
 @socketio.on('my users event', namespace='/janitoo')
 def echo_users_event(message):
     logger.debug("Client %s users event : %s", request.remote_addr, message)
-    #print "%s"%current_app.extensions['zwnetwork'].nodes_to_dict()
+    print("%s"%current_app.extensions['zwnetwork'].nodes_to_dict())
     janitoo.listener.network.emit_users()
 
 @socketio.on('my system event', namespace='/janitoo')
@@ -308,7 +308,7 @@ def echo_system_event(message):
 @socketio.on('my systems event', namespace='/janitoo')
 def echo_systems_event(message):
     logger.debug("Client %s systems event : %s", request.remote_addr, message)
-    #print "%s"%current_app.extensions['zwnetwork'].nodes_to_dict()
+    print("%s"%current_app.extensions['zwnetwork'].nodes_to_dict())
     janitoo.listener.network.emit_systems()
 
 @socketio.on('my basic event', namespace='/janitoo')
@@ -322,7 +322,7 @@ def echo_basic_event(message):
 @socketio.on('my basics event', namespace='/janitoo')
 def echo_basics_event(message):
     logger.debug("Client %s basics event : %s", request.remote_addr, message)
-    #print "%s"%current_app.extensions['zwnetwork'].nodes_to_dict()
+    print("%s"%current_app.extensions['zwnetwork'].nodes_to_dict())
     janitoo.listener.network.emit_basics()
 
 @socketio.on('my config event', namespace='/janitoo')
@@ -336,27 +336,27 @@ def echo_config_event(message):
 @socketio.on('my configs event', namespace='/janitoo')
 def echo_configs_event(message):
     logger.debug("Client %s emit_configs event : %s", request.remote_addr, message)
-    #print "%s"%current_app.extensions['zwnetwork'].nodes_to_dict()
+    print("%s"%current_app.extensions['zwnetwork'].nodes_to_dict())
     janitoo.listener.network.emit_configs()
 
 @socketio.on('my scenes event', namespace='/janitoo')
 def echo_scenes_event(message):
     logger.debug("Client %s scenes event : %s", request.remote_addr, message)
-    print "get_scenes %s"%janitoo.listener.network.get_scenes()
+    print("get_scenes %s"%janitoo.listener.network.get_scenes())
     emit('my scenes response',
          {'data': janitoo.listener.network.get_scenes()})
 
 @socketio.on('my scenarios event', namespace='/janitoo')
 def echo_scenarios_event(message):
     logger.debug("Client %s scenarios event : %s", request.remote_addr, message)
-    print "get_scenarios %s"%janitoo.listener.network.get_scenarios()
+    print("get_scenarios %s"%janitoo.listener.network.get_scenarios())
     emit('my scenarios response',
          {'data': janitoo.listener.network.get_scenarios()})
 
 @socketio.on('my crons event', namespace='/janitoo')
 def echo_crons_event(message):
     logger.debug("Client %s crons event : %s", request.remote_addr, message)
-    print "get_crons %s"%janitoo.listener.network.get_crons()
+    print("get_crons %s"%janitoo.listener.network.get_crons())
     emit('my crons response',
          {'data': janitoo.listener.network.get_crons()})
 

@@ -85,7 +85,7 @@ class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
     """
 
     def test_101_admin_endpoints(self):
-        print self.get_routes()
+        print(self.get_routes())
         self.assertEndpoint('admin.nodes')
         self.assertEndpoint('admin.values_user')
 
@@ -93,7 +93,7 @@ class TestFlask(ManagerCommon, JNTTFlask, JNTTFlaskCommon):
         app = self.app
         themes = get_themes_list()
         themes_names = [ t.name for t in themes ]
-        print "themes_names %s" % themes_names
+        print("themes_names %s" % themes_names)
         self.assertTrue('Admin' in themes_names)
         self.assertTrue('Bootstrap3' in themes_names)
         self.assertTrue('Bootstrap2' in themes_names)
