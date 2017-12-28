@@ -1,0 +1,38 @@
+janitoo_manager.configs package
+===============================
+
+Submodules
+----------
+
+janitoo_manager.configs.development module
+------------------------------------------
+
+.. automodule:: janitoo_manager.configs.development
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.configs.production module
+-----------------------------------------
+
+.. automodule:: janitoo_manager.configs.production
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.configs.testing module
+--------------------------------------
+
+.. automodule:: janitoo_manager.configs.testing
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: janitoo_manager.configs
+    :members:
+    :undoc-members:
+    :show-inheritance:

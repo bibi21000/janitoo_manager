@@ -5,13 +5,11 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>janitoo_manager.utils.translations &mdash; janitoo_manager 0.0.8 documentation</title>
+    <title>janitoo_manager.utils.translations &#8212; janitoo_manager 0.0.8 documentation</title>
     
-    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -19,7 +17,8 @@
         VERSION:     '0.0.8',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
@@ -30,17 +29,17 @@
     <script type="text/javascript" src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="janitoo_manager 0.0.8 documentation" href="../../../index.html" />
-    <link rel="up" title="Module code" href="../../index.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
 
   <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
     <div class="container">
@@ -110,80 +109,80 @@
     <div class="col-md-12 content">
       
   <h1>Source code for janitoo_manager.utils.translations</h1><div class="highlight"><pre>
-<span class="c"># -*- coding: utf-8 -*-</span>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="n">__license__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
-<span class="s">    This file is part of Janitoo.</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    This file is part of Janitoo.</span>
 
-<span class="s">    Janitoo is free software: you can redistribute it and/or modify</span>
-<span class="s">    it under the terms of the GNU General Public License as published by</span>
-<span class="s">    the Free Software Foundation, either version 3 of the License, or</span>
-<span class="s">    (at your option) any later version.</span>
+<span class="s2">    Janitoo is free software: you can redistribute it and/or modify</span>
+<span class="s2">    it under the terms of the GNU General Public License as published by</span>
+<span class="s2">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="s2">    (at your option) any later version.</span>
 
-<span class="s">    Janitoo is distributed in the hope that it will be useful,</span>
-<span class="s">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-<span class="s">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
-<span class="s">    GNU General Public License for more details.</span>
+<span class="s2">    Janitoo is distributed in the hope that it will be useful,</span>
+<span class="s2">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="s2">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="s2">    GNU General Public License for more details.</span>
 
-<span class="s">    You should have received a copy of the GNU General Public License</span>
-<span class="s">    along with Janitoo. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="s2">    You should have received a copy of the GNU General Public License</span>
+<span class="s2">    along with Janitoo. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
 
-<span class="s">    Original copyright :</span>
-<span class="s">    Copyright (c) 2013 Roger Light &lt;roger@atchoo.org&gt;</span>
+<span class="s2">    Original copyright :</span>
+<span class="s2">    Copyright (c) 2013 Roger Light &lt;roger@atchoo.org&gt;</span>
 
-<span class="s">    All rights reserved. This program and the accompanying materials</span>
-<span class="s">    are made available under the terms of the Eclipse Distribution License v1.0</span>
-<span class="s">    which accompanies this distribution.</span>
+<span class="s2">    All rights reserved. This program and the accompanying materials</span>
+<span class="s2">    are made available under the terms of the Eclipse Distribution License v1.0</span>
+<span class="s2">    which accompanies this distribution.</span>
 
-<span class="s">    The Eclipse Distribution License is available at</span>
-<span class="s">    http://www.eclipse.org/org/documents/edl-v10.php.</span>
+<span class="s2">    The Eclipse Distribution License is available at</span>
+<span class="s2">    http://www.eclipse.org/org/documents/edl-v10.php.</span>
 
-<span class="s">    Contributors:</span>
-<span class="s">     - Roger Light - initial implementation</span>
+<span class="s2">    Contributors:</span>
+<span class="s2">     - Roger Light - initial implementation</span>
 
-<span class="s">    This example shows how you can use the MQTT client in a class.</span>
+<span class="s2">    This example shows how you can use the MQTT client in a class.</span>
 
-<span class="s">&quot;&quot;&quot;</span>
-<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Sébastien GALLET aka bibi21000&#39;</span>
-<span class="n">__email__</span> <span class="o">=</span> <span class="s">&#39;bibi21000@gmail.com&#39;</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s">&quot;Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000&quot;</span>
-<span class="c">#~ from gevent import monkey</span>
-<span class="c">#~ monkey.patch_all()</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Sébastien GALLET aka bibi21000&#39;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s1">&#39;bibi21000@gmail.com&#39;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000&quot;</span>
+<span class="c1">#~ from gevent import monkey</span>
+<span class="c1">#~ monkey.patch_all()</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">import</span> <span class="nn">babel</span>
 
-<span class="kn">from</span> <span class="nn">flask_babelplus</span> <span class="kn">import</span> <span class="n">Domain</span><span class="p">,</span> <span class="n">get_locale</span>
-<span class="c">#~ from flask_plugins import get_plugins_list</span>
+<span class="kn">from</span> <span class="nn">flask_babelplus</span> <span class="k">import</span> <span class="n">Domain</span><span class="p">,</span> <span class="n">get_locale</span>
+<span class="c1">#~ from flask_plugins import get_plugins_list</span>
 
-<span class="kn">from</span> <span class="nn">janitoo_manager._compat</span> <span class="kn">import</span> <span class="n">PY2</span>
+<span class="kn">from</span> <span class="nn">janitoo_manager._compat</span> <span class="k">import</span> <span class="n">PY2</span>
 
 
 <div class="viewcode-block" id="JanitooDomain"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.translations.JanitooDomain">[docs]</a><span class="k">class</span> <span class="nc">JanitooDomain</span><span class="p">(</span><span class="n">Domain</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">app</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">JanitooDomain</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">JanitooDomain</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="c">#~ self.plugins_folder = os.path.join(</span>
-            <span class="c">#~ os.path.join(self.app.root_path, &quot;plugins&quot;)</span>
-        <span class="c">#~ )</span>
+        <span class="c1">#~ self.plugins_folder = os.path.join(</span>
+            <span class="c1">#~ os.path.join(self.app.root_path, &quot;plugins&quot;)</span>
+        <span class="c1">#~ )</span>
 
-        <span class="c"># janitoo_manager&#39;s translations</span>
+        <span class="c1"># janitoo_manager&#39;s translations</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">janitoo_manager_translations</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">root_path</span><span class="p">,</span> <span class="s">&quot;translations&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">root_path</span><span class="p">,</span> <span class="s2">&quot;translations&quot;</span>
         <span class="p">)</span>
 
-        <span class="c"># Plugin translations</span>
-        <span class="c">#~ with self.app.app_context():</span>
-            <span class="c">#~ self.plugin_translations = [</span>
-                <span class="c">#~ os.path.join(plugin.path, &quot;translations&quot;)</span>
-                <span class="c">#~ for plugin in get_plugins_list()</span>
-            <span class="c">#~ ]</span>
+        <span class="c1"># Plugin translations</span>
+        <span class="c1">#~ with self.app.app_context():</span>
+            <span class="c1">#~ self.plugin_translations = [</span>
+                <span class="c1">#~ os.path.join(plugin.path, &quot;translations&quot;)</span>
+                <span class="c1">#~ for plugin in get_plugins_list()</span>
+            <span class="c1">#~ ]</span>
 
 <div class="viewcode-block" id="JanitooDomain.get_translations"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.translations.JanitooDomain.get_translations">[docs]</a>    <span class="k">def</span> <span class="nf">get_translations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns the correct gettext translations that should be used for</span>
@@ -195,36 +194,36 @@
         <span class="n">cache</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_translations_cache</span><span class="p">()</span>
 
         <span class="n">translations</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">locale</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">translations</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="c"># load janitoo_manager translations</span>
+        <span class="k">if</span> <span class="n">translations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># load janitoo_manager translations</span>
             <span class="n">translations</span> <span class="o">=</span> <span class="n">babel</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">Translations</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
                 <span class="n">dirname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">janitoo_manager_translations</span><span class="p">,</span>
                 <span class="n">locales</span><span class="o">=</span><span class="n">locale</span><span class="p">,</span>
-                <span class="n">domain</span><span class="o">=</span><span class="s">&quot;messages&quot;</span>
+                <span class="n">domain</span><span class="o">=</span><span class="s2">&quot;messages&quot;</span>
             <span class="p">)</span>
 
-            <span class="c"># If no compiled translations are found, return the</span>
-            <span class="c"># NullTranslations object.</span>
+            <span class="c1"># If no compiled translations are found, return the</span>
+            <span class="c1"># NullTranslations object.</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="n">babel</span><span class="o">.</span><span class="n">support</span><span class="o">.</span><span class="n">Translations</span><span class="p">):</span>
                 <span class="k">return</span> <span class="n">translations</span>
 
-            <span class="c"># Plugin translations are at the moment not supported under</span>
-            <span class="c"># Python 3. There is currently a bug in Babel where it is</span>
-            <span class="c"># not possible to merge two message catalogs.</span>
-            <span class="c"># https://github.com/mitsuhiko/babel/pull/92</span>
-            <span class="c"># So instead of adding/merging them, we are just skipping them</span>
-            <span class="c"># Better then no python3 support though..</span>
+            <span class="c1"># Plugin translations are at the moment not supported under</span>
+            <span class="c1"># Python 3. There is currently a bug in Babel where it is</span>
+            <span class="c1"># not possible to merge two message catalogs.</span>
+            <span class="c1"># https://github.com/mitsuhiko/babel/pull/92</span>
+            <span class="c1"># So instead of adding/merging them, we are just skipping them</span>
+            <span class="c1"># Better then no python3 support though..</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">PY2</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">translations</span>
 
-            <span class="c"># now load and add the plugin translations</span>
-            <span class="c">#~ for plugin in self.plugin_translations:</span>
-                <span class="c">#~ plugin_translation = babel.support.Translations.load(</span>
-                    <span class="c">#~ dirname=plugin,</span>
-                    <span class="c">#~ locales=locale,</span>
-                    <span class="c">#~ domain=&quot;messages&quot;</span>
-                <span class="c">#~ )</span>
-                <span class="c">#~ translations.add(plugin_translation)</span>
+            <span class="c1"># now load and add the plugin translations</span>
+            <span class="c1">#~ for plugin in self.plugin_translations:</span>
+                <span class="c1">#~ plugin_translation = babel.support.Translations.load(</span>
+                    <span class="c1">#~ dirname=plugin,</span>
+                    <span class="c1">#~ locales=locale,</span>
+                    <span class="c1">#~ domain=&quot;messages&quot;</span>
+                <span class="c1">#~ )</span>
+                <span class="c1">#~ translations.add(plugin_translation)</span>
 
             <span class="n">cache</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">locale</span><span class="p">)]</span> <span class="o">=</span> <span class="n">translations</span>
 
@@ -243,7 +242,7 @@
     </p>
     <p>
         &copy; Copyright 2014,2015,2016 Sébastien GALLET aka bibi2100 &lt;bibi21000@gmail.com&gt;.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.<br/>
     </p>
   </div>
 </footer>

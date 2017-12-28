@@ -1,0 +1,94 @@
+janitoo_manager.utils package
+=============================
+
+Submodules
+----------
+
+janitoo_manager.utils.database module
+-------------------------------------
+
+.. automodule:: janitoo_manager.utils.database
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.utils.decorators module
+---------------------------------------
+
+.. automodule:: janitoo_manager.utils.decorators
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.utils.fields module
+-----------------------------------
+
+.. automodule:: janitoo_manager.utils.fields
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.utils.helpers module
+------------------------------------
+
+.. automodule:: janitoo_manager.utils.helpers
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.utils.markup module
+-----------------------------------
+
+.. automodule:: janitoo_manager.utils.markup
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.utils.permissions module
+----------------------------------------
+
+.. automodule:: janitoo_manager.utils.permissions
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.utils.populate module
+-------------------------------------
+
+.. automodule:: janitoo_manager.utils.populate
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.utils.settings module
+-------------------------------------
+
+.. automodule:: janitoo_manager.utils.settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.utils.translations module
+-----------------------------------------
+
+.. automodule:: janitoo_manager.utils.translations
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.utils.widgets module
+------------------------------------
+
+.. automodule:: janitoo_manager.utils.widgets
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: janitoo_manager.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:

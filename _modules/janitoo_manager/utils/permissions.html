@@ -5,13 +5,11 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>janitoo_manager.utils.permissions &mdash; janitoo_manager 0.0.8 documentation</title>
+    <title>janitoo_manager.utils.permissions &#8212; janitoo_manager 0.0.8 documentation</title>
     
-    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -19,7 +17,8 @@
         VERSION:     '0.0.8',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
@@ -30,17 +29,17 @@
     <script type="text/javascript" src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="janitoo_manager 0.0.8 documentation" href="../../../index.html" />
-    <link rel="up" title="Module code" href="../../index.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
 
   <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
     <div class="container">
@@ -110,51 +109,51 @@
     <div class="col-md-12 content">
       
   <h1>Source code for janitoo_manager.utils.permissions</h1><div class="highlight"><pre>
-<span class="c"># -*- coding: utf-8 -*-</span>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="n">__license__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
-<span class="s">    This file is part of Janitoo.</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    This file is part of Janitoo.</span>
 
-<span class="s">    Janitoo is free software: you can redistribute it and/or modify</span>
-<span class="s">    it under the terms of the GNU General Public License as published by</span>
-<span class="s">    the Free Software Foundation, either version 3 of the License, or</span>
-<span class="s">    (at your option) any later version.</span>
+<span class="s2">    Janitoo is free software: you can redistribute it and/or modify</span>
+<span class="s2">    it under the terms of the GNU General Public License as published by</span>
+<span class="s2">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="s2">    (at your option) any later version.</span>
 
-<span class="s">    Janitoo is distributed in the hope that it will be useful,</span>
-<span class="s">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-<span class="s">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
-<span class="s">    GNU General Public License for more details.</span>
+<span class="s2">    Janitoo is distributed in the hope that it will be useful,</span>
+<span class="s2">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="s2">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="s2">    GNU General Public License for more details.</span>
 
-<span class="s">    You should have received a copy of the GNU General Public License</span>
-<span class="s">    along with Janitoo. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="s2">    You should have received a copy of the GNU General Public License</span>
+<span class="s2">    along with Janitoo. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
 
-<span class="s">    Original copyright :</span>
-<span class="s">    Copyright (c) 2013 Roger Light &lt;roger@atchoo.org&gt;</span>
+<span class="s2">    Original copyright :</span>
+<span class="s2">    Copyright (c) 2013 Roger Light &lt;roger@atchoo.org&gt;</span>
 
-<span class="s">    All rights reserved. This program and the accompanying materials</span>
-<span class="s">    are made available under the terms of the Eclipse Distribution License v1.0</span>
-<span class="s">    which accompanies this distribution.</span>
+<span class="s2">    All rights reserved. This program and the accompanying materials</span>
+<span class="s2">    are made available under the terms of the Eclipse Distribution License v1.0</span>
+<span class="s2">    which accompanies this distribution.</span>
 
-<span class="s">    The Eclipse Distribution License is available at</span>
-<span class="s">    http://www.eclipse.org/org/documents/edl-v10.php.</span>
+<span class="s2">    The Eclipse Distribution License is available at</span>
+<span class="s2">    http://www.eclipse.org/org/documents/edl-v10.php.</span>
 
-<span class="s">    Contributors:</span>
-<span class="s">     - Roger Light - initial implementation</span>
+<span class="s2">    Contributors:</span>
+<span class="s2">     - Roger Light - initial implementation</span>
 
-<span class="s">    This example shows how you can use the MQTT client in a class.</span>
+<span class="s2">    This example shows how you can use the MQTT client in a class.</span>
 
-<span class="s">&quot;&quot;&quot;</span>
-<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Sébastien GALLET aka bibi21000&#39;</span>
-<span class="n">__email__</span> <span class="o">=</span> <span class="s">&#39;bibi21000@gmail.com&#39;</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s">&quot;Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000&quot;</span>
-<span class="c">#~ from gevent import monkey</span>
-<span class="c">#~ monkey.patch_all()</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Sébastien GALLET aka bibi21000&#39;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s1">&#39;bibi21000@gmail.com&#39;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000&quot;</span>
+<span class="c1">#~ from gevent import monkey</span>
+<span class="c1">#~ monkey.patch_all()</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-<div class="viewcode-block" id="check_perm"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.check_perm">[docs]</a><span class="k">def</span> <span class="nf">check_perm</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="p">,</span> <span class="n">forum</span><span class="p">,</span> <span class="n">post_user_id</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="check_perm"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.check_perm">[docs]</a><span class="k">def</span> <span class="nf">check_perm</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="p">,</span> <span class="n">forum</span><span class="p">,</span> <span class="n">post_user_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Checks if the `user` has a specified `perm` in the `forum`</span>
 <span class="sd">    If post_user_id is provided, it will also check if the user</span>
 <span class="sd">    has created the post</span>
@@ -170,39 +169,39 @@
 <span class="sd">                         check if the user is the owner of this topic or post.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">can_moderate</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="n">forum</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">if</span> <span class="n">post_user_id</span> <span class="ow">and</span> <span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">():</span>
         <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="n">perm</span><span class="p">]</span> <span class="ow">and</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">post_user_id</span>
 
-    <span class="k">return</span> <span class="ow">not</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s">&#39;banned&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="n">perm</span><span class="p">]</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s1">&#39;banned&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="n">perm</span><span class="p">]</span></div>
 
-</div>
+
 <div class="viewcode-block" id="is_power"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.is_power">[docs]</a><span class="k">def</span> <span class="nf">is_power</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns ``True`` if the user is in a moderator or super moderator group.</span>
 
 <span class="sd">    :param user: The user who should be checked.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s">&#39;power&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s1">&#39;power&#39;</span><span class="p">]</span></div>
 
-</div>
+
 <div class="viewcode-block" id="is_admin"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.is_admin">[docs]</a><span class="k">def</span> <span class="nf">is_admin</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns ``True`` if the user is a administrator.</span>
 
 <span class="sd">    :param user:  The user who should be checked.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s">&#39;admin&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s1">&#39;admin&#39;</span><span class="p">]</span></div>
 
-</div>
+
 <div class="viewcode-block" id="is_admin_or_power"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.is_admin_or_power">[docs]</a><span class="k">def</span> <span class="nf">is_admin_or_power</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns ``True`` if the user is either a admin or in a moderator group</span>
 
 <span class="sd">    :param user: The user who should be checked.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">is_admin</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="ow">or</span> <span class="n">is_power</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">is_admin</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="ow">or</span> <span class="n">is_power</span><span class="p">(</span><span class="n">user</span><span class="p">)</span></div>
 
-</div>
-<div class="viewcode-block" id="can_moderate"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.can_moderate">[docs]</a><span class="k">def</span> <span class="nf">can_moderate</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="can_moderate"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.can_moderate">[docs]</a><span class="k">def</span> <span class="nf">can_moderate</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Checks if a user can moderate a forum or a user.</span>
 <span class="sd">    He needs to be super moderator or a moderator of the</span>
 <span class="sd">    specified forum.</span>
@@ -221,78 +220,78 @@
 <span class="sd">                 it will check if the user has it. Those special permissions</span>
 <span class="sd">                 are documented here: &lt;INSERT LINK TO DOCS&gt;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c"># Check if the user has moderator specific permissions (mod_ prefix)</span>
-    <span class="k">if</span> <span class="n">is_admin_or_moderator</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="ow">and</span> <span class="n">forum</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="c1"># Check if the user has moderator specific permissions (mod_ prefix)</span>
+    <span class="k">if</span> <span class="n">is_admin_or_moderator</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="ow">and</span> <span class="n">forum</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 
-        <span class="k">if</span> <span class="n">perm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">perm</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&quot;mod_&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">perm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">perm</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;mod_&quot;</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="n">perm</span><span class="p">]</span>
 
-        <span class="c"># If no permission is definied, return False</span>
-        <span class="k">return</span> <span class="bp">False</span>
+        <span class="c1"># If no permission is definied, return False</span>
+        <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="c"># check if the user is a moderation and is moderating the forum</span>
-    <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s">&#39;mod&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">forum</span><span class="o">.</span><span class="n">moderators</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">True</span>
+    <span class="c1"># check if the user is a moderation and is moderating the forum</span>
+    <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s1">&#39;mod&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">forum</span><span class="o">.</span><span class="n">moderators</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
 
-    <span class="c"># if the user is a super_mod or admin, he can moderate all forums</span>
-    <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s">&#39;super_mod&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s">&#39;admin&#39;</span><span class="p">]</span>
+    <span class="c1"># if the user is a super_mod or admin, he can moderate all forums</span>
+    <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s1">&#39;super_mod&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">user</span><span class="o">.</span><span class="n">permissions</span><span class="p">[</span><span class="s1">&#39;admin&#39;</span><span class="p">]</span></div>
 
-</div>
+
 <div class="viewcode-block" id="can_edit_post"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.can_edit_post">[docs]</a><span class="k">def</span> <span class="nf">can_edit_post</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">post</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Check if the post can be edited by the user.&quot;&quot;&quot;</span>
     <span class="n">topic</span> <span class="o">=</span> <span class="n">post</span><span class="o">.</span><span class="n">topic</span>
 
     <span class="k">if</span> <span class="n">can_moderate</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">if</span> <span class="n">topic</span><span class="o">.</span><span class="n">locked</span> <span class="ow">or</span> <span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="o">.</span><span class="n">locked</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="k">return</span> <span class="n">check_perm</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s">&#39;editpost&#39;</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="n">post</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="p">,</span>
-                      <span class="n">post_user_id</span><span class="o">=</span><span class="n">post</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">check_perm</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s1">&#39;editpost&#39;</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="n">post</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="p">,</span>
+                      <span class="n">post_user_id</span><span class="o">=</span><span class="n">post</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span></div>
 
-</div>
+
 <div class="viewcode-block" id="can_delete_post"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.can_delete_post">[docs]</a><span class="k">def</span> <span class="nf">can_delete_post</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">post</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Check if the post can be deleted by the user.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">check_perm</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s">&#39;deletepost&#39;</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="n">post</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="p">,</span>
-                      <span class="n">post_user_id</span><span class="o">=</span><span class="n">post</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">check_perm</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s1">&#39;deletepost&#39;</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="n">post</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="p">,</span>
+                      <span class="n">post_user_id</span><span class="o">=</span><span class="n">post</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span></div>
 
-</div>
+
 <div class="viewcode-block" id="can_delete_topic"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.can_delete_topic">[docs]</a><span class="k">def</span> <span class="nf">can_delete_topic</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">topic</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Check if the topic can be deleted by the user.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">check_perm</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s">&#39;deletetopic&#39;</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="p">,</span>
-                      <span class="n">post_user_id</span><span class="o">=</span><span class="n">topic</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">check_perm</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s1">&#39;deletetopic&#39;</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="p">,</span>
+                      <span class="n">post_user_id</span><span class="o">=</span><span class="n">topic</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span></div>
 
-</div>
+
 <div class="viewcode-block" id="can_post_reply"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.can_post_reply">[docs]</a><span class="k">def</span> <span class="nf">can_post_reply</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">topic</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Check if the user is allowed to post in the forum.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">can_moderate</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">if</span> <span class="n">topic</span><span class="o">.</span><span class="n">locked</span> <span class="ow">or</span> <span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="o">.</span><span class="n">locked</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="k">return</span> <span class="n">check_perm</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s">&#39;postreply&#39;</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">check_perm</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s1">&#39;postreply&#39;</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="n">topic</span><span class="o">.</span><span class="n">forum</span><span class="p">)</span></div>
 
-</div>
+
 <div class="viewcode-block" id="can_post_topic"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.can_post_topic">[docs]</a><span class="k">def</span> <span class="nf">can_post_topic</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">forum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Checks if the user is allowed to create a new topic in the forum.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">check_perm</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s">&#39;posttopic&#39;</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="n">forum</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">check_perm</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s1">&#39;posttopic&#39;</span><span class="p">,</span> <span class="n">forum</span><span class="o">=</span><span class="n">forum</span><span class="p">)</span></div>
 
 
-<span class="c"># Moderator permission checks</span></div>
+<span class="c1"># Moderator permission checks</span>
 <div class="viewcode-block" id="can_edit_user"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.can_edit_user">[docs]</a><span class="k">def</span> <span class="nf">can_edit_user</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Check if the user is allowed to edit another users profile.</span>
 <span class="sd">    Requires at least ``mod`` permissions.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">can_moderate</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s">&quot;mod_edituser&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">can_moderate</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s2">&quot;mod_edituser&quot;</span><span class="p">)</span></div>
 
-</div>
+
 <div class="viewcode-block" id="can_ban_user"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.permissions.can_ban_user">[docs]</a><span class="k">def</span> <span class="nf">can_ban_user</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Check if the user is allowed to ban another user.</span>
 <span class="sd">    Requires at least ``mod`` permissions.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">can_moderate</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s">&quot;mod_banuser&quot;</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">can_moderate</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="s2">&quot;mod_banuser&quot;</span><span class="p">)</span></div>
 </pre></div>
 
     </div>
@@ -307,7 +306,7 @@
     </p>
     <p>
         &copy; Copyright 2014,2015,2016 Sébastien GALLET aka bibi2100 &lt;bibi21000@gmail.com&gt;.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.<br/>
     </p>
   </div>
 </footer>

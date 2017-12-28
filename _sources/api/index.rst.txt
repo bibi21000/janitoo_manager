@@ -1,0 +1,67 @@
+janitoo_manager package
+=======================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    janitoo_manager.admin
+    janitoo_manager.auth
+    janitoo_manager.configs
+    janitoo_manager.management
+    janitoo_manager.portal
+    janitoo_manager.user
+    janitoo_manager.utils
+
+Submodules
+----------
+
+janitoo_manager.app module
+--------------------------
+
+.. automodule:: janitoo_manager.app
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.email module
+----------------------------
+
+.. automodule:: janitoo_manager.email
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.extensions module
+---------------------------------
+
+.. automodule:: janitoo_manager.extensions
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.network module
+------------------------------
+
+.. automodule:: janitoo_manager.network
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.wsgi module
+---------------------------
+
+.. automodule:: janitoo_manager.wsgi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: janitoo_manager
+    :members:
+    :undoc-members:
+    :show-inheritance:

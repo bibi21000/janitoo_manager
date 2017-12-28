@@ -1,0 +1,30 @@
+janitoo_manager.admin package
+=============================
+
+Submodules
+----------
+
+janitoo_manager.admin.socket module
+-----------------------------------
+
+.. automodule:: janitoo_manager.admin.socket
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.admin.views module
+----------------------------------
+
+.. automodule:: janitoo_manager.admin.views
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: janitoo_manager.admin
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,38 @@
+janitoo_manager.management package
+==================================
+
+Submodules
+----------
+
+janitoo_manager.management.forms module
+---------------------------------------
+
+.. automodule:: janitoo_manager.management.forms
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.management.models module
+----------------------------------------
+
+.. automodule:: janitoo_manager.management.models
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.management.views module
+---------------------------------------
+
+.. automodule:: janitoo_manager.management.views
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: janitoo_manager.management
+    :members:
+    :undoc-members:
+    :show-inheritance:

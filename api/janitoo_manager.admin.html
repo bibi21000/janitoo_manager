@@ -5,13 +5,11 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>janitoo_manager.admin package &mdash; janitoo_manager 0.0.8 documentation</title>
+    <title>janitoo_manager.admin package &#8212; janitoo_manager 0.0.8 documentation</title>
     
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -19,7 +17,8 @@
         VERSION:     '0.0.8',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -30,16 +29,17 @@
     <script type="text/javascript" src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="janitoo_manager 0.0.8 documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
 
   <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
     <div class="container">
@@ -113,117 +113,11 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-janitoo_manager.admin.socket">
-<span id="janitoo-manager-admin-socket-module"></span><h2>janitoo_manager.admin.socket module<a class="headerlink" href="#module-janitoo_manager.admin.socket" title="Permalink to this headline">¶</a></h2>
-<p>The network socket</p>
-<p>Thinking about rooms.
-- A room for the network : state,
-- A room for nodes : list, add, remove, ...
-- A room for each nodes (nodeid_1): values, parameters, ...
-- A room for the controller
-- A room for values</p>
-<p>When joining a room, you will receive message from it.</p>
+<div class="section" id="janitoo-manager-admin-socket-module">
+<h2>janitoo_manager.admin.socket module<a class="headerlink" href="#janitoo-manager-admin-socket-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-janitoo_manager.admin.views">
-<span id="janitoo-manager-admin-views-module"></span><h2>janitoo_manager.admin.views module<a class="headerlink" href="#module-janitoo_manager.admin.views" title="Permalink to this headline">¶</a></h2>
-<p>The main views</p>
-<p>Thinking about rooms.
-- A room for the network : state,
-- A room for nodes : list, add, remove, ...
-- A room for each nodes (nodeid_1): values, parameters, ...
-- A room for the controller
-- A room for values</p>
-<p>When joining a room, you will receive message from it.</p>
-<dl class="function">
-<dt id="janitoo_manager.admin.views.chat">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">chat</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#chat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.chat" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.controller">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">controller</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#controller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.controller" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.cron">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">cron</tt><big>(</big><em>ctrl_id=None</em>, <em>device_id=None</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#cron"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.cron" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.crons">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">crons</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#crons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.crons" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.debug">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">debug</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#debug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.debug" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.map">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">map</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.map" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.node">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">node</tt><big>(</big><em>ctrl_id=None</em>, <em>device_id=None</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.node" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.nodes">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">nodes</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#nodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.nodes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.scenario">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">scenario</tt><big>(</big><em>ctrl_id=None</em>, <em>device_id=None</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#scenario"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.scenario" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.scenarios">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">scenarios</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#scenarios"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.scenarios" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.scene">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">scene</tt><big>(</big><em>ctrl_id=None</em>, <em>device_id=None</em><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#scene"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.scene" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.scenes">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">scenes</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#scenes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.scenes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.start_listener">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">start_listener</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#start_listener"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.start_listener" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.values_basic">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">values_basic</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#values_basic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.values_basic" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.values_command">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">values_command</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#values_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.values_command" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.values_config">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">values_config</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#values_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.values_config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.values_system">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">values_system</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#values_system"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.values_system" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="janitoo_manager.admin.views.values_user">
-<tt class="descclassname">janitoo_manager.admin.views.</tt><tt class="descname">values_user</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_manager/admin/views.html#values_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_manager.admin.views.values_user" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<div class="section" id="janitoo-manager-admin-views-module">
+<h2>janitoo_manager.admin.views module<a class="headerlink" href="#janitoo-manager-admin-views-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-janitoo_manager.admin">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-janitoo_manager.admin" title="Permalink to this headline">¶</a></h2>
@@ -302,7 +196,7 @@ Traceback (most recent call last):</p>
     </p>
     <p>
         &copy; Copyright 2014,2015,2016 Sébastien GALLET aka bibi2100 &lt;bibi21000@gmail.com&gt;.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.<br/>
     </p>
   </div>
 </footer>

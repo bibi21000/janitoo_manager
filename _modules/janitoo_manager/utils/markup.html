@@ -5,13 +5,11 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>janitoo_manager.utils.markup &mdash; janitoo_manager 0.0.8 documentation</title>
+    <title>janitoo_manager.utils.markup &#8212; janitoo_manager 0.0.8 documentation</title>
     
-    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -19,7 +17,8 @@
         VERSION:     '0.0.8',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
@@ -30,17 +29,17 @@
     <script type="text/javascript" src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="janitoo_manager 0.0.8 documentation" href="../../../index.html" />
-    <link rel="up" title="Module code" href="../../index.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
 
   <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
     <div class="container">
@@ -110,67 +109,67 @@
     <div class="col-md-12 content">
       
   <h1>Source code for janitoo_manager.utils.markup</h1><div class="highlight"><pre>
-<span class="c"># -*- coding: utf-8 -*-</span>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="n">__license__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
-<span class="s">    This file is part of Janitoo.</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    This file is part of Janitoo.</span>
 
-<span class="s">    Janitoo is free software: you can redistribute it and/or modify</span>
-<span class="s">    it under the terms of the GNU General Public License as published by</span>
-<span class="s">    the Free Software Foundation, either version 3 of the License, or</span>
-<span class="s">    (at your option) any later version.</span>
+<span class="s2">    Janitoo is free software: you can redistribute it and/or modify</span>
+<span class="s2">    it under the terms of the GNU General Public License as published by</span>
+<span class="s2">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="s2">    (at your option) any later version.</span>
 
-<span class="s">    Janitoo is distributed in the hope that it will be useful,</span>
-<span class="s">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-<span class="s">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
-<span class="s">    GNU General Public License for more details.</span>
+<span class="s2">    Janitoo is distributed in the hope that it will be useful,</span>
+<span class="s2">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="s2">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="s2">    GNU General Public License for more details.</span>
 
-<span class="s">    You should have received a copy of the GNU General Public License</span>
-<span class="s">    along with Janitoo. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="s2">    You should have received a copy of the GNU General Public License</span>
+<span class="s2">    along with Janitoo. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
 
-<span class="s">    Original copyright :</span>
-<span class="s">    Copyright (c) 2013 Roger Light &lt;roger@atchoo.org&gt;</span>
+<span class="s2">    Original copyright :</span>
+<span class="s2">    Copyright (c) 2013 Roger Light &lt;roger@atchoo.org&gt;</span>
 
-<span class="s">    All rights reserved. This program and the accompanying materials</span>
-<span class="s">    are made available under the terms of the Eclipse Distribution License v1.0</span>
-<span class="s">    which accompanies this distribution.</span>
+<span class="s2">    All rights reserved. This program and the accompanying materials</span>
+<span class="s2">    are made available under the terms of the Eclipse Distribution License v1.0</span>
+<span class="s2">    which accompanies this distribution.</span>
 
-<span class="s">    The Eclipse Distribution License is available at</span>
-<span class="s">    http://www.eclipse.org/org/documents/edl-v10.php.</span>
+<span class="s2">    The Eclipse Distribution License is available at</span>
+<span class="s2">    http://www.eclipse.org/org/documents/edl-v10.php.</span>
 
-<span class="s">    Contributors:</span>
-<span class="s">     - Roger Light - initial implementation</span>
+<span class="s2">    Contributors:</span>
+<span class="s2">     - Roger Light - initial implementation</span>
 
-<span class="s">    This example shows how you can use the MQTT client in a class.</span>
+<span class="s2">    This example shows how you can use the MQTT client in a class.</span>
 
-<span class="s">&quot;&quot;&quot;</span>
-<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Sébastien GALLET aka bibi21000&#39;</span>
-<span class="n">__email__</span> <span class="o">=</span> <span class="s">&#39;bibi21000@gmail.com&#39;</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s">&quot;Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000&quot;</span>
-<span class="c">#~ from gevent import monkey</span>
-<span class="c">#~ monkey.patch_all()</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Sébastien GALLET aka bibi21000&#39;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s1">&#39;bibi21000@gmail.com&#39;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000&quot;</span>
+<span class="c1">#~ from gevent import monkey</span>
+<span class="c1">#~ monkey.patch_all()</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">url_for</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">url_for</span>
 
 <span class="kn">import</span> <span class="nn">mistune</span>
-<span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span>
-<span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_lexer_by_name</span>
-<span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
+<span class="kn">from</span> <span class="nn">pygments</span> <span class="k">import</span> <span class="n">highlight</span>
+<span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="k">import</span> <span class="n">get_lexer_by_name</span>
+<span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="k">import</span> <span class="n">HtmlFormatter</span>
 
 
-<span class="n">_re_emoji</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;:([a-z0-9\+\-_]+):&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
-<span class="n">_re_user</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;@(\w+)&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+<span class="n">_re_emoji</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;:([a-z0-9\+\-_]+):&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+<span class="n">_re_user</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;@(\w+)&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
 
-<span class="c"># base directory of janitoo_manager - used to collect the emojis</span>
+<span class="c1"># base directory of janitoo_manager - used to collect the emojis</span>
 <span class="n">_basedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span>
-                        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">))))</span>
+                        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))))</span>
 
 
 <div class="viewcode-block" id="collect_emojis"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.markup.collect_emojis">[docs]</a><span class="k">def</span> <span class="nf">collect_emojis</span><span class="p">():</span>
@@ -179,18 +178,18 @@
 <span class="sd">    dictionary.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">emojis</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-    <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_basedir</span><span class="p">,</span> <span class="s">&quot;static&quot;</span><span class="p">,</span> <span class="s">&quot;emoji&quot;</span><span class="p">)</span>
-    <span class="c"># return an empty dictionary if the path doesn&#39;t exist</span>
+    <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_basedir</span><span class="p">,</span> <span class="s2">&quot;static&quot;</span><span class="p">,</span> <span class="s2">&quot;emoji&quot;</span><span class="p">)</span>
+    <span class="c1"># return an empty dictionary if the path doesn&#39;t exist</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">emojis</span>
 
     <span class="k">for</span> <span class="n">emoji</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
-        <span class="n">name</span><span class="p">,</span> <span class="n">ending</span> <span class="o">=</span> <span class="n">emoji</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">ending</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&quot;png&quot;</span><span class="p">,</span> <span class="s">&quot;gif&quot;</span><span class="p">,</span> <span class="s">&quot;jpg&quot;</span><span class="p">,</span> <span class="s">&quot;jpeg&quot;</span><span class="p">]:</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">ending</span> <span class="o">=</span> <span class="n">emoji</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ending</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="s2">&quot;gif&quot;</span><span class="p">,</span> <span class="s2">&quot;jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;jpeg&quot;</span><span class="p">]:</span>
             <span class="n">emojis</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">emoji</span>
 
-    <span class="k">return</span> <span class="n">emojis</span>
-</div>
+    <span class="k">return</span> <span class="n">emojis</span></div>
+
 <span class="n">EMOJIS</span> <span class="o">=</span> <span class="n">collect_emojis</span><span class="p">()</span>
 
 
@@ -199,7 +198,7 @@
 <span class="sd">    user&#39;s profile and emoji support.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">JanitooManagerRenderer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">JanitooManagerRenderer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <div class="viewcode-block" id="JanitooManagerRenderer.paragraph"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.markup.JanitooManagerRenderer.paragraph">[docs]</a>    <span class="k">def</span> <span class="nf">paragraph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Rendering paragraph tags. Like ``&lt;p&gt;`` with emoji support.&quot;&quot;&quot;</span>
@@ -209,12 +208,12 @@
 
             <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">EMOJIS</span><span class="p">:</span>
                 <span class="n">filename</span> <span class="o">=</span> <span class="n">url_for</span><span class="p">(</span>
-                    <span class="s">&quot;static&quot;</span><span class="p">,</span>
-                    <span class="n">filename</span><span class="o">=</span><span class="s">&quot;emoji/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">EMOJIS</span><span class="p">[</span><span class="n">value</span><span class="p">])</span>
+                    <span class="s2">&quot;static&quot;</span><span class="p">,</span>
+                    <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;emoji/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">EMOJIS</span><span class="p">[</span><span class="n">value</span><span class="p">])</span>
                 <span class="p">)</span>
 
-                <span class="n">emoji</span> <span class="o">=</span> <span class="s">&quot;&lt;img class=&#39;{css}&#39; alt=&#39;{alt}&#39; src=&#39;{src}&#39; /&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="n">css</span><span class="o">=</span><span class="s">&quot;emoji&quot;</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
+                <span class="n">emoji</span> <span class="o">=</span> <span class="s2">&quot;&lt;img class=&#39;</span><span class="si">{css}</span><span class="s2">&#39; alt=&#39;</span><span class="si">{alt}</span><span class="s2">&#39; src=&#39;</span><span class="si">{src}</span><span class="s2">&#39; /&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">css</span><span class="o">=</span><span class="s2">&quot;emoji&quot;</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
                     <span class="n">src</span><span class="o">=</span><span class="n">filename</span>
                 <span class="p">)</span>
                 <span class="k">return</span> <span class="n">emoji</span>
@@ -222,8 +221,8 @@
 
         <span class="k">def</span> <span class="nf">userify</span><span class="p">(</span><span class="n">match</span><span class="p">):</span>
             <span class="n">value</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">user</span> <span class="o">=</span> <span class="s">&quot;&lt;a href=&#39;{url}&#39;&gt;@{user}&lt;/a&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="n">url</span><span class="o">=</span><span class="n">url_for</span><span class="p">(</span><span class="s">&quot;user.profile&quot;</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">_external</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;&lt;a href=&#39;</span><span class="si">{url}</span><span class="s2">&#39;&gt;@</span><span class="si">{user}</span><span class="s2">&lt;/a&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">url</span><span class="o">=</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;user.profile&quot;</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">_external</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
                 <span class="n">user</span><span class="o">=</span><span class="n">value</span>
             <span class="p">)</span>
             <span class="k">return</span> <span class="n">user</span>
@@ -231,17 +230,17 @@
         <span class="n">text</span> <span class="o">=</span> <span class="n">_re_emoji</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">emojify</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">_re_user</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">userify</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="s">&#39;&lt;p&gt;</span><span class="si">%s</span><span class="s">&lt;/p&gt;</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span>
-</div>
+        <span class="k">return</span> <span class="s1">&#39;&lt;p&gt;</span><span class="si">%s</span><span class="s1">&lt;/p&gt;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="JanitooManagerRenderer.block_code"><a class="viewcode-back" href="../../../api/janitoo_manager.utils.html#janitoo_manager.utils.markup.JanitooManagerRenderer.block_code">[docs]</a>    <span class="k">def</span> <span class="nf">block_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">lang</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">lang</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&lt;pre&gt;&lt;code&gt;</span><span class="si">%s</span><span class="s">&lt;/code&gt;&lt;/pre&gt;</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> \
+            <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&lt;pre&gt;&lt;code&gt;</span><span class="si">%s</span><span class="s1">&lt;/code&gt;&lt;/pre&gt;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> \
                 <span class="n">mistune</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
-        <span class="n">lexer</span> <span class="o">=</span> <span class="n">get_lexer_by_name</span><span class="p">(</span><span class="n">lang</span><span class="p">,</span> <span class="n">stripall</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">lexer</span> <span class="o">=</span> <span class="n">get_lexer_by_name</span><span class="p">(</span><span class="n">lang</span><span class="p">,</span> <span class="n">stripall</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">lexer</span><span class="p">,</span> <span class="n">formatter</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">lexer</span><span class="p">,</span> <span class="n">formatter</span><span class="p">)</span></div></div>
 
-</div></div>
+
 <span class="n">renderer</span> <span class="o">=</span> <span class="n">JanitooManagerRenderer</span><span class="p">()</span>
 <span class="n">markdown</span> <span class="o">=</span> <span class="n">mistune</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="n">renderer</span><span class="p">)</span>
 </pre></div>
@@ -258,7 +257,7 @@
     </p>
     <p>
         &copy; Copyright 2014,2015,2016 Sébastien GALLET aka bibi2100 &lt;bibi21000@gmail.com&gt;.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.<br/>
     </p>
   </div>
 </footer>

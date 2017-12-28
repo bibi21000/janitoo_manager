@@ -1,0 +1,46 @@
+janitoo_manager.user package
+============================
+
+Submodules
+----------
+
+janitoo_manager.user.decorators module
+--------------------------------------
+
+.. automodule:: janitoo_manager.user.decorators
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.user.forms module
+---------------------------------
+
+.. automodule:: janitoo_manager.user.forms
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.user.models module
+----------------------------------
+
+.. automodule:: janitoo_manager.user.models
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_manager.user.views module
+---------------------------------
+
+.. automodule:: janitoo_manager.user.views
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: janitoo_manager.user
+    :members:
+    :undoc-members:
+    :show-inheritance:
